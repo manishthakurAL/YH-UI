@@ -1,0 +1,52 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container custom-modal-container">
+            <div class="modal-wrapper">
+                <header class="slds-modal__header custom-header">
+                    <h2 class="slds-text-heading_medium header-text">Cookie Settings</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close custom-close-btn" title="Close" onclick={handleClose}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                    </button>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_large">
+                    <div class="settings-row slds-grid slds-grid_vertical-align-center settings-container">
+                        <div class="slds-col info-section">
+                            <h3 class="slds-text-title_bold primary-text">Functional Cookies</h3>
+                            <p class="slds-text-color_weak slds-m-top_xx-small description">
+                                Please note that turning off functional cookies will immediately remove all trusted devices. You will need to verify your identity again every time you log in, unless you enable a trusted device in the future when logging in.
+                            </p>
+                        </div>
+                        
+                        <div class="vertical-divider"></div>
+
+                        <div class="slds-col slds-no-flex toggle-section">
+                            <lightning-input 
+                                type="toggle" 
+                                label="Toggle Cookies" 
+                                variant="label-hidden" 
+                                checked={functionalCookies}
+                                disabled={isRevokeButtonDisabled}
+                                message-toggle-active="Enabled"
+                                message-toggle-inactive="Disabled"
+                                onchange={handleToggleChange}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <template if:true={isRevokeRequested}>
+                        <lightning-button 
+                            label="Save Changes" 
+                            variant="brand" 
+                            onclick={handleSave}
+                            class="slds-size_1-of-1 brand-button">
+                        </lightning-button>
+                    </template>
+                </footer>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

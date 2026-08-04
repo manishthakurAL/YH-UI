@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "3b89e9f8-4321-40d7-bed8-75f986bc0b27",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Report_A_Repair__c",
+  "id" : "b2a56184-4cdb-409c-9bed-6d7dd2e81d7a",
+  "label" : "Report A Repair",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-report-a-repair",
+  "type" : "route",
+  "urlPrefix" : "report-a-repair"
+}

@@ -1,0 +1,17 @@
+.contact-list li:last-child {
+    border-bottom: none !important;
+}
+
+.contact-list li {
+    padding-left: 0px !important;
+}
+
+.property-title {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+.property-subtitle {
+    font-size: .75rem !important;
+    font-weight: 500 !important;
+}

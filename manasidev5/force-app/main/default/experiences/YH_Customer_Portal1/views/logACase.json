@@ -1,0 +1,71 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "40560ab0-41d1-4723-890f-66a19e7b4bdf",
+  "label" : "Log a Case",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "2df103d4-d2d5-4570-a22f-6ab4f854f1c6",
+          "columns" : [ {
+            "UUID" : "e8c52127-60e4-4678-ad7a-12d716cc0746",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "2df103d4-d2d5-4570-a22f-6ab4f854f1c6",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"caseType\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Termination\"}]",
+            "flowName" : "SF_Community_Create_Web_to_Case"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "121c6b92-736f-4bdc-820c-d9ac4750f906",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "e8c52127-60e4-4678-ad7a-12d716cc0746",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fa8f43c6-2a73-4fd2-b99e-a64a528350b8",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Log a Case"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4dafbbca-4fb5-4b4f-875a-f9d0d268d9ad",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1dcada59-9ea5-47fe-ab22-ba5a24f44a42",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-log-a-case"
+}

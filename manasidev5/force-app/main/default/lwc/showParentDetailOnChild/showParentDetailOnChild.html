@@ -1,0 +1,20 @@
+<template>
+    <template for:each={parentConfigs} for:item="parentConfig">
+        <template if:true={parentConfig.recordId}>
+        <lightning-accordion  allow-multiple-sections-open key={parentConfig.objectAPIName}>
+            <lightning-accordion-section class="accordion"  name={parentConfig.objectAPIName} label={parentConfig.accordianLabel}>
+              <lightning-record-form
+                record-id={parentConfig.recordId}
+                object-api-name={parentConfig.objectAPIName}
+                fields={parentConfig.fields}
+                mode="view"
+                density="auto"> 
+            </lightning-record-form> 
+            </lightning-accordion-section>
+        </lightning-accordion>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+        </template>
+</template>

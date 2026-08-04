@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <template for:each={links} for:item="item">
+                <div key={item.label} class="slds-m-vertical_small">
+                    <lightning-button 
+                        label={item.label}
+                        variant="brand-outline"
+                        data-url={item.url}
+                        onclick={handleClick}
+                        icon-name={item.icon}
+                        class="button"
+                        stretch>
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,173 @@
+<template>
+<div class="slds-card slds-p-around_small statment-container card-green-icon">
+    
+    
+
+    <div class="statment-header slds-p-around_medium yh-bg-purple">
+        <!-- Print Header (only visible when printing) -->
+        <div class="print-header">
+            <div class="print-title">
+                <div class="meta-item">
+                    <div class="logo-section">
+                        <img 
+                            src="/sfsites/c/resource/YHLogoWithName" 
+                            alt="Company Logo" 
+                            class="company-logo"
+                            onload={handleImageLoad}
+                        />
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <h1>Rent Statement</h1>
+                </div>
+                
+            </div>
+            <div class="print-meta">
+                <div class="meta-item">
+                    <strong>Generated:</strong> {currentDate}
+                </div>
+                <div class="meta-item">
+                    <strong>Period:</strong> {selectedPeriodLabel}
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <lightning-icon 
+                        icon-name="standard:address" 
+                        size="medium"
+                        class="slds-m-right_small tenant-address-icon no-print">
+                    </lightning-icon>
+                    <div>
+                        <h3 class="slds-text-heading_small yh-text-white">
+                            {customerName}
+                        </h3>
+                        <div class="slds-text-body_small yh-text-white">
+                            {propertyAddress}
+                        </div>
+                        <div class="slds-text-body_small yh-text-white">
+                            {accountType} Statement
+                        </div>
+                        <div class="slds-text-body_small yh-text-white">
+                            {tenancyNumber}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-no-flex no-print">
+                <lightning-button 
+                    icon-name="utility:undo"
+                    alternative-text="Back"
+                    label="Back"
+                    title="Back"
+                    class="action-button"
+                    onclick={handleAllAccounts}
+                    variant="brand">
+                </lightning-button>
+
+                <lightning-button 
+                    icon-name="utility:print"
+                    class="action-button"
+                    alternative-text="Save a Copy of Rent Statement"
+                    label="Save a Copy"
+                    title="Save a Copy of Rent Statement"
+                    onclick={handlePrint}
+                    variant="brand">
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+        
+    <div class="slds-card__body_inner slds-m-around_small">
+        <div class="statements-list">
+            <div class="section-header slds-grid slds-grid_align-spread slds-m-bottom_small no-print">
+                <h4 class="slds-text-heading_small">Transaction History</h4>
+            </div> 
+
+            <div class="filter-section slds-grid slds-wrap slds-m-bottom_medium no-print">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3 slds-grid slds-wrap slds-gutters_x-small">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-combobox
+                            label="Period"
+                            value={selectedPeriod}
+                            options={periodOptions}
+                            onchange={handlePeriodChange}
+                            class="period-combobox">
+                        </lightning-combobox>
+                    </div>
+                    
+                    <div if:true={showCustomRange} class="slds-grid slds-wrap slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input
+                                type="date"
+                                label="Start Date"
+                                value={customStartDate}
+                                min={occupancyStartDate}
+                                onchange={handleCustomStartDateChange}
+                                onkeydown={handleKeyDown}>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input
+                                type="date"
+                                label="End Date"
+                                disabled={disableEndDate}
+                                min={customStartDate}
+                                max={oneYearFromStartDateISOString}
+                                value={customEndDate}
+                                onchange={handleCustomEndDateChange}
+                                onkeydown={handleKeyDown}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 apply-filter-button">
+                    <lightning-button
+                        label="Apply Filter"
+                        variant="brand"
+                        onclick={handleApplyFilter}
+                        disabled={isFilterButtonDisabled}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <template if:true={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_medium">
+                    <lightning-spinner alternative-text="Loading statements" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <c-error-state message={errorMessage} size="small"></c-error-state>
+            </template>  
+
+            <div class="account-type-indicator {accountTypeClass}"></div>  
+           
+            <template if:false={isLoading}>
+                <template if:true={hasStatements}>
+                    <template if:true={isMainRentAccountAllPropertyTypes}>
+                        <div class="section-header slds-grid slds-grid_align-spread slds-m-bottom_small no-print"> 
+                            <h4 class="slds-text-heading_small">
+                                <a class="understandingRentStatement" href={understandingRentStatementURL} target="_blank">Understanding your rent statement</a>
+                            </h4>
+                        </div> 
+                    </template>
+                    <c-rent-statement-table transaction-data={allStatements} ></c-rent-statement-table>
+                </template>
+            </template>
+            
+            <template if:false={hasStatements}>
+                <template if:false={isLoading}>
+                    <c-empty-state 
+                        title="No Transaction"
+                        message="No transactions for this period."
+                        size="small">
+                    </c-empty-state>
+                </template>
+            </template>
+        </div>
+    </div>
+</div>
+</template>

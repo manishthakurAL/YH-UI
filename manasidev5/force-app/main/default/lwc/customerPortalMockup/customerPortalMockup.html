@@ -1,0 +1,148 @@
+<template>
+    <div class="portal-container">
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <section class="hero">
+
+                <div class="hero-left">
+
+                    <p class="greeting">GOOD MORNING</p>
+
+                    <h1>Welcome back, Sarah.</h1>
+
+                    <p class="address">
+                        Here's what's happening with your home at
+                        14 Maple Close, Harrogate.
+                    </p>
+
+                    <div class="alert-banner">
+                        <div>
+                            ⚠️ Your rent is overdue. Please pay £47.50 as
+                            soon as possible.
+                        </div>
+
+                        <lightning-button
+                            label="Make a payment"
+                            variant="brand"
+                        ></lightning-button>
+                    </div>
+
+                </div>
+
+                <!-- Balance Card -->
+                <div class="balance-card">
+
+                    <div class="metric">
+                        <label>CURRENT BALANCE</label>
+                        <h2>-£47.50</h2>
+                        <span>Your rent is overdue</span>
+                    </div>
+
+                    <div class="mini-card">
+                        <small>NEXT PAYMENT</small>
+                        <div>1 October 2025</div>
+                        <span>£512.00 Direct Debit</span>
+                    </div>
+
+                    <div class="mini-card">
+                        <small>WEEKLY RENT</small>
+                        <div>£118.00</div>
+                        <span>Per week</span>
+                    </div>
+
+                    <lightning-button
+                        variant="brand"
+                        label="Make a Payment"
+                    ></lightning-button>
+
+                    <lightning-button
+                        variant="neutral"
+                        label="View Statements"
+                    ></lightning-button>
+
+                </div>
+
+            </section>
+
+            <!-- Action Tiles -->
+            <section class="action-grid">
+
+                <div class="tile repair">
+                    <div class="icon">🔧</div>
+                    <h3>Log a Repair</h3>
+                    <p>Tell us about a problem with your home</p>
+                </div>
+
+                <div class="tile payments">
+                    <div class="icon">💳</div>
+                    <h3>Rent & Payments</h3>
+                    <p>View your balance and statements</p>
+                </div>
+
+                <div class="tile details">
+                    <div class="icon">👤</div>
+                    <h3>My Details</h3>
+                    <p>Update your contact information</p>
+                </div>
+
+                <div class="tile cases">
+                    <div class="icon">📋</div>
+                    <h3>Submit a Case</h3>
+                    <p>Complaint, feedback or enquiry</p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-panel">
+
+            <div class="panel-card">
+
+                <h3>Get in Touch</h3>
+
+                <lightning-button
+                    label="Ask a Question"
+                    variant="brand"
+                    class="full-width"
+                ></lightning-button>
+
+                <lightning-button
+                    label="Emergency Repair"
+                    variant="destructive-text"
+                    class="full-width"
+                ></lightning-button>
+
+            </div>
+
+            <div class="panel-card">
+
+                <h3>My Open Cases</h3>
+
+                <div class="case-card">
+                    <small>#24-8312 Repair</small>
+                    <h4>Leaking kitchen tap</h4>
+                    <p>Booked: 12 Sep 2025 9am-1pm</p>
+                    <span class="badge progress">
+                        IN PROGRESS
+                    </span>
+                </div>
+
+                <div class="case-card">
+                    <small>#24-7901 Complaint</small>
+                    <h4>Noise from neighbouring property</h4>
+                    <p>Closed: 28 Aug 2025</p>
+                    <span class="badge complete">
+                        COMPLETED
+                    </span>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+</template>

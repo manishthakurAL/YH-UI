@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "6258bcb7-23f5-4a13-a109-b34371699c05",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "reportAnIssue__c",
+  "id" : "141c8a5b-9f2a-4533-985b-31e8c20fd9de",
+  "label" : "reportAnIssue",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-reportanissue",
+  "type" : "route",
+  "urlPrefix" : "reportanissue"
+}

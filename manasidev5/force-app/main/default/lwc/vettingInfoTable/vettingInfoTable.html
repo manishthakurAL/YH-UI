@@ -1,0 +1,36 @@
+<template>
+  <lightning-accordion allow-multiple-sections-open active-section-name="housingHistory">
+    <lightning-accordion-section name="housingHistory" label="Housing History">
+    <div style="padding-left:5px;padding-right:5px">
+    <lightning-layout class="slds-m-top_x-small">
+        <article class="slds-card lightning-card">
+            <div class="slds-card__header slds-grid slds-theme_shade">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:account" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                  <h2 class="slds-card__header-title">
+                    <a class="slds-card__header-link">Vetting Support Information</a>
+                  </h2>
+                </div>
+                <div class="slds-no-flex">
+                    <lightning-button label="New" onclick={handleClick}></lightning-button>
+                </div>
+              </header>
+            </div>
+            <template if:true={records}>
+                <div>
+                    <lightning-datatable data={records}
+                    class="slds-table slds-table_cell-buffer slds-table_bordered"
+                    columns={columns}
+                    key-field="id"
+                    hide-checkbox-column="true"></lightning-datatable>
+                </div>                       
+            </template>
+          </article>                       
+        </lightning-layout>
+    </div>
+    </lightning-accordion-section>
+  </lightning-accordion>
+</template>

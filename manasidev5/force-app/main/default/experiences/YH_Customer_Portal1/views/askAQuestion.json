@@ -1,0 +1,49 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "edbf235f-fee8-4a94-acc1-acc8dd0669dd",
+  "label" : "Ask a question",
+  "regions" : [ {
+    "id" : "a15ce896-27d9-412e-9794-9bd251010daa",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowName" : "SF_Community_Create_Web_to_Case",
+        "requestType" : "ask-a-question"
+      },
+      "componentName" : "c:flowLauncher",
+      "id" : "1d376c89-d3b1-4bb3-8582-5cb56e62c4f9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1a8e29fb-d4fd-4620-9c37-fbec4ee0d5c0",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "374e473f-77d0-42a6-aaa8-2cbffb5bf66d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Ask a question"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "56a24365-6f8b-4ef7-ab49-cdf60f367ecd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fc465514-8161-44a4-b643-4a59d1bf4bfc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
+  "type" : "view",
+  "viewType" : "custom-ask-a-question"
+}

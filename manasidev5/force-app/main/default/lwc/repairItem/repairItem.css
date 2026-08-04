@@ -1,0 +1,77 @@
+.tenancy-item {
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: var(--yh-purple) !important;
+}
+
+.tenancy-item-body {
+    background-color: var(--yh-purple);
+}
+
+
+.tenancy-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tenancy-header {
+    padding: 1rem 0rem;
+    margin: 0rem 1.1rem;
+    cursor: pointer;
+    background-color: var(--yh-purple);
+    border-bottom: 2px solid var(--yh-rose);
+    transition: background-color 0.2s ease;
+}
+
+.tenancy-header:hover {
+    background-color: #f3f2f2;
+}
+
+.tenancy-content {
+    background-color: white;
+}
+.action-buttons {
+    gap: 0.5rem;
+    min-width: 126px;
+    position: relative;
+}
+
+
+
+.slds-text-body_small p + p {
+    margin:0px;
+    padding:0px;
+}
+
+.tenant-address-icon {
+     --sds-c-icon-color-background: var(--yh-green) !important;
+     --sds-c-icon-color-foreground: #ffffff !important;
+}
+
+.property-type {
+    font-style: italic;
+}
+
+.filterButtonCls {
+    margin-top: 25px !important;
+}
+
+.expand-yellow-icon {
+    --sds-c-icon-color-background: var(--yh-yellow);    
+}
+
+.reportArepair{
+    margin-right: 10px !important;
+}
+
+@media (max-width: 768px) {
+    .tenancy-item {
+        padding-bottom: 1rem !important;
+    }
+    
+}
+.statusFilterIcon{
+    --sds-c-icon-color-background: #ffffff !important;
+    --sds-c-icon-color-foreground: #ffffff !important;
+
+}

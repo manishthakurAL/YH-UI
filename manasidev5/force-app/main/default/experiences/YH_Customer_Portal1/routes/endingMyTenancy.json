@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7d20c0c5-b338-40f1-b6b3-d2de626836e3",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Ending_my_tenancy__c",
+  "id" : "930c6d8e-cb0a-41c4-866c-2f0fe9009bed",
+  "label" : "Ending my tenancy",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-ending-my-tenancy",
+  "type" : "route",
+  "urlPrefix" : "ending-my-tenancy"
+}

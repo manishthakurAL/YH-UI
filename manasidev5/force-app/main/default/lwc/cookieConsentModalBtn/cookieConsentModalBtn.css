@@ -1,0 +1,50 @@
+:host {
+
+    /* Primary Palette */
+    --yh-purple: #34215a;
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+
+    /* Specialty Colors */
+    --yh-dark-purple: #1a112d;
+    --yh-light-purple: #857a9c;
+    --yh-lightest-purple: #ece6f9;
+    --yh-light-rose: #f694a8;
+    --yh-lightest-rose: #ffeef1;
+    --yh-meta-purple: #6a6a6a;
+    --yh-table-background: #eeecf2;
+  
+}
+
+.security-banner {
+    background: var(--yh-lightest-purple); 
+    border: 1px solid var(--yh-light-purple);
+    border-radius: 12px;
+    padding: 1.5rem 0; 
+}
+
+.security-title {
+    color: var(--yh-purple);
+    font-weight: 700;
+}
+
+.info-icon-brand {
+    --slds-c-icon-color-foreground-default: var(--yh-purple);
+}
+
+.info-block h3, .info-block p {
+    color: var(--yh-purple);
+}
+
+.remove-btn {
+    --slds-c-button-outline-color-border: var(--yh-dark-purple);
+    --slds-c-button-outline-color-text: var(--yh-dark-purple);
+    --slds-c-button-outline-color-text-hover: var(--yh-white);
+    --slds-c-button-outline-color-background-hover: var(--yh-dark-purple);
+}
+
+strong {
+    color: var(--yh-purple);
+}

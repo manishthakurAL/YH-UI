@@ -1,0 +1,55 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "5b860d6d-357a-495e-a6a6-672cb58b230d",
+  "label" : "Case List",
+  "regions" : [ {
+    "id" : "2e1dcbab-50c7-40f2-a0e2-71081d921b15",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<h2><br/><b>Cases submitted through Ask a Question are not shown here at the moment, we'll be adding this feature soon.</b><br/><br/></h2>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "f6b25bbb-4059-42e2-bf80-5520e42c7529",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "ExternalMyCases",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "Case",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : false,
+        "showManualRefreshButton" : false,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "3358c36c-c917-4045-ac8d-f0a03e55f4af",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4b16fc27-3c25-425a-a3ab-84eb40076f1d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c48841b7-a930-4245-a468-32fa21c17453",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-500"
+}

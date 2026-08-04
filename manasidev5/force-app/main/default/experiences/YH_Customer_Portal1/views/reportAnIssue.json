@@ -1,0 +1,49 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "6258bcb7-23f5-4a13-a109-b34371699c05",
+  "label" : "reportAnIssue",
+  "regions" : [ {
+    "id" : "368bfed3-d2e8-4fec-af12-6949f767f3d6",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "SF_Report_A_Repair"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "2482a2cf-c1c1-429d-b32d-dadcdf7089c1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e4fc4c63-b3ac-455d-b0f0-062152232832",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "01266616-3caa-4c58-93e4-bbb0f8e74009",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "reportAnIssue"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "75d93971-1c6b-441e-81ef-eaef3efc3059",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1e4a43ee-a457-4370-8a07-c6d34e7301da",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-reportanissue"
+}

@@ -1,0 +1,3 @@
+<apex:page renderAs="pdf" controller="FlowCasePdfVFController">
+    <apex:outputText value="{!inputs}" escape="false"/>
+</apex:page>

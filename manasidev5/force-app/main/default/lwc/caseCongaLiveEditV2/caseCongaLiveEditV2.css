@@ -1,0 +1,14 @@
+:host {
+    --sds-c-textarea-sizing-min-height: 450px;
+}
+
+.button {
+    margin-right: 10px;
+    
+} 
+.buttondiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 7px;
+}

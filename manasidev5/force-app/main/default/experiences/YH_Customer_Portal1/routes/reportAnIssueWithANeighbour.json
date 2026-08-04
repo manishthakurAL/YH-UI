@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "fbe4db1b-8366-4987-9841-ed526959967f",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Report_an_Issue_With_a_Neighbour__c",
+  "id" : "11990d09-7d1d-48ea-97df-e8fe989feea4",
+  "label" : "Report an Issue With a Neighbour",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-report-issue-with-neighbour",
+  "type" : "route",
+  "urlPrefix" : "report-issue-with-neighbour"
+}

@@ -1,0 +1,262 @@
+<template>
+       
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-m-vertical_x-large">
+                    <div class="slds-is-relative">
+                            <lightning-spinner alternative-text="Loading alerts" size="medium"></lightning-spinner>
+                            <p class="slds-text-body_small slds-m-top_small">Fetching Alerts...</p>
+                        </div>
+                </div>
+        </template>
+
+        <!-- Error State -->
+        <template if:true={hasError}>
+            <div class="slds-notify slds-notify_alert slds-theme_error" role="alert">
+                    <div class="slds-notify__content">
+                            <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                            <h2 class="slds-m-left_x-small">Alert Loading Error</h2>
+                            <p class="slds-m-left_x-small">{errorMessage}</p>
+                        </div>
+                </div>
+        </template>
+
+        <!-- Empty State -->
+        <template if:true={showEmptyState}>
+            <div class="slds-align_absolute-center slds-m-around_small">
+                <div class="empty-category slds-box slds-theme_alert-texture slds-text-align_center">
+                    <lightning-icon icon-name="utility:alert" size="large" class="empty-category-icon slds-m-bottom_small"></lightning-icon>
+                    <h3 class="slds-text-heading_small slds-m-around_x-small">No Active Alerts</h3>
+                    <p class="slds-text-color_weak">There are currently no active alerts to display.</p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Main Content -->
+        <template if:true={hasData}>
+            <!-- Category View -->
+            <template if:true={showCategoryView}>
+                <div class="slds-page-header category-header">
+                    <div class="slds-page-header__row slds-align_absolute-center">
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure" style="margin-right: .3rem">
+                                <lightning-icon icon-name="utility:alert" class="category-header-icon" size="medium"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <h1 class="slds-page-header__title slds-truncate">
+                                    Alerts 
+                                </h1>
+                                <p class="slds-text-body_small" >
+                                    by Category 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="categories-grid">
+                    <template for:each={categories} for:item="category">
+                        <div key={category.key} class="category-card" onclick={handleCategoryClick} data-key={category.key}>
+                            <div class="category-card-content">
+                                <template if:true={category.iconUrl.isStandardIcon}>
+                                    <div class="category-icon-container" style="category:iconColor;">
+                                        <lightning-icon icon-name={category.iconUrl.iconPath} size="large" class="alert-icon"></lightning-icon>
+                                    </div>
+                                </template>
+                                <template if:false={category.iconUrl.isStandardIcon}>
+                                    <div class="category-icon-container" style="category:iconColor;">
+                                        <img src={category.iconUrl.iconPath} alt={category.displayName} class="category-icon" />
+                                    </div>
+                                </template>
+                                <div class="category-details">
+                                    <h3 class="category-title">{category.displayName}</h3>
+                                    <div class="category-meta">
+                                        <span class="category-alert-count">{category.categoryCountText}</span>
+                                    </div>
+                                </div>
+                                <div class="category-chevron">
+                                    <lightning-icon icon-name="utility:chevronright" size="small"></lightning-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <!-- SubCategory View -->
+            <template if:true={showSubCategoryView}>
+                <div class="slds-page-header category-header">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media slds-media_center slds-m-left_xxx-small">
+                                <div class="slds-media__figure">
+                                    <template if:true={selectedCategory.iconUrl.isStandardIcon}>
+                                        <div class="slds-icon_container" style="selectedCategory:iconColor;">
+                                            <lightning-icon icon-name={selectedCategory.iconUrl.iconPath} size="large" class="alert-icon"></lightning-icon>
+                                        </div>
+                                    </template>
+                                    <template if:false={selectedCategory.iconUrl.isStandardIcon}>
+                                        <div class="slds-icon_container" style="selectedCategory:iconColor;">
+                                            <img src={selectedCategory.iconUrl.iconPath} alt={selectedCategory.displayName}
+                                            class="alert-icon" />
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h1 class="slds-page-header__title alert-count-badge-container">
+                                        {selectedCategory.displayName}
+                                        <span class="alert-count-badge">{selectedCategory.categoryCount}</span>
+                                    </h1>
+                                    <p class="slds-text-body_small slds-text-color_weak" >
+                                        <a href="javascript:void(0);" class="all-categories-link"
+                                        onclick={handleBackClick}>SubCategories</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__col-actions slds-align_absolute-center">
+                            <lightning-button icon-name="utility:back" alternative-text="Back"
+                                title="Back" onclick={handleBackClick} >
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="categories-grid">
+                    <template for:each={selectedCategory.subCategories} for:item="subCategory">
+                        <div key={subCategory.key} class="category-card" onclick={handleSubCategoryClick} data-key={subCategory.key}>
+                            <div class="category-card-content">
+                                <template if:true={subCategory.iconUrl.isStandardIcon}>
+                                    <div class="slds-icon_container" style="selectedCategory:iconColor;">
+                                        <lightning-icon icon-name={subCategory.iconUrl.iconPath} size="large" class="alert-icon"></lightning-icon>
+                                    </div>
+                                </template>
+                                <template if:false={subCategory.iconUrl.isStandardIcon}>
+                                    <div class="category-icon-container" style="subCategory.iconColor">
+                                        <img src={subCategory.iconUrl.iconPath} alt={subCategory.displayName} class="category-icon" />
+                                    </div>
+                                </template>
+                                <div class="category-details">
+                                    <h3 class="category-title">{subCategory.displayName}</h3>
+                                    <template if:true={subCategory.isNoteVisible}>
+                                        <div class="category-meta">
+                                            <span class="category-alert-count">{subCategory.subCategoryCountText}</span>
+                                        </div>
+                                    </template>
+                                </div>
+                                <template if:true={subCategory.isNoteVisible}>
+                                    <div class="category-chevron">
+                                        <lightning-icon icon-name="utility:chevronright" size="small"></lightning-icon>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <!-- Alert Detail View -->
+            <template if:true={showNoteView}>
+                <div class="slds-page-header category-header">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media slds-media_center slds-m-left_xxx-small">
+                                <div class="slds-media__figure">
+                                    <template if:true={selectedSubCategory.iconUrl.isStandardIcon}>
+                                        <div class="slds-icon_container" style="selectedCategory:iconColor;">
+                                            <lightning-icon icon-name={selectedSubCategory.iconUrl.iconPath} size="large" class="alert-icon"></lightning-icon>
+                                        </div>
+                                    </template>
+                                    <template if:false={selectedSubCategory.iconUrl.isStandardIcon}>
+                                        <div class="slds-icon_container" style="selectedSubCategory.iconColor">
+                                                <img src={selectedSubCategory.iconUrl.iconPath} alt={selectedSubCategory.displayName}
+                                            class="alert-icon" />
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h1 class="slds-page-header__title alert-count-badge-container">
+                                        {selectedSubCategory.displayName}
+                                        <span class="alert-count-badge">{selectedSubCategory.subCategoryCount}</span>
+                                    </h1>
+                                    <p class="slds-text-body_small slds-text-color_weak" >
+                                        <a href="javascript:void(0);" class="all-categories-link"
+                                        onclick={handleBackClickSubCategory}>Alert Details</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__col-actions slds-align_absolute-center">
+                            <lightning-button icon-name="utility:back" alternative-text="Back"
+                                title="Back" onclick={handleBackClickSubCategory} >
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alerts-list">
+                    <template if:true={selectedSubCategory.notes.length}>
+                        <template for:each={selectedSubCategory.notes} for:item="note">
+                            <div key={note.id} class="alert-card">
+                                <div class="alert-header">
+                                    <lightning-icon icon-name="utility:alert" class="alert-note-icon" size="small"></lightning-icon>
+                                    <div class="alert-dates">
+                                        <template if:true={note.startDate}>
+                                            <span class="date-text">{note.startDate}</span>
+                                            <template if:true={note.endDate}>
+                                                <span class="date-separator"> - </span>
+                                                <span class="date-text">{note.endDate}</span>
+                                            </template>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <div class="alert-content">
+                                    <p class={note.alertNoteClass}>{note.note}</p>
+                                    <template if:true={note.isNoteExpandable}>
+                                        <div class="arrow-container">
+                                                <template if:false={note.isNoteExpanded}>
+                                                    <lightning-button-icon 
+                                                    data-id={note.id}
+                                                    icon-name="utility:down"
+                                                    variant="bare"
+                                                    onclick={handleNoteViewToggle}
+                                                    class="arrow-button">
+                                                    </lightning-button-icon>
+                                                </template>
+                                                <template if:true={note.isNoteExpanded}>
+                                                    <lightning-button-icon 
+                                                    data-id={note.id}
+                                                    icon-name="utility:up"
+                                                    variant="bare"
+                                                    onclick={handleNoteViewToggle}
+                                                    class="arrow-button">
+                                                    </lightning-button-icon>
+                                                </template>
+                                        </div>
+                                    </template>
+                                </div>
+
+                                <div class="alert-footer">
+                                    <div class="alert-type">
+                                        <span class="alert-type-text">{note.type}</span>
+                                        <span class="alert-type-separator">•</span>
+                                        <span class="alert-subcategory">{note.subcategory}</span>
+                                    </div>
+                                </div>
+
+                                <div class="alert-metadata">
+                                    <div class="metadata-item">
+                                    </div>
+                                    <div class="metadata-item">
+                                        <lightning-icon icon-name="utility:clock" class="alert-clock-icon" size="xx-small"></lightning-icon>
+                                        <span>{note.expireIn}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </template>
+        </template>
+        
+</template>

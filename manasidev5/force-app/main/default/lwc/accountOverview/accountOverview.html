@@ -1,0 +1,65 @@
+<template>
+    <div class="slds-grid slds-wrap slds-grid_align-center slds-p-top_small">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 slds-large-size_5-of-12 slds-p-around_small container-wrapper">
+            
+            <div class="address-ribbon slds-truncate">
+                <lightning-icon icon-name="utility:checkin" size="xx-small" variant="inverse" class="address-icon slds-m-right_xxx-small"></lightning-icon>
+                <span>{tenancyAddress}</span>
+            </div>
+
+            <article class="slds-card custom-card luxe-zoom">
+                <div class="slds-card__body slds-card__body_inner slds-m-bottom_none slds-p-around_none">
+                    
+                    <div class="inner-content-center slds-grid slds-wrap slds-grid_vertical-stretch">
+                        
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-p-around_large content-column">
+                            <h2 class="premium-label">YOUR RENT ACCOUNT BALANCE</h2>
+                            <div class="balance-container slds-m-top_x-small">
+                                <span class="balance-symbol">£</span>
+                                <span class="balance-main">{mainAccountBalance}</span>
+                            </div>
+                            <!-- <div class="update-timestamp slds-m-top_xxx-small">
+                                Balance as of 23 May 2024
+                            </div> -->
+                            <div class="glass-badge slds-m-top_medium">
+                                <lightning-icon icon-name={balanceMessageIcon} size="small" class={balanceIconClass}></lightning-icon>
+                                <span class="badge-text">{balanceMessage}</span>
+                            </div>
+                        </div>
+
+                        <div class="pro-divider"></div>
+
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12 slds-p-around_large button-column">
+                            <div class="button-gap-stack">
+                                <lightning-button 
+                                    label="Make a Payment" 
+                                    onclick={handleMakePayment} 
+                                    stretch 
+                                    disabled={disabledMakePayment}
+                                    variant="success" 
+                                    class="btn-primary">
+                                </lightning-button>
+                                <lightning-button 
+                                    label="View Statements" 
+                                    onclick={handleViewStatements} 
+                                    stretch 
+                                    disabled={disabledViewStatements}
+                                    variant="success" 
+                                    class="btn-primary">
+                                </lightning-button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <template if:true={errorMessage}>
+                    <footer class="slds-card__footer slds-card__footer_inner slds-align_absolute-center">
+                        <div class="slds-text-body_small error_message">
+                            <p>{errorMessage}</p>
+                        </div>
+                    </footer>
+                </template>
+            </article>
+        </div>
+    </div>
+</template>

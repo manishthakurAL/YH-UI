@@ -1,0 +1,70 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "a6aca378-5165-4071-8844-421073b93d94",
+  "label" : "Locate Repair",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "457ced4a-8a8c-4941-9f23-398529655e95",
+          "columns" : [ {
+            "UUID" : "de27930c-650b-436b-8a22-9c15d7dc1357",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 400
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "457ced4a-8a8c-4941-9f23-398529655e95",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<div style=\"position: relative;height: 0; overflow: hidden; width: 100%; height: auto;\">\n\n    <iframe style=\"min-width:320px\" width=\"100%\" height=\"600\"  src=\"https://m3central.net/index.cfm?ID=238682&setmail=manasi.gangal@yorkshirehousing.co.uk\"></iframe>\n\n</div>"
+          },
+          "componentName" : "forceCommunity:htmlBlock",
+          "id" : "f62a9a5b-1da2-48f0-a4cd-0aef0f5dcbc0",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "de27930c-650b-436b-8a22-9c15d7dc1357",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b2996025-f5cd-4a26-94ed-6c39490f36d4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Locate Repair"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "567c9b34-9fcf-4bba-8eaa-f475b61e5e08",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "75fc66d4-708e-43cc-953f-ceff1e1f3bb5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-locate-repair"
+}

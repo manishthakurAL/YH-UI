@@ -1,0 +1,5 @@
+<apex:page >
+
+      <apex:iframe src="https://emea.newvoicemedia.com" scrolling="false" id="theIframe"/>
+
+</apex:page>

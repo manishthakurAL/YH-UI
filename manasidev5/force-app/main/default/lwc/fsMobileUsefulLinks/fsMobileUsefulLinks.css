@@ -1,0 +1,8 @@
+.button{
+    --slds-c-button-outline-brand-color-border: #f04d6e;
+    --slds-c-button-outline-brand-color-border-hover: #f04d6e;
+    --slds-c-button-outline-brand-color-border-active: #f04d6e;
+    --slds-c-button-text-color: #f04d6e;
+    --slds-c-button-text-color-hover: #f04d6e;
+    --slds-c-button-text-color-active: #f04d6e;
+}

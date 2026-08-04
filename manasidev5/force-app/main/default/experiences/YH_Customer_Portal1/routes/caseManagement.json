@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b4d156bb-1153-4f7a-b9e6-8f4cd9280295",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "case_management__c",
+  "id" : "20cfdc13-fee1-4d61-ae6e-0d4c7da3f5f1",
+  "label" : "case management",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-case-management",
+  "type" : "route",
+  "urlPrefix" : "case-management"
+}

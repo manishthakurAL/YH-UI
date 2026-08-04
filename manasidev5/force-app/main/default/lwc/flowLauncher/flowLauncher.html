@@ -1,0 +1,9 @@
+<template>
+    <template if:true={isFlowActive}>
+        <lightning-flow
+            flow-api-name={flowName}
+            flow-input-variables={flowInputVariables}
+            onstatuschange={handleFlowStatusChange}>
+        </lightning-flow>
+    </template>
+</template>

@@ -1,0 +1,13 @@
+.field-group {
+    margin-bottom: 0.5rem;
+}
+
+.field-label {
+    font-weight: 600;
+    color:  var(--yh-purple);
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    color:  var(--yh-purple);
+}

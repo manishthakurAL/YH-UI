@@ -1,0 +1,112 @@
+<template>
+    <div class="slds-card tenancy-item" >
+        <div class="tenancy-header yh-bg-purple" >
+            <div class="slds-grid slds-grid_align-spread1 slds-grid_vertical-align-center">
+                <div class="slds-col" onclick={handleToggle}>
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon 
+                            icon-name="standard:address" 
+                            size="medium"
+                            class="slds-m-right_small tenant-address-icon">
+                        </lightning-icon>
+                        <div>
+                            <h3 class="slds-text-heading_small yh-text-white">
+                                {tenancy.propertyAddress}
+                                <template if:true={tenancy.isActive}>
+                                    <lightning-badge label="Active" class="slds-show_large slds-m-left_x-small slds-badge_inverse yh-bg-green"></lightning-badge>
+                                </template>
+                                <template if:false={tenancy.isActive}>
+                                    <lightning-badge label="Expired" class="slds-show_large slds-m-left_x-small slds-badge_inverse yh-bg-rose"></lightning-badge>
+                                </template>
+                            </h3>
+                        
+                            <div class="slds-show_large slds-text-body_small yh-text-white">
+                                Tenancy ID: {tenancy.tenancyNumber} - <span class="yh-text-yellow property-type">{tenancy.propertyType}</span>
+                            </div>
+                            <div class="slds-hide_medium slds-text-body_small yh-text-white">
+                                {tenancy.tenancyNumber} - <span>({tenancy.propertyType})</span>
+                                <template if:true={tenancy.isActive}>
+                                    <lightning-icon label="Active" icon-name="utility:check" size="xx-small" class="yh-fg-green"></lightning-icon>
+                                </template>
+                                <template if:false={tenancy.isActive}>
+                                    <lightning-icon label="Expired" icon-name="utility:close" size="xx-small" class="yh-fg-rose"></lightning-icon>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <template if:true={showRequestNewRentCard}>
+                    <div class="slds-col action-buttons" slot="actions">
+                        <lightning-button 
+                            class="slds-show_large"
+                            icon-name="utility:card_details"
+                            alternative-text="Request New Rent Card"
+                            label="Request New Rent Card"
+                            title="Request New Rent Card"
+                            variant="destructive"
+                            onclick={handleNewRentCard}>
+                        </lightning-button>
+                        <lightning-button-menu 
+                        menu-alignment="auto"  
+                        class="slds-hide_large menu-icon-rose" icon-size="large" 
+                        icon-name="utility:threedots_vertical"
+                        alternative-text="Show menu" variant="bare"
+                        onselect={handleActionMenuSelect}
+                        >
+                            <lightning-menu-item value="new-rent-card" label="Request New Rent Card"></lightning-menu-item>
+                        </lightning-button-menu>
+                    </div>
+                </template>
+                <div class="slds-col slds-no-flex">
+                    <lightning-button-icon 
+                        class="expand-yellow-icon"
+                        icon-name={chevronIcon}
+                        variant="border-filled"
+                        alternative-text={toggleAltText}
+                        onclick={handleToggle}
+                        >
+                    </lightning-button-icon>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tenancy-content yh-bg-purple" if:true={tenancy.isExpanded}>
+            <div class="slds-p-around_medium">
+                <!-- LOADING SPINNER -->
+                <template if:true={tenancy.isLoadingAccounts}>
+                    <div class="slds-align_absolute-center slds-m-vertical_large">
+                        <lightning-spinner alternative-text="Loading accounts..."></lightning-spinner>
+                    </div>
+                </template>
+                <template if:false={tenancy.isLoadingAccounts}>
+                    <template if:false={tenancy.hasError}>
+                        <template if:true={hasAccounts}>
+                            <div class="accounts-list">
+                                <template for:each={tenancy.accounts} for:item="account">
+                                    <c-rent-account-item 
+                                        key={account.id}
+                                        account={account}
+                                        tenancy={tenancy}
+                                        onmakepayment={handleMakePayment}
+                                        onviewstatements={handleViewStatements}>
+                                    </c-rent-account-item>
+                                </template>
+                            </div>
+                        </template>
+                        <template if:false={hasAccounts}>
+                            <c-empty-state 
+                                title="No Accounts"
+                                message="No accounts found for this tenancy."
+                                size="small">
+                            </c-empty-state>
+                        </template>
+                    </template>
+                    <template if:true={tenancy.hasError}>
+                        <c-error-state message={tenancy.errorMessage}></c-error-state>
+                    </template>      
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

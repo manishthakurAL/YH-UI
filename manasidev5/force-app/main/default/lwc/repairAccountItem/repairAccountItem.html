@@ -1,0 +1,90 @@
+<template>
+    <div class="slds-card__body_inner">
+    <div class="slds-card tenancy-item" >
+        <div class="tenancy-header yh-bg-purple" >
+            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                <div class="slds-col">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon 
+                            icon-name="standard:address" 
+                            size="medium"
+                            class="slds-m-right_small tenant-address-icon">
+                        </lightning-icon>
+                        <div>
+                            <h3 class="slds-text-heading_small yh-text-white">
+                                {propertyaddress}
+                                    <lightning-badge label="Active" class="slds-m-left_x-small slds-badge_inverse yh-bg-green"></lightning-badge>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-no-flex">
+                    <lightning-button
+                    alternative-text="Back to Repairs"
+                    label="Back to Repairs"
+                    title="Back to Repairs"
+                    class="slds-m-right_xxx-small"
+                    icon-name="utility:undo"
+                    onclick={handleUndo}
+                    >
+                    </lightning-button>
+                </div>
+            </div>
+            <lightning-card class="account-item"  title="Repair Details">
+                    <div class="slds-card__body_inner">
+                        <div class="account-header slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_12-of-12">
+                                <div class="field-group">
+                                    <span class="field-label slds-text-title">Repair Job number: </span>
+                                    <span class="field-value slds-text-body_regular">{repairdetails.jobNumber}</span>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label slds-text-title">Reported Date: </span>
+                                    <span class="field-value slds-text-body_regular">{repairdetails.reportedOn}</span>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label slds-text-title">Repair Type/Category: </span>
+                                    <span class="field-value slds-text-body_regular">{repairdetails.repairType}</span>
+                                </div>
+                                <div class="field-group">
+                                    <span class="field-label slds-text-title">Location of Repair: </span>
+                                    <span class="field-value slds-text-body_regular">{repairdetails.locationOfRepair}</span>
+                                </div>
+                                <template if:true={showadditionalfields}>  
+                                    <div class="field-group">
+                                        <span class="field-label slds-text-title">Description: </span>
+                                        <span class="field-value slds-text-body_regular">{repairdetails.description}</span>
+                                    </div>
+                                    <div class="field-group">
+                                        <span class="field-label slds-text-title">Priority: </span>
+                                        <span class="field-value slds-text-body_regular">{repairdetails.priority}</span>
+                                    </div>
+                                    <div class="field-group">
+                                        <span class="field-label slds-text-title">Target Date: </span>
+                                        <span class="field-value slds-text-body_regular">{repairdetails.targetDate}</span>
+                                    </div>
+                                </template>
+                                <div class="field-group">
+                                    <span class="field-label slds-text-title">Completion Date: </span>
+                                    <span class="field-value slds-text-body_regular">{repairdetails.completionDate}</span>
+                                </div>
+                                <template if:true={showadditionalfields}>  
+                                    <div class="field-group">
+                                        <span class="field-label slds-text-title">YH or Contractor: </span>
+                                        <span class="field-value slds-text-body_regular">{repairdetails.contractor}</span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div> 
+            </lightning-card>
+            <lightning-card title="Related Appointments" class="account-item">
+                <template for:each={repairdetails.appointments} for:item="appointment">
+                <c-appointments-related-to-repairs key={appointment.appointmentDate} appointment={appointment}>
+                </c-appointments-related-to-repairs>
+                </template>
+            </lightning-card>
+    </div>
+    </div>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "11b4f836-c131-4eff-81cc-c2d123ad920f",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Rent_Statement__c",
+  "id" : "5cebc927-1edb-4c21-8dc3-4a4c5c154d9f",
+  "label" : "Rent Statement",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-rent-statement",
+  "type" : "route",
+  "urlPrefix" : "rent-statement"
+}

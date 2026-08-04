@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <template if:true={warningMessages}>
+            <template for:each={warningMessages} for:item="message">
+                <div key={message} class="slds-text-color_destructive slds-p-around_medium">
+                    <strong>{message}</strong>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

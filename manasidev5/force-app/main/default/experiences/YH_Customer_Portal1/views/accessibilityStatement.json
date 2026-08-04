@@ -1,0 +1,48 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "2657fa1d-0cb5-4624-8552-4216e69ac0a2",
+  "label" : "AccessibilityStatement",
+  "regions" : [ {
+    "id" : "d5e9555a-42e6-487b-b8dc-2ad789f4fc1e",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"font-size:16px;\">\nYorkshire Housing  Portal Accessibility Statement\n</p><br/>\n<p style=\"font-size:16px;\">\nThis accessibility statement applies to my.yorkshirehousing.co.uk\n</p><br/>\n<p style=\"font-size:16px;\">\nWe want everyone to be able to use our portal, including people with disabilities or  \ndifferent access needs.\n</p><br/>\n<p style=\"font-size:16px;\">\nWe’ve built accessibility into our portal from the start and continue to improve it so it’s easy for everyone to use. We’ve made good progress, but we know there’s still more to do.\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Our commitment</h3><br/>\n<p style=\"font-size:16px;\">\nWe want to be an employer and housing provider of choice. That means making accessibility a part of everything we do.\n</p><br/>\n<p style=\"font-size:16px;\">\nWe’re committed to: \n</p><br/>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Embedding inclusive design principles in every change we make to our portal, guided by best practice.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Listening to customer feedback so we keep improving and make our portal and services easy to use.\n</p><br/>\n<p style=\"font-size:16px;\">\nWe aim to meet Web Content Accessibility Guidelines (WCAG) 2.2 AA standards as a minimum and welcome feedback on how we can keep improving.\n</p><br/>\n<p style=\"font-size:16px;\">\nOn this portal you should be able to:\n</p><br/>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Understand our content easily.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Navigate most of the site using a keyboard or speech recognition software.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Zoom in up to 300% without text spilling off the screen and still navigate the menu bar clearly.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Change text size, font colour, contrast levels to suit you.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Watch videos with captions and view images with alt text.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Return to the top of a page using a keyboard.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Use a screen reader to listen to most of the site.\n</p><br/>\n<p style=\"font-size:16px;\">\nIf you need help, AbilityNet has advice on making your device easier to use if you have a disability or access needs.\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">What we’re doing to improve accessibility</h3><br/>\n<p style=\"font-size:16px;\">\nWe’re reviewing our portal to find and fix anything that could make it harder to use. Our digital audit is helping us identify and make improvements so the portal works better for everyone.\n</p><br/>\n<p style=\"font-size:16px;\">\nWe’ve also developed new processes to make sure we keep meeting accessibility standards.\n</p><br/>\n<p style=\"padding-left: 40px;font-size:16px;\">\n1. Accessibility checks for all development releases: We’ll check all new content, designs, and developments to make sure they meet accessibility standards.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n2. Regular accessibility checking: As we design, build and update the site, we’ll regularly do audits and quality checks to make sure no new barriers appear.\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n3. Keeping up to date with accessibility standards: Regularly review updates to the Web Content Accessibility Guidelines (WCAG) and other recognised standards, updating our website as needed to stay compliant.\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Compliance status</h3><br/>\n<p style=\"font-size:16px;\">\nThis portal partially complies with the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard, due to the non-compliance issues listed below\n</p><br/>\n<p style=\"font-size:16px;\">\nButtons and icons: Adding clear text labels so users know what each button does.\n</p><br/>\n<p style=\"font-size:16px;\">\nKeyboard navigation: Fixing tab order and adding visible focus indicators.\n</p><br/>\n<p style=\"font-size:16px;\">\nColour contrast and font size: Improving text readability and colour balance across the site.\n</p><br/>\n<p style=\"font-size:16px;\">\nForm labels and headings: Making sure every field and heading is properly coded so screen readers can describe them correctly. Screen reader users must receive programmatic notification of form outcomes.\n</p><br/>\n<p style=\"font-size:16px;\">\nOur portal doesn’t yet fully meet the WCAG 2.2 AA standard.\n</p><br/>\n<p style=\"font-size:16px;\">\nThe most recent accessibility audit found several issues that affect how some people use our site. Some of these problems make it harder for people using screen readers, keyboards or other assistive technology to move around the site. Others affect readability, colour contrast, or navigation.\n</p><br/>\n<p style=\"font-size:16px;\">\nWe’re working to fix these as part of our ongoing accessibility improvements. We aim to resolve these issues by the end of July, as part of our hypercare programme running until the end of July 2026\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Remediation items:</h3><br/>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Form labels and headings\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Buttons and icons\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Keyboard navigation\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Screen reader notifications\n</p>\n<p style=\"padding-left: 40px;font-size:16px;\">\n• Colour contrast and font size\n</p><br/>\n\n<h3 style=\" font-size:32px; font-weight:100;\">Feedback and contact information</h3><br/>\n<p style=\"font-size:16px;\">\nIf you have any feedback about this portal, please email: accessibility@yorkshirehousing.co.uk\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Enforcement procedure</h3><br/>\n<p style=\"font-size:16px;\">\nThe Equality and Human Rights Commission (EHRC) enforces the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, you can contact the Equality Advisory and Support Service(EASS) for advice.\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Technical information about this Portal’s accessibility</h3><br/>\n<p style=\"font-size:16px;\">\nYorkshire Housing is committed to making sure that our portal meets the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.\n</p><br/>\n\n<h3 style=\"font-size:32px; font-weight:100;\">Preparation of this accessibility statement </h3><br/>\n<p style=\"font-size:16px;\">\nAccessibility statement created: 13th April 2026\n</p>\n<p style=\"font-size:16px;\">\nNext review date: 13th May 2026\n</p><br/>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "f4340399-1479-4f6d-b8c5-4124779027dd",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e35b8893-3f2d-43b4-89d9-20d8408dd054",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "966a8f41-4a45-4fd7-bd8e-1d3196e794af",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "AccessibilityStatement"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "55d40541-d795-4a28-8c7f-5f3b36ab7b25",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "40436c26-f7d6-47fa-860e-15858a08ceb5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-accessibility-statement"
+}

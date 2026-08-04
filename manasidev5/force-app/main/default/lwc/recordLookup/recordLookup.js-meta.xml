@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen,lightning__RecordPage">
+            <property name="selectedIconName" type="String" label="selectedIconName" description="Enter selected Icon Name"/>
+            <property name="label" type="String" label="label" description="Enter Label"/>
+            <property name="objectLabel" type="String" label="objectLabel" description="Enter object Label"/>
+            <property name="objectApiName" type="String" label="objectApiName" description="Enter object API Name"/>
+            <property name="fieldApiName" type="String" label="fieldApiName" description="Enter field Api Name"/>
+            <property name="otherFieldApiName" type="String" label="otherFieldApiName" description="Enter other Field Api Name"/>
+            <property name="searchBySOSL" type="Boolean" label="searchBySOSL" description="Enable search by SOSL (default search is using SOQL)"/>
+            <property name="enableMultiSelection" type="Boolean" label="enableMultiSelection" description="Enable Multi Selection"/>
+            <property name="required" type="Boolean" label="required" description="Field Required"/>
+            <property name="helpText" type="String" label="helpText" description="Help Text"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

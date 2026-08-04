@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-box slds-box_xx-small">
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__body">
+                            <h2>
+                                <span class="slds-card__header-title slds-truncate" title={relatedListName}>{relatedListName}&nbsp;({numberOfCases})</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <lightning-card >
+            <lightning-datatable
+                key-field="Id"
+                data={_data}
+                columns={_columns}
+                hide-checkbox-column
+                show-row-number-column
+                enable-infinite-loading
+            ></lightning-datatable>
+        </lightning-card>
+    </div>
+</template>

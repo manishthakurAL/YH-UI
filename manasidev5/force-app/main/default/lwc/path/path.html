@@ -1,0 +1,86 @@
+<template>
+    <lightning-spinner
+        alternative-text="Loading..."
+        variant="brand"
+    ></lightning-spinner>
+    <lightning-card > 
+        <template if:true={_isReadyToLoad} >
+            <template if:true={hasPicklistOptions} >
+                <div class="slds-m-horizontal_small" >
+                    <lightning-progress-indicator current-step={_fieldValue} type="path" variant="base" class="slds-m-horizontal_xx-small">
+                        <template for:each={_picklistOptions} for:item="picklistOption">
+                            <lightning-progress-step 
+                                label={picklistOption.label} 
+                                value={picklistOption.name} 
+                                key={picklistOption.name}
+                                onclick={handleOnClick}
+                                onmouseover={handleMouseOver}
+                                onmouseout={handleMouseOut}
+                            ></lightning-progress-step>
+                        </template>
+                    </lightning-progress-indicator>
+                </div>
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <div align="left" class="slds-p-bottom_x-small">
+                            <b>{_valueOnHover}</b>
+                        </div>
+                        <div align="left" >
+                            <b>{_fieldLabel} : {_fieldValue}</b>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <div align="right">
+                            <lightning-button 
+                                variant="brand" 
+                                name="Edit" 
+                                label={buttonLabel}
+                                disabled={_isDataNotValidToUpdate}
+                                onclick={handleOnComplete}
+                            ></lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+                <template if:true={hasFieldsToUpdate} >
+                    <div class="slds-box slds-m-around_x-small">
+                        <div class="slds-text-title_caps">Key Fields</div>
+                        <lightning-record-edit-form record-id={recordId} object-api-name={_sObjectName} onsuccess={handleSuccess} onload={handleLoad}>
+                            <lightning-messages></lightning-messages>
+                            <lightning-layout multiple-rows="true">
+                                <template for:each={_fieldsList} for:item="field">
+                                    <lightning-layout-item padding="around-small" size="6" key={field.fieldName}>
+                                        <lightning-input-field 
+                                            field-name={field.fieldName} 
+                                            disabled={field.readonly}
+                                            required={field.required}
+                                            data-fieldname={field.fieldName}
+                                        ></lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+                            <div align="center" class="slds-p-vertical_small">
+                                <lightning-button 
+                                    variant="brand" 
+                                    type="submit" 
+                                    label="Save"
+                                ></lightning-button>
+                            </div>
+                        </lightning-record-edit-form>
+                    </div>
+                </template>
+            </template>
+            <template if:false={hasPicklistOptions} >
+                <div class="slds-p-top_medium slds-m-horizontal_small" >
+                    <div class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_dark" role="status">
+                        <div class="slds-media__body">
+                            <p>
+                                {message}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

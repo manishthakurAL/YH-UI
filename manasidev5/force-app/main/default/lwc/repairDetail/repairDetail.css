@@ -1,0 +1,72 @@
+.account-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--yh-purple) !important;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.account-item:hover {
+    border-color: var(--yh-purple);
+    box-shadow: 0 2px 4px rgba(var(--yh-dark-purple), 0.1);
+}
+
+.account-header {
+    padding: 1rem;
+}
+
+.field-group {
+    margin-bottom: 0.5rem;
+}
+
+.field-label {
+    font-weight: 600;
+    color:  var(--yh-purple);
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    color:  var(--yh-purple);
+}
+
+.action-buttons {
+    gap: 0.5rem;
+}
+
+.payment-button, .statements-button {
+    min-width: 126px;
+    position: relative;
+}
+
+.period-filter-wrapper {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+
+.statements-section {
+    border-top: 1px solid var(--yh-purple);
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .acccount-type, .balance-negative {
+        font-size: .85rem !important;
+    }
+    .account-header  {
+        padding: 0px !important;
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        justify-content: stretch;
+        margin-top: 1rem;
+    }
+    
+    .payment-button, .statements-button {
+        flex: 1;
+        min-width: auto;
+        width: 100%;
+    }
+}

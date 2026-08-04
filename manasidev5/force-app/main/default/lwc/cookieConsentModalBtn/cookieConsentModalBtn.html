@@ -1,0 +1,42 @@
+<template>
+    <div class="security-banner slds-grid slds-grid_vertical-align-start slds-m-top_large">
+        
+        <div class="slds-col slds-no-flex slds-p-horizontal_medium">
+            <lightning-icon 
+                icon-name="utility:info" 
+                alternative-text="Security Information" 
+                size="medium"
+                class="info-icon-brand">
+            </lightning-icon>
+        </div>
+
+        <div class="slds-col info-block slds-p-right_large">
+            <h3 class="slds-text-heading_small slds-m-bottom_xx-small security-title">
+                Security &amp; Trusted Devices
+            </h3>
+            
+            <p class="slds-text-color_weak slds-m-bottom_small">
+                For your security, we automatically clear all trusted devices every <strong>60 days</strong>. 
+                This means you'll need to verify your identity again at your next login.
+            </p>
+            
+            <p class="slds-text-color_weak slds-m-bottom_medium">
+                Want to remove them sooner? You can do this at any time by selecting 'Remove all trusted devices' below.
+            </p>
+            
+            <lightning-button 
+                label="Remove all trusted devices" 
+                variant="brand-outline" 
+                onclick={handleOpenModal}
+                class="remove-btn">
+            </lightning-button>
+        </div>
+    </div>
+
+    <template if:true={isModalOpen}>
+        <c-cookie-consent-modal 
+            onclose={handleCloseModal} 
+            onsave={handleSaveConsent}>
+        </c-cookie-consent-modal>
+    </template>
+</template>

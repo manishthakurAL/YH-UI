@@ -1,0 +1,2488 @@
+<!DOCTYPE html>
+<html lang="en_US">
+    <head>
+        <meta name='basePath' content='' />
+        <meta name='deployTarget' content='CORE' />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript">
+            {errorHandlerScript}
+        </script>
+        
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">!function(){const e={documentCreateElement:Document.prototype.createElement,elementSetAttribute:Element.prototype.setAttribute,elementAttachShadow:Element.prototype.attachShadow,elementAppendChild:Element.prototype.appendChild,htmlelementAddEventListener:Element.prototype.addEventListener,iframeContentDocumentGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentDocument").get,iframeContentWindowGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentWindow").get};Object.freeze(e),Object.defineProperty(window,"originalDomApis",{writable:!1,value:e});const t=window.frames;Object.defineProperty(window,"frames",{get:function(){const e=[];for(let n=0;n<t.length;n++)try{t[n].frameElement.getRootNode().nodeType===Node.DOCUMENT_FRAGMENT_NODE||e.push(t[n])}catch(o){e.push(t[n])}return e.length===t.length?t:e}})}();</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">!function(){"use strict";const e=`/webruntime${"/log/errors"}`;const n="UNKNOWN_ERROR";function t(){return e="basePath",document?.querySelector(`meta[name="${e}"]`)?.getAttribute("content")||"";var e}const{window:o}=globalThis;function r({subject:r,error:s={},extra:a}){let i,c,d;s?(i=s.message,c=s.stack,d=s.wcstack):a&&(i=a.message);const{pathname:u,hostname:l}=o.location,m={subject:r,message:i,stack:c,wcstack:d,extra:a,location:{pathname:u,hostname:l}},v=t();!function(e){document.dispatchEvent(new CustomEvent("client-error",{detail:{error:e,type:n}}))}(m),function(e,n){const t=JSON.stringify(n);if(!(window&&window.navigator&&window.navigator.sendBeacon&&window.navigator.sendBeacon(e,t))){const n=new XMLHttpRequest;n.open("POST",e,!0),n.setRequestHeader("Content-Type","text/plain;charset=UTF-8"),n.send(t)}}(globalThis.location.origin+v+e,m)}const s=(e={})=>{const{reason:n={}}=e;r({subject:"unhandledrejection",error:n})};function a(e={},n={}){const{message:t,filename:o,lineno:s,colno:a,error:i}=e;r({subject:"window error",error:i,extra:{message:t,filename:o,lineno:s,colno:a},...n})}o?.addEventListener("error",a),o?.addEventListener("unhandledrejection",s),o?.addEventListener("removeErrorReporting",function(){o?.removeEventListener("unhandledrejection",s),o?.removeEventListener("error",a),o?.removeEventListener("removeErrorReporting",this)})}();
+</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">!function(){"use strict";const e="webruntime";function t(t){return`/${e}${t}`}const o=t("/log/metrics"),n=t("/log/errors");function r(e,t){const o=JSON.stringify(t);if(!(window&&window.navigator&&window.navigator.sendBeacon&&window.navigator.sendBeacon(e,o))){const t=new XMLHttpRequest;t.open("POST",e,!0),t.setRequestHeader("Content-Type","text/plain;charset=UTF-8"),t.send(o)}}function a(e){return document?.querySelector(`meta[name="${e}"]`)?.getAttribute("content")||""}function s(){return a("basePath")}function i(){return a("deployTarget")||"CORE"}const c=`${e}-app-bootstrap`;function l(e){!function(e){const t=e?.detail||{};t.name=t.name||"",t.duration=t.duration||"",c===t.name&&(t.deployTarget=i(),r(s()+o,{webruntimeBootstrap:t,info:"lwr.bootstrap.end"}))}(e),globalThis?.removeEventListener("bootstrapLoaded",this)}globalThis?.addEventListener("bootstrapLoaded",l),globalThis.LWR=globalThis.LWR||{},globalThis.LWR&&Object.isExtensible(globalThis.LWR)&&(globalThis.LWR.onError=e=>{!function(e){const{message:t,stack:o,wcstack:a}=e,{pathname:c,hostname:l}=globalThis.location;let d=[];try{globalThis.performance&&globalThis.performance.getEntriesByType&&(d=globalThis.performance.getEntriesByType("resource").map(e=>({name:e.name,entryType:e.entryType,startTime:e.startTime,duration:e.duration,fetchStart:e.fetchStart,domainLookupStart:e.domainLookupStart,domainLookupEnd:e.domainLookupEnd,connectStart:e.connectStart,connectEnd:e.connectEnd,requestStart:e.requestStart,responseStart:e.responseStart,responseEnd:e.responseEnd,responseStatus:e.responseStatus,transferSize:e.transferSize,encodedBodySize:e.encodedBodySize,decodedBodySize:e.decodedBodySize,initiatorType:e.initiatorType,nextHopProtocol:e.nextHopProtocol,failed:e.failed||!1})))}catch(e){globalThis.console&&globalThis.console.error&&globalThis.console.error("Error collecting resource performance data",e)}r(s()+n,{subject:"bootstrap error",webruntimeBootstrap:{deployTarget:i(),resources:d,resourceCount:d.length},message:t,stack:o,wcstack:a,location:{pathname:c,hostname:l}})}(e),globalThis.launchModal&&launchModal({id:"webruntime-client-bootstrap-error-failed-to-load-lwr",titleLabel:"Oops!",contentLabel:"Something went wrong. Please try refreshing the app",buttonLabel:"Refresh",callback:function(){var e=new URL(window.location);e.searchParams.set("lwr.cachebust",(new Date).getTime()),window.location=e.href}}),globalThis?.removeEventListener("bootstrapLoaded",l),globalThis?.dispatchEvent(new CustomEvent("removeErrorReporting")),delete globalThis.LWR.onError})}();
+</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">({})?.a?.a;window.supportsOptionalChaining=true;
+</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">!function(){"use strict";window.isBrowserSupportedByWebruntime=function(){const n="performance"in window&&"mark"in window.performance,i="customElements"in window;return n&&i&&void 0!==window.supportsOptionalChaining}()}();
+</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">globalThis.lwcRuntimeFlags = globalThis.lwcRuntimeFlags || {};
+globalThis.lwcRuntimeFlags = { ...globalThis.lwcRuntimeFlags, ...{"ENABLE_LEGACY_SCOPE_TOKENS":false,"ENABLE_FORCE_SHADOW_MIGRATE_MODE":false,"ENABLE_MIXED_SHADOW_MODE":false,"LEGACY_LOCKER_ENABLED":false,"ENABLE_LEGACY_SIGNAL_CONTEXT_VALIDATION":false,"DISABLE_LEGACY_VALIDATION":false,"ENABLE_EXPERIMENTAL_SIGNALS":false,"DISABLE_SYNTHETIC_SHADOW":false,"DISABLE_SCOPE_TOKEN_VALIDATION":false,"DISABLE_DETACHED_REHYDRATION":true,"DISABLE_LIGHT_DOM_UNSCOPED_CSS":false,"ENABLE_LEGACY_CONTEXT_CONNECTION":false,"ENABLE_SLOT_FORWARDING_FIX":true,"DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE":true,"DISABLE_TEMPORARY_V5_COMPILER_SUPPORT":true,"DISABLE_HOST_ATTACH_SHADOW_GUARD":false} };
+globalThis.LWR = globalThis.LWR || {};
+globalThis.LWR.initDeferDOM = true;
+globalThis.LWR.customInit = (lwr) => {
+
+        LWR.define('@app/apexApiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/apiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/basePath', [], function() { return ""; });
+        LWR.define('@app/deployTarget', [], function() { return "CORE"; });
+        LWR.define('@app/guestUuidCookieName', [], function() { return null; });
+        LWR.define('@app/isDesignMode', [], function() { return false; });
+        LWR.define('@app/isPreviewMode', [], function() { return false; });
+        LWR.define('@app/isSsrCodeTypeEnabled', [], function() { return false; });
+        LWR.define('@app/routes', [], function() { return [{"devName":"Too_Many_Requests","label":"Too Many Requests","createdOnVersion":null,"isPublic":true,"viewId":"ad0ee543-85ff-479d-bf23-eb018dd681e2","hasVanityURL":false,"patternMap":{},"id":"ec9e3a6d-f7f3-4671-b962-60a16df1704a","path":"/toomanyrequests.html","view":"too_Many_Requests","isRoot":true,"isDefault":true,"page":{"type":"comm__namedPage","attributes":{"name":"Too_Many_Requests"}}}]; });
+        LWR.define('@app/templateDevName', [], function() { return "sna-aura-lwr-shell-template"; });
+        LWR.define('@app/uiBasePath', [], function() { return ""; });
+        LWR.define('@app/versionKey', [], function() { return "0DBTw0000000xPt:48"; });
+        LWR.define('@app/viewToThemeLayoutMap', [], function() { return {"too_Many_Requests":"serviceNotAvailable"}; });
+        LWR.define('@app/webruntimeFrameworkVersion', [], function() { return "262.60"; });
+        LWR.define('@salesforce/community/Id', [], function() { return "0DBTw0000000xPtOAI"; });
+        LWR.define('@salesforce/community/basePath', [], function() { return ""; });
+        LWR.define('@salesforce/i18n/lang', [], function() { return "en_US"; });
+        LWR.define('@salesforce/site/Id', [], function() { return "0DMTw00000012uEOAQ"; });
+        LWR.define('@salesforce/site/activeLanguages', [], function() { return [{"label":"English (US)","code":"en-US","default":true}]; });
+        LWR.define('@salesforce/webstore/Id', [], function() { return null; });
+lwr.define("webruntime/dispatcher", [], function(){ return function o11yDipatcherInit(dispatcher) { typeof lwr !== 'undefined' && lwr.attachDispatcher(dispatcher); };});
+LWR.define('@salesforce/user/Id', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['id'] });
+LWR.define('@salesforce/user/isGuest', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['isGuest'] });
+LWR.define('@salesforce/user/contactId', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['contactId'] });
+lwr.initializeApp();
+globalThis.process = { env: { NODE_ENV: "dev" } };};</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">globalThis.CLWR = globalThis.CLWR || {};
+globalThis.CLWR.gates = {"enableDirtyStateCheck":true,"enableLwrLinkInfoProvider":false,"enableLwrRouteValidation":false};
+</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">globalThis.LWR = globalThis.LWR || {};
+Object.assign(globalThis.LWR, {
+  "bootstrapModule": "@lwrjs/app-service/communities_app/module/amd/v/0_22_17",
+  "autoBoot": false,
+  "rootComponents": [
+    "webruntime/app/v/1_66_1196-262_0"
+  ],
+  "requiredModules": [
+    "lwc/v/9_1_2",
+    "@lwrjs/app-service/communities_app/module/amd/v/0_22_17"
+  ],
+  "importMappings": {
+    "default": "webruntime/component/latest/prod/en_US/",
+    "imports": {
+      "/webruntime/component/latest/prod/en_US/lwc": "webruntime/framework/c6f5ab53a7/prod/lwr_lwc",
+      "@app/csrfToken": "webruntime/module/@app/csrfToken",
+      "@app/loginPath": "webruntime/module/@app/loginPath",
+      "@app/user": "webruntime/module/@app/user",
+      "@perm/": "webruntime/perm/",
+      "@salesforce/client/formFactor": "webruntime/module/@salesforce/client/formFactor",
+      "@salesforce/customPermission/": "webruntime/perm/custom/",
+      "@salesforce/featureFlag/": "webruntime/module/@salesforce/featureFlag/",
+      "@salesforce/user/Id": "webruntime/module/@salesforce/user/Id",
+      "@salesforce/user/contactId": "webruntime/module/@salesforce/user/contactId",
+      "@salesforce/user/isGuest": "webruntime/module/@salesforce/user/isGuest",
+      "@salesforce/userPermission/": "webruntime/perm/",
+      "@udd/": "webruntime/module/@udd/",
+      "@view/serviceNotAvailable": "webruntime/view/55e453cfcbed8f2a303c8f54326b2287/prod/en_US/serviceNotAvailable_view",
+      "@view/too_Many_Requests": "webruntime/view/83b3a7f3ec9695b5086a8ac1f1ab4016/prod/en_US/too_Many_Requests_view",
+      "mobileruntime/hybridAppManager": "webruntime/framework/090ba030fe/prod/lwr_mobile",
+      "o11y/collectors": "webruntime/component/0af3d31fc8338a2518abfa12ed682846/prod/en_US/o11y/collectors_cmp",
+      "o11y/simple_collector": "webruntime/component/769a3bbaf4b329a78402db88550744d6/prod/en_US/o11y/simple_collector_cmp",
+      "webruntime/handlebarsEngine": "webruntime/framework/fdb5b3227a/prod/lwr_handlebars"
+    }
+  }
+});</script>
+        <script src="webruntime/framework/6ce0b87300/prod/lwr_loader"></script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">/**
+* Copyright (c) 2021, salesforce.com, inc.
+* All rights reserved.
+* SPDX-License-Identifier: MIT
+* For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+*/
+/* LWR Error Shim v0.22.17 */
+!function(){"use strict";const o=globalThis;if(!(o.LWR&&o.LWR.define)){const r=new Error("The LWR application failed to bootstrap");if(!o.LWR||!o.LWR.onError)throw r;o.LWR.onError(r)}}();
+</script>
+        <script src="webruntime/framework/b73515aaa5/prod/lwr_bootstrap"></script>
+        <script src="webruntime/framework/cb2c1a2c50/prod/lwr_app_bootstrap_hook"></script>
+        <script src="webruntime/framework/c6f5ab53a7/prod/lwr_lwc"></script>
+        <script src="webruntime/framework/6186554a8e/prod/lwr_app"></script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('lwc', ['lwc/v/9_1_2'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">
+        LWR.define('@app/authenticationCookieName', [], function() { return "__Secure-has-sid"; });
+        LWR.define('@app/extraRouteParams', [], function() { return {}; });
+        LWR.define('@app/imageOpt', [], function() { return "none"; });
+        LWR.define('@app/isMobileAppMode', [], function() { return true; });
+        LWR.define('@app/user', [], function() { return {"isGuest":true,"id":null,"contactId":null,"csrfToken":null}; });
+        LWR.define('@salesforce/user/contactId', [], function() { return null; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/apexApiBasePath/v/1', ['@app/apexApiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/apiBasePath/v/1', ['@app/apiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/authenticationCookieName/v/1', ['@app/authenticationCookieName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/basePath/v/1', ['@app/basePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/csrfToken/v/1', ['@app/csrfToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/deployTarget/v/1', ['@app/deployTarget'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/extraRouteParams/v/1', ['@app/extraRouteParams'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/guestUuidCookieName/v/1', ['@app/guestUuidCookieName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/imageOpt/v/1', ['@app/imageOpt'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/isDesignMode/v/1', ['@app/isDesignMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/isMobileAppMode/v/1', ['@app/isMobileAppMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/isPreviewMode/v/1', ['@app/isPreviewMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/isSsrCodeTypeEnabled/v/1', ['@app/isSsrCodeTypeEnabled'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/o11yApiEndpoint/v/1', ['@app/o11yApiEndpoint'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/o11yConfiguration/v/1', ['@app/o11yConfiguration'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/o11yFalconEnabled/v/1', ['@app/o11yFalconEnabled'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/o11yGuestToken/v/1', ['@app/o11yGuestToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/o11ySamplingRate/v/1', ['@app/o11ySamplingRate'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/routes/v/1', ['@app/routes'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/templateDevName/v/1', ['@app/templateDevName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/uiBasePath/v/1', ['@app/uiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/user/v/1', ['@app/user'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/versionKey/v/1', ['@app/versionKey'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/viewToThemeLayoutMap/v/1', ['@app/viewToThemeLayoutMap'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@app/webruntimeFrameworkVersion/v/1', ['@app/webruntimeFrameworkVersion'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@salesforce/community/Id/v/1', ['@salesforce/community/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@salesforce/i18n/lang/v/1', ['@salesforce/i18n/lang'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@salesforce/site/activeLanguages/v/1', ['@salesforce/site/activeLanguages'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@salesforce/site/Id/v/1', ['@salesforce/site/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('@salesforce/webstore/Id/v/1', ['@salesforce/webstore/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="b21e55d2-bc64-43cc-9908-bd207b0556e5">LWR.define('webruntime/dispatcher/v/1', ['webruntime/dispatcher'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script src="webruntime/view/83b3a7f3ec9695b5086a8ac1f1ab4016/prod/en_US/too_Many_Requests_view"></script>
+        <script src="webruntime/view/55e453cfcbed8f2a303c8f54326b2287/prod/en_US/serviceNotAvailable_view"></script><style type="text/css" id="webruntime-branding">:root{--dxp-g-brand:rgb(240, 77, 110);--dxp-c-link-text-color:rgb(240, 77, 110);--dxp-c-link-text-color-hover:#ed274f;--dxp-c-link-text-color-active:#ed274f;--dxp-g-neutral-contrast-3:#fff;--dxp-s-body-font-family:Source Sans Pro;--dxp-g-neutral-contrast-2:#000;--dxp-g-neutral:#ecebea;--dxp-g-neutral-contrast-1:#000;--dxp-g-root:rgb(239, 237, 242);--dxp-g-root-contrast-1:rgb(35, 22, 60);--dxp-g-root-contrast:rgb(52, 33, 90);--dxp-g-root-contrast-2:rgb(0, 0, 0);--dxp-g-root-contrast-3:rgb(0, 0, 0);--dxp-g-neutral-contrast:#000;--dxp-g-root-1:rgb(218, 213, 225);--dxp-g-root-2:rgb(176, 166, 191);--dxp-g-root-3:rgb(113, 98, 136);--dxp-g-brand-contrast-1:rgb(218, 213, 225);--dxp-g-brand-contrast:rgb(239, 237, 242);--dxp-g-neutral-3:rgb(118, 113, 107);--dxp-g-neutral-2:rgb(178, 174, 170);--dxp-g-brand-contrast-3:rgb(113, 98, 136);--dxp-g-sna-heading-font-family:Source Sans Pro;--dxp-g-brand-contrast-2:rgb(176, 166, 191);--dxp-g-neutral-1:rgb(217, 215, 213);--dxp-g-brand-1:rgb(237, 39, 79);--dxp-g-brand-2:rgb(179, 15, 48);--dxp-g-brand-3:rgb(67, 6, 18);--dxp-g-brand-h:348;--dxp-g-brand-s:84%;--dxp-g-brand-l:62%;--dxp-g-brand-a:1.0;--dxp-c-link-text-color-h:348;--dxp-c-link-text-color-s:84%;--dxp-c-link-text-color-l:62%;--dxp-c-link-text-color-a:1.0;--dxp-c-link-text-color-hover-h:348;--dxp-c-link-text-color-hover-s:85%;--dxp-c-link-text-color-hover-l:54%;--dxp-c-link-text-color-hover-a:1.0;--dxp-c-link-text-color-active-h:348;--dxp-c-link-text-color-active-s:85%;--dxp-c-link-text-color-active-l:54%;--dxp-c-link-text-color-active-a:1.0;--dxp-g-neutral-h:30;--dxp-g-neutral-s:5%;--dxp-g-neutral-l:92%;--dxp-g-neutral-a:1.0;--dxp-g-root-h:264;--dxp-g-root-s:16%;--dxp-g-root-l:94%;--dxp-g-root-a:1.0;--dxp-g-root-contrast-h:260;--dxp-g-root-contrast-s:46%;--dxp-g-root-contrast-l:24%;--dxp-g-root-contrast-a:1.0;--dxp-g-neutral-contrast-h:0;--dxp-g-neutral-contrast-s:0%;--dxp-g-neutral-contrast-l:0%;--dxp-g-neutral-contrast-a:1.0;--dxp-g-brand-contrast-h:264;--dxp-g-brand-contrast-s:16%;--dxp-g-brand-contrast-l:94%;--dxp-g-brand-contrast-a:1.0;}</style>
+        <!--<style>
+:root {
+    /* Primary Palette */
+    --yh-purple: #34215a;
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+
+    /* Specialty Colors */
+    --yh-dark-purple: #1a112d;
+    --yh-light-purple: #857a9c;
+    --yh-lightest-purple: #ece6f9;
+    --yh-light-rose: #f694a8;
+    --yh-lightest-rose: #ffeef1;
+
+
+    /* Type Scale - Based on 12pt body (16px) */
+    --body-size: 14px;
+    /* 12pt equivalent */
+    --body-leading: 14px;
+    /* 16pt leading (12pt + 4pt) */
+
+    --subhead-size: 16px;
+    /* 24pt - 2x body size */
+    --subhead-leading: 16px;
+    /* 32pt leading (24pt + 8pt) */
+
+    --headline-size: 18px;
+    /* 35pt - 3x body size */
+    --headline-leading: 18px;
+    /* 44pt leading (36pt + 8pt) */
+
+    --superhead-size: 65px;
+    /* 72pt - 4x body size */
+    --superhead-leading: 65px;
+    /* 72pt leading (48pt + 8pt) */
+
+    --lwc-pageHeaderColorBorder: #34215a;
+
+    --search-visible: visible;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    :root {
+        --body-size: 12px;
+        --body-leading: 12px;
+        --subhead-size: 14px;
+        --subhead-leading: 14px;
+        --headline-size: 16px;
+        --headline-leading: 16px;
+        --superhead-size: 28px;
+        --superhead-leading: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --body-size: 10px;
+        --body-leading: 10px;
+        --subhead-size: 12px;
+        --subhead-leading: 12px;
+        --headline-size: 14px;
+        --headline-leading: 14px;
+        --superhead-size: 18px;
+        --superhead-leading: 18px;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.yh-bg-purple {
+    background-color: #34215a !important;
+}
+
+.yh-bg-rose {
+    background-color: #f04d6e !important;
+}
+
+.yh-bg-yellow {
+    background-color: #f9ab23 !important;
+}
+
+.yh-bg-green {
+    background-color: #4fc3ae !important;
+}
+
+.yh-text-purple {
+    color: #34215a !important;
+}
+
+.yh-text-rose {
+    color: #f04d6e !important;
+}
+
+.yh-text-yellow {
+    color: #f9ab23 !important;
+}
+
+.yh-text-green {
+    color: #4fc3ae !important;
+}
+
+.yh-text-white {
+    color: #fff !important;
+}
+
+
+.yh-border-purple {
+    border-color: #34215a !important;
+}
+
+.yh-border-rose {
+    border-color: #f04d6e !important;
+}
+
+.yh-border-yellow {
+    color: #f9ab23 !important;
+}
+
+.yh-border-green {
+    color: #4fc3ae !important;
+}
+
+/* Import Source Sans Pro with ALL weights */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+    
+body.comm-page-home {
+	/*height: 100vh !important;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;*/
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    display:block !important;
+}
+
+
+
+.hero .ui-widget .forceCommunityThemeHeroBase {
+	padding: 3rem 2rem !important;
+}
+
+/* ===== BUTTON TEXT VISIBILITY ===== */
+button:disabled {
+    color: var(--yh-light-purple) !important;
+    border-color: var(--yh-light-purple) !important;
+}
+
+.slds-button_brand,
+.slds-button--brand,
+button[class*="brand"],
+input[class*="brand"],
+a[class*="brand"] {
+    color: white !important;
+    background-color: var(--yh-purple) !important;
+    border-color: var(--yh-purple) !important;
+}
+
+
+
+.slds-button_brand .slds-button__icon,
+.slds-button--brand .slds-button__icon,
+button[class*="brand"] .slds-button__icon,
+input[class*="brand"] .slds-button__icon,
+a[class*="brand"] .slds-button__icon {
+    fill: white !important;
+}
+
+/* Force white text on ANY element with purple background */
+[style*="background-color: #34215a"],
+[style*="background: #34215a"],
+.bg-yh-purple,
+.slds-brand-primary {
+    color: white !important;
+}
+
+[style*="background-color: #f04d6e"],
+[style*="background: #f04d6e"],
+.bg-yh-purple,
+.slds-brand-primary {
+    color: white !important;
+}
+
+.slds-is-selected .slds-button__icon {
+    fill: white !important;
+    color: white !important;
+}
+
+[style*="background-color: #34215a"] .slds-button__icon,
+[style*="background: #34215a"] .slds-button__icon,
+[style*="background-color: #34215a"] .slds-icon,
+[style*="background: #34215a"] .slds-icon,
+.bg-yh-purple .slds-button__icon,
+.slds-brand-primary .slds-button__icon {
+    fill: white !important;
+}
+    
+.custom-btn-primary button, .custom-btn-secondary button {
+	height: 4.3rem;
+}
+
+/* ===== ENFORCE NO ALL-CAPS ===== */
+* {
+    text-transform: none !important;
+    font-variant: normal !important;
+    letter-spacing: normal !important;
+}
+
+.slds-text-title,
+.slds-text-title_caps,
+.slds-section__title {
+    text-transform: none !important;
+    font-variant: normal !important;
+    letter-spacing: normal !important;
+}
+
+/* Brand buttons */
+.slds-button_brand,
+.slds-button--brand {
+    background-color: var(--yh-purple) !important;
+    border-color: var(--yh-purple) !important;
+    color: white !important;
+}
+
+.slds-button_brand .slds-button__icon,
+.slds-button--brand .slds-button__icon {
+    fill: white !important;
+}
+
+/* Neutral buttons */
+.slds-button_neutral,
+.slds-button--neutral {
+    background-color: white;
+    border-color: var(--yh-purple);
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_neutral .slds-button__icon,
+.slds-button--neutral .slds-button__icon {
+    fill: var(--yh-purple);
+}
+
+/* Bare buttons */
+.slds-button_bare,
+.slds-button--bare {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_bare .slds-button__icon,
+.slds-button--bare .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+.slds-button_bare:hover,
+.slds-button--bare:hover {
+    background-color: #f5f5f5;
+    color: var(--yh-rose) ;
+}
+
+.slds-button_bare:hover .slds-button__icon,
+.slds-button--bare:hover .slds-button__icon {
+    fill: var(--yh-rose) !important;
+}
+
+/* Outline brand buttons */
+.slds-button_outline-brand,
+.slds-button--outline-brand {
+    background-color: transparent !important;
+    border-color: var(--yh-purple) !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_outline-brand .slds-button__icon,
+.slds-button--outline-brand .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+.slds-button_outline-brand:hover,
+.slds-button_outline-brand:focus {
+    background-color: var(--yh-purple) !important;
+    color: white !important;
+}
+
+.slds-button_outline-brand:hover .slds-button__icon,
+.slds-button_outline-brand:focus .slds-button__icon {
+    fill: white !important;
+}
+
+/* Success buttons */
+.slds-button_success,
+.slds-button--success {
+    background-color: var(--yh-green);
+    border-color: var(--yh-green);
+    color: white;
+}
+
+/* Destructive buttons */
+.slds-button_destructive,
+.slds-button--destructive {
+    background-color: var(--yh-rose) !important;
+    border-color: var(--yh-rose) !important;
+    color: white !important;
+}
+
+.slds-theme_error,
+.slds-theme--error {
+    background-color: var(--yh-rose) !important;
+}
+
+/* Inverse buttons */
+.slds-button_inverse,
+.slds-button--inverse {
+    background-color: transparent !important;
+    border-color: white !important;
+    color: white !important;
+}
+
+.slds-button_inverse .slds-button__icon,
+.slds-button--inverse .slds-button__icon {
+    fill: white !important;
+}
+
+.slds-button_inverse:hover,
+.slds-button--inverse:hover {
+    background-color: white !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_inverse:hover .slds-button__icon,
+.slds-button--inverse:hover .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+
+/* ===== LINK STYLES =====
+    a,
+    .slds-link,
+    .forceCommunityLink,
+    .community-link {
+        color:var(--yh-purple) !important;
+        text-decoration: none !important;
+        font-family: 'Source Sans Pro', Arial, sans-serif !important;
+    }
+
+    a:hover,
+    .slds-link:hover,
+    .forceCommunityLink:hover,
+    .community-link:hover {
+        color: var(--yh-rose) !important;
+        text-decoration: underline !important;
+    } */
+
+/* ===== ICON STYLES ===== 
+    .slds-icon,
+    .slds-button__icon,
+    .uiIcon {
+        fill: var(--yh-purple) !important;
+    }*/
+
+/* Icons on dark backgrounds 
+    .bg-yh-purple .slds-icon,
+    .bg-yh-purple .slds-button__icon,
+    .forceCommunityGlobalNavigation .slds-icon,
+    .forceCommunityGlobalNavigation .slds-button__icon {
+        fill: white !important;
+    }
+*/
+/* ===== DARK BACKGROUND TEXT VISIBILITY ===== */
+.forceCommunityGlobalNavigation,
+.bg-yh-purple,
+[style*="background-color: #34215a"],
+[style*="background: #34215a"] {
+    color: white !important;
+}
+
+.forceCommunityGlobalNavigation a,
+.forceCommunityGlobalNavigation span,
+.forceCommunityGlobalNavigation div {
+    color: white !important;
+}
+
+.forceCommunityGlobalNavigation a:hover {
+    color: var(--yh-light-rose) !important;
+}
+
+.forceCommunityGlobalNavigation svg,
+.bg-yh-purple svg,
+.forceCommunityGlobalNavigation .slds-icon,
+.bg-yh-purple .slds-icon {
+    fill: white !important;
+}
+
+/* ===== FORM STYLES ===== */
+.slds-input,
+.slds-select,
+.slds-textarea,
+.slds-form-element__label {
+    font-family: 'Source Sans Pro', Arial, sans-serif !important;
+    /*font-size: var(--body-size) !important;
+        font-weight: 400 !important;
+        text-transform: none !important;*/
+}
+
+.slds-input:focus,
+.slds-select:focus,
+.slds-textarea:focus {
+    border-color: var(--yh-purple) !important;
+    box-shadow: 0 0 0 3px rgba(52, 33, 90, 0.1) !important;
+}
+
+/* ===== CARD AND LAYOUT STYLES ===== */
+.slds-card {
+    border: 1px solid var(--yh-purple) !important;
+    padding: var(--lwc-spacingSmall, 0.75rem) !important;
+}
+
+.listViewContent {
+    padding: var(--lwc-spacingSmall, 0.75rem) !important;
+}
+
+/* ===== NAVIGATION STYLES ===== */
+.forceCommunityGlobalNavigation {
+    background-color: var(--yh-purple) !important;
+    font-family: 'Source Sans Pro', Arial, sans-serif !important;
+}
+
+.slds-navigation-list--vertical__item a {
+    color: #333333 !important;
+    font-family: 'Source Sans Pro', Arial, sans-serif !important;
+}
+
+.slds-navigation-list--vertical__item a:hover,
+.slds-is-active a {
+    color: var(--yh-purple) !important;
+    background-color: #f5f5f5 !important;
+}
+
+/* =========== Text ========= */
+.slds-truncate {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+}
+
+.slds-table_header-fixed_container,
+.slds-table--header-fixed_container {
+    padding-top: 2rem !important;
+}
+
+/* Display larger than super headline (max 10x body size) */
+.yh-display-large {
+    font-size: 160px !important;
+    line-height: 168px !important;
+    font-weight: 900 !important;
+}
+
+/* Centered text for specific cases */
+.yh-centered-text {
+    text-align: center !important;
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        letter-spacing: normal !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    :root {
+        --yh-purple: #1a112d;
+        --yh-rose: #b43a53;
+    }
+}
+
+.login-button a {
+    position: fixed;
+    top: 10px;
+    right: 100px;
+    color: white !important;
+    font-size: 16px;
+    font-size: 600;
+    font-family: FSElliot, sans-serif !important;
+    z-index: 4;
+}
+
+/* Yorkshire Housing Help Center Banner Styles */
+.yh-banner-container {
+    background: linear-gradient(135deg, #0053A5 0%, #003366 100%);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.yh-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.yh-logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.yh-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.yh-brand-text {
+    color: white;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    padding-left: 15px;
+}
+
+.yh-brand-text h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.yh-brand-text p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.yh-search-section {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 30px;
+}
+
+.yh-search-box {
+    position: relative;
+}
+
+.yh-search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.yh-search-box button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #E31837;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.yh-user-section {
+    display: flex;
+    align-items: center;
+}
+
+.yh-login-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-left: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.yh-login-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    /* ===== CARD AND LAYOUT STYLES ===== */
+    .slds-card {
+        padding: 0px !important;
+    }
+
+    .yh-banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .yh-logo-section {
+        margin-bottom: 15px;
+    }
+
+    .yh-search-section {
+        margin: 15px 0;
+        max-width: 100%;
+    }
+
+    .yh-user-section {
+        margin-top: 15px;
+    }
+}
+
+/* Integration with Salesforce Help Center template */
+
+
+.cCenterSearch {
+    display: none;
+    /* Hide default search if using custom */
+}
+
+.contentCaption {
+    font-size: var(--superhead-size) !important;
+    line-height: var(--superhead-leading) !important;
+    font-family: FSElliot, sans-serif !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0);
+    color: white !important;
+    text-align: center !important;
+    font-weight: 900 !important;
+}
+
+.contentTitle {
+    font-family: FSElliot, sans-serif !important;
+    color: white !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    font-size: 2rem !important;
+}
+
+/*
+.comm-tile-menu__item-tile {
+    height: 300px !important;
+    z-index: 2 !important;
+}
+
+.comm-tile-menu__item-title {
+    font-family: FSElliot, sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--yh-purple) !important;
+    font-size: 1rem !important;
+    white-space: break-spaces !important;
+    text-overflow: initial !important;
+    word-break: break-word !important;
+}
+
+.comm-tile-menu__item-title:hover {
+    color: var(--yh-yellow) !important;
+}
+
+.comm-tile-menu_item-overlay {
+    opacity: .8 !important;
+    mix-blend-mode: multiply !important;
+    z-index: 1;
+    height: 70% !important;
+    border-radius: 20px 20px 0px 0px !important;
+}
+
+.comm-tile-menu__item:nth-child(4n+1) .comm-tile-menu_item-overlay {
+    background-color: var(--yh-yellow) !important;
+}
+
+.comm-tile-menu__item:nth-child(4n+2) .comm-tile-menu_item-overlay {
+    background-color: var(--yh-green) !important;
+}
+
+.comm-tile-menu__item:nth-child(4n+3) .comm-tile-menu_item-overlay {
+    background-color: var(--yh-rose) !important;
+}
+
+.comm-tile-menu__item:nth-child(4n+4) .comm-tile-menu_item-overlay {
+    background-color: var(--yh-purple) !important;
+}*/
+
+.search-inputSearchButton--right {
+    background-color: var(--yh-rose) !important;
+}
+
+.forceCommunityThemeHeroBase {
+    z-index: auto !important;
+}
+
+    
+   
+.yh-footer {
+    font-family: FSElliot, sans-serif;
+    color: white;
+    font-size: .8rem !important;
+    font-weight: 300 !important;
+}
+
+.yh-global-footer {
+    font-family: FSElliot, sans-serif;
+    color: white;
+    font-size: .8rem !important;
+    font-weight: 300 !important;
+}
+
+.yh-footer-content {
+    margin: auto;
+}
+
+.yh-footer-left {
+    margin: 2px;
+    margin-bottom: 1px;
+}
+
+.yh-footer-left p {
+    text-align: left;
+    line-height: 20px;
+}
+    
+
+.yh-footer p+p {
+    margin-top: 10px;
+}
+
+.yh-footer p.copy-write {
+    font-size: .75rem !important;
+}
+
+    
+body.comm-page-home .comm-content-header {
+    /*position: relative !important;
+    display: block !important;
+    top: 270px !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+    -webkit-overflow-scrolling: touch !important;  
+    scroll-behavior: smooth;  
+    overscroll-behavior-y: contain; 
+    touch-action: pan-y; */
+    position: relative !important;
+    display: block !important;
+    top: 0 !important;
+}
+
+div.hero  {
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s ease;
+    will-change: transform, opacity;
+}
+
+.helpCenterHomeHero .bgImage {
+    border-radius: 0px 0px 50px 50px;
+}
+
+.forceCommunityThemeNav .mainNavItem .linkBtn {
+    font-size: var(--body-size) !important;
+    font-weight: 600 !important;
+}
+
+.themeNav {
+    visibility: var(--search-visible);
+}
+
+.forceCommunityTopArticleListForTopic .topicHeaderLink {
+    font-size: x-large !important;
+}
+
+.expand-yellow-icon .slds-button_icon {
+    background-color: var(--yh-rose);
+    color: white;
+}
+
+.expand-yellow-icon .slds-button_icon:hover,
+.expand-yellow-icon .slds-button_icon:focus {
+    color: var(--yh-purple);
+}
+
+
+
+.balance-positive {
+    color: var(--yh-green) !important;
+}
+
+.balance-negative {
+    color: var(--yh-rose) !important;
+}
+
+.balance-amount {
+    color: var(--yh-purple) !important;
+}
+
+
+
+@media print {
+
+    body {
+        color: #34215a !important;
+    }
+
+    .themeHeader {
+        display: none !important;
+    }
+
+    .desktop-table .slds-scrollable_x {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+    }
+
+    .print-title h1 {
+        font-size: 18pt;
+        color: #34215a !important;
+        margin: 0 0 0.25rem 0;
+        font-weight: bold;
+    }
+
+    .statements-table tr:first-child td {
+        border-top-color : #34215a !important;
+    }
+
+    .slds-th__action-button {
+        display: none !important;
+    }
+
+    .statements-table th, .statements-table td {
+        color: #34215a !important;
+    }
+    
+    /* For 7-column layout (Main Rent Account) */
+    .statements-table.seven-columns th:nth-child(1),
+    .statements-table.seven-columns td:nth-child(1), /* Date */
+    .statements-table.seven-columns th:nth-child(2),
+    .statements-table.seven-columns td:nth-child(2), /* Rent */
+    .statements-table.seven-columns th:nth-child(3),
+    .statements-table.seven-columns td:nth-child(3), /* Charge */
+    .statements-table.seven-columns th:nth-child(4),
+    .statements-table.seven-columns td:nth-child(4), /* Benefit */
+    .statements-table.seven-columns th:nth-child(5),
+    .statements-table.seven-columns td:nth-child(5),
+    .statements-table.seven-columns th:nth-child(6),
+    .statements-table.seven-columns td:nth-child(6) { /* Payment */
+        width: 12% !important;
+    }
+
+    .statements-table.seven-columns th:nth-child(7),
+    .statements-table.seven-columns td:nth-child(7) { /* Balance */
+        width: 10% !important;
+    }
+    
+    /* For 5-column layout (Other Account) */
+    .statements-table.five-columns th:nth-child(1),
+    .statements-table.five-columns td:nth-child(1), /* Date */
+    .statements-table.five-columns th:nth-child(2),
+    .statements-table.five-columns td:nth-child(2), /* Rent */
+    .statements-table.five-columns th:nth-child(3),
+    .statements-table.five-columns td:nth-child(3), /* Charge */
+    .statements-table.five-columns th:nth-child(4),
+    .statements-table.five-columns td:nth-child(4), /* Benefit */
+    .statements-table.five-columns th:nth-child(5),
+    .statements-table.five-columns td:nth-child(5) { /* Payment */
+        width: 17% !important;
+    }
+
+    .meta-item,
+    .meta-item strong,
+    .yh-text-white {
+        color: #34215a !important;
+    }
+
+
+    @page {
+        margin: 0.3cm;
+        size: A4 landscape;
+        
+        @bottom-center {
+            content: "Page " counter(page) " of " counter(pages);
+            font-size: 8pt;
+            color: #34215a;
+            margin-top: 10px;
+        }
+
+        @top-left {
+            content: element(header);
+        }
+    }
+
+    .statements-table th {
+        border-bottom-color: #34215a;
+    }
+
+   
+    .statements-table th:first-child,
+    .statements-table td:first-child {
+        display: none !important;
+    } 
+    
+   
+}
+
+
+
+.menu-icon-rose {
+    --slds-c-icon-color-foreground: white !important;
+    --slds-c-button-menu-icon-width: 3rem;
+    --slds-c-button-menu-icon-height: 3rem;
+    --slds-c-icon-width: 3rem;
+    --slds-c-icon-height: 3rem;
+    --lwc-buttonMenuIconSize: 3rem;
+}
+    
+.menu-icon-rose button {
+   padding :0px !important;     
+}
+
+.menu-icon-rose button :nth-child(2) {
+    display: none !important;
+}
+    
+
+/* ============================================================
+   EXPERIENCE BUILDER – RESPONSIVE FIXED HEADER + STICKY FOOTER
+   ============================================================ */
+/* -------------------------
+   Wrapper
+-------------------------*/
+/*.themeLayoutStarterWrapper.siteforceThemeLayoutStarter {
+    position: relative;       
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;        
+    box-sizing: border-box;
+}*/
+
+/* -------------------------
+   Fixed Header
+-------------------------*/
+.a11y-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;             /* adjust for desktop */
+    z-index: 1000;
+}
+
+/* -------------------------
+   Scrollable Body
+-------------------------*/
+
+/*    .body.isPageWidthFixed-true {
+    display: flex;
+    flex-direction: column;
+    flex: 1;                  
+    padding-top: 100px;        
+    padding-bottom: 100px;    
+    overflow-y: auto;         
+    min-height: calc(100vh - 200px); 
+    box-sizing: border-box;
+    
+}*/
+
+    
+/* -------------------------
+   Footer (sticky bottom)
+-------------------------*/
+/* .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;           
+    z-index: 1000;
+} */
+
+/* -------------------------
+   Flow button spacing
+-------------------------*/
+.flow-button {
+    margin-bottom: 20px;      /* ensures visibility above footer */
+}
+
+    
+/* Reduce extra bottom space in hero */
+.websterHomeHero {
+    /*padding-top: 100px !important;*/      /* optional */
+    padding-bottom: 20px !important;   /* remove extra blank space */
+}
+
+/* Tile menu spacing */
+.comm-tile-menu__ui {
+    /* padding-top: 320px !important; */
+    position: relative !important;
+    z-index: 15 !important;            /* above hero if needed */
+}
+    
+
+/* -------------------------
+   Responsive Adjustments
+-------------------------*/
+@media (max-width: 768px) {
+    .a11y-banner {
+        height: 60px;
+    }
+    .body.isPageWidthFixed-true {
+        padding-top: 60px;
+        padding-bottom: 80px;
+        min-height: calc(100vh - 200px);
+    }
+    /* .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+        height: 80px;
+    } */
+}   
+
+/* ==============================
+   HERO TITLE & CAPTION RESPONSIVE
+   ============================== */
+.hero .websterHomeHero .contentCaption {
+    font-size: clamp(24px, 4vw, 36px) !important;
+    line-height: 1.2;
+}
+
+.hero .websterHomeHero .contentTitle {
+    font-size: clamp(16px, 2.5vw, 24px) !important;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .hero .websterHomeHero .contentCaption {
+        font-size: 22px !important;
+    }
+
+    .hero .websterHomeHero .contentTitle {
+        font-size: 16px !important;
+    }
+
+    .hero .websterHomeHero .content {
+        width: 100% !important;
+        padding-inline: 15px !important;
+    }
+}
+
+
+
+/* -------------------------
+   Tile menu top spacing & stacking
+-------------------------*/
+    /*
+.comm-tile-menu__ui {
+    position: relative !important;
+    z-index: 15 !important;   
+    padding-left: 0 !important;   
+    padding-right: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.comm-tile-menu__ui .slds-tile {
+    flex: 0 1 22% !important;  
+    margin: 1% !important;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1366px) {
+   
+    .comm-tile-menu__ui .slds-tile {
+        flex: 0 1 22% !important;
+        margin: 1% !important;
+    }
+}
+
+@media (max-width: 1024px) {
+   
+    .comm-tile-menu__ui .slds-tile {
+        flex: 0 1 48% !important;
+        margin: 1% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .comm-tile-menu__ui .slds-tile {
+        flex: 0 1 100% !important;
+        margin: 0 0 16px 0 !important;  
+    }
+}
+    
+@media (max-width: 400px) {
+    
+    .comm-tile-menu__ui .slds-tile {
+        flex: 0 1 100% !important;
+        margin: 0 0 16px 0 !important;  
+    }
+} */
+
+/* -------------------------
+   Footer Responsive – Height & Text
+-------------------------*/
+
+/* Laptop screens */
+@media (max-width: 1366px) {
+    /* .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+        height: 80px;
+    }
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer,
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer * {
+        font-size: 15px !important;
+    } */
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+    /* .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+        height: 60px;
+    }
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer,
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer * {
+        font-size: 12px !important;
+    } */
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    /* .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+        height: 60px;
+    }
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer,
+    .themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer * {
+        font-size: 9px !important;
+    } */
+}
+
+
+/* ============================================================
+   GLOBAL BACKGROUND VARIABLE
+   ============================================================ */
+.body.isPageWidthFixed-true {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* FLOW RUNTIME — OUTER CONTAINERS (SCOPED) */
+.body.isPageWidthFixed-true flowruntime-flow,
+.body.isPageWidthFixed-true flowruntime-lwc-body,
+.body.isPageWidthFixed-true flowruntime-progress-indicator,
+.body.isPageWidthFixed-true flowruntime-list-container,
+.body.isPageWidthFixed-true flowruntime-base-section,
+.body.isPageWidthFixed-true flowruntime-section-with-header,
+.body.isPageWidthFixed-true lightning-accordion-section {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* FLOW SCREEN BODY — REMOVE WHITE CARD */
+.flowruntimeBody,
+.flowruntimeBody__lwc,
+.flowruntimeBody.slds-card__body {
+    background-color: var(--yh-unified-bg) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* FLOW NAVIGATION BAR */
+flowruntime-navigation-bar,
+.navigationBar,
+.slds-card__footer {
+    background-color: var(--yh-unified-bg) !important;
+    border-top: none !important;
+}
+
+/* FLOW DISPLAY TEXT — BACKGROUND ONLY */
+.flowruntimeBody 
+flowruntime-display-text-lwc 
+lightning-formatted-rich-text 
+span[part="formatted-rich-text"],
+.flowruntimeBody 
+flowruntime-display-text-lwc 
+lightning-formatted-rich-text 
+span[part="formatted-rich-text"] p {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* SAFETY — STRIP INLINE WHITE BACKGROUNDS */
+.flowruntimeBody 
+lightning-formatted-rich-text 
+[style*="background"] {
+    background-color: transparent !important;
+}
+
+/* ============================================================
+   PAGE / FLOW HEADER BACKGROUND
+   ============================================================ */
+.yh-page-header-bg {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+.yh-page-header-bg.slds-page-header {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Accordion headers rendered inside Flow */
+.flowruntimeBody .slds-accordion__summary,
+.flowruntimeBody .slds-accordion__section,
+.flowruntimeBody .slds-accordion__list-item {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* ============================================================
+   FLOW ACCORDION — REMOVE WHITE BACKGROUNDS
+   ============================================================ */
+.flowruntimeBody .slds-accordion,
+.flowruntimeBody .slds-accordion__list-item,
+.flowruntimeBody .slds-accordion__section,
+.flowruntimeBody .slds-accordion__summary,
+.flowruntimeBody .slds-accordion__summary-heading,
+.flowruntimeBody .slds-accordion__content {
+    background-color: var(--yh-unified-bg) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+/* ============================================================
+   FLOW — ZERO BORDERS (HARD RESET)
+   ============================================================ */
+
+flowruntime-flow,
+.flowruntimeBody,
+.flowruntimeBody.slds-card__body,
+flowruntime-navigation-bar,
+.slds-card,
+.slds-card__body,
+.slds-card__footer,
+.slds-page-header,
+.slds-accordion__section,
+.slds-accordion__summary,
+.slds-accordion__list-item,
+.slds-form-element,
+.slds-form-element__control {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+/* ============================================================
+   FLEXIPAGE FLOW — MATCH BACKGROUND TO PAGE
+   ============================================================ */
+
+/* Flow card wrapper */
+.body.isPageWidthFixed-true
+.slds-card.flowRuntimeForFlexipage.forceCommunityFlowCommunity {
+    background-color: var(--yh-unified-bg) !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Flexipage / Experience Builder padding columns */
+.body.isPageWidthFixed-true
+.siteforceContentArea,
+.body.isPageWidthFixed-true
+.comm-content-header,
+.body.isPageWidthFixed-true
+.contentRegion,
+.body.isPageWidthFixed-true
+.comm-layout-column {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* =====================================================
+   Login Page
+   ===================================================== */
+
+.comm-page-login-home #centerPanel.cCenterPanel {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Control actual content width */
+.comm-page-login-home .salesforceIdentityLoginForm2 {
+    max-width: 400px;   /* 🔧 increase here */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Target rich text that contains an image */
+.comm-page-login-home .forceCommunityRichText:has(img) {
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}    
+  
+/* =====================================================
+   Force Login Button Color
+   ===================================================== */
+
+/* Primary login button */
+.comm-page-login-home .salesforceIdentityLoginForm2 button,
+.comm-page-login-home .salesforceIdentityLoginForm2 .slds-button_brand {
+    background-color: #857a9c !important;  /* 🔧 your color */
+    border-color: #857a9c !important;
+    color: #ffffff !important;
+}
+
+/* Hover state */
+.comm-page-login-home .salesforceIdentityLoginForm2 button:hover,
+.comm-page-login-home .salesforceIdentityLoginForm2 .slds-button_brand:hover {
+    background-color: #f04d6e !important;  /* darker shade */
+    border-color: #f04d6e !important;
+}
+
+/* Focus / active state (accessibility) */
+.comm-page-login-home .salesforceIdentityLoginForm2 button:focus,
+.comm-page-login-home .salesforceIdentityLoginForm2 button:active {
+    background-color: #f04d6e !important;
+    border-color: #f04d6e !important;
+    box-shadow: 0 0 0 2px rgba(0, 112, 210, 0.4);
+}
+
+/* Forgot Password link hover color */
+
+
+/* Hover state */
+.comm-page-login-home .salesforceIdentityLoginForm2 a:hover {
+    color: #f04d6e;   /* 🔧 hover color */
+    text-decoration: underline;
+}
+
+/* Focus state (keyboard accessibility) */
+.comm-page-login-home .salesforceIdentityLoginForm2 a:focus {
+    color: #f04d6e;
+    outline: none;
+    text-decoration: underline;
+}
+
+/* Employee Login link hover color*/
+
+
+/* Hover state */
+.comm-page-login-home .salesforceIdentityEmployeeLoginLink2 a:hover,
+.comm-page-login-home .salesforceIdentityEmployeeLoginLink2:hover {
+    color: #f04d6e;   /* 🔧 hover color */
+    text-decoration: underline;
+}
+
+/* Focus state (accessibility) */
+.comm-page-login-home .salesforceIdentityEmployeeLoginLink2 a:focus {
+    color: #f04d6e;
+    text-decoration: underline;
+}
+    
+/* =====================================================
+   Forgot Password Page
+   ===================================================== */
+
+.comm-page-forgot-password #centerPanel.cCenterPanel {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+.comm-page-forgot-password .forceCommunityRichText {
+    max-width: 400px;   /* 🔧 increase here */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}    
+
+/* Target rich text that contains an image */
+.comm-page-forgot-password .forceCommunityRichText:has(img) {
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Optional: ensure images inside also respect max-width */
+.comm-page-forgot-password .forceCommunityRichText:has(img) img {
+    max-width: 100%;
+    height: auto;
+}    
+/* Control actual content width */
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 {
+    max-width: 400px;   /* 🔧 increase here */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Forgot Passord button */
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 button,
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 .slds-button_brand {
+    background-color: #857a9c !important;  /* 🔧 your color */
+    border-color: #857a9c !important;
+    color: #ffffff !important;
+}
+
+/* Forgot Passord button Hover state */
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 button:hover,
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 .slds-button_brand:hover {
+    background-color: #f04d6e !important;  /* darker shade */
+    border-color: #f04d6e !important;
+}
+
+/* Forgot Passord button Focus / active state (accessibility) */
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 button:focus,
+.comm-page-forgot-password .salesforceIdentityForgotPassword2 button:active {
+    background-color: #f04d6e !important;
+    border-color: #f04d6e !important;
+    box-shadow: 0 0 0 2px rgba(0, 112, 210, 0.4);
+}
+
+/* Style "Cancel" as Button*/
+
+/* Forgot Password – Make Cancel match Reset button*/
+
+.comm-page-forgot-password
+.forceCommunityRichText a[href="./"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 44px;                     /* Salesforce default */
+    padding: 0 16px;                  /* SLDS spacing */
+    width: 100%;
+
+    background-color: #857a9c;
+    border: 1px solid #857a9c;
+    border-radius: 4px;
+
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 44px;
+
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* Hover */
+.comm-page-forgot-password
+.forceCommunityRichText a[href="./"]:hover {
+    background-color: #f04d6e;
+    border-color: #f04d6e;
+    color: #ffffff;
+}
+    
+/* =====================================================
+   Check Password Page
+   ===================================================== */
+
+.comm-page-check-password #centerPanel.cCenterPanel {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+.comm-page-check-password .forceCommunityRichText {
+    max-width: 400px;   /* 🔧 increase here */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}  
+
+/* Target rich text that contains an image */
+.comm-page-check-password .forceCommunityRichText:has(img) {
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Optional: ensure images inside also respect max-width */
+.comm-page-check-password .forceCommunityRichText:has(img) img {
+    max-width: 100%;
+    height: auto;
+}    
+
+/* Style "Back to Login" as Button*/
+
+/* Forgot Password – Make Cancel match Reset button*/
+
+.comm-page-check-password
+.forceCommunityRichText a[href="./"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 44px;                     /* Salesforce default */
+    padding: 0 16px;                  /* SLDS spacing */
+    width: 100%;
+
+    background-color: #857a9c;
+    border: 1px solid #857a9c;
+    border-radius: 4px;
+
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 44px;
+
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* Hover */
+.comm-page-check-password
+.forceCommunityRichText a[href="./"]:hover {
+    background-color: #f04d6e;
+    border-color: #f04d6e;
+    color: #ffffff;
+}  
+    
+/*Menu Navigation Font*/    
+/* All menu + submenu items font size 16px */
+.themeNavContainer a,
+.themeNavContainer button,
+.themeNavContainer .mainNavItem *,
+.themeNavContainer .subMenu *,
+.themeNavContainer .uiMenuList *,
+.themeNavContainer .uiMenuItem *,
+.themeNavContainer ul li * {
+    font-size: 16px !important;
+}
+    
+/*=========================================
+  Font adjustment according to Branding
+=========================================*/
+
+/* Page scope — page names written ONCE */
+body:is(
+  .comm-page-custom-ending-my-tenancy,
+  .comm-page-custom-report-issue-with-neighbour,
+  .comm-page-custom-raise-complaint,
+  .comm-page-my-account,
+  .comm-page-custom-report-a-repair,
+  .comm-page-custom-change-password,
+  .comm-page-custom-update-household-member,
+  .comm-page-custom-add-household-member,
+  .comm-page-custom-ask-a-question
+) {
+
+  /* Navigation bar button font size */
+  flowruntime-navigation-bar lightning-button button {
+      font-size: 16px;
+  }
+
+  /* FLOW DISPLAY TEXT — BACKGROUND ONLY */
+  .flowruntimeBody 
+  flowruntime-display-text-lwc 
+  lightning-formatted-rich-text 
+  span[part="formatted-rich-text"],
+  .flowruntimeBody 
+  flowruntime-display-text-lwc 
+  lightning-formatted-rich-text 
+  span[part="formatted-rich-text"] p {
+      background-color: var(--yh-unified-bg) !important;
+      font-size: 16px !important;
+  }
+
+  /* FLOW DISPLAY TEXT — REQUIRED FIELD NOTICE ONLY */
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] p strong em {
+      font-size: 16px !important;
+  }
+
+  /* FLOW DISPLAY TEXT — CENTERED CONFIRMATION MESSAGE ONLY */
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] p[style*="text-align: center"] > span {
+      font-size: 16px !important;
+  }
+
+  /* FLOW DISPLAY TEXT — INSTRUCTION / CONFIRMATION TEXT ONLY */
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] p > span[style*="font-size"],
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] p > strong[style*="font-size"] {
+      font-size: 16px !important;
+  }
+
+  /* Preserve 36px heading text */
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] p > strong[style*="font-size: 36px"] {
+      font-size: 36px !important;
+  }
+
+  /* FLOW DISPLAY TEXT — LIST ITEMS ONLY */
+  flowruntime-lwc-field.field-element
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text
+  span[part="formatted-rich-text"] ul li > span[style*="font-size"] {
+      font-size: 16px !important;
+  }
+  /* FLOW DISPLAY TEXT — href ONLY */
+  .flowruntimeBody
+  flowruntime-display-text-lwc
+  lightning-formatted-rich-text::part(formatted-rich-text)
+  p[style*="text-align: center"]
+  span[style*="font-size"]
+  a {
+      font-size: 16px !important;
+  }
+
+  /* Flow Text Base Font Size */
+  .flowruntimeBody,
+  .flowruntimeBody__lwc {
+      font-size: 16px;
+  }
+
+  /* Increase label font size for Flow form elements */
+  .flowruntimeBody .slds-form-element__label,
+  .flowruntimeBody__lwc .slds-form-element__label,
+  .flowruntimeBody .slds-form-element lightning-formatted-rich-text,
+  .flowruntimeBody__lwc .slds-form-element lightning-formatted-rich-text {
+      font-size: 16px !important;
+  }
+
+  /* FLOW INPUT / DATEPICKER */
+  flowruntime-lwc-field.field-element
+  flowruntime-flow-screen-input
+  flowruntime-input-wrapper2
+  .flowruntime-input.slds-form-element
+  lightning-input,
+  flowruntime-lwc-field.field-element
+  flowruntime-flow-screen-input
+  flowruntime-input-wrapper2
+  .flowruntime-input.slds-form-element
+  lightning-datepicker,
+  flowruntime-lwc-field.field-element
+  flowruntime-flow-screen-input
+  flowruntime-input-wrapper2
+  .flowruntime-input.slds-form-element
+  .slds-form-element__control {
+      font-size: 16px !important;
+  }
+
+  /* Datepicker icon */
+  flowruntime-lwc-field.field-element
+  flowruntime-flow-screen-input
+  flowruntime-input-wrapper2
+  .flowruntime-input.slds-form-element
+  lightning-button-icon button {
+      font-size: 16px !important;
+  }
+
+  /* FLOW ACCORDION */
+  .flowruntimeBody .slds-accordion,
+  .flowruntimeBody .slds-accordion__list-item,
+  .flowruntimeBody .slds-accordion__section,
+  .flowruntimeBody .slds-accordion__summary,
+  .flowruntimeBody .slds-accordion__summary-heading,
+  .flowruntimeBody .slds-accordion__content {
+      font-size: 20px !important;
+  }
+
+  /*Radio button group - question*/
+  .flowruntimeBody
+  flowruntime-radio-button-input-lwc
+  legend
+  lightning-formatted-rich-text::part(formatted-rich-text)
+  div[style*="font-size"] {
+      font-size: 16px !important;
+  }
+    
+  /*Radio button group - question*/    
+  .flowruntimeBody
+  flowruntime-radio-button-input-lwc
+  .slds-radio__label
+  lightning-formatted-rich-text::part(formatted-rich-text)
+  span[style*="font-size"] {
+      font-size: 16px !important;
+  }
+  /* Remove spacing between stacked widgets */
+  .siteforceContentArea .comm-layout-column .ui-widget:not(:last-child),
+  .siteforceContentArea .cb-section_column .ui-widget:not(:last-child) {
+      margin-bottom: 0 !important;
+  } 
+  /* Remove outer widget spacing */
+  --lwc-uiWidgetMarginBottom: 0rem;
+
+  /* Remove SLDS card padding */
+  .forceCommunityFlowCommunity.slds-card,
+  .forceCommunityFlowCommunity .slds-card__body {
+      padding: 0 !important;
+  }
+}
+
+/*hide rich text box if empty*/
+body:is(
+  .comm-page-my-account
+) {    
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  /* Target Experience Cloud Rich Text */
+  .forceCommunityRichText .uiOutputRichText {
+
+    /* Collapse spacing */
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* Remove empty paragraphs */
+  .forceCommunityRichText .uiOutputRichText p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide paragraphs that contain only &nbsp; or <br> */
+  .forceCommunityRichText .uiOutputRichText p:has(br),
+  .forceCommunityRichText .uiOutputRichText p:has(:only-child) {
+    display: none;
+  }
+
+  /* Final guard: if all children are hidden, hide container */
+  .forceCommunityRichText .uiOutputRichText:has(p:not(:has(br)):not(:empty)) {
+    display: block;
+  }
+
+  .forceCommunityRichText .uiOutputRichText:not(:has(p:not(:has(br)):not(:empty))) {
+    display: none;
+  }
+}
+
+}
+
+/*=========================================
+  Only for Update Customer Details Page
+=========================================*/    
+/* Right-side border for Flow screens */
+/*body:is(
+  .comm-page-my-account
+) {    
+    
+    @media (min-width: 768px) {
+    [data-region-name="content"] {
+        position: relative;
+    	}
+
+    [data-region-name="content"]::after {
+        content: "";
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 1px;
+        height: calc(100% - 90px);
+        background-color: var(--lwc-colorBorder, #34215a);
+    	}
+	}
+}    */
+
+body:is(
+  .comm-page-custom-case-management
+) {    
+    .comm-tile-menu__ui {
+        padding-top: 0px !important;
+        position: relative !important;
+        z-index: 15 !important;            /* above hero if needed */
+    } 
+} 
+/* Hide status field from Case detail page */
+div[data-target-selection-name="sfdc:RecordField.Case.Status"]{ 
+    display:none !important; 
+} 
+    
+    
+@media print {
+    footer.yh-footer {
+        display: none;
+    }
+}
+
+.comm-tile-menu__item-tile.comm-tile-menu__image-preview {
+    background-size: 0% 0%, cover !important; 
+    background-position: center !important;
+    height: 180px !important; 
+    position: relative;
+    border-radius: 12px !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.comm-tile-menu__item-banner {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    transition: background 0.3s ease;
+}
+
+.comm-tile-menu__item:nth-of-type(1) .comm-tile-menu__item-banner {
+    background: linear-gradient(135deg, rgba(125, 86, 18, 0.75) 0%, rgba(249, 188, 80, 0.35) 100%) !important;
+}
+
+.comm-tile-menu__item:nth-of-type(2) .comm-tile-menu__item-banner {
+    background: linear-gradient(135deg, rgba(40, 98, 87, 0.75) 0%, rgba(114, 206, 190, 0.35) 100%) !important;
+}
+
+.comm-tile-menu__item:nth-of-type(3) .comm-tile-menu__item-banner {
+    background: linear-gradient(135deg, rgba(120, 39, 55, 0.75) 0%, rgba(243, 112, 139, 0.35) 100%) !important;
+}
+
+.comm-tile-menu__item:nth-of-type(4) .comm-tile-menu__item-banner {
+    background: linear-gradient(135deg, rgba(26, 17, 45, 0.75) 0%, rgba(92, 78, 122, 0.35) 100%) !important;
+}
+
+.comm-tile-menu__item-title {
+    color: #FFFFFF !important; 
+    font-weight: 800 !important;
+    font-size: 20px !important; 
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5) !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.comm-tile-menu__item-link:hover .comm-tile-menu__item-tile {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.comm-tile-menu__item-link:hover .comm-tile-menu__item-banner {
+    background-color: rgba(0,0,0,0.1) !important; 
+}
+
+.comm-tile-menu_item-overlay { display: none !important; }
+
+
+/* html, body, 
+.siteforceServiceBody, 
+.bodyContent, 
+.mainContentArea, 
+.cCenterPanel {
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important; 
+}*/
+
+.siteforceServiceBody {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+.cCenterPanel {
+    flex: 1 0 auto !important; 
+}
+
+.yh-footer {
+    background-color: var(--yh-purple) !important; 
+    color: #ffffff !important;
+    padding: 6px 0 !important;
+    width: 100% !important;
+    font-family: FSElliot, sans-serif;
+     height: auto !important; 
+}
+
+.yh-footer-container {
+    max-width: 965px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: block !important;
+}
+
+.yh-footer-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    white-space: normal !important;
+    margin-bottom: 12px;
+    display: block !important;
+   
+}
+
+.yh-footer .copy-write {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important; 
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+.yh-footer .copy-write a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+/* Footer Cookies Text Formatting */
+/* Making it Pink and undelined */
+.yh-footer a[href="cookies"],
+.yh-footer a[href="/s/cookies"], .yh-footer a[href="/s/accessibility-statement"]{
+  text-decoration: underline !important;
+  color: #ffffff !important;
+}  
+
+@media only screen and (max-width: 768px) {
+    .yh-footer .copy-write {
+        justify-content: center !important;
+        text-align: center;
+        flex-direction: column; 
+    }
+    .yh-footer-text {
+        text-align: center;
+    }
+}
+    
+
+footer.footer, .cFooterPanel {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+    
+.hero {
+    overflow: hidden;
+}
+
+div[data-region-name="themeHero"] .ui-widget {
+    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform;
+}
+
+
+/* Repairs Page Button colour should not change on hover */    
+.comm-page-custom-repairs button[title="Back to Repairs"]:hover,
+.comm-page-custom-repairs button[title="Back to All Accounts"]:hover {
+    background-color: #ffffff !important;
+}     
+  
+    
+/*Hide List View Drop Down from Case & Member List Page*/    
+/* Disable list view dropdown */
+body.comm-page-list-500 .forceListViewManagerHeader .triggerLink,
+body.comm-page-list .forceListViewManagerHeader .triggerLink{
+    pointer-events: none !important;
+}
+
+/* Hide the dropdown arrow */
+body.comm-page-list-500 .forceListViewManagerHeader .pickerChevron,
+body.comm-page-list .forceListViewManagerHeader .pickerChevron{
+    display: none !important;
+}  
+    
+/* Hide row actions button in record list */
+body.comm-page-list-500 .rowActionsPlaceHolder,
+body.comm-page-list .rowActionsPlaceHolder {
+    display: none !important;
+} 
+
+/* Add some space above Your Home in Hero */    
+.contentCaption {
+    margin-top: 30px;
+}    
+div[data-target-selection-name="sfdc:RecordField.Knowledge__kav.UrlName"] ,
+div[data-target-selection-name="sfdc:RecordField.Knowledge__kav.Title"] {
+	display: none;
+}   
+   
+.salesforceIdentityForgotPassword2 .error{
+	color:#ffffff !important;
+}
+
+/* FINAL EXPERIENCE CLOUD SCROLL FIX */
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden !important;
+}
+
+body.comm-page-home {
+    overflow-y: auto !important;
+    height: auto !important;
+}
+
+.siteforceServiceBody {
+    min-height: 100vh !important;
+    overflow: visible !important;
+}
+
+.bodyContent,
+.mainContentArea,
+.cCenterPanel {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+}
+
+.body.isPageWidthFixed-true {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+}
+    
+/* ================================
+   EXPERIENCE CLOUD MOBILE SCROLL FIX
+   ================================ */
+
+html,
+body,
+.siteforceServiceBody {
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    /*overflow-x: hidden !important;
+    overflow-y: auto !important;*/
+}
+
+@media only screen and (max-width: 768px) {
+
+    html,
+    body {
+        position: relative !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+    }
+
+
+    .siteforceServiceBody,
+    .bodyContent,
+    .mainContentArea,
+    .cCenterPanel,
+    .body.isPageWidthFixed-true,
+    .siteforceContentArea,
+    .themeLayoutStarterWrapper {
+        height: auto !important;
+        min-height: unset !important;
+        max-height: none !important;
+        overflow: visible !important;
+        position: relative !important;
+        display: block !important;
+    }
+
+
+    /* Remove hero from blocking touch scrolling */
+    /*.hero,
+    div.hero,
+    div[data-region-name="themeHero"],
+    .forceCommunityThemeHeroBase {
+        overflow: visible !important;
+        position: relative !important;
+        touch-action: pan-y !important;
+    }*/
+}
+</style>
+<script>
+   /* (function() {
+        var scrollListenerAttached = false;
+
+        function initBannerScroll() {
+            var checkExist = setInterval(function() {
+                var scrollContainer = document.querySelector('.body.isPageWidthFixed-true');
+                var heroBanner = document.querySelector('div.hero');
+                var header = document.querySelector('div.themeBgImage'); 
+                var mainContent = document.querySelector('.body.isPageWidthFixed-true .comm-content-header');
+
+                if (scrollContainer && heroBanner) {
+                    clearInterval(checkExist);
+                    var lastScrollTop = 0;
+
+                    // Remove old listener if it exists to prevent duplicates
+                    scrollContainer.removeEventListener('scroll', handleScroll);
+                    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+                }
+                
+                function handleScroll() {
+                    var st = scrollContainer.scrollTop;
+                    // Target the blocking region you identified
+                    var blockingRegion = document.querySelector('div.hero');
+
+                    if (st > lastScrollTop && st > 50) {
+                        // Hiding the banner
+                        heroBanner.style.transform = 'translateY(-600px)';
+                        heroBanner.style.opacity = '0';
+                        header.style.backgroundColor = '#34215a';
+                        mainContent.style.top = '50px'; 
+                        
+                        // ADD THIS: Make the blocking region "pass-through"
+                        //if (blockingRegion) blockingRegion.style.pointerEvents = 'none';
+                        
+                    } else {
+                        // Showing the banner
+                        heroBanner.style.transform = 'translateY(0)';
+                        heroBanner.style.opacity = '1';
+                        header.style.backgroundColor = 'transparent';
+                        mainContent.style.top = '250px'; 
+                        
+                        // ADD THIS: Re-enable clicks when visible
+                        //if (blockingRegion) blockingRegion.style.pointerEvents = 'auto';
+                    }
+                    lastScrollTop = st <= 0 ? 0 : st;
+                }
+            }, 500);
+        }
+
+        initBannerScroll();
+        window.addEventListener('popstate', initBannerScroll);
+        var pushState = history.pushState;
+        history.pushState = function() {
+            pushState.apply(history, arguments);
+            initBannerScroll();
+        };
+    })();*/
+</script>
+<script>
+//Script to show custom login error msg on Login page//      
+(function () {
+
+    function replaceLoginError() {
+
+        const isLoginPage = document.querySelector('#sfdc_password_container');
+
+        if (!isLoginPage) return;
+        
+        const defaultError = document.querySelector('div[role="alert"].error');
+
+        if (!defaultError) return;
+
+        if (document.getElementById('customLoginMessage')) return;
+
+        // Hide default error
+        defaultError.style.display = "none";
+
+        const msg = document.createElement("div");
+        msg.id = "customLoginMessage";
+
+        msg.style.fontSize = "12px";
+        msg.style.color = "#fff";
+        msg.style.marginBottom = "10px";
+        msg.style.backgroundColor = "var(--yh-rose)";   
+        msg.style.border = "1px solid var(--yh-rose)";  
+        msg.style.borderRadius = "6px";
+        msg.style.padding = "12px 16px";
+        msg.style.marginBottom = "12px";
+        msg.style.lineHeight = "1.5";
+
+        msg.innerHTML = `
+                <strong>We couldn't log you in.</strong><br>
+                The email or password you entered is incorrect. Please check your details and try again.<br><br>
+                <strong>Forgotten your password?</strong><br>
+                Use the forgotten password link.<br><br>
+                <strong>Former YH customer?</strong><br>
+                Your online account may no longer be active. If you need to speak with us, please call 0345 366 4404.
+            `;
+
+
+        defaultError.parentNode.insertBefore(msg, defaultError);
+    }
+
+    const interval = setInterval(function () {
+        replaceLoginError();
+    }, 300);
+
+})();
+</script>
+<script>
+(function () {
+    function isValidEmail(value) {
+        value = value.trim();
+        // Basic email structure
+        const emailRegex =
+            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        // Must match regex
+        if (!emailRegex.test(value)) {
+            return false;
+        }
+        // Reject consecutive dots
+        if (value.includes('..')) {
+            return false;
+        }
+        // Split local/domain
+        const parts = value.split('@');
+        // Must contain exactly one @
+        if (parts.length !== 2) {
+            return false;
+        }
+        const local = parts[0];
+        const domain = parts[1];
+        // Reject leading/trailing dots
+        if (
+            local.startsWith('.') ||
+            local.endsWith('.') ||
+            domain.startsWith('.') ||
+            domain.endsWith('.')
+        ) {
+            return false;
+        }
+        return true;
+    }
+
+    function getInput() {
+        return document.querySelector(
+            'input[placeholder="Username"], input[placeholder="Email address"]'
+        );
+    }
+
+    function removeMessage() {
+        const existing = document.getElementById(
+            'fp_email_format_error'
+        );
+        if (existing) {
+            existing.remove();
+        }
+    }
+
+    function showMessage(input) {
+        removeMessage();
+        const msg = document.createElement('div');
+        msg.id = 'fp_email_format_error';
+        msg.style.fontSize = "12px";
+        msg.style.color = "#fff";
+        msg.style.backgroundColor = "var(--yh-rose)";
+        msg.style.border = "1px solid var(--yh-rose)";
+        msg.style.borderRadius = "6px";
+        msg.style.padding = "12px 16px";
+        msg.style.marginBottom = "12px";
+        msg.style.lineHeight = "1.5";
+        msg.innerHTML =
+            '<strong>Invalid email format</strong><br>' +
+            'Please enter a valid email address (e.g. name@example.com)';
+        // Find the full input container
+        const container = input.closest('.inputContainer');
+        if (container) {
+            // Insert ABOVE input container
+            container.insertAdjacentElement('beforebegin', msg);
+        } else {
+            // Fallback
+            input.parentNode.insertBefore(msg, input);
+        }
+    }
+
+    function stopEvent(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if (event.cancelBubble !== undefined) {
+            event.cancelBubble = true;
+        }
+        if (event.returnValue !== undefined) {
+            event.returnValue = false;
+        }
+        return false;
+    }
+
+    function validate(event) {
+        const input = getInput();
+        if (!input) {
+            return true;
+        }
+        removeMessage();
+        const value = (input.value || '').trim();
+        // Let Salesforce handle empty field
+        if (!value) {
+            return true;
+        }
+        // Invalid email
+        if (!isValidEmail(value)) {
+            stopEvent(event);
+            showMessage(input);
+            input.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function bind() {
+        const input = getInput();
+        if (!input) {
+            return;
+        }
+        // Prevent duplicate bindings
+        if (document.body.dataset.fpValidationBound === 'true') {
+            return;
+        }
+        document.body.dataset.fpValidationBound = 'true';
+        // Intercept button clicks
+        document.addEventListener('click', function (event) {
+            const target = event.target;
+            const button = target.closest('button');
+            if (!button) {
+                return;
+            }
+            const text = (
+                button.innerText || ''
+            ).trim().toLowerCase();
+            if (
+                text.includes('reset password') ||
+                text.includes('log in')
+            ) {
+                validate(event);
+            }
+        }, true);
+        // Intercept Enter key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                validate(event);
+            }
+        }, true);
+        // Intercept form submit
+        document.addEventListener('submit', function (event) {
+            validate(event);
+        }, true);
+    }
+    // Experience Cloud renders asynchronously
+    setInterval(bind, 500);
+})();
+</script>-->
+        
+        <!-- webruntime-branding-shared stylesheets -->
+        <link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.min.css?0DBTw0000000xPt:48"/>
+        <link rel="stylesheet" href="assets/styles/dxp-site-spacing-styling-hooks.min.css?0DBTw0000000xPt:48"/>
+        <link rel="stylesheet" href="assets/styles/dxp-styling-hooks.min.css?0DBTw0000000xPt:48"/>
+        <link rel="stylesheet" href="assets/styles/dxp-slds-extensions.min.css?0DBTw0000000xPt:48"/>
+        <!-- webruntime-branding-shared stylesheets -->
+        <link rel="stylesheet" href="assets/styles/styles.css?0DBTw0000000xPt:48"/>
+        <link rel="stylesheet" href="assets/css/fonts-and-custom.css?0DBTw0000000xPt:48"/>
+    </head>
+    <body>
+        <webruntime-app></webruntime-app>
+    </body>
+</html>

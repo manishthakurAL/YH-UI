@@ -1,0 +1,18 @@
+:host {
+    --slds-c-card-text-color: var(--yh-purple);
+    --slds-c-card-heading-font-size: 1.3rem;
+    --slds-c-card-heading-font-weight: 700;
+}
+.rent-statements-container {
+    min-height: 500px;
+}
+
+.tenancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-green-icon {
+     --sds-c-icon-color-background: var(--yh-green);    
+}

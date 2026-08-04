@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c7670138-cfd4-4214-9981-d67fd87297ae",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Leave_a_Compliment__c",
+  "id" : "1897b23f-447e-4ff5-b7a5-922b4e3a8758",
+  "label" : "Leave a Compliment",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-leave-compliment",
+  "type" : "route",
+  "urlPrefix" : "leave-compliment"
+}

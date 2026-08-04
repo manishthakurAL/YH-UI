@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "2657fa1d-0cb5-4624-8552-4216e69ac0a2",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "AccessibilityStatement__c",
+  "id" : "de971ccd-ffc7-41c7-8205-6f5d6d5edc2b",
+  "label" : "AccessibilityStatement",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-accessibility-statement",
+  "type" : "route",
+  "urlPrefix" : "accessibility-statement"
+}

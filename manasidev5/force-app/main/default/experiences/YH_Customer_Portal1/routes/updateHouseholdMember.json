@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "38757931-db83-43ce-aded-048eacbd25dc",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Update_Household_Member__c",
+  "id" : "fbd04f22-5759-408c-9534-ca1ab8cd2e8e",
+  "label" : "Update Household Member",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-update-household-member",
+  "type" : "route",
+  "urlPrefix" : "update-household-member"
+}

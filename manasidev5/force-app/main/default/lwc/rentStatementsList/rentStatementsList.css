@@ -1,0 +1,558 @@
+:host {
+    --sds-c-icon-color-background: transparent;
+}
+
+.print-header {
+    display: none;
+}
+
+.statment-container {
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: var(--yh-purple) !important;
+}
+
+.statment-header {
+    padding: 1rem 0rem;
+    margin: 0rem 1.1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--yh-purple);
+    border-bottom: 2px solid var(--yh-rose);
+    transition: background-color 0.2s ease;
+}
+
+.tenant-address-icon {
+     --sds-c-icon-color-background: var(--yh-green) !important;
+     --sds-c-icon-color-foreground: #ffffff !important;
+}
+
+.print-button {
+    border: 1px solid white !important;
+    outline: 0;
+}
+
+.statements-list {
+    background-color: rgb(239, 237, 242);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.section-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: large;
+    /* border-bottom: 1px solid var(--yh-purple); */
+}
+
+.statement-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    border: 1px solid var(--yh-purple);
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(var(--yh-purple), 0.05);
+}
+
+.statement-item:hover {
+    background-color: var(--yh-light-purple);
+    background-color: var(--yh-lightest-rose);
+    border-color: rgba(var(--yh-purple), 0.05);
+}
+
+.download-button {
+    min-width: 100px;
+}
+
+.pagination-controls {
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--yh-purple);
+}
+
+.pagination-text {
+    color: var(--yh-dark-purple);
+}
+
+.filter-section, .statements-container {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--yh-purple);
+}
+
+.period-combobox {
+    min-width: 150px;
+}
+
+.desktop-table {
+    display: block;
+}
+
+.statements-table {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* .slds-table thead th {
+    background-color: #f3f2f2;
+    font-weight: 700;
+    color: #3e3e3c;
+} */
+
+/* Mobile Cards */
+.mobile-cards {
+    display: none;
+}
+
+.transaction-card {
+    background: white;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.transaction-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--yh-lightest-purple);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.field-label {
+    font-weight: 600;
+    color: var(--yh-purple);
+    font-size: 0.875rem;
+    width: 40%;
+}
+
+.field-value {
+    color: var(--yh-dark-purple);
+    font-weight: 500;
+    text-align: right;
+    width: 60%;
+}
+
+.apply-filter-button {
+    text-align: right;
+    padding-top: 1.5rem;
+}
+
+.pagination-button:disabled {
+    color: var(--yh-light-purple);
+}
+
+.scroll-container {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* Custom scrollbar for better UX */
+.scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f3f2f2;
+    border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #dddbda;
+    border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #c9c7c5;
+}
+
+.loading-indicator {
+    padding: 1rem;
+    background: #fafaf9;
+    border-radius: 0.5rem;
+    border: 1px dashed #dddbda;
+}
+
+.end-message {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    border: 1px solid var(--yh-lightest-purple);
+}
+
+/* Ensure proper spacing for infinite scroll */
+.transaction-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Keep existing styles for filter, table, and cards */
+.filter-section {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--yh-light-purple);
+}
+
+.period-combobox {
+    min-width: 150px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .apply-filter-button {
+        text-align: left;
+        padding-top: 0px;
+    }
+
+    
+    .statements-container {
+        background: transparent;
+        padding: 0px;
+        border: 0px;
+    }
+    .statement-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.875rem;
+    }
+    
+    .download-button {
+        align-self: stretch;
+        min-width: auto;
+    }
+    
+    .pagination-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .pagination-text {
+        order: -1;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .filter-section .slds-grid {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .period-combobox {
+        min-width: 120px;
+    }
+
+    .desktop-table {
+        display: none;
+    }
+    
+    .mobile-cards {
+        display: block;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-section .slds-grid {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .period-combobox {
+        min-width: 120px;
+    }
+    
+    .transaction-card {
+        padding: 0.875rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .field-row {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.25rem;
+        border-bottom: 1px solid var(--yh-lightest-purple);
+        margin-top: .25rem;
+    }
+    
+    .field-value {
+        text-align: left;
+        width: 100%;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+
+    .statements-container {
+        background: transparent;
+        padding: 0px;
+        border: 0px;
+    }
+
+    .transaction-card {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-header .slds-text-heading_small {
+        font-size: 1rem;
+    }
+    
+    .balance-amount {
+        font-size: 1rem;
+    }
+    
+    .field-label, .field-value {
+        font-size: 0.8125rem;
+    }
+}
+
+
+/* Print Styles - Fixed to avoid horizontal scrolling */
+@media print {
+    /* Hide non-essential elements */
+    .no-print,
+    .filter-section,
+    .mobile-cards,
+    .print-button,
+    .scroll-container::-webkit-scrollbar,
+    lightning-spinner,
+    c-empty-state,
+    c-error-state {
+        display: none !important;
+    }
+
+    /* Reset styles for print */
+    body,
+    .statements-list {
+        background: white !important;
+        color: #34215a !important;
+        font-size: 10pt !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .scroll-container {
+        max-height: none !important;
+        overflow: visible !important;
+        border: none !important;
+        padding: 0 !important;
+        height: auto !important;
+    }
+
+    /* Print header */
+    .print-header {
+        display: block !important;
+        border-bottom: 2px solid var(--yh-rose);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        page-break-after: avoid;
+    }
+
+    .print-logo-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .logo-placeholder {
+        margin-right: 1rem;
+    }
+
+    .company-logo {
+        height: 40px;
+        max-width: 150px;
+    }
+
+    .logo-fallback {
+        font-size: 14pt;
+        font-weight: bold;
+        color: #0176d3;
+    }
+
+    .print-title {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .print-title h1 {
+        font-size: 16pt;
+        color: #34215a;
+        margin: 0 0 0.25rem 0;
+        font-weight: bold;
+    }
+
+    .print-subtitle {
+        font-size: 11pt;
+        color: #666;
+        margin: 0;
+    }
+
+    .print-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9pt;
+        color: #666;
+    }
+
+    
+
+    /* Table styles for print - FIXED NO HORIZONTAL SCROLL */
+    .desktop-table {
+        display: block !important;
+        width: 100% !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+    }
+
+    .statements-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 8pt !important;
+    }
+
+    .desktop-table .slds-scrollable_x {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+    }
+
+    .statements-table table {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* .statements-table th {
+        background: #f8f9fa !important;
+        color: black !important;
+        border: 1px solid #ddd !important;
+        padding: 4px 6px !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        font-size: 8pt !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .statements-table td {
+        border: 1px solid #ddd !important;
+        padding: 4px 6px !important;
+        text-align: left !important;
+        font-size: 8pt !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    } */
+
+    /* Hide row numbers in print */
+    .statements-table th:first-child,
+    .statements-table td:first-child {
+        display: none !important;
+    }
+
+    .print-summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-size: 9pt;
+    }
+
+    .print-disclaimer {
+        font-size: 7pt;
+        color: #666;
+        text-align: center;
+        font-style: italic;
+        line-height: 1.2;
+    }
+
+    /* Page breaks and margins */
+    .transaction-card,
+    tr {
+        page-break-inside: avoid;
+    }
+
+
+
+    /* Reduce padding and margins for compact layout */
+    .statements-list {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .scroll-container {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+.print-template {
+    position: relative;
+}
+
+
+/* Keep your existing header, filter, and other styles */
+.header-section {
+    padding: 1rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid #dddbda;
+}
+
+.print-button {
+    margin-left: auto;
+}
+
+.filter-section {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #dddbda;
+}
+
+.scroll-container {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+.understandingRentStatement{
+    color:#34215a;
+    text-decoration: underline;
+}

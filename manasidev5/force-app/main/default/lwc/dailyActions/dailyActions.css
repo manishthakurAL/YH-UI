@@ -1,0 +1,9 @@
+:host{
+    --slds-c-button-brand-color-background: #f04d6e;
+    --slds-c-button-brand-color-border: #f04d6e;
+    --slds-c-button-brand-color-border-hover: #f04d6e;
+    --slds-c-button-brand-color-border-active: #f04d6e;
+    --slds-c-button-text-color: #ffffff;
+    --slds-c-button-text-color-hover: #ffffff;
+    --slds-c-button-text-color-active: #ffffff;
+}

@@ -1,0 +1,48 @@
+{
+  "forgotPasswordRouteId" : "0c3152d4-9da9-4523-bcca-532549c18425",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "618f286f-bf28-4502-9d91-0aace9be8492",
+  "mainAppPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "preferredDomain" : "none",
+  "selfRegistrationRouteId" : "91edc294-793a-4747-91c1-1e6c0e18d8ee",
+  "trustedSitesForScript" : [ {
+    "id" : "68557257-047c-4a27-9c3e-5afd48b7d8eb",
+    "isActive" : true,
+    "trustedSiteName" : "Repair Locator",
+    "trustedSiteUrl" : "https://www.yorkshirehousing.co.uk/your-home/report-a-repair/",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "8b61123f-d305-4b5e-b31f-7cb592cc1c65",
+    "isActive" : true,
+    "trustedSiteName" : "YH Housing",
+    "trustedSiteUrl" : "https://www.yorkshirehousing.co.uk",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "11cefba9-8145-4266-ae91-c16f723c7fd2",
+    "isActive" : true,
+    "trustedSiteName" : "Iframe",
+    "trustedSiteUrl" : "https://m3central.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "ec454905-c51a-4aef-a5b2-c366b62df0aa",
+    "isActive" : true,
+    "trustedSiteName" : "www.google-analytics.com",
+    "trustedSiteUrl" : "https://www.google-analytics.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "e0e2a43d-fed6-4138-b29e-5eb9eea50421",
+    "isActive" : true,
+    "trustedSiteName" : "stats.g.doubleclick.net",
+    "trustedSiteUrl" : "https://stats.g.doubleclick.net",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "d61bba22-611b-4356-b9aa-4c16e87cc1da",
+    "isActive" : true,
+    "trustedSiteName" : "www.googletagmanager.com",
+    "trustedSiteUrl" : "https://www.googletagmanager.com/gtag/js",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

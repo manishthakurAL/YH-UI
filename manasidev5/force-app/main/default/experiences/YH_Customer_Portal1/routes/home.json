@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "3bd843b3-5cb7-4c83-a003-a8c7ca867f8f",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Home",
+  "id" : "19300236-e101-4cc7-bc61-ee0ef2a6db17",
+  "label" : "Home",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "home",
+  "type" : "route",
+  "urlPrefix" : ""
+}

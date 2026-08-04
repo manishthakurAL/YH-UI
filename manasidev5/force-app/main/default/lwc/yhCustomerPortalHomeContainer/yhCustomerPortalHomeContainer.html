@@ -1,0 +1,51 @@
+<template>
+    <main class="dashboard">
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <!-- Welcome -->
+            <section class="hero-left">
+
+                <p class="greeting">
+                    {greetingMessage}
+                </p>
+
+                <h1 class="welcome">
+                    Welcome back, {userName}.
+                </h1>
+                <template lwc:if={hasAddress}>
+                    <p class="address">
+                        {address}
+                    </p>
+                </template>
+                <template lwc:if={showAlert}>
+                    <section class="alert-box">
+                        ...
+                    </section>
+                </template>
+            </section>
+
+            <!-- Summary Card -->
+            <aside class="balance-card">
+
+                <!-- Future balance information -->
+
+            </aside>
+
+        </section>
+
+        <!-- Future Quick Actions -->
+        <!--
+        <section class="quick-actions">
+        </section>
+        -->
+
+        <!-- Future Open Cases -->
+        <!--
+        <section class="open-cases">
+        </section>
+        -->
+
+    </main>
+</template>

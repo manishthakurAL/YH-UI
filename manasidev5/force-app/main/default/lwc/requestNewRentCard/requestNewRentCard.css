@@ -1,0 +1,71 @@
+.tenancy-item {
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: var(--yh-purple) !important;
+}
+
+.tenancy-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tenancy-header {
+    padding: 1rem 0rem;
+    margin: 0rem 1.1rem;
+    cursor: pointer;
+    background-color: var(--yh-purple);
+    border-bottom: 2px solid var(--yh-rose);
+    transition: background-color 0.2s ease;
+}
+
+.tenancy-header:hover {
+    background-color: #f3f2f2;
+}
+
+.tenancy-content {
+    background-color: white;
+}
+
+.slds-text-body_small p + p {
+    margin:0px;
+    padding:0px;
+}
+
+.tenant-address-icon {
+     --sds-c-icon-color-background: var(--yh-green) !important;
+     --sds-c-icon-color-foreground: #ffffff !important;
+}
+
+.property-type {
+    font-style: italic;
+}
+
+.yh-fg-green {
+    --slds-c-icon-color-foreground-default: #ffff !important;
+    --sds-c-icon-color-background: #4fc3ae !important;
+    font-weight: 800;
+    border-radius: 1rem;
+    padding: .15rem;
+    margin-left: 2px;
+}
+
+.yh-fg-rose {
+    --slds-c-icon-color-foreground-default: #ffff !important;
+    --sds-c-icon-color-background: #f04d6e !important;
+    font-weight: 800;
+    border-radius: 1rem;
+    padding: .15rem;
+    margin-left: 2px;
+}
+
+@media (max-width: 768px) {
+    .tenancy-item {
+        padding-bottom: 1rem !important;
+    }
+    
+}
+
+.tenancy-rent-card{
+    margin: 35px 15px 30px 15px; 
+    border-radius: 6px;
+}

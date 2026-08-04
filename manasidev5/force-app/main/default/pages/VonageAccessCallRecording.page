@@ -1,0 +1,3 @@
+<apex:page showHeader="false" sidebar="false" showChat="false" standardController="VoiceCall" applyHtmlTag="false" >
+    <apex:iframe src="{!$Setup.NVMContactWorld__Settings__c.NVMContactWorld__baseURL__c}/callcentre/callAnalytics/Call/{!VoiceCall.VonageSCV__InteractionGuid__c}" scrolling="true" height="900px" width="100%"/>
+</apex:page>

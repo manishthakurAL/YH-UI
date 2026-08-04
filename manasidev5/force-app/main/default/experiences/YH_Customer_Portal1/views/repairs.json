@@ -1,0 +1,60 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "e729b339-e4d2-49a6-9a72-5950ca3b8f8a",
+  "label" : "Repairs",
+  "regions" : [ {
+    "id" : "2d7f3e53-12ef-46c0-bf1a-f6f3e6ac82cb",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:repairDetailsContainer",
+      "id" : "5b27b7db-c78e-4f18-9f5e-dfeb8fdcf2b6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"searchTerm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Repairs\"}]",
+        "flowName" : "SF_Community_Show_Suggested_Knowledge_Article"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "505424b5-db74-4d22-8b8d-e2081deeab18",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5c5d168a-3994-4e1b-bd96-284faecce736",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ea0b2cc0-88fc-4057-95f2-9beb48c3dc97",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "1004058a-76b7-4f54-b3b9-43d86445dcae",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Repairs"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "067d3d58-9a22-4f39-abb3-cccb1204adfc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5f0ae625-24b0-414d-95bd-462184d8f03b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-repairs"
+}

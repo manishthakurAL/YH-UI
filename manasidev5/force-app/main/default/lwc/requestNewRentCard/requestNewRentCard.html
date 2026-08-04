@@ -1,0 +1,63 @@
+<template>
+    <div class="slds-card tenancy-item" >
+        <div class="tenancy-header yh-bg-purple" >
+            <div class="slds-grid slds-grid_align-spread1 slds-grid_vertical-align-center">
+                <div class="slds-col" onclick={handleToggle}>
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon 
+                            icon-name="standard:address" 
+                            size="medium"
+                            class="slds-m-right_small tenant-address-icon">
+                        </lightning-icon>
+                        <div>
+                           
+                            <h3 class="slds-text-heading_small yh-text-white">
+                                {propertyAddress}
+                                <template if:true={isActive}>
+                                    <lightning-badge label="Active" class="slds-show_large slds-m-left_x-small slds-badge_inverse yh-bg-green"></lightning-badge>
+                                </template>
+                                <template if:false={isActive}>
+                                    <lightning-badge label="Expired" class="slds-show_large slds-m-left_x-small slds-badge_inverse yh-bg-rose"></lightning-badge>
+                                </template>
+                            </h3>
+                        
+                            <div class="slds-show_large slds-text-body_small yh-text-white">
+                                Tenancy ID: {tenancyNumber} - <span class="yh-text-yellow property-type">{propertyType}</span>
+                            </div>
+                            <div class="slds-hide_medium slds-text-body_small yh-text-white">
+                                {tenancyNumber} - <span>({propertyType})</span>
+                                <template if:true={isActive}>
+                                    <lightning-icon label="Active" icon-name="utility:check" size="xx-small" class="yh-fg-green"></lightning-icon>
+                                </template>
+                                <template if:false={isActive}>
+                                    <lightning-icon label="Expired" icon-name="utility:close" size="xx-small" class="yh-fg-rose"></lightning-icon>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-no-flex no-print">
+                <lightning-button 
+                    icon-name="utility:undo"
+                    alternative-text="Back"
+                    label="Back"
+                    title="Back"
+                    class="slds-m-right_xxx-small"
+                    onclick={handleAllAccounts}
+                    variant="brand">
+                </lightning-button>
+            </div>
+            </div>
+        </div>
+
+        <div class="tenancy-content tenancy-rent-card"> 
+            <div class="slds-p-around_medium" style="padding-bottom:10px;">
+                <lightning-flow
+                    flow-api-name={flowName}
+                    onstatuschange={handleStatusChange}
+                    flow-input-variables={inputVariables}>
+                </lightning-flow>
+            </div>
+        </div>
+    </div>
+</template>

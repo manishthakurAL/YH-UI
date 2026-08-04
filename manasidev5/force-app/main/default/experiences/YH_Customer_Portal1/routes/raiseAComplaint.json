@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "554067b5-d69b-4bb0-8d06-c06e9069353b",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Raise_a_Complaint__c",
+  "id" : "711b7c49-f5a1-4b0e-b13a-15e2f0a034b7",
+  "label" : "Raise a Complaint",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-raise-complaint",
+  "type" : "route",
+  "urlPrefix" : "raise-complaint"
+}

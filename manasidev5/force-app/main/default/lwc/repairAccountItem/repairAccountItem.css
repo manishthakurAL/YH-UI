@@ -1,0 +1,130 @@
+.account-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--yh-purple) !important;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.account-item:hover {
+    border-color: var(--yh-purple);
+    box-shadow: 0 2px 4px rgba(var(--yh-dark-purple), 0.1);
+}
+
+.account-header {
+    padding: 1rem;
+}
+
+.field-group {
+    margin-bottom: 0.5rem;
+}
+
+.field-label {
+    font-weight: 600;
+    color:  var(--yh-purple);
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    color:  var(--yh-purple);
+}
+
+.action-buttons {
+    gap: 0.5rem;
+}
+
+.payment-button, .statements-button {
+    min-width: 126px;
+    position: relative;
+}
+
+.period-filter-wrapper {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+
+.statements-section {
+    border-top: 1px solid var(--yh-purple);
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.tenancy-item {
+    border: 1px solid #dddbda;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background-color: var(--yh-purple) !important;
+}
+
+.tenancy-item-body {
+    background-color: var(--yh-purple);
+}
+
+
+.tenancy-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tenancy-header {
+    padding: 1rem 0rem;
+    margin: 0rem 1.1rem;
+    cursor: pointer;
+    background-color: var(--yh-purple);
+    border-bottom: 2px solid var(--yh-rose);
+    transition: background-color 0.2s ease;
+}
+
+.tenancy-header:hover {
+    background-color: #f3f2f2;
+}
+
+.tenancy-content {
+    background-color: white;
+}
+
+.slds-text-body_small p + p {
+    margin:0px;
+    padding:0px;
+}
+
+.tenant-address-icon {
+     --sds-c-icon-color-background: var(--yh-green) !important;
+     --sds-c-icon-color-foreground: #ffffff !important;
+}
+
+.property-type {
+    font-style: italic;
+}
+
+.expand-yellow-icon {
+    --sds-c-icon-color-background: var(--yh-yellow);    
+}
+
+@media (max-width: 768px) {
+    .tenancy-item {
+        padding-bottom: 1rem !important;
+    }
+    
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .acccount-type, .balance-negative {
+        font-size: .85rem !important;
+    }
+    .account-header  {
+        padding: 0px !important;
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        justify-content: stretch;
+        margin-top: 1rem;
+    }
+    
+    .payment-button, .statements-button {
+        flex: 1;
+        min-width: auto;
+        width: 100%;
+    }
+}

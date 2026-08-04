@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e729b339-e4d2-49a6-9a72-5950ca3b8f8a",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Repairs__c",
+  "id" : "014c0500-2d32-4e3c-b74a-f86df0ae92af",
+  "label" : "Repairs",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-repairs",
+  "type" : "route",
+  "urlPrefix" : "repairs"
+}

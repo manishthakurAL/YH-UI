@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Repairs" icon-name="standard:contract_line_item" class="repairs-container card-green-icon">
+      
+
+        <div slot="actions">
+            <template if:true={showReportToRepair}>
+                <lightning-button 
+                    icon-name="utility:card_details"
+                    alternative-text="Report a New Repair"
+                    label="&nbsp;&nbsp;Report a New Repair  &nbsp;&nbsp;"
+                    title="Report a New Repair"
+                    onclick={invokeReportRepairFlow}
+                    variant="destructive"
+                    class="repairButtonClsDesktop slds-button slds-button_destructive slds-button_stretch" >
+                </lightning-button>
+            </template>
+        </div>
+        <div class="slds-card__body_inner">
+               <lightning-button 
+                    icon-name="utility:card_details"
+                    alternative-text="Report a New Repair"
+                    label="Report a New Repair"
+                    title="Report a New Repair"
+                    onclick={invokeReportRepairFlow}
+                    variant="destructive"
+                    class="repairButtonClsMobile slds-button slds-button_destructive" >
+                </lightning-button>
+            <template if:true={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_large">
+                    <lightning-spinner alternative-text="Loading repairs"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <c-error-state message={error.body.message}></c-error-state>
+            </template>
+
+            <template if:false={isLoading}>
+                <template if:false={hasTenancyData}>
+                    <c-empty-state 
+                        title="No Repairs associated with the property"
+                        message="No Repairs associated with the property"
+                        icon-name="standard:account">
+                    </c-empty-state>
+                </template>
+            </template>
+
+            <template if:true={hasTenancyData}>
+                <template if:false={showDetails}>
+                <div class="repairs slds-p-around_small">
+                    <template for:each={tenancyData} for:item="tenancy">
+                        <c-repair-item 
+                            key={tenancy.tenancyNumber}
+                            tenancy={tenancy}
+                            onhandledetails={handleDetails}
+                            onexpand ={handleRepairDetailsView}
+                            isexpanded={tenancy.isExpanded}
+                            onfilter={handleRepairFilter}
+                            isloadingrepairs={tenancy.isLoadingRepairs}
+                            isdisplayedonflexipae={isDisplayedOnFlexiPage}
+                            >
+                        </c-repair-item>
+                    </template>
+                </div>
+                </template>
+              
+                <div class="repairs slds-p-around_small">
+                    <template if:true={showDetails}>
+                        <c-repair-account-item
+                        repair ={singlerepairdetail} 
+                        repairdetails={singlerepairdetailsMoreInfo}
+                        onundo ={handleBackToSingleTenancyRepair}
+                        propertyaddress={propertyAddress}
+                        showadditionalfields={isDisplayedOnFlexiPage}
+                        >
+                        </c-repair-account-item>
+                    </template>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

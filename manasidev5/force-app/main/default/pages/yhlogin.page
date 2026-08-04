@@ -1,0 +1,321 @@
+<apex:page controller="YHLoginController" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false"> 
+<html>
+<head>
+    <title>Customer Login</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <apex:slds />
+    <style type="text/css">
+        .custom-background {
+            background-image: url("{!$Resource.yhBackground}"); 
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            padding: 80px 20px 40px 20px;
+        }
+
+        .layout-wrapper {
+            width: 100%;
+            max-width: 400px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .brand-logo { 
+            margin-bottom: 2rem; 
+            max-width: 260px;
+            height: auto;
+        }
+
+        .main-content-grid {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .form-panel {
+            width: 100%;
+        }
+
+        .support-panel { 
+            width: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .guidance-container {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .guidance-title {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .input-wrapper {
+            background: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid transparent; 
+            box-sizing: border-box;
+            transition: border-color 0.2s ease;
+        }
+        
+        .slds-icon {
+            fill: #555555 !important;
+            margin-right: 12px;
+        }
+        
+        input[type="text"], input[type="password"] {
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            outline: none;
+            color: #333;
+            background: transparent;
+            text-align: left;
+        }
+
+        .btn-login {
+            background-color: #f65366; 
+            color: #ffffff !important; 
+            border: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            text-transform: none;
+            transition: background 0.2s ease;
+        }
+        
+        .btn-login:hover {
+            background-color: #df4355;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .links a { 
+            color: white; 
+            text-decoration: underline; 
+        }
+        
+        .support-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .video-box {
+            position: relative;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: #000000;
+            padding-top: 56.25%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .support-link-wrapper a {
+            font-size: 14px; 
+            color: #FFFFFF; 
+            text-decoration: underline;
+        }
+
+        .error-container-box {
+            background-color: #f65366; 
+            color: #ffffff; 
+            text-align: left;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            width: 100%;
+            box-sizing: border-box;
+            line-height: 1.4;
+        }
+
+        .error-header-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .error-section-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 18px;
+            margin-bottom: 4px;
+        }
+
+        .error-body-text {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
+        .footer {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="slds-scope">
+    <div class="custom-background">
+        <div class="layout-wrapper">
+            
+            <img src="{!$Resource.yhLogoBrandName}" class="brand-logo" alt="Yorkshire Housing" />
+            
+            <div class="main-content-grid">
+                
+                <div class="form-panel">
+                    <div class="guidance-container">
+                        <span class="guidance-title">Log in to your account</span>
+                    </div>
+                    
+                    <apex:form id="theForm">
+                        
+                        <div id="clientErrorBlock" class="error-container-box" style="display: none; margin-bottom: 16px;">
+                            <div class="error-body-text">Please fill in all mandatory fields.</div>
+                        </div>                        
+
+                        <div class="input-wrapper" id="emailWrapper">
+                            <span class="slds-icon_container slds-icon-utility-user">
+                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <use href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#user')}"></use>
+                                </svg>
+                            </span>
+                            <apex:inputText value="{!emailAddress}" html-placeholder="Email address" id="emailField" />
+                        </div>
+
+                        <div class="input-wrapper" id="passwordWrapper">
+                            <span class="slds-icon_container slds-icon-utility-lock">
+                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                    <use href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#lock')}"></use>
+                                </svg>
+                            </span>
+                            <apex:inputSecret value="{!password}" html-placeholder="Password" id="passwordField" />
+                        </div>
+
+                        <button value="Log in" html-type="button" class="btn-login" onclick="validateLoginForm(event);" >Log in</button>
+
+                        <apex:actionFunction name="callLoginMethod" 
+                        action="{!doLogin}" 
+                        reRender="theForm" />
+
+                        
+                
+                        <div class="links">
+                            <a href="{!$Site.BaseUrl}/s/login/ForgotPassword">Forgot your password?</a>
+                            <apex:outputPanel rendered="{!$Site.RegistrationEnabled}">
+                                <a href="{!$Site.BaseUrl}/ManageCustomerPortalSelfRegistrationVF">Not registered yet?</a>
+                            </apex:outputPanel>
+                        </div>
+
+                        <apex:outputPanel id="errorBlock" rendered="{!OR(isError, isLocked)}">
+                            <div class="error-container-box slds-m-top_medium">
+                                <div class="error-header-title">We couldn't log you in.</div>
+                                <div class="error-body-text">
+                                    <apex:outputText value="{!errorText}" escape="false" rendered="{!NOT(ISBLANK(errorText))}" />
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:form>
+                </div>
+
+                <div class="support-panel">
+                    <div class="support-title">Having trouble logging in?</div>
+                    <div class="video-box">
+                        <iframe 
+                            src="https://www.youtube.com/embed/NuuWAwT2gTo?rel=0"
+                            title="Login Help Video"
+                            frameborder="0"
+                            style="position:absolute; top:0; left:0; width:100%; height:100%;">
+                        </iframe>
+                        <a 
+                            href="https://youtube.com/watch?v=NuuWAwT2gTo" 
+                            target="_blank" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer;">
+                        </a>
+                    </div>
+
+                    <div class="support-link-wrapper">
+                        <a href="/s/article/Customer-Portal-Registration-Login-and-Password-Help" target="_blank">Customer Portal: Registration, Login, and Password Help</a>
+                    </div>
+
+                    <div class="support-link-wrapper">
+                        <a href="/s/article/Saving-your-device-so-you-don-t-need-a-security-code-every-time" target="_blank">Saving your device so you don’t need a security code every time</a>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>        
+    </div>
+    <div class="footer">
+        <c:YH_Footer />
+    </div>
+    <script type="text/javascript">
+        function validateLoginForm(event) {
+            event.preventDefault();
+            var emailInput = document.querySelector('[id$="emailField"]');
+            var passwordInput = document.querySelector('[id$="passwordField"]');
+            var emailWrap = document.getElementById('emailWrapper');
+            var passwordWrap = document.getElementById('passwordWrapper');
+            var clientErrBox = document.getElementById('clientErrorBlock');
+            
+            var isValid = true;
+            
+            emailWrap.style.borderColor = "transparent";
+            passwordWrap.style.borderColor = "transparent";
+            clientErrBox.style.display = "none";
+            
+            if (!emailInput.value || emailInput.value.trim() === "") {
+                emailWrap.style.borderColor = "#f65366";
+                isValid = false;
+            }
+            
+            if (!passwordInput.value || passwordInput.value.trim() === "") {
+                passwordWrap.style.borderColor = "#f65366";
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                clientErrBox.style.display = "block";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return false; 
+            }
+            if (isValid) {
+                callLoginMethod();
+            }
+            return isValid; 
+        }
+    </script>
+</body>
+</html>
+</apex:page>

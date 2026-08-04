@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "9277e9fc-c2a7-4665-83dc-be8cfc147d5f",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Cookies__c",
+  "id" : "3d282ccd-01b2-42eb-8fc2-96ac197f28b4",
+  "label" : "Cookies",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-cookies",
+  "type" : "route",
+  "urlPrefix" : "cookies"
+}

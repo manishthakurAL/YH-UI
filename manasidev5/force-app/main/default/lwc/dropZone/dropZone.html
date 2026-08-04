@@ -1,0 +1,41 @@
+<template>
+    <div >
+        <h1 class="slds-card__header-title slds-m-around_small slds-m-bottom_none">{title}</h1>
+        <div class="slds-var-p-top_small  darg-area">
+            <template if:true={optsize}>
+                <ul class="slds-has-dividers_around-space slds-var-m-around_medium slds-m-left_none">
+                    <template for:each={_options} for:item="option">
+                        <li key={option.Id} class="slds-var-m-around_medium">
+                            <table>
+                                <tr>
+                                    <td class="drag-item-card">
+                                        <c-drag-and-drop-item item-id={option.Id} item-selected={option.isSelected} item-draggable={option.draggable} item-title={option.title}
+                                            item-subtitle={option.subtitle} item-sequence={option.sequence} is-error={option.isError} customer-names={option.customer}
+                                            onstartdrag={handleDragStart} onitemdrop={handleDrop} onremoveitem={handleRemoveItem}>
+                                        </c-drag-and-drop-item>
+                                    </td>
+                                    <template if:false={option.draggable}>
+                                        <td style="text-align:center;">
+                                            <lightning-icon icon-name="utility:back" size="medium" ></lightning-icon>
+                                        </td>
+                                    </template>
+                                </tr>
+                            </table>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={optsize}>
+                <div class="slds-notify_alert slds-theme_alert-texture slds-theme_info" role="alert">
+                    <span class="slds-assistive-text">info</span>
+                    <span class="slds-icon_container slds-icon-utility-database slds-var-m-right_x-small" title="No Data">
+                      <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#database"></use>
+                      </svg>
+                    </span>
+                    <h2>No data available.</h2>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

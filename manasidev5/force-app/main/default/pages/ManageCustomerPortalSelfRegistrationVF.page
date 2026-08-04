@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apex:page id="ManageCustomerPortalSelfRegistrationVF" applyHtmlTag="false" applyBodyTag="false"  showHeader="false" sidebar="false" standardStylesheets="false" controller="ManageCustomerPortalSelfRegistrationCtr" title="{!$Label.site.user_registration}" docType="html-5.0">
+<html lang="en">
+    <apex:slds />
+    <head>
+        <title>Yorkshire Housing Self Registration Form</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style type="text/css">
+            .custom-background {
+                background-image: url("{!$Resource.yhBackground}"); 
+                background-size: cover;
+                background-position: center;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .form-container {
+                width: 100%;
+                max-width: 400px;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .brand-logo { 
+                /* width: 250px;  */
+                margin-bottom: 1rem; 
+            }
+
+            .guidance-container {
+                color: white;
+                text-align: justify;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+
+            .guidance-title {
+                display: block;
+                font-size: .8rem;
+                font-weight: 700;  
+                margin-bottom: 0.25rem;
+                text-transform: none;  
+            }
+
+            .guidance-body {
+                display: block;
+                font-size: 0.7rem;
+                font-weight: 400;
+                opacity: 0.9;
+            }
+
+
+            .slds-scope .custom-input-container { 
+                margin-bottom: 0.75rem; 
+                position: relative; 
+            }
+
+            .slds-scope .custom-input { 
+                border-radius: 4px !important; 
+                padding-left: 2.5rem !important; 
+                height: 45px;
+            }
+
+            .custom-input-container .input-icon {
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+                color: #5c4e7a;
+                pointer-events: none;
+                font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+                font-size: 1.2rem;
+                line-height: 1;
+                display: inline-block;
+            }
+
+            .input-icon.user::before {
+                content: "\1F464"; /* Unicode for person icon */
+            }
+
+            .input-icon.family::before {
+                content: "\1F46A"; /* Unicode for family icon */
+            }
+
+            .input-icon.calendar::before {
+                content: "\1F4C5"; /* Unicode for calendar icon */
+            }
+
+            .input-icon.postcode::before {
+                content: "\1F4CD"; /* Unicode for location pin icon */
+            }
+
+            .input-icon.email::before {
+                content: "\1F4E7"; /* Unicode for email icon */
+            }
+
+            .custom-input-container.has-error .input-icon {
+                top: 35% !important;
+            }
+
+            .required-dot::after {
+                content: "*";
+                color: #f04d6e;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.2rem;
+                pointer-events: none; 
+            }
+
+            .required-dot.has-error::after {
+                top: 35% !important;
+            }
+
+            .slds-scope .btn-register { 
+                background-color: #857a9c !important; 
+                border: none !important; 
+                color: white !important; 
+                height: 45px; 
+                margin-bottom: 0; 
+            }
+            .slds-scope .btn-cancel { 
+                background-color: rgba(255,255,255,0.2) !important; 
+                border: none !important; 
+                color: white !important; 
+                height: 45px; 
+                margin-left: 0px !important; 
+            }
+
+            .custom-input::placeholder {
+                color: #6a6a6a !important;
+                opacity: 1; 
+            }
+            .custom-input:-ms-input-placeholder { 
+                color: #6a6a6a !important; 
+            }
+
+            .slds-scope .custom-input:focus {
+                border-color: #ece6f9 !important; 
+                box-shadow: 0 0 8px rgba(133, 122, 156, 0.5) !important;
+                outline: none !important;
+            }
+
+            .custom-error-container {
+                margin-bottom: 1rem;
+            }
+
+            .slds-scope .input-error-state {
+                border: 2px solid #f04d6e !important;
+                background-color: #fffafa !important;
+            }
+
+            .custom-error-container .message {
+                background-color: #f04d6e !important; 
+                border: none !important;
+                color: white !important;
+                border-radius: 4px !important;
+                padding: 12px !important;
+                margin: 0 0 10px 0 !important;
+                width: 100% !important;
+                font-size: .75rem !important;
+            }
+
+            .custom-error-container .messageText {
+                color: white !important;
+            }
+
+            .custom-error-container .message h4 {
+                display: none !important;
+            }
+
+            .custom-error-container .message ul {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .custom-error-container .confirmM3 { 
+                background-color: #4fc3ae !important; 
+            }
+            .custom-error-container .infoM3 { 
+                background-color: #857a9c; !important; 
+            }
+
+            .error-text {
+                display: none;
+                color: #ffffff;
+                font-size: 0.7rem;
+                text-align: left;
+                margin-top: 4px;
+            }
+
+            .has-error .error-text {
+                display: block;
+            }
+
+            .slds-scope .btn-register:hover, .slds-scope .btn-cancel:hover {
+                background-color: #34215a !important;
+                color: white !important;
+                border: 1px solid #857a9c !important;
+                transition: background-color 0.3s ease; 
+            }
+
+            .login-link {
+                color: white !important; 
+                text-decoration: underline;
+                font-size: 1rem;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .login-link:hover {
+                color: #f0f0f0 !important;  
+                text-decoration: none;
+            }
+
+            @media only screen and (max-width: 767px) {
+                .form-container {
+                    width: 95% !important;        
+                    min-height: 90vh !important;  
+                    margin: 10px auto !important; 
+                    padding: 20px !important;   
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;     
+                    border-radius: 8px;           
+                }
+
+                .custom-input {
+                    font-size: 16px !important;   
+                    height: 45px !important;
+                }
+
+                .brand-logo {
+                    max-width: 150px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            input[type="date"]:not(:focus):not(:valid) {
+                color: transparent;
+            }
+
+            input[type="date"]:not(:focus):not(:valid):before {
+                content: "Date of Birth"; 
+                position: absolute;
+                color: #6a6a6a; 
+                left: 2.5rem;   
+                top: 0.5rem;
+            }
+
+            input[type="date"]:focus:before,
+            input[type="date"]:valid:before {
+                display: none !important;
+            }
+
+            input[type="date"] {
+                position: relative;
+                -webkit-appearance: none;
+                min-height: 45px;
+                display: flex;
+                align-items: center;
+            }
+
+            input[type="date"]::-webkit-date-and-time-value {
+                text-align: left !important;
+                top: 0.5rem !important;
+                display: block; 
+                padding-left: 0 !important; 
+                width: 100%;
+            }
+
+            .slds-scope .custom-input[type="date"] {
+                text-align: left !important;
+            }
+
+        </style>
+    </head>
+    <body class="slds-scope">
+
+    <div class="custom-background">
+        <div class="form-container">
+            <img src="{!$Resource.yhLogoBrandName}" class="brand-logo" alt="Yorkshire Housing" />
+            <div class="guidance-container">
+                <span class="guidance-body">
+                    Register for your customer portal account - enter your details below. 
+                    Make sure they match the details we already have for you. This helps us check it's really you.
+                </span>
+            </div>
+            <apex:form id="theForm" html-novalidate="novalidate">
+                <div class="custom-error-container">
+                    <apex:pageMessages id="error" escape="false" />
+                </div>
+
+                <apex:actionFunction name="callRegisterMethod" 
+                action="{!registerUser}" 
+                reRender="theForm" />
+
+                <apex:outputPanel rendered="{!NOT(isUserCreationSuccessful)}" layout="none">
+
+                <div class="custom-input-container required-dot" id="cont-firstName">
+                    <apex:outputPanel layout="inline" styleClass="input-icon user"></apex:outputPanel>
+                    <apex:inputText id="firstName" 
+                    value="{!firstName}" 
+                    html-placeholder="First Name" 
+                    onblur="isValid('firstName');" 
+                    styleClass="slds-input custom-input"
+                    html-role="textbox"
+                    html-aria-label="first Name"
+                    html-aria-required="true"
+                    html-aria-describedby="err-firstName"
+                    />
+                    <div class="error-text" id="err-firstName">First Name is required</div>             
+                </div>
+
+                <div class="custom-input-container required-dot" id="cont-lastName">
+                    <apex:outputPanel layout="inline" styleClass="input-icon family"></apex:outputPanel>
+                    <apex:inputText id="lastName" 
+                    value="{!lastName}" 
+                    onblur="isValid('lastName');" 
+                    styleClass="slds-input custom-input"
+                    html-role="textbox"                    
+                    html-placeholder="Last Name" 
+                    html-aria-label="last Name"
+                    html-aria-required="true"
+                    html-aria-describedby="err-lastName"                                        
+                        />
+                    <div class="error-text" id="err-lastName">Last Name is required</div>              
+                </div>
+
+                <div class="custom-input-container required-dot" id="cont-email">
+                    <apex:outputPanel layout="inline" styleClass="input-icon email"></apex:outputPanel>
+                    <apex:inputText id="email" 
+                    value="{!email}" 
+                    onblur="isValid('email');"
+                    styleClass="slds-input custom-input" 
+                    html-role="textbox"                    
+                    html-placeholder="Email" 
+                    html-aria-label="Email"
+                    html-aria-required="true"
+                    html-aria-describedby="err-email"                    
+                        />
+                    <div class="error-text" id="err-email">Email is required</div>                  
+                </div>
+
+                <div class="custom-input-container required-dot" id="cont-dateOfBirth">
+                    <apex:outputPanel layout="inline" styleClass="input-icon calendar"></apex:outputPanel>
+                    <apex:input id="dateOfBirth" 
+                    type="date" 
+                    value="{!dateOfBirth}" 
+                    required="true"
+                    styleClass="slds-input custom-input" 
+                    html-role="textbox"                    
+                    onblur="isValid('dateOfBirth');" 
+                    html-aria-label="date of birth"
+                    html-aria-required="true"
+                    html-aria-describedby="err-dateOfBirth"
+                    />
+                    <div class="error-text" id="err-dateOfBirth">Date of Birth is required</div>                   
+                </div>
+
+                <div class="custom-input-container required-dot" id="cont-postCode">
+                    <apex:outputPanel layout="inline" styleClass="input-icon postcode"></apex:outputPanel>
+                    <apex:inputText id="postCode" 
+                    value="{!postCode}" 
+                    onblur="isValid('postCode');"
+                    styleClass="slds-input custom-input"
+                    html-role="textbox"                     
+                    html-placeholder="Your Yorkshire Housing Postcode"
+                    html-aria-label="post code"
+                    html-aria-required="true"
+                    html-aria-describedby="err-postCode"            
+                    />
+                    <div class="error-text" id="err-postCode">Postcode is required</div>                  
+                </div>
+
+                <div class="slds-m-top_small">
+                    <apex:commandButton onclick="onRegisterUser(event);"  
+                    value="Register" 
+                    styleClass="slds-button slds-size_full btn-register" 
+                    html-role="button"                    
+                    html-aria-label="Register"                    
+                    />
+                    <apex:commandButton action="{!backToLoginPage}" 
+                    value="Cancel" 
+                    styleClass="slds-button slds-m-top_small slds-size_full btn-cancel" 
+                    immediate="true"
+                    html-role="button"                     
+                    html-aria-label="Cancel"                     
+                    />
+                </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!isUserCreationSuccessful}" layout="none">
+                    <div class="slds-text-align_center slds-m-top_medium">
+                        <apex:commandLink action="{!backToLoginPage}" styleClass="login-link">
+                            Back to Login
+                        </apex:commandLink>
+                    </div>
+                </apex:outputPanel>
+            </apex:form>
+        </div>
+    </div>
+    <script>
+        function onRegisterUser(event) {
+            event.preventDefault();
+            let formIsValid = true;
+            const fields = ['firstName', 'lastName', 'email', 'dateOfBirth', 'postCode'];
+            fields.forEach(fId => {
+                if (!isValid(fId)) {
+                    formIsValid = formIsValid && false;
+                }
+            });
+
+            if (formIsValid) {
+                callRegisterMethod(); 
+            }
+            return formIsValid;
+        }
+
+        function isValid(fId) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const postCodeRegex = /^[A-Za-z0-9\s\-]{3,10}$/; 
+            let inputElem = document.querySelector(`[id$=':${fId}']`);
+            let container = document.getElementById(`cont-${fId}`);
+            let errorMsg = document.getElementById(`err-${fId}`);
+
+            let val = inputElem ? inputElem.value.trim() : "";
+            let fieldValid = true;
+            let message = "";
+
+            if (val === "") {
+                fieldValid = false;
+                message = fId.charAt(0).toUpperCase() + fId.slice(1) + " is required";
+            } 
+            else {
+                if (fId === 'email' && !emailRegex.test(val)) {
+                    fieldValid = false;
+                    message =  "{!$Label.EmailInvalidFormat}";
+                } else if (fId === 'postCode' && !postCodeRegex.test(val)) {
+                    fieldValid = false;
+                    message = "{!$Label.PostCodeInvalidFormat}";
+                } else if (fId === 'dateOfBirth') {
+                    let selectedDate = new Date(val);
+                    let today = new Date();
+                    today.setHours(0, 0, 0, 0); 
+                    if (selectedDate >= today) {
+                        fieldValid = false;
+                        message = "{!$Label.DOBMustBePastDate}";
+                    }
+                }
+            }
+
+            if (!fieldValid) {
+                inputElem.classList.add('input-error-state');
+                if(container) container.classList.add('has-error');
+
+                inputElem.setAttribute('aria-invalid', 'true');
+
+                if(errorMsg) {
+                    errorMsg.innerText = message;
+                    errorMsg.style.display = 'block';
+                }
+            } else {
+                inputElem.classList.remove('input-error-state');
+                if(container) container.classList.remove('has-error');
+
+                inputElem.removeAttribute('aria-invalid');
+
+                if(errorMsg) errorMsg.style.display = 'none';
+            }
+            return fieldValid;
+            
+        }
+
+    </script>
+        <c:YH_Footer />
+    </body>
+</html>
+</apex:page>

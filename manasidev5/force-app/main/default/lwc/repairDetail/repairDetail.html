@@ -1,0 +1,42 @@
+<template>
+        <div class="slds-card__body_inner">
+            <div class="account-header slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Repair Job Number</div>
+                      <div class="field-value slds-text-heading_small acccount-type">{repairinitialdata.jobNumber}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Date Reported</div>
+                        <div class="field-value slds-text-body_regular">{repairinitialdata.DateReported}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">YH or Contractor</div>
+                        <div class="field-value slds-text-body_regular">{repairinitialdata.contractor}</div> 
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Status</div>
+                        <div class="field-value slds-text-body_regular">{repairinitialdata.status}</div> 
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">
+                    <div class="action-buttons slds-align_absolute-center">
+                            <lightning-button 
+                                label="View Details"
+                                variant="neutral"
+                                onclick={handleClick}
+                                class="statements-button">
+                            </lightning-button>
+                    </div>
+                </div>
+                </div>
+        </div>
+</template>

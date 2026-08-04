@@ -1,0 +1,49 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "9c5c9ff3-e1bb-4e94-9e98-0bb13d6cc76c",
+  "label" : "Search",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><strong style=\"font-size: 24px; color: rgb(0, 41, 102);\">Search Results - {!term}</strong></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "6c4e5dfe-6071-407e-847e-9089127e7e18",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b9ebb41a-15f7-4922-b0b0-61937c0000cc",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "scopes" : [ {
+          "isPublic" : true,
+          "name" : "Knowledge__kav"
+        } ],
+        "searchResultFiltering" : false,
+        "searchTerm" : "{!term}",
+        "showTopResults" : false
+      },
+      "componentName" : "forceCommunity:search",
+      "id" : "8c599a20-da54-43ab-b15c-32050497d637",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0c814139-577f-44cc-8d07-4d1cbb006749",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e1e69e3f-3e70-41d7-96cc-4cacbd85de3b",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}

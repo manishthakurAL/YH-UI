@@ -1,0 +1,78 @@
+<template>
+    <lightning-card class="account-item">
+        <div class="slds-card__body_inner">
+            <div class="account-header slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Account Type</div>
+                        <div class="field-value slds-text-heading_small acccount-type">{account.accountDescription}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Commencement</div>
+                        <div class="field-value slds-text-body_regular">{account.occupancyCommenced}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="field-group">
+                        <div class="field-label slds-text-title">Balance</div>
+                        <div class={balanceClass}>{balanceAmount}</div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12">
+                    <div class="action-buttons slds-align_absolute-center">
+                            <lightning-button 
+                                lwc:if={isMainRentAccount}
+                                label="Make Payment"
+                                variant="brand"
+                                onclick={handleMakePayment}
+                                class="payment-button"
+                                >
+                            </lightning-button>
+                            <!-- Option 1 -->
+                            <!-- <lightning-button 
+                                lwc:else
+                                label={labelString}
+                                variant="brand"
+                                class="payment-button"
+                                disabled
+                                >
+                            </lightning-button> -->
+
+                            <!-- Option 2 -->
+                            <!-- <div 
+                                lwc:else
+                                class="slds-button slds-button_brand payment-button">
+                                To pay,<br/>call 0345 366 4404
+                            </div> -->
+                            <!-- Option 3 -->
+                            <lightning-formatted-rich-text 
+                                lwc:else
+                                class="slds-button slds-button_brand payment-button payment-info-text"
+                                value="To pay, call<br/>0345 366 4404">
+                            </lightning-formatted-rich-text>
+                            <lightning-button 
+                                label="View Statements"
+                                variant="neutral"
+                                onclick={handleViewStatements}
+                                class="statements-button">
+                            </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div if:true={showStatements} class="statements-section">
+                <c-rent-statements-list 
+                    account-id={account.id}
+                    account={account}
+                    tenancy={tenancy}
+                    page-size="5">
+                </c-rent-statements-list>
+            </div> -->
+        </div>
+    </lightning-card>
+</template>

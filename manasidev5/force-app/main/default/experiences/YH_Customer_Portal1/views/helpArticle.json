@@ -1,0 +1,178 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "8409760b-2b59-43cb-9ccd-4ef3255fa356",
+  "label" : "Help Article",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "8445fdf6-c5b9-4fcb-a279-7bc805bfa3ed",
+          "columns" : [ {
+            "UUID" : "4b1dc06e-af90-481a-a75e-cc592329d5e2",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "bf7317d2-2988-42b8-abc3-b99d38139ba6",
+            "columnKey" : "5c684",
+            "columnName" : "Column 2",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "9f0febe5-9718-4216-9f6b-d57aea4ddbec",
+            "columnKey" : "38c64",
+            "columnName" : "Column 3",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "b1a2b94a-1ec1-49da-b541-cc16966acf19",
+            "columnKey" : "d01cc",
+            "columnName" : "Column 4",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "8445fdf6-c5b9-4fcb-a279-7bc805bfa3ed",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<h3><span style=\"background-color: transparent;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.itsourthingpadding1.1}\"></span></h3>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "b718f079-4864-4d10-b1aa-ef47e1c1477b",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "numberOfArticles" : 5,
+            "showTitle" : false,
+            "title" : "Top Articles",
+            "topicList" : [ {
+              "isPublic" : true,
+              "name" : "0TOAe0000003WBROA2"
+            } ]
+          },
+          "componentName" : "forceCommunity:topArticleList",
+          "id" : "39bc79b3-8117-4e6f-86bf-f3f485367294",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "4b1dc06e-af90-481a-a75e-cc592329d5e2",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p style=\"text-align: center;\"><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.shutterstock1849638520.1}\" style=\"width: 158.031px; height: 94.8125px;\">&nbsp;&nbsp;</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "23eb52c8-9a5d-4e06-b5f4-34096195ab94",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "numberOfArticles" : 5,
+            "showTitle" : true,
+            "title" : "",
+            "topicList" : [ {
+              "isPublic" : true,
+              "name" : "0TOAe0000003WD3OAM"
+            } ]
+          },
+          "componentName" : "forceCommunity:topArticleList",
+          "id" : "1b93ebf6-3e3c-4f3e-9bfb-d78d77b7467d",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "bf7317d2-2988-42b8-abc3-b99d38139ba6",
+        "regionLabel" : "Column 2",
+        "regionName" : "5c684",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "numberOfArticles" : 5,
+            "showTitle" : false,
+            "title" : "",
+            "topicList" : [ {
+              "isPublic" : true,
+              "name" : "0TOAe0000003WHtOAM"
+            } ]
+          },
+          "componentName" : "forceCommunity:topArticleList",
+          "id" : "286a6887-6ddc-4b1d-a3f5-041f362fc771",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "9f0febe5-9718-4216-9f6b-d57aea4ddbec",
+        "regionLabel" : "Column 3",
+        "regionName" : "38c64",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "numberOfArticles" : 5,
+            "showTitle" : false,
+            "title" : "Top Articles",
+            "topicList" : [ {
+              "isPublic" : true,
+              "name" : "0TOAe0000003WJVOA2"
+            } ]
+          },
+          "componentName" : "forceCommunity:topArticleList",
+          "id" : "1700d7af-325b-4252-83b3-aa83290959f0",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b1a2b94a-1ec1-49da-b541-cc16966acf19",
+        "regionLabel" : "Column 4",
+        "regionName" : "d01cc",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d493d2a6-1f94-4f41-ab09-74036a9b21e2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Help Article"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f4d26de4-a0b0-4e55-a901-7ff2c51102ec",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e02189f2-e75f-4a2b-9b80-2191771a4c39",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-help-article"
+}

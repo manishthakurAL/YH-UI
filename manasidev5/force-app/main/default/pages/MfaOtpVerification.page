@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apex:page controller="MfaOtpController" action="{!doInit}" applyHtmlTag="false" applyBodyTag="false" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" cache="false">
+<html>
+    <head>
+        <title>MFA OTP Verification</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <apex:slds />
+
+        <style>
+         .custom-background {
+            background-image: url("{!$Resource.yhBackground}"); 
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .brand-logo { 
+            margin-bottom: 1.5rem; 
+            max-width: 280px; 
+        }
+
+        .guidance-container { 
+            color: white; 
+            margin-bottom: 1.5rem; 
+        }
+
+        .guidance-title {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;  
+            margin-bottom: 0.5rem;
+        }
+
+        .guidance-body {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .slds-scope .custom-input-container { 
+            margin-bottom: 0.75rem; 
+            position: relative; 
+            width: 100%;
+        }
+
+        .slds-scope .custom-input { 
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 4px !important; 
+            padding-left:3rem !important; 
+            height: 52px !important; 
+            font-size: 1rem !important;
+            border: 1px solid #ccc !important;
+        }
+
+        .slds-scope .custom-input::placeholder { 
+            letter-spacing: normal !important;
+        }
+
+        .slds-scope .custom-input:not(:placeholder-shown) { 
+            letter-spacing: 4ch !important;
+        }
+
+        .input-icon-lock {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .input-icon-lock::before { 
+            content: "\1F512"; 
+        }
+
+        .slds-scope .btn-yh-primary { 
+            background-color: #8E84A3 !important;
+            border: none !important; 
+            color: white !important; 
+            height: 52px !important; 
+            width: 100% !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            cursor: pointer !important;
+            display: block !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .slds-scope .btn-yh-primary:hover { 
+            background-color: #766B8E !important; 
+        }
+
+        .slds-scope .btn-yh-cancel { 
+            background-color: rgba(255,255,255,0.2) !important; 
+            border: none !important; 
+            color: white !important; 
+            height: 45px !important; 
+            width: 100% !important;
+            cursor: pointer !important;
+        }
+
+        .meta-text {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 1.2rem 0;
+            display: block;
+        }
+
+        .divider {
+            border-top: 1px solid rgba(255,255,255,0.4);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            width: 100%;
+        }
+
+        .resend-text { color: white; font-size: 0.85rem; opacity: 0.9; }
+        
+        .slds-scope .resend-link { 
+            color: white !important; 
+            text-decoration: underline !important; 
+            font-weight: bold !important; 
+            cursor: pointer !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            font-size: 0.85rem !important;
+        }
+
+        .custom-error-container .message {
+            background-color: #f04d6e !important; 
+            border: none !important;
+            color: white !important;
+            border-radius: 4px !important;
+            padding: 12px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .custom-error-container .messageText {
+            color: white !important;
+            font-weight: bold !important;
+        }
+
+        .custom-error-container .message h4 {
+            display: none !important;
+        }
+
+        .custom-error-container .message ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .custom-error-container .confirmM3 { 
+            background-color: #4fc3ae !important; 
+        }
+        .custom-error-container .infoM3 { 
+            background-color: #857a9c; !important; 
+        }
+
+        .error-text {
+            display: none;
+            color: #f04d6e;
+            font-size: 0.7rem;
+            text-align: left;
+            margin-top: 4px;
+        }
+
+.guidance-body {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem; 
+    line-height: 1.4;     
+}
+
+.guidance-note {
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    text-align: left;
+    border-left: 3px solid #f04d6e; 
+}
+
+.slds-scope .override-link {
+    color: #FFFFFF !important;
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: opacity 0.2s;
+}
+
+.slds-scope .override-link:hover {
+    opacity: 0.8;
+}
+
+.contact-highlight {
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    margin: 5px 0 15px 0;
+    letter-spacing: 0.5px;
+}
+
+        </style>
+    </head>
+    <body class="slds-scope">
+    <div class="custom-background">
+        <div class="form-container">
+            <img src="{!$Resource.yhLogoBrandName}" class="brand-logo" alt="Yorkshire Housing" />
+            
+            <apex:form id="mfaForm">
+                <apex:outputPanel id="msgs" styleClass="custom-error-container">
+                    <apex:pageMessages />
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!NOT(isAccountLocked)}">
+                    
+                    <apex:outputPanel rendered="{!NOT(otpSent)}">
+                        
+                        <apex:outputPanel rendered="{!isSMSAllowed && NOT(showEmailOverride)}">
+                            <div class="guidance-container">
+                                <span class="guidance-title">Login</span>
+                                <p class="guidance-body">
+                                    To keep your account secure, we need to send you a short security code to your mobile: 
+                                    <strong>{!maskedMobile}</strong>
+                                </p>
+                            </div>
+                            
+                            <apex:commandButton value="Send code by SMS" action="{!sendCode}" styleClass="btn-yh-primary" reRender="mfaForm">
+                                <apex:param name="m" value="SMS" assignTo="{!selectedMethod}"/>
+                            </apex:commandButton>
+                            
+                            <div class="slds-m-top_medium">
+                                <p class="meta-text">
+                                    If you don't recognise this mobile number or no longer have access to it,&nbsp; 
+                                    <apex:commandLink value="click here to use your registered email address instead" 
+                                                      action="{!toggleEmailOverride}" 
+                                                      reRender="mfaForm" 
+                                                      style="text-decoration: underline; color: #f04d6e;"/>
+                                </p>
+                            </div>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel rendered="{!NOT(isSMSAllowed) || showEmailOverride}">
+                            <div class="guidance-container">
+                                <span class="guidance-title">{!IF(showEmailOverride, 'Use your email instead', 'Login')}</span>
+                                <p class="guidance-body">
+                                    {!IF(showEmailOverride, 
+                                        'We can send your one-time code to your registered email address.', 
+                                        'To keep your account secure, we need to send you a short security code.')}
+                                </p>
+                                
+                                <apex:outputPanel rendered="{!showEmailOverride}">
+                                    <p class="guidance-body" style="font-size: 0.85rem; margin-top: 10px; color: #f04d6e;">
+                                        <strong>Please Note:</strong> To keep your account secure and ensure you get repair updates, you must update your mobile number in your profile settings as soon as you've finished registering.
+                                    </p>
+                                </apex:outputPanel>
+                                
+                                <p class="guidance-body">
+                                    Send code to: <strong>{!maskedEmail}</strong>
+                                </p>
+                            </div>
+                            
+                            <apex:commandButton value="Send code by email" action="{!sendCode}" styleClass="btn-yh-primary" reRender="mfaForm">
+                                <apex:param name="m" value="EMAIL" assignTo="{!selectedMethod}"/>
+                            </apex:commandButton>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!otpSent}">
+                        <div class="guidance-container">
+                            <span class="guidance-title">Your one-time code</span>
+                            <span id="expiryMsg" class="guidance-body" style="display:none; color: #f04d6e; font-weight: bold;">
+                                Your code has expired. Please click 'Resend' to get a new one.
+                            </span>
+                            <p class="guidance-body">
+                                Enter the code sent to your {!IF(selectedMethod == 'EMAIL', 'email ' + maskedEmail, 'mobile ' + maskedMobile)}. It will expire in 10 minutes.
+                            </p>
+                        </div>
+
+                        <div class="custom-input-container">
+                            <span class="input-icon-lock"></span>
+                            <apex:inputText id="otpInput" required="true" 
+                                value="{!otpEntered}" 
+                                styleClass="slds-input custom-input" 
+                                html-placeholder="One-time code" 
+                                html-type="tel" 
+                                html-inputmode="numeric" 
+                                html-pattern="[0-9]*"
+                                html-minlength="{!otpLength}" 
+                                maxlength="{!otpLength}"
+                                onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                            />
+                        </div>
+                        
+                        <apex:commandButton id="verifyBtn" value="Verify" action="{!verifyCode}" styleClass="btn-yh-primary slds-m-top_small" reRender="mfaForm"/>
+
+                        <div class="slds-m-top_small">
+                            <span class="meta-text">
+                                {!currentAttempt}/{!maxAttempts} attempts - 
+                                <span id="timerDisplay" style="font-weight:bold;">10:00</span> 
+                            </span>
+                        </div>
+
+                        <div class="divider">
+                            <span class="resend-text">Didn't get the code? </span>
+                            <apex:commandLink value="Resend Code" action="{!resendCode}" styleClass="resend-link" immediate="true" reRender="mfaForm">
+                                <apex:param name="m" value="{!selectedMethod}" assignTo="{!selectedMethod}"/>
+                            </apex:commandLink>
+                        </div>
+
+                        <script>
+                        (function() {
+                            var totalSeconds = parseInt('{!ttlRemaining}', 10) || 600; 
+                            var timerNode = document.getElementById('timerDisplay');
+                            var inputNode = document.querySelector('[id*="otpInput"]');
+                            var buttonNode = document.querySelector('[id*="verifyBtn"]');
+
+                            var interval = setInterval(function() {
+                                totalSeconds--;
+                                if (totalSeconds >= 0) {
+                                    var mins = Math.floor(totalSeconds / 60);
+                                    var secs = totalSeconds % 60;
+                                    timerNode.innerHTML = (mins < 10 ? '0' : '') + mins + ":" + (secs < 10 ? '0' : '') + secs + ' remaining';
+                                }
+                                if (totalSeconds <= 0) {
+                                    clearInterval(interval);
+                                    timerNode.innerHTML = "EXPIRED";
+                                    timerNode.style.color = '#f04d6e';
+                                }
+                            }, 1000);
+                        })();
+                        </script>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!isAccountLocked}">
+                    <div class="guidance-container">
+                        <span class="guidance-title">Login Error</span>
+                        <p class="guidance-body">Your account is temporarily locked. Please try again later.</p>
+                    </div>
+                    <apex:commandButton value="Close" action="{!backToLoginPage}" styleClass="btn-yh-primary" immediate="true"/>
+                </apex:outputPanel>
+            </apex:form>
+        </div>
+    </div>
+</body>
+</html>
+</apex:page>

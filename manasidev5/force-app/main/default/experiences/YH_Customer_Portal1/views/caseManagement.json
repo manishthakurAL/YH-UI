@@ -1,0 +1,72 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "b4d156bb-1153-4f7a-b9e6-8f4cd9280295",
+  "label" : "case management",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"height:60px;\"> </div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "98a8abc7-94a3-495e-b43d-b6866224338f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fb707a6d-66df-4722-8496-f6028e6e7a72",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(255, 255, 255)",
+        "bannerPosition" : "bottom",
+        "bannerSizePercent" : 30,
+        "borderRadius" : 20,
+        "boxShadow" : true,
+        "haveBanner" : true,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "medium",
+        "noImageColor" : "rgb(116,116,116)",
+        "overlay" : "rgba(243, 243, 243, 0.03)",
+        "templateType" : "full",
+        "tileMenuEditor" : "Case_Management",
+        "titleColor" : "",
+        "titleFontSize" : "medium",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "1730c693-c331-4086-b77d-9b23bc14ebf3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f527d84e-b555-4b07-bd7d-e44a8b726c21",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f2d7561b-59d1-43f3-9137-b3f4616c57c2",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "case management"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0b1a9877-4680-4a2a-be91-8ce17022ad81",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d19f2cbf-eca1-4ddc-b2a2-3429cb7b8662",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-case-management"
+}

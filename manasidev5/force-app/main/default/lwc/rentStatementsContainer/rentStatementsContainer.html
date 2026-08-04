@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title="Rent" icon-name="standard:contract_line_item" class="rent-statements-container card-green-icon">
+        <div class="slds-card__body_inner">
+
+            <div class="slds-m-around_medium">
+                <div class="slds-box slds-theme_info slds-theme_alert-texture" style="background-color: #34215a; border: none; border-radius: 4px;">
+                    <div class="slds-media slds-media_center">
+                        <div class="slds-media__figure slds-m-right_small" 
+                            style="position: relative; align-self: stretch; display: flex; align-items: center;">
+                            
+                            <lightning-icon 
+                                icon-name="action:info" 
+                                size="small" 
+                                alternative-text="Helpful Tip">
+                            </lightning-icon>                       
+                        </div>
+                        
+                        <div class="slds-media__body slds-p-left_small" style="color: white;">
+                            <h3 class="slds-text-heading_small slds-text-title_bold slds-m-bottom_x-small slds-border_bottom" 
+                                style="display: inline-block; padding-bottom: 2px; border-bottom: 2px solid white;">
+                                Which balance should I use?
+                            </h3>
+                            <p class="slds-text-body_regular slds-m-bottom_medium">
+                                <strong>Main screen = Live</strong> (shows everything up to the last 15 minutes)<br/>
+                                <strong>Statement = History</strong> (only updates current balance once a week, month or quarter, dependant upon your chosen charging period)
+                            </p>
+                            
+                            <h3 class="slds-text-heading_small slds-text-title_bold slds-m-bottom_x-small slds-border_bottom" 
+                                style="display: inline-block; padding-bottom: 2px; border-bottom: 2px solid white;">
+                                Why is my statement balance different?
+                            </h3>
+                            <p class="slds-text-body_regular slds-m-bottom_medium">
+                                Your statement is a record of a specific time period. For the most up to date information – 
+                                <strong>always trust the main rent screen balance.</strong>
+                            </p>
+
+                            <h3 class="slds-text-heading_small slds-text-title_bold slds-m-bottom_x-small slds-border_bottom" 
+                                style="display: inline-block; padding-bottom: 2px; border-bottom: 2px solid white;">
+                                How do I pay my accounts?
+                            </h3>
+                            <p class="slds-text-body_regular">
+                                Your rent comes first - you can make a payment here whenever you need to.  For any other account, 
+                                like a chargeable repair or admin costs please call us on 0345 366 4404. We'll take your payment 
+                                and make sure it reaches the right account.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <template if:true={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_large">
+                    <lightning-spinner alternative-text="Loading rent statements"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:true={error}>
+                <c-error-state message={error.body.message}></c-error-state>
+            </template>
+            <template if:false={hasTenancyData}>
+                <template if:false={isLoading}>
+                    <c-empty-state 
+                        title="No Rent Statements Available"
+                        message="You don't have any rent statements at this time."
+                        icon-name="standard:account">
+                    </c-empty-state>
+                </template>
+            </template>
+
+                <template if:true={hasTenancyData}>
+                    <div class="tenancy-list slds-p-around_small">
+                        <template for:each={tenancyData} for:item="tenancy">
+                            <c-tenancy-item 
+                                key={tenancy.tenancyId}
+                                tenancy={tenancy}
+                                onexpandtenancy={handleExpandTenancy}
+                                onmakepayment={handleMakePayment}
+                                onviewstatements={handleViewStatements}>
+                            </c-tenancy-item>
+                        </template>
+                    </div>
+              </template>
+
+        </div>
+    </lightning-card>
+</template>

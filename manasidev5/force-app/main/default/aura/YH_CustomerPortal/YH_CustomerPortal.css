@@ -1,0 +1,432 @@
+.THIS {
+    /* Base Brand Palettes */
+    --yh-primary-color: #3E1A52;
+    --yh-purple: #34215a;
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+    --yh-blue: #3B82F6;
+    --yh-purple-tint: #9e70fe;
+    --yh-black: #434145;
+
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.THIS .yh-portal {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    height: 100vh;
+    overflow: hidden;
+    background: #F1EDF5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: #2B1B33;
+}
+
+.THIS .yh-header {
+    background: var(--yh-primary-color);
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.THIS .yh-footer {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    margin-top: auto;
+    background: var(--yh-primary-color) !important;
+    color: white;
+    height: 20vh;
+    min-height: 0;
+}
+
+.THIS .yh-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.THIS .yh-sidebar {
+    align-self: stretch;
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--yh-primary-color);
+    color: #E9DDF2;
+    display: flex;
+    height: 80vh !important;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.THIS .yh-sidebar-top {
+    padding-top: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.THIS .yh-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.THIS .yh-logo-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--yh-rose);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.THIS .yh-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .yh-logo-name {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.THIS .yh-logo-sub {
+    color: #C9A8DB;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    margin-top: 2px;
+}
+
+.THIS .slds-icon-standard-home {
+    background-color: var(--yh-rose) !important;
+}
+
+.THIS .yh-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .yh-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 24px;
+    color: #D8C7E4;
+    font-size: 15px;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: background 0.15s ease;
+}
+
+.THIS .yh-nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.THIS .yh-nav-item.active {
+    background: #55306B;
+    border-left-color: var(--yh-rose);
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.THIS .yh-nav-item.small {
+    padding: 11px 24px;
+    font-size: 14px;
+}
+
+.THIS .yh-nav-item.logout {
+    color: var(--yh-rose);
+}
+
+.THIS .yh-nav-icon {
+    width: 20px;
+    text-align: center;
+}
+
+.THIS .yh-purple-tint svg,
+.THIS .yh-purple-tint {
+    fill: var(--yh-purple-tint) !important;
+    color: var(--yh-purple-tint) !important;
+}
+
+.THIS .yh-rose svg,
+.THIS .yh-rose {
+    fill: var(--yh-rose) !important;
+    color: var(--yh-rose) !important;
+}
+
+.THIS .yh-yellow svg,
+.THIS .yh-yellow {
+    fill: var(--yh-yellow) !important;
+    color: var(--yh-yellow) !important;
+}
+
+.THIS .yh-green svg,
+.THIS .yh-green {
+    fill: var(--yh-green) !important;
+    color: var(--yh-green) !important;
+}
+
+.THIS .yh-white svg,
+.THIS .yh-white {
+    fill: var(--yh-white) !important;
+    color: var(--yh-white) !important;
+}
+
+.THIS .yh-blue svg,
+.THIS .yh-blue {
+    fill: var(--yh-blue) !important;
+    color: var(--yh-blue) !important;
+}
+
+.THIS .yh-black svg,
+.THIS .yh-black {
+    fill: var(--yh-black) !important;
+    color: var(--yh-black) !important;
+}
+
+.THIS .yh-sidebar-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 0 20px;
+}
+
+.THIS .yh-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 24px 16px;
+}
+
+.THIS .yh-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #D5195E;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.THIS .yh-user-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .yh-user-name {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.THIS .yh-user-sub {
+    color: #C9A8DB;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.THIS .yh-content {
+    min-width: 0;
+    width: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+.THIS .yh-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.THIS .yh-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.THIS .yh-menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+}
+    
+.THIS.yh-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+    z-index: 998;
+}
+
+.THIS.yh-menu-btn {
+    display: none;  
+}
+
+/* Mobile — flex column + scroll in .yh-content; footer in document flow */
+@media only screen and (max-width: 768px) {
+
+    .THIS .yh-portal {
+        min-height: 100vh !important;
+        min-height: -webkit-fill-available !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-sizing: border-box;
+    }
+
+    .THIS .yh-body {
+        flex: 1 1 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .THIS .yh-content {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+        padding-bottom: 10dvh;
+    }
+  
+
+    .THIS .yh-footer {
+        position: fixed !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        flex-shrink: 0 !important;
+        margin-top: auto !important;
+        height: auto !important;
+        min-height: unset !important;
+        padding: 24px 16px !important;
+        padding-bottom: max(24px, env(safe-area-inset-bottom)) !important;
+        padding-left: max(16px, env(safe-area-inset-left)) !important;
+        padding-right: max(16px, env(safe-area-inset-right)) !important;
+        clear: both !important;
+        z-index: 900 !important;
+        background: var(--yh-primary-color) !important;
+        margin-top: auto;
+        flex-shrink: 0;
+    }
+
+    .THIS .yh-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: -280px;
+        width: 280px !important;
+        height: auto !important;
+        max-height: 100vh !important;
+        min-height: 0 !important;
+        z-index: 1000 !important;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .THIS .yh-sidebar.open {
+        left: 0;
+    }
+
+    .THIS .yh-menu-toggle {
+        display: block !important;
+    }
+
+    .THIS .yh-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: rgba(0, 0, 0, 0.45) !important;
+        z-index: 999 !important;
+    }
+
+    .THIS .yh-logo {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+  
+    .THIS .yh-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .THIS .yh-sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100vh;
+        z-index: 999;
+        transition: left .3s ease;
+        overflow-y: auto;
+        background: #fff;
+        box-shadow: 2px 0 12px rgba(0,0,0,.15);
+        background: var(--yh-primary-color) !important;
+
+    }
+
+    .THIS .yh-sidebar.open {
+        left: 0;
+    }
+
+    .THIS .yh-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .THIS .copy-write {
+        flex-direction: column !important;
+        gap: 8px;
+    }
+    .THIS .yh-menu-btn {
+        display: inline-flex !important;
+    }
+
+    .THIS .yh-menu-btn .slds-button {
+        color: #fff !important;
+    }
+
+    .THIS .yh-menu-btn svg {
+        fill: #fff !important;
+    }
+}

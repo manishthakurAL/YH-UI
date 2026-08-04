@@ -1,0 +1,61 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7e25814d-45cc-4cd6-95a6-c722ef3e7fa3",
+  "label" : "Rent",
+  "regions" : [ {
+    "id" : "406bf923-aeee-4093-a691-181fc6200161",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:rentStatementsContainer",
+      "id" : "b684981b-b9fc-4410-ad22-9f6085cb797d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6281f540-fa0a-45c8-ba02-4e81b894eccb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f5b107ea-2169-4a3b-b081-989f484920b9",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"searchTerm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Payments and Arrears\"}]",
+        "flowName" : "SF_Community_Show_Suggested_Knowledge_Article"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "b57182dd-5001-4d1d-83c9-f55157e0f1b9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "13e4c7fa-00ad-4efd-9296-373e8fa29bce",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Rent"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0be9ca64-e923-470b-9d40-b84cc0e9b92e",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ac051a62-a949-4195-bb6c-1676b62ffd49",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-rent"
+}

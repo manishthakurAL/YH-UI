@@ -1,0 +1,203 @@
+:host {
+    --yh-purple: #34215a;
+    --yh-midnight-purple: #271944;
+    --yh-white: #ffffff;
+
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+
+    /* Specialty Colors */
+    --yh-dark-purple: #1a112d;
+    --yh-light-purple: #857a9c;
+    --yh-lightest-purple: #ece6f9;
+    --yh-light-rose: #f694a8;
+    --yh-lightest-rose: #ffeef1;
+    --yh-meta-purple: #6a6a6a;
+    --yh-table-background: #eeecf2;
+}
+
+.error_message {
+    color: #ffffff;
+}
+
+.container-wrapper {
+    position: relative;
+    padding-top: 15px;
+}
+
+.address-ribbon {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    z-index: 10;
+    background: var(--yh-midnight-purple); 
+    color: white;
+    padding: 5px 16px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(133, 122, 156, 0.8);
+}
+
+.custom-card {
+    background: linear-gradient(135deg, #271944 0%, #857a9c 100%);
+    border: none !important;
+    border-radius: 16px;
+    overflow: visible;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.luxe-zoom:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3) !important;
+}
+
+.inner-content-center {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pro-divider {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 2.5rem 0;
+}
+
+.premium-label {
+    color: #ada6bd;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.balance-main {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--yh-white);
+    line-height: 1;
+}
+
+.balance-symbol {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--yh-white);
+    vertical-align: super;
+    margin-right: 4px;
+}
+
+.button-column {
+    display: flex;
+    align-items: center;
+}
+
+.button-gap-stack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px; 
+}
+
+.btn-primary {
+    --slds-c-button-success-color-background: var(--yh-lightest-purple);
+    --slds-c-button-success-text-color: var(--yh-purple);
+    --slds-c-button-success-color-border: var(--yh-lightest-purple);
+    --slds-c-button-success-color-border-hover: var(--yh-lightest-purple);
+    --slds-c-button-success-color-background-hover: rgba(255, 255, 255, 0.1);
+    --slds-c-button-success-color-background-active: rgba(255, 255, 255, 0.1);
+    --slds-c-button-success-color-border-focus: var(--yh-lightest-purple);
+    font-weight: 800;
+}
+
+.btn-secondary {    
+    --slds-c-button-neutral-color-background: var(--yh-lightest-purple);
+    --slds-c-button-neutral-text-color: var(--yh-white);
+    --slds-c-button-neutral-color-border: rgba(var(--yh-light-purple), 0.2);
+    --slds-c-button-neutral-color-border-hover: rgba(var(--yh-purple), 0.3);
+    --slds-c-button-neutral-color-background-hover: rgba(var(--yh-purple), 0.2);
+    --slds-c-button-neutral-color-background-active: rgba(var(--yh-purple), 0.2);
+    --slds-c-button-neutral-color-border-active: rgba(var(--yh-purple), 0.3);
+    --slds-c-button-neutral-color-border-focus: rgba(var(--yh-purple), 0.3);
+    --slds-c-button-neutral-text-color-focus: var(--yh-white);
+    font-weight: 700;
+}
+
+.glass-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: fit-content;
+}
+
+.badge-text {
+    color: var(--yh-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.badge-icon  {
+    /* --slds-c-icon-color-foreground: var(--yh-white); */
+    --sds-c-icon-color-foreground-default: var(--yh-yellow); 
+}
+
+.badge-icon-green, .address-icon {
+    /* --slds-c-icon-color-background: var(--yh-white); */
+    --sds-c-icon-color-foreground-default: var(--yh-green); 
+}
+
+.address-icon {
+    --slds-c-icon-color-background: var(--yh-midnight-purple);
+    --slds-c-icon-color-foreground: var(--yh-green);
+}
+
+.update-timestamp {
+    color: var(--yh-light-purple); /* Using your existing light purple variable */
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 767px) {
+    .pro-divider {
+        width: 80%;
+        height: 1px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .content-column {
+        text-align: center;
+        align-items: center;
+    }
+
+    .address-ribbon {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        justify-content: center;
+        top: 15px;
+    }
+    
+    .inner-content-center {
+        padding: 2rem 0;
+    }
+
+    .update-timestamp {
+        text-align: center;
+        width: 100%;
+    }
+}

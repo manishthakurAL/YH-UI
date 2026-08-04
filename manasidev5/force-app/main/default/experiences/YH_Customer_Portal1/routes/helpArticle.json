@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8409760b-2b59-43cb-9ccd-4ef3255fa356",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Help_Article__c",
+  "id" : "fd9435ca-8e56-40e2-aa82-8c57f172626b",
+  "label" : "Help Article",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-help-article",
+  "type" : "route",
+  "urlPrefix" : "help-article"
+}

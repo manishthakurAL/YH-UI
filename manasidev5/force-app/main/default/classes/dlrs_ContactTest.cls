@@ -1,0 +1,26 @@
+/**
+ * Auto Generated and Deployed by the Declarative Lookup Rollup Summaries Tool package (dlrs)
+ **/
+@IsTest
+private class dlrs_ContactTest
+{
+    @IsTest
+    private static void testTrigger()
+    {
+        // Force the dlrs_CaseTrigger to be invoked, fails the test if org config or other Apex code prevents this.
+        dlrs.RollupService.testHandler(new Contact(LastName='Test01'));
+    }
+    
+    
+    @IsTest
+    private static void testCRUDCoverage()
+    {
+        Contact c = new Contact(LastName='Test01');
+        Insert c;
+        Update c;
+        Delete c;
+        Undelete c;
+    }
+    
+    
+}

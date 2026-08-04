@@ -1,0 +1,12 @@
+<template>
+    <lightning-modal-header label={confirmTitle}></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-formatted-rich-text value={confirmMessage}></lightning-formatted-rich-text>
+    </lightning-modal-body>
+    <lightning-modal-footer >
+        <div class="slds-align_absolute-center">
+            <lightning-button label={cancelLabel} onclick={handleCancel} class="slds-var-m-right_x-small"></lightning-button>
+            <lightning-button label={confirmLabel} variant="brand" onclick={handleConfirm}></lightning-button>
+        </div>
+    </lightning-modal-footer>
+</template>

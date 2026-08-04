@@ -1,0 +1,9 @@
+.legend { list-style: none; }
+.legend li { float: right; margin-left: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .incomplete { background-color: #fe9339; }
+.legend .success { background-color: #4cad5c; }
+.legend .error { background-color: #ba0517; }
+.drop-zone-items-icon { width: 50% !important}
+.drop-zone-items { width: 45% !important}

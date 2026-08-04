@@ -1,0 +1,48 @@
+<template>
+    <lightning-quick-action-panel header="Mutual Exchange Swap" class="slds-p-around_none">
+        <lightning-card hide-header="true" class="slds-m-around_small slds-m-vertical_none slds_p-vertical_none">
+
+            <div class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light"
+                role="status">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <p> 
+                        To complete the property swap, drag the property from the list on the right side vertically up or down to match the correct property on the left side.
+                    </p>
+                </div>
+            </div>
+
+            <ul class="legend slds-float_right">
+                <li><span class="error"></span> <b>External Swap</b></li>
+                <li><span class="success"></span> <b>Swap Success</b></li>
+                <li><span class="incomplete"></span> <b>Swap Incomplete</b></li>                
+            </ul>
+
+            <div>
+                <table>
+                    <tr>
+                        <td class="drop-zone-items-icon">
+                            <c-drop-zone title="Exchange to" options={currentProperties}></c-drop-zone>
+                        </td>
+                        <td class="drop-zone-items">
+                            <c-drop-zone data-id="mex-dropzone" onitemdrop={handleDrop} title="Customers From"
+                                options={exchangedProperties}></c-drop-zone>
+                        </td>
+                        <td >
+                            <lightning-icon icon-name="utility:sort" size="medium" class="slds-m-left_xxx-small"
+                                alternative-text="Drap Up &amp; down" title="Drap Up &amp; down"></lightning-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div slot="footer">
+                <lightning-button variant="neutral" label="Cancel" onclick={handleClose}></lightning-button>
+                <lightning-button variant="brand" label="Save" onclick={handleSave}
+                    class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </lightning-card>
+
+    </lightning-quick-action-panel>
+</template>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c397826e-1aeb-41bc-85b9-4bed7563e5da",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "NewRentCard__c",
+  "id" : "4dca5f22-bd46-4e41-83d2-0e9532b3d15d",
+  "label" : "New Rent Card",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-new-rent-card",
+  "type" : "route",
+  "urlPrefix" : "new-rent-card"
+}

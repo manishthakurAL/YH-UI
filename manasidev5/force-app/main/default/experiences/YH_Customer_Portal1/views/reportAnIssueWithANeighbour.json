@@ -1,0 +1,59 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "fbe4db1b-8366-4987-9841-ed526959967f",
+  "label" : "Report an Issue With a Neighbour",
+  "regions" : [ {
+    "id" : "f1866011-94fe-4a34-94d0-4e58463dcbc1",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"varT_headerType\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"report-issue-with-neighbour\"}]",
+        "flowName" : "SF_Community_Portal_Header_Banner"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "ab0fef49-7c20-49e7-a2ae-4ddca3305973",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowName" : "SF_Community_Create_Web_to_Case",
+        "requestType" : "breach-anti-social-behaviour"
+      },
+      "componentName" : "c:flowLauncher",
+      "id" : "d313e0ed-45d5-4ee3-aa8f-6c0c5c06322d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5e43a1fe-c276-4051-b116-ea729b744602",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "44866eab-0b12-4b2a-959f-2fa7190edd59",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Report an Issue With a Neighbour"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "514b1c73-257a-45f8-a307-c6507aebd14c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "22baf232-8c0d-4a0e-be4a-13f3b575cc7a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-report-issue-with-neighbour"
+}

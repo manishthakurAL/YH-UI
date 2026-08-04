@@ -1,0 +1,78 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7210a378-b6c7-492d-900d-7111349873ea",
+  "label" : "Top Articles",
+  "regions" : [ {
+    "id" : "2325aca2-f106-43c8-a958-9f16a62e1e13",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "numberOfArticles" : 10,
+        "showTitle" : true,
+        "title" : "Support Articles",
+        "topicList" : [ {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOnOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOoOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOpOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOqOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOrOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOsOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOtOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOuOAI"
+        }, {
+          "isPublic" : false,
+          "name" : "0TOTw0000002vOvOAI"
+        } ]
+      },
+      "componentName" : "forceCommunity:topArticleList",
+      "id" : "69df1266-8619-492c-a55a-14fdfa7167ca",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "18efc176-3245-44df-bf89-82782a322e3e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c1fe16d9-58d5-4807-bbfe-69faa980aedb",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Top Articles"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "1b31fc4d-cd5e-435a-b718-d5d6bb57f962",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c2cf230a-18c3-40ac-83da-5ba9571486df",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "top-articles"
+}

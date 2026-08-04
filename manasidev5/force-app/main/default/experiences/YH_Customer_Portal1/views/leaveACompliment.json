@@ -1,0 +1,49 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c7670138-cfd4-4214-9981-d67fd87297ae",
+  "label" : "Leave a Compliment",
+  "regions" : [ {
+    "id" : "a353e59a-e94a-45e0-ae38-bdba51c0bad9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowName" : "SF_Community_Create_Web_to_Case",
+        "requestType" : "complaints-feedback-request"
+      },
+      "componentName" : "c:flowLauncher",
+      "id" : "ec082c0e-2924-43bf-983f-af1c2b4f3027",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "caa2e787-23fe-4cb2-a5fe-538d3b74ac76",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "fa547938-06d9-4202-b187-622ea5bfcbb5",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Leave a Compliment"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c4f7bee3-69b3-4f9f-a3d2-a3c5354a4486",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8e5d89f9-0d6f-4b73-a602-8f225040640a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-leave-compliment"
+}

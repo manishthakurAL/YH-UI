@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en_US">
+    <head>
+        <meta name='basePath' content='' />
+        <meta name='deployTarget' content='CORE' />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript">
+            {errorHandlerScript}
+        </script>
+        
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">!function(){const e={documentCreateElement:Document.prototype.createElement,elementSetAttribute:Element.prototype.setAttribute,elementAttachShadow:Element.prototype.attachShadow,elementAppendChild:Element.prototype.appendChild,htmlelementAddEventListener:Element.prototype.addEventListener,iframeContentDocumentGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentDocument").get,iframeContentWindowGet:Object.getOwnPropertyDescriptor(HTMLIFrameElement.prototype,"contentWindow").get};Object.freeze(e),Object.defineProperty(window,"originalDomApis",{writable:!1,value:e});const t=window.frames;Object.defineProperty(window,"frames",{get:function(){const e=[];for(let n=0;n<t.length;n++)try{t[n].frameElement.getRootNode().nodeType===Node.DOCUMENT_FRAGMENT_NODE||e.push(t[n])}catch(o){e.push(t[n])}return e.length===t.length?t:e}})}();</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">!function(){"use strict";const e=`/webruntime${"/log/errors"}`;const n="UNKNOWN_ERROR";function t(){return e="basePath",document?.querySelector(`meta[name="${e}"]`)?.getAttribute("content")||"";var e}const{window:o}=globalThis;function r({subject:r,error:s={},extra:a}){let i,c,d;s?(i=s.message,c=s.stack,d=s.wcstack):a&&(i=a.message);const{pathname:u,hostname:l}=o.location,m={subject:r,message:i,stack:c,wcstack:d,extra:a,location:{pathname:u,hostname:l}},v=t();!function(e){document.dispatchEvent(new CustomEvent("client-error",{detail:{error:e,type:n}}))}(m),function(e,n){const t=JSON.stringify(n);if(!(window&&window.navigator&&window.navigator.sendBeacon&&window.navigator.sendBeacon(e,t))){const n=new XMLHttpRequest;n.open("POST",e,!0),n.setRequestHeader("Content-Type","text/plain;charset=UTF-8"),n.send(t)}}(globalThis.location.origin+v+e,m)}const s=(e={})=>{const{reason:n={}}=e;r({subject:"unhandledrejection",error:n})};function a(e={},n={}){const{message:t,filename:o,lineno:s,colno:a,error:i}=e;r({subject:"window error",error:i,extra:{message:t,filename:o,lineno:s,colno:a},...n})}o?.addEventListener("error",a),o?.addEventListener("unhandledrejection",s),o?.addEventListener("removeErrorReporting",function(){o?.removeEventListener("unhandledrejection",s),o?.removeEventListener("error",a),o?.removeEventListener("removeErrorReporting",this)})}();
+</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">!function(){"use strict";const e="webruntime";function t(t){return`/${e}${t}`}const o=t("/log/metrics"),n=t("/log/errors");function r(e,t){const o=JSON.stringify(t);if(!(window&&window.navigator&&window.navigator.sendBeacon&&window.navigator.sendBeacon(e,o))){const t=new XMLHttpRequest;t.open("POST",e,!0),t.setRequestHeader("Content-Type","text/plain;charset=UTF-8"),t.send(o)}}function a(e){return document?.querySelector(`meta[name="${e}"]`)?.getAttribute("content")||""}function s(){return a("basePath")}function i(){return a("deployTarget")||"CORE"}const c=`${e}-app-bootstrap`;function l(e){!function(e){const t=e?.detail||{};t.name=t.name||"",t.duration=t.duration||"",c===t.name&&(t.deployTarget=i(),r(s()+o,{webruntimeBootstrap:t,info:"lwr.bootstrap.end"}))}(e),globalThis?.removeEventListener("bootstrapLoaded",this)}globalThis?.addEventListener("bootstrapLoaded",l),globalThis.LWR=globalThis.LWR||{},globalThis.LWR&&Object.isExtensible(globalThis.LWR)&&(globalThis.LWR.onError=e=>{!function(e){const{message:t,stack:o,wcstack:a}=e,{pathname:c,hostname:l}=globalThis.location;let d=[];try{globalThis.performance&&globalThis.performance.getEntriesByType&&(d=globalThis.performance.getEntriesByType("resource").map(e=>({name:e.name,entryType:e.entryType,startTime:e.startTime,duration:e.duration,fetchStart:e.fetchStart,domainLookupStart:e.domainLookupStart,domainLookupEnd:e.domainLookupEnd,connectStart:e.connectStart,connectEnd:e.connectEnd,requestStart:e.requestStart,responseStart:e.responseStart,responseEnd:e.responseEnd,responseStatus:e.responseStatus,transferSize:e.transferSize,encodedBodySize:e.encodedBodySize,decodedBodySize:e.decodedBodySize,initiatorType:e.initiatorType,nextHopProtocol:e.nextHopProtocol,failed:e.failed||!1})))}catch(e){globalThis.console&&globalThis.console.error&&globalThis.console.error("Error collecting resource performance data",e)}r(s()+n,{subject:"bootstrap error",webruntimeBootstrap:{deployTarget:i(),resources:d,resourceCount:d.length},message:t,stack:o,wcstack:a,location:{pathname:c,hostname:l}})}(e),globalThis.launchModal&&launchModal({id:"webruntime-client-bootstrap-error-failed-to-load-lwr",titleLabel:"Oops!",contentLabel:"Something went wrong. Please try refreshing the app",buttonLabel:"Refresh",callback:function(){var e=new URL(window.location);e.searchParams.set("lwr.cachebust",(new Date).getTime()),window.location=e.href}}),globalThis?.removeEventListener("bootstrapLoaded",l),globalThis?.dispatchEvent(new CustomEvent("removeErrorReporting")),delete globalThis.LWR.onError})}();
+</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">({})?.a?.a;window.supportsOptionalChaining=true;
+</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">!function(){"use strict";window.isBrowserSupportedByWebruntime=function(){const n="performance"in window&&"mark"in window.performance,i="customElements"in window;return n&&i&&void 0!==window.supportsOptionalChaining}()}();
+</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">globalThis.lwcRuntimeFlags = globalThis.lwcRuntimeFlags || {};
+globalThis.lwcRuntimeFlags = { ...globalThis.lwcRuntimeFlags, ...{"ENABLE_LEGACY_SCOPE_TOKENS":false,"ENABLE_FORCE_SHADOW_MIGRATE_MODE":false,"ENABLE_MIXED_SHADOW_MODE":false,"LEGACY_LOCKER_ENABLED":false,"ENABLE_LEGACY_SIGNAL_CONTEXT_VALIDATION":false,"DISABLE_LEGACY_VALIDATION":false,"ENABLE_EXPERIMENTAL_SIGNALS":false,"DISABLE_SYNTHETIC_SHADOW":false,"DISABLE_SCOPE_TOKEN_VALIDATION":false,"DISABLE_DETACHED_REHYDRATION":true,"DISABLE_LIGHT_DOM_UNSCOPED_CSS":false,"ENABLE_LEGACY_CONTEXT_CONNECTION":false,"ENABLE_SLOT_FORWARDING_FIX":true,"DISABLE_NATIVE_CUSTOM_ELEMENT_LIFECYCLE":true,"DISABLE_TEMPORARY_V5_COMPILER_SUPPORT":true,"DISABLE_HOST_ATTACH_SHADOW_GUARD":false} };
+globalThis.LWR = globalThis.LWR || {};
+globalThis.LWR.initDeferDOM = true;
+globalThis.LWR.customInit = (lwr) => {
+
+        LWR.define('@app/apexApiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/apiBasePath', [], function() { return "webruntime/api"; });
+        LWR.define('@app/basePath', [], function() { return ""; });
+        LWR.define('@app/deployTarget', [], function() { return "CORE"; });
+        LWR.define('@app/guestUuidCookieName', [], function() { return null; });
+        LWR.define('@app/isDesignMode', [], function() { return false; });
+        LWR.define('@app/isPreviewMode', [], function() { return false; });
+        LWR.define('@app/isSsrCodeTypeEnabled', [], function() { return false; });
+        LWR.define('@app/routes', [], function() { return [{"devName":"Too_Many_Requests","label":"Too Many Requests","createdOnVersion":null,"isPublic":true,"viewId":"ec40915c-dcb4-46b4-a572-9cac31cfc94b","hasVanityURL":false,"patternMap":{},"id":"09d41061-cc85-4531-808f-aa916ad1f817","path":"/toomanyrequests.html","view":"too_Many_Requests_1","isRoot":true,"isDefault":true,"page":{"type":"comm__namedPage","attributes":{"name":"Too_Many_Requests"}}}]; });
+        LWR.define('@app/templateDevName', [], function() { return "sna-aura-lwr-shell-template"; });
+        LWR.define('@app/uiBasePath', [], function() { return ""; });
+        LWR.define('@app/versionKey', [], function() { return "0DBTw0000000xRV:8"; });
+        LWR.define('@app/viewToThemeLayoutMap', [], function() { return {"too_Many_Requests_1":"serviceNotAvailable"}; });
+        LWR.define('@app/webruntimeFrameworkVersion', [], function() { return "262.60"; });
+        LWR.define('@salesforce/community/Id', [], function() { return "0DBTw0000000xRVOAY"; });
+        LWR.define('@salesforce/community/basePath', [], function() { return ""; });
+        LWR.define('@salesforce/i18n/lang', [], function() { return "en_US"; });
+        LWR.define('@salesforce/site/Id', [], function() { return "0DMTw00000012vqOAA"; });
+        LWR.define('@salesforce/site/activeLanguages', [], function() { return [{"label":"English (US)","code":"en-US","default":true}]; });
+        LWR.define('@salesforce/webstore/Id', [], function() { return null; });
+lwr.define("webruntime/dispatcher", [], function(){ return function o11yDipatcherInit(dispatcher) { typeof lwr !== 'undefined' && lwr.attachDispatcher(dispatcher); };});
+LWR.define('@salesforce/user/Id', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['id'] });
+LWR.define('@salesforce/user/isGuest', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['isGuest'] });
+LWR.define('@salesforce/user/contactId', ['@app/user'], function(m) { return (m && typeof m === 'object' && 'default' in m ? m.default : m)['contactId'] });
+lwr.initializeApp();
+globalThis.process = { env: { NODE_ENV: "dev" } };};</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">globalThis.CLWR = globalThis.CLWR || {};
+globalThis.CLWR.gates = {"enableDirtyStateCheck":false,"enableLwrLinkInfoProvider":false,"enableLwrRouteValidation":false};
+</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">globalThis.LWR = globalThis.LWR || {};
+Object.assign(globalThis.LWR, {
+  "bootstrapModule": "@lwrjs/app-service/communities_app/module/amd/v/0_22_17",
+  "autoBoot": false,
+  "rootComponents": [
+    "webruntime/app/v/1_66_1196-262_0"
+  ],
+  "requiredModules": [
+    "lwc/v/9_1_2",
+    "@lwrjs/app-service/communities_app/module/amd/v/0_22_17"
+  ],
+  "importMappings": {
+    "default": "webruntime/component/latest/prod/en_US/",
+    "imports": {
+      "/webruntime/component/latest/prod/en_US/lwc": "webruntime/framework/c6f5ab53a7/prod/lwr_lwc",
+      "@app/csrfToken": "webruntime/module/@app/csrfToken",
+      "@app/loginPath": "webruntime/module/@app/loginPath",
+      "@app/user": "webruntime/module/@app/user",
+      "@perm/": "webruntime/perm/",
+      "@salesforce/client/formFactor": "webruntime/module/@salesforce/client/formFactor",
+      "@salesforce/customPermission/": "webruntime/perm/custom/",
+      "@salesforce/featureFlag/": "webruntime/module/@salesforce/featureFlag/",
+      "@salesforce/user/Id": "webruntime/module/@salesforce/user/Id",
+      "@salesforce/user/contactId": "webruntime/module/@salesforce/user/contactId",
+      "@salesforce/user/isGuest": "webruntime/module/@salesforce/user/isGuest",
+      "@salesforce/userPermission/": "webruntime/perm/",
+      "@udd/": "webruntime/module/@udd/",
+      "@view/serviceNotAvailable": "webruntime/view/55e453cfcbed8f2a303c8f54326b2287/prod/en_US/serviceNotAvailable_view",
+      "@view/too_Many_Requests_1": "webruntime/view/6f11d12d34edb778f546c921d88cdef7/prod/en_US/too_Many_Requests_1_view",
+      "mobileruntime/hybridAppManager": "webruntime/framework/090ba030fe/prod/lwr_mobile",
+      "o11y/collectors": "webruntime/component/0af3d31fc8338a2518abfa12ed682846/prod/en_US/o11y/collectors_cmp",
+      "o11y/simple_collector": "webruntime/component/769a3bbaf4b329a78402db88550744d6/prod/en_US/o11y/simple_collector_cmp",
+      "webruntime/handlebarsEngine": "webruntime/framework/fdb5b3227a/prod/lwr_handlebars"
+    }
+  }
+});</script>
+        <script src="webruntime/framework/6ce0b87300/prod/lwr_loader"></script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">/**
+* Copyright (c) 2021, salesforce.com, inc.
+* All rights reserved.
+* SPDX-License-Identifier: MIT
+* For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+*/
+/* LWR Error Shim v0.22.17 */
+!function(){"use strict";const o=globalThis;if(!(o.LWR&&o.LWR.define)){const r=new Error("The LWR application failed to bootstrap");if(!o.LWR||!o.LWR.onError)throw r;o.LWR.onError(r)}}();
+</script>
+        <script src="webruntime/framework/b73515aaa5/prod/lwr_bootstrap"></script>
+        <script src="webruntime/framework/cb2c1a2c50/prod/lwr_app_bootstrap_hook"></script>
+        <script src="webruntime/framework/c6f5ab53a7/prod/lwr_lwc"></script>
+        <script src="webruntime/framework/6186554a8e/prod/lwr_app"></script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('lwc', ['lwc/v/9_1_2'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">
+        LWR.define('@app/authenticationCookieName', [], function() { return "__Secure-has-sid"; });
+        LWR.define('@app/extraRouteParams', [], function() { return {}; });
+        LWR.define('@app/imageOpt', [], function() { return "none"; });
+        LWR.define('@app/isMobileAppMode', [], function() { return true; });
+        LWR.define('@app/user', [], function() { return {"isGuest":true,"id":null,"contactId":null,"csrfToken":null}; });
+        LWR.define('@salesforce/user/contactId', [], function() { return null; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/apexApiBasePath/v/1', ['@app/apexApiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/apiBasePath/v/1', ['@app/apiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/authenticationCookieName/v/1', ['@app/authenticationCookieName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/basePath/v/1', ['@app/basePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/csrfToken/v/1', ['@app/csrfToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/deployTarget/v/1', ['@app/deployTarget'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/extraRouteParams/v/1', ['@app/extraRouteParams'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/guestUuidCookieName/v/1', ['@app/guestUuidCookieName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/imageOpt/v/1', ['@app/imageOpt'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/isDesignMode/v/1', ['@app/isDesignMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/isMobileAppMode/v/1', ['@app/isMobileAppMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/isPreviewMode/v/1', ['@app/isPreviewMode'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/isSsrCodeTypeEnabled/v/1', ['@app/isSsrCodeTypeEnabled'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/o11yApiEndpoint/v/1', ['@app/o11yApiEndpoint'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/o11yConfiguration/v/1', ['@app/o11yConfiguration'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/o11yFalconEnabled/v/1', ['@app/o11yFalconEnabled'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/o11yGuestToken/v/1', ['@app/o11yGuestToken'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/o11ySamplingRate/v/1', ['@app/o11ySamplingRate'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/routes/v/1', ['@app/routes'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/templateDevName/v/1', ['@app/templateDevName'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/uiBasePath/v/1', ['@app/uiBasePath'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/user/v/1', ['@app/user'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/versionKey/v/1', ['@app/versionKey'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/viewToThemeLayoutMap/v/1', ['@app/viewToThemeLayoutMap'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@app/webruntimeFrameworkVersion/v/1', ['@app/webruntimeFrameworkVersion'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@salesforce/community/Id/v/1', ['@salesforce/community/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@salesforce/i18n/lang/v/1', ['@salesforce/i18n/lang'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@salesforce/site/activeLanguages/v/1', ['@salesforce/site/activeLanguages'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@salesforce/site/Id/v/1', ['@salesforce/site/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('@salesforce/webstore/Id/v/1', ['@salesforce/webstore/Id'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script type="text/javascript" nonce="e5ea4b7d-b153-4a10-874f-18c6b09c9090">LWR.define('webruntime/dispatcher/v/1', ['webruntime/dispatcher'], function(m) { return m && typeof m === 'object' && 'default' in m ? m.default : m; });</script>
+        <script src="webruntime/view/6f11d12d34edb778f546c921d88cdef7/prod/en_US/too_Many_Requests_1_view"></script>
+        <script src="webruntime/view/55e453cfcbed8f2a303c8f54326b2287/prod/en_US/serviceNotAvailable_view"></script><style type="text/css" id="webruntime-branding">:root{--dxp-g-brand:rgb(240, 77, 110);--dxp-c-link-text-color:rgb(240, 77, 110);--dxp-c-link-text-color-hover:#ed274f;--dxp-c-link-text-color-active:#ed274f;--dxp-g-neutral-contrast-3:#fff;--dxp-s-body-font-family:Source Sans Pro;--dxp-g-neutral-contrast-2:#000;--dxp-g-neutral:#ecebea;--dxp-g-neutral-contrast-1:#000;--dxp-g-root:rgb(239, 237, 242);--dxp-g-root-contrast-1:rgb(35, 22, 60);--dxp-g-root-contrast:rgb(52, 33, 90);--dxp-g-root-contrast-2:rgb(0, 0, 0);--dxp-g-root-contrast-3:rgb(0, 0, 0);--dxp-g-neutral-contrast:#000;--dxp-g-root-1:rgb(218, 213, 225);--dxp-g-root-2:rgb(176, 166, 191);--dxp-g-root-3:rgb(113, 98, 136);--dxp-g-brand-contrast-1:rgb(218, 213, 225);--dxp-g-brand-contrast:rgb(239, 237, 242);--dxp-g-neutral-3:rgb(118, 113, 107);--dxp-g-neutral-2:rgb(178, 174, 170);--dxp-g-brand-contrast-3:rgb(113, 98, 136);--dxp-g-sna-heading-font-family:Source Sans Pro;--dxp-g-brand-contrast-2:rgb(176, 166, 191);--dxp-g-neutral-1:rgb(217, 215, 213);--dxp-g-brand-1:rgb(237, 39, 79);--dxp-g-brand-2:rgb(179, 15, 48);--dxp-g-brand-3:rgb(67, 6, 18);--dxp-g-brand-h:348;--dxp-g-brand-s:84%;--dxp-g-brand-l:62%;--dxp-g-brand-a:1.0;--dxp-c-link-text-color-h:348;--dxp-c-link-text-color-s:84%;--dxp-c-link-text-color-l:62%;--dxp-c-link-text-color-a:1.0;--dxp-c-link-text-color-hover-h:348;--dxp-c-link-text-color-hover-s:85%;--dxp-c-link-text-color-hover-l:54%;--dxp-c-link-text-color-hover-a:1.0;--dxp-c-link-text-color-active-h:348;--dxp-c-link-text-color-active-s:85%;--dxp-c-link-text-color-active-l:54%;--dxp-c-link-text-color-active-a:1.0;--dxp-g-neutral-h:30;--dxp-g-neutral-s:5%;--dxp-g-neutral-l:92%;--dxp-g-neutral-a:1.0;--dxp-g-root-h:264;--dxp-g-root-s:16%;--dxp-g-root-l:94%;--dxp-g-root-a:1.0;--dxp-g-root-contrast-h:260;--dxp-g-root-contrast-s:46%;--dxp-g-root-contrast-l:24%;--dxp-g-root-contrast-a:1.0;--dxp-g-neutral-contrast-h:0;--dxp-g-neutral-contrast-s:0%;--dxp-g-neutral-contrast-l:0%;--dxp-g-neutral-contrast-a:1.0;--dxp-g-brand-contrast-h:264;--dxp-g-brand-contrast-s:16%;--dxp-g-brand-contrast-l:94%;--dxp-g-brand-contrast-a:1.0;}</style>
+        <style>
+/* Yorkshire Housing Brand Compliance Styles - Version 2.0 */
+
+/* ===== DEBUGGING HELPER =====
+    body:after {
+        content: "YH Brand Loaded ✓";
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #4fc3ae;
+        color: white;
+        padding: 5px 10px;
+        z-index: 10000;
+        font-size: 12px;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+    } **/
+
+:root {
+    /* Primary Palette */
+    --yh-purple: #34215a;
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+
+    /* Specialty Colors */
+    --yh-dark-purple: #1a112d;
+    --yh-light-purple: #857a9c;
+    --yh-lightest-purple: #ece6f9;
+    --yh-light-rose: #f694a8;
+    --yh-lightest-rose: #ffeef1;
+
+
+    /* Type Scale - Based on 12pt body (16px) */
+    --body-size: 14px;
+    /* 12pt equivalent */
+    --body-leading: 14px;
+    /* 16pt leading (12pt + 4pt) */
+
+    --subhead-size: 16px;
+    /* 24pt - 2x body size */
+    --subhead-leading: 16px;
+    /* 32pt leading (24pt + 8pt) */
+
+    --headline-size: 18px;
+    /* 35pt - 3x body size */
+    --headline-leading: 18px;
+    /* 44pt leading (36pt + 8pt) */
+
+    --superhead-size: 65px;
+    /* 72pt - 4x body size */
+    --superhead-leading: 65px;
+    /* 72pt leading (48pt + 8pt) */
+
+    --lwc-pageHeaderColorBorder: #34215a;
+
+    --search-visible: visible;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    :root {
+        --body-size: 12px;
+        --body-leading: 12px;
+        --subhead-size: 14px;
+        --subhead-leading: 14px;
+        --headline-size: 16px;
+        --headline-leading: 16px;
+        --superhead-size: 28px;
+        --superhead-leading: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --body-size: 10px;
+        --body-leading: 10px;
+        --subhead-size: 12px;
+        --subhead-leading: 12px;
+        --headline-size: 14px;
+        --headline-leading: 14px;
+        --superhead-size: 18px;
+        --superhead-leading: 18px;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.yh-bg-purple {
+    background-color: #34215a !important;
+}
+
+.yh-bg-rose {
+    background-color: #f04d6e !important;
+}
+
+.yh-bg-yellow {
+    background-color: #f9ab23 !important;
+}
+
+.yh-bg-green {
+    background-color: #4fc3ae !important;
+}
+
+.yh-text-purple {
+    color: #34215a !important;
+}
+
+.yh-text-rose {
+    color: #f04d6e !important;
+}
+
+.yh-text-yellow {
+    color: #f9ab23 !important;
+}
+
+.yh-text-green {
+    color: #4fc3ae !important;
+}
+
+.yh-text-white {
+    color: #fff !important;
+}
+
+
+.yh-border-purple {
+    border-color: #34215a !important;
+}
+
+.yh-border-rose {
+    border-color: #f04d6e !important;
+}
+
+.yh-border-yellow {
+    color: #f9ab23 !important;
+}
+
+.yh-border-green {
+    color: #4fc3ae !important;
+}
+
+/* Import Source Sans Pro with ALL weights */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+
+/* ===== BUTTON TEXT VISIBILITY ===== */
+button:disabled {
+    color: var(--yh-light-purple) !important;
+    border-color: var(--yh-light-purple) !important;
+}
+
+.slds-button_brand,
+.slds-button--brand,
+button[class*="brand"],
+input[class*="brand"],
+a[class*="brand"] {
+    color: white !important;
+    background-color: var(--yh-purple) !important;
+    border-color: var(--yh-purple) !important;
+}
+
+
+
+.slds-button_brand .slds-button__icon,
+.slds-button--brand .slds-button__icon,
+button[class*="brand"] .slds-button__icon,
+input[class*="brand"] .slds-button__icon,
+a[class*="brand"] .slds-button__icon {
+    fill: white !important;
+}
+
+/* Force white text on ANY element with purple background */
+[style*="background-color: #34215a"],
+[style*="background: #34215a"],
+.bg-yh-purple,
+.slds-brand-primary {
+    color: white !important;
+}
+
+[style*="background-color: #f04d6e"],
+[style*="background: #f04d6e"],
+.bg-yh-purple,
+.slds-brand-primary {
+    color: white !important;
+}
+
+.slds-is-selected .slds-button__icon {
+    fill: white !important;
+    color: white !important;
+}
+
+[style*="background-color: #34215a"] .slds-button__icon,
+[style*="background: #34215a"] .slds-button__icon,
+[style*="background-color: #34215a"] .slds-icon,
+[style*="background: #34215a"] .slds-icon,
+.bg-yh-purple .slds-button__icon,
+.slds-brand-primary .slds-button__icon {
+    fill: white !important;
+}
+
+/* ===== ENFORCE NO ALL-CAPS ===== */
+* {
+    text-transform: none !important;
+    font-variant: normal !important;
+    letter-spacing: normal !important;
+}
+
+.slds-text-title,
+.slds-text-title_caps,
+.slds-section__title {
+    text-transform: none !important;
+    font-variant: normal !important;
+    letter-spacing: normal !important;
+}
+
+/* Brand buttons */
+.slds-button_brand,
+.slds-button--brand {
+    background-color: var(--yh-purple) !important;
+    border-color: var(--yh-purple) !important;
+    color: white !important;
+}
+
+.slds-button_brand .slds-button__icon,
+.slds-button--brand .slds-button__icon {
+    fill: white !important;
+}
+
+/* Neutral buttons */
+.slds-button_neutral,
+.slds-button--neutral {
+    background-color: white !important;
+    border-color: var(--yh-purple) !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_neutral .slds-button__icon,
+.slds-button--neutral .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+/* Bare buttons */
+.slds-button_bare,
+.slds-button--bare {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_bare .slds-button__icon,
+.slds-button--bare .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+.slds-button_bare:hover,
+.slds-button--bare:hover {
+    background-color: #f5f5f5 !important;
+    color: var(--yh-rose) !important;
+}
+
+.slds-button_bare:hover .slds-button__icon,
+.slds-button--bare:hover .slds-button__icon {
+    fill: var(--yh-rose) !important;
+}
+
+/* Outline brand buttons */
+.slds-button_outline-brand,
+.slds-button--outline-brand {
+    background-color: transparent !important;
+    border-color: var(--yh-purple) !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_outline-brand .slds-button__icon,
+.slds-button--outline-brand .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+.slds-button_outline-brand:hover,
+.slds-button_outline-brand:focus {
+    background-color: var(--yh-purple) !important;
+    color: white !important;
+}
+
+.slds-button_outline-brand:hover .slds-button__icon,
+.slds-button_outline-brand:focus .slds-button__icon {
+    fill: white !important;
+}
+
+/* Success buttons */
+.slds-button_success,
+.slds-button--success {
+    background-color: var(--yh-green) !important;
+    border-color: var(--yh-green) !important;
+    color: white !important;
+}
+
+/* Destructive buttons */
+.slds-button_destructive,
+.slds-button--destructive {
+    background-color: var(--yh-rose) !important;
+    border-color: var(--yh-rose) !important;
+    color: white !important;
+}
+
+.slds-theme_error,
+.slds-theme--error {
+    background-color: var(--yh-rose) !important;
+}
+
+/* Inverse buttons */
+.slds-button_inverse,
+.slds-button--inverse {
+    background-color: transparent !important;
+    border-color: white !important;
+    color: white !important;
+}
+
+.slds-button_inverse .slds-button__icon,
+.slds-button--inverse .slds-button__icon {
+    fill: white !important;
+}
+
+.slds-button_inverse:hover,
+.slds-button--inverse:hover {
+    background-color: white !important;
+    color: var(--yh-purple) !important;
+}
+
+.slds-button_inverse:hover .slds-button__icon,
+.slds-button--inverse:hover .slds-button__icon {
+    fill: var(--yh-purple) !important;
+}
+
+
+
+/* ===== DARK BACKGROUND TEXT VISIBILITY ===== */
+.forceCommunityGlobalNavigation,
+.bg-yh-purple,
+[style*="background-color: #34215a"],
+[style*="background: #34215a"] {
+    color: white !important;
+}
+
+.forceCommunityGlobalNavigation a,
+.forceCommunityGlobalNavigation span,
+.forceCommunityGlobalNavigation div {
+    color: white !important;
+}
+
+.forceCommunityGlobalNavigation a:hover {
+    color: var(--yh-light-rose) !important;
+}
+
+.forceCommunityGlobalNavigation svg,
+.bg-yh-purple svg,
+.forceCommunityGlobalNavigation .slds-icon,
+.bg-yh-purple .slds-icon {
+    fill: white !important;
+}
+
+/* ===== FORM STYLES ===== */
+.slds-input,
+.slds-select,
+.slds-textarea,
+.slds-form-element__label {
+    font-family: 'Source Sans Pro', Arial, sans-serif !important;
+    /*font-size: var(--body-size) !important;
+        font-weight: 400 !important;
+        text-transform: none !important;*/
+}
+
+.slds-input:focus,
+.slds-select:focus,
+.slds-textarea:focus {
+    border-color: var(--yh-purple) !important;
+    box-shadow: 0 0 0 3px rgba(52, 33, 90, 0.1) !important;
+}
+
+
+/* =========== Text ========= */
+.slds-truncate {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+}
+
+.slds-table_header-fixed_container,
+.slds-table--header-fixed_container {
+    padding-top: 2rem !important;
+}
+
+/* Display larger than super headline (max 10x body size) */
+.yh-display-large {
+    font-size: 160px !important;
+    line-height: 168px !important;
+    font-weight: 900 !important;
+}
+
+/* Centered text for specific cases */
+.yh-centered-text {
+    text-align: center !important;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    /* ===== CARD AND LAYOUT STYLES ===== */
+    .slds-card {
+        padding: 0px !important;
+    }
+
+    .yh-banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .yh-logo-section {
+        margin-bottom: 15px;
+    }
+
+    .yh-search-section {
+        margin: 15px 0;
+        max-width: 100%;
+    }
+
+    .yh-user-section {
+        margin-top: 15px;
+    }
+}
+
+.yh-footer {
+    font-family: FSElliot, sans-serif;
+    color: white;
+}
+/********** FOOTER *********************/
+
+/* Tablets */ 
+@media (min-width: 600px) { 
+    .yh-footer {
+        font-family: FSElliot, sans-serif;
+        color: white;
+	}
+} 
+    
+/* Desktop */ 
+@media (min-width: 1024px) { 
+    .yh-footer {
+        font-family: FSElliot, sans-serif;
+        color: white;
+    }
+}
+
+@media (min-width: 1440px) {
+    .yh-footer {
+        font-family: FSElliot, sans-serif;
+        color: white;
+        font-size: .9rem;
+        font-weight: 300;
+    }
+}
+/************/
+.yh-footer-left {
+    margin: 2px;
+    margin-bottom: 1px;
+}
+    
+.yh-footer-left p {
+    text-align: left;
+    line-height: 20px;
+}
+
+p+p {
+    margin-top: 10px;
+}
+
+p.copy-write {
+    font-size: .75rem;
+}
+
+.helpCenterHomeHero .bgImage {
+    border-radius: 0px 0px 50px 50px;
+}
+
+.forceCommunityThemeNav .mainNavItem .linkBtn {
+    font-size: var(--body-size) !important;
+    font-weight: 600 !important;
+}
+
+.themeNav {
+    visibility: var(--search-visible);
+}
+
+.forceCommunityTopArticleListForTopic .topicHeaderLink {
+    font-size: x-large !important;
+}
+
+.expand-yellow-icon .slds-button_icon {
+    background-color: var(--yh-rose);
+    color: white;
+}
+
+.expand-yellow-icon .slds-button_icon:hover,
+.expand-yellow-icon .slds-button_icon:focus {
+    color: var(--yh-purple);
+}
+
+
+
+.balance-positive {
+    color: var(--yh-green) !important;
+}
+
+.balance-negative {
+    color: var(--yh-rose) !important;
+}
+
+.balance-amount {
+    color: var(--yh-purple) !important;
+}
+
+
+
+.menu-icon-rose {
+    --slds-c-icon-color-foreground: white !important;
+    --slds-c-button-menu-icon-width: 3rem;
+    --slds-c-button-menu-icon-height: 3rem;
+    --slds-c-icon-width: 3rem;
+    --slds-c-icon-height: 3rem;
+    --lwc-buttonMenuIconSize: 3rem;
+}
+    
+.menu-icon-rose button {
+   padding :0px !important;     
+}
+
+.menu-icon-rose button :nth-child(2) {
+    display: none !important;
+}
+
+.yh-footer-container {
+  max-width: 1440px;     /* matches themeHeaderInner */
+  margin: 0 auto;        /* center container */
+  text-align: left;      /* left-align text inside */
+  padding: 0px 16px;    /* responsive spacing (mobile-safe) */
+}
+
+.yh-footer p {
+  margin: 0;
+}
+
+.yh-footer p + p {
+  margin-top: 8px;
+} 
+
+    
+/* ============================================================
+   EXPERIENCE BUILDER – RESPONSIVE FIXED HEADER + STICKY FOOTER
+   ============================================================ */
+
+/* -------------------------
+   Global layout variables
+-------------------------*/
+:root {
+    --yh-header-height: 80px;
+   /* --yh-footer-height: 80px;*/
+    --yh-unified-bg: #EFEDF2;
+}
+
+/* -------------------------
+   Wrapper
+-------------------------*/
+.themeLayoutStarterWrapper.siteforceThemeLayoutStarter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    box-sizing: border-box;
+}
+
+/* -------------------------
+   Fixed Header
+-------------------------*/
+.a11y-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--yh-header-height);
+    z-index: 1000;
+}
+
+/* -------------------------
+   Scrollable Body
+-------------------------*/
+.body.isPageWidthFixed-true {
+    display: flex;
+    /*flex-direction: column;*/
+    flex: 1 1 auto;
+    padding-top: calc(var(--yh-header-height) + 10px);
+    padding-bottom: 120px;
+    overflow: visible;  
+    min-height: auto; 
+    /*min-height: calc(100vh - var(--yh-header-height) - var(--yh-footer-height));
+    box-sizing: border-box;*/
+}
+
+/* -------------------------
+   Footer (sticky bottom)
+-------------------------*/
+.themeLayoutStarterWrapper.siteforceThemeLayoutStarter > footer.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--yh-footer-height);
+    z-index: 1000;
+}
+
+/* -------------------------
+   Flow button spacing
+-------------------------*/
+.flow-button {
+    margin-bottom: 20px;
+}
+
+/* -------------------------
+   Responsive Adjustments
+-------------------------*/
+@media (max-width: 768px) {
+    :root {
+        --yh-header-height: 60px;
+        --yh-footer-height: 120px;
+    }
+
+    .body.isPageWidthFixed-true {
+        padding-top: var(--yh-header-height);
+        padding-bottom: var(--yh-footer-height);
+        min-height: calc(100dvh - var(--yh-header-height) - var(--yh-footer-height));
+    }
+    .yh-footer {
+    padding-bottom: 16px;
+	}    
+}    
+
+
+/* ============================================================
+   GLOBAL BACKGROUND VARIABLE
+   ============================================================ */
+.body.isPageWidthFixed-true {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* FLOW RUNTIME — OUTER CONTAINERS (SCOPED) */
+.body.isPageWidthFixed-true flowruntime-flow,
+.body.isPageWidthFixed-true flowruntime-lwc-body,
+.body.isPageWidthFixed-true flowruntime-progress-indicator,
+.body.isPageWidthFixed-true flowruntime-list-container,
+.body.isPageWidthFixed-true flowruntime-base-section,
+.body.isPageWidthFixed-true flowruntime-section-with-header,
+.body.isPageWidthFixed-true lightning-accordion-section {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* FLOW SCREEN BODY — REMOVE WHITE CARD */
+.flowruntimeBody,
+.flowruntimeBody__lwc,
+.flowruntimeBody.slds-card__body {
+    background-color: var(--yh-unified-bg) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* FLOW NAVIGATION BAR */
+flowruntime-navigation-bar,
+.navigationBar,
+.slds-card__footer {
+    background-color: var(--yh-unified-bg) !important;
+    border-top: none !important;
+}
+/* Navigation bar button font size */
+flowruntime-navigation-bar lightning-button button {
+    font-size: 16px; /* adjust as needed */
+}    
+
+/* FLOW DISPLAY TEXT — BACKGROUND ONLY */
+.flowruntimeBody 
+flowruntime-display-text-lwc 
+lightning-formatted-rich-text 
+span[part="formatted-rich-text"],
+.flowruntimeBody 
+flowruntime-display-text-lwc 
+lightning-formatted-rich-text 
+span[part="formatted-rich-text"] p {
+    background-color: var(--yh-unified-bg) !important;
+    font-size: 16px !important;
+}
+
+/* SAFETY — STRIP INLINE WHITE BACKGROUNDS */
+.flowruntimeBody 
+lightning-formatted-rich-text 
+[style*="background"] {
+    background-color: transparent !important;
+}
+
+/* FLOW DISPLAY TEXT — REQUIRED FIELD NOTICE ONLY */
+.flowruntimeBody
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] p strong em {
+    font-size: 16px !important;
+}  
+
+/* FLOW DISPLAY TEXT — CENTERED CONFIRMATION MESSAGE ONLY */
+.flowruntimeBody
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] p[style*="text-align: center"] > span {
+    font-size: 16px !important;
+} 
+    
+/* FLOW DISPLAY TEXT — INSTRUCTION / CONFIRMATION TEXT ONLY */
+.flowruntimeBody
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] p > span[style*="font-size"],
+.flowruntimeBody
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] p > strong[style*="font-size"] {
+    font-size: 16px !important;
+} 
+
+.flowruntimeBody
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] p > strong[style*="font-size: 36px"] {
+    font-size: 36px !important;
+}    
+    
+flowruntime-lwc-field.field-element
+flowruntime-display-text-lwc
+lightning-formatted-rich-text
+span[part="formatted-rich-text"] ul li > span[style*="font-size"] {
+    font-size: 16px !important;
+}
+    
+/* ============================================================
+   PAGE / FLOW HEADER BACKGROUND
+   ============================================================ */
+.yh-page-header-bg {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+.yh-page-header-bg.slds-page-header {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Accordion headers rendered inside Flow */
+.flowruntimeBody .slds-accordion__summary,
+.flowruntimeBody .slds-accordion__section,
+.flowruntimeBody .slds-accordion__list-item {
+    background-color: var(--yh-unified-bg) !important;
+}
+
+/* ============================================================
+   FLOW ACCORDION — REMOVE WHITE BACKGROUNDS
+   ============================================================ */
+.flowruntimeBody .slds-accordion,
+.flowruntimeBody .slds-accordion__list-item,
+.flowruntimeBody .slds-accordion__section,
+.flowruntimeBody .slds-accordion__summary,
+.flowruntimeBody .slds-accordion__summary-heading,
+.flowruntimeBody .slds-accordion__content {
+    background-color: var(--yh-unified-bg) !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 20px !important;
+}
+/* ============================================================
+   FLOW — ZERO BORDERS (HARD RESET)
+   ============================================================ */
+
+flowruntime-flow,
+.flowruntimeBody,
+.flowruntimeBody.slds-card__body,
+flowruntime-navigation-bar,
+.slds-card,
+.slds-card__body,
+.slds-card__footer,
+.slds-page-header,
+.slds-accordion__section,
+.slds-accordion__summary,
+.slds-accordion__list-item,
+.slds-form-element,
+.slds-form-element__control {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/*Flow Text Font size*/
+.flowruntimeBody,
+.flowruntimeBody__lwc {
+  font-size: 16px;
+}
+
+/* Increase label font size for Flow form elements (including picklists) */
+.flowruntimeBody .slds-form-element__label,
+.flowruntimeBody__lwc .slds-form-element__label,
+.flowruntimeBody .slds-form-element lightning-formatted-rich-text,
+.flowruntimeBody__lwc .slds-form-element lightning-formatted-rich-text {
+  font-size: 16px !important;
+}    
+    
+} 
+    
+.yh-footer {
+    background-color: var(--yh-purple) !important; 
+    color: #ffffff !important;
+    padding: 12px 0 !important;
+    width: 100% !important;
+    font-family: FSElliot, sans-serif;
+}
+
+.yh-footer-container {
+    max-width: 965px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.yh-footer-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+   
+}
+
+.yh-footer .copy-write {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important; 
+    font-size: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+.yh-footer .copy-write a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+footer.footer, .cFooterPanel {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/*Cookies Text Formatting in Footer*/    
+.yh-footer a[href="cookie"], .yh-footer a[href="accessibility-statement"] {
+  text-decoration: underline !important;
+  color: #ffffff !important;
+}
+    
+</style>
+        
+        <!-- webruntime-branding-shared stylesheets -->
+        <link rel="stylesheet" href="assets/styles/salesforce-lightning-design-system.min.css?0DBTw0000000xRV:8"/>
+        <link rel="stylesheet" href="assets/styles/dxp-site-spacing-styling-hooks.min.css?0DBTw0000000xRV:8"/>
+        <link rel="stylesheet" href="assets/styles/dxp-styling-hooks.min.css?0DBTw0000000xRV:8"/>
+        <link rel="stylesheet" href="assets/styles/dxp-slds-extensions.min.css?0DBTw0000000xRV:8"/>
+        <!-- webruntime-branding-shared stylesheets -->
+        <link rel="stylesheet" href="assets/styles/styles.css?0DBTw0000000xRV:8"/>
+        <link rel="stylesheet" href="assets/css/fonts-and-custom.css?0DBTw0000000xRV:8"/>
+    </head>
+    <body>
+        <webruntime-app></webruntime-app>
+    </body>
+</html>

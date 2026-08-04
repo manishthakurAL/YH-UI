@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a6aca378-5165-4071-8844-421073b93d94",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Locate_Repair__c",
+  "id" : "3618d0cc-2690-4986-9f96-631b0f166a54",
+  "label" : "Locate Repair",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-locate-repair",
+  "type" : "route",
+  "urlPrefix" : "locate-repair"
+}

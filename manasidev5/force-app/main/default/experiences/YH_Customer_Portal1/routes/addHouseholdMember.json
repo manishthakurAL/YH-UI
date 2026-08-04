@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "372cf3ea-7248-4417-9f5d-dcc09c8a94e0",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Add_Household_Member__c",
+  "id" : "cb814c8d-23a9-42c3-915a-317267db4a4c",
+  "label" : "Add Household Member",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-add-household-member",
+  "type" : "route",
+  "urlPrefix" : "add-household-member"
+}

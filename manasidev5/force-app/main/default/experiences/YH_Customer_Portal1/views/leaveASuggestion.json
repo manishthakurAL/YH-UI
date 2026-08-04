@@ -1,0 +1,48 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "f2e2f9e5-eb97-4cb9-90af-8f3a10ef549b",
+  "label" : "Leave a Suggestion",
+  "regions" : [ {
+    "id" : "d5af7079-b17e-4821-9704-55a40d84669d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><center><b> place holder for 'Leave a Suggestion' page</b></center></p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "12fadba8-27f0-4b92-94bb-ffa86029d86f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4417f916-93b5-4ad6-9f4c-2f29b269ab84",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c27321a4-2598-47bb-bfc6-bcb25688c8f6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Leave a Suggestion"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8de217d2-8dbc-4126-be21-9a21f72b7f85",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b37eec80-8760-4fff-bca3-aa1b43c79544",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-leave-suggestion"
+}

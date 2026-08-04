@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "40560ab0-41d1-4723-890f-66a19e7b4bdf",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Log_a_Case__c",
+  "id" : "c8c5bdd0-005d-4a65-9a7f-2d5ff9a6ece7",
+  "label" : "Log a Case",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-log-a-case",
+  "type" : "route",
+  "urlPrefix" : "log-a-case"
+}

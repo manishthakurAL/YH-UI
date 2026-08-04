@@ -1,0 +1,137 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "bd33df60-5318-4592-afe6-a69e7ba2bc5a",
+  "label" : "Custom Person Account",
+  "regions" : [ {
+    "id" : "8aa46555-3f33-4941-9246-82d55f5a105f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"varT_headerType\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"comm-my-account\"}]",
+        "flowName" : "SF_Community_Portal_Header_Banner"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "079cbc4a-f4f9-45ca-814f-0304f5307393",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowArguments" : "",
+        "flowName" : "SFUpdateCustomerDetails"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "ffe70f19-b103-4658-82af-8a8cad15367d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b04f44a5-fa55-4a47-add5-0a5c077bd980",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<p><br></p><p><br></p><p><br></p><p>&nbsp;</p><p><br></p><p>&nbsp;</p><p>&nbsp;</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "124e6b89-a19f-430d-a542-f7ef81af8689",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "ViewMyHousehold",
+        "layout" : "STANDARD",
+        "pageSize" : 1,
+        "scope" : "Member__c",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : false,
+        "showObjectName" : true,
+        "showPinnedList" : false,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "9ce31ef7-4a08-4b7c-8781-369d06206194",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "MyGarage",
+        "layout" : "STANDARD",
+        "pageSize" : 1,
+        "scope" : "YH_Tenancy__c",
+        "showActionBar" : true,
+        "showChartsPanel" : true,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : true
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "0ff830b1-41d2-4e12-9843-6b3badb152a8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"width: 100%;background-color: #34215a;color:#FFFFFF; border-radius: 6px;  border: none; margin: 0; padding: 15px 0px; font-weight:700; font-size: medium; text-align: center;text-transform:uppercase;\">\n\t<a style=\"color:#ffffff\" href=\"/s/add-household-member\" target=\"_self\">Add Household Member </a>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "8ae6a4de-e85a-4ccb-9a8a-b74a388ab74e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"height:15px; width:100%;\"></div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "8c2af48d-5f8a-49e6-957a-29656d83a965",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"width: 100%; color:34215a;background-color: #34215a;color:#FFFFFF; border-radius: 6px;  border: none; margin: 0; padding: 15px 0px; font-weight:700; font-size: medium; text-align: center;text-transform:uppercase;\">\n\t<a style=\"color:#ffffff\" href=\"/s/update-household-member\" target=\"_self\">Remove Household Member</a>\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "7ead5647-b75a-4414-82bb-3d58d68b2654",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e8c02153-7408-4ef4-a55c-a839427ae7d2",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:cookieConsentModalBtn",
+      "id" : "3d76000f-904d-4a31-86b2-169f318d62d6",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "da30887c-4558-4623-9f2c-f39728de832f",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "my-account"
+}

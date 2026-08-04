@@ -1,0 +1,55 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "04c3a7ed-d941-42b1-a010-eb8dde30e1a2",
+  "label" : "Record List",
+  "regions" : [ {
+    "id" : "09c6f49a-1451-421a-b480-c28b4eb310fe",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"max-width: 1400px; margin: 0 auto;\" class=\"slds-m-top_medium\">\n    \n    <div class=\"slds-grid slds-grid_align-end slds-wrap slds-gutters_x-small\">\n        \n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-5 slds-m-bottom_small slds-medium-m-bottom_none\">\n            <a href=\"/s/add-household-member\"\n               class=\"slds-button slds-button_stretch\"\n               style=\"background-color:#34215a; color:#ffffff; border:none; border-radius:6px; text-transform:uppercase; font-weight:700; font-size:16px; padding:6px 0;\">\n                Add Household Member\n            </a>\n        </div>\n        <div class=\"slds-col slds-size_1-of-1 slds-medium-size_1-of-5 slds-m-bottom_small slds-medium-m-bottom_none\">\n            <a href=\"/s/update-household-member\"\n               class=\"slds-button slds-button_stretch\"\n               style=\"background-color:#34215a; color:#ffffff; border:none; border-radius:6px; text-transform:uppercase; font-weight:700; font-size:16px; padding:6px 0;\">\n                Remove Household Member\n            </a>\n        </div>\n\n    </div>\n\n</div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "ff24e1b0-251d-4ed2-b11c-93ffb0e95223",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "ViewMyHousehold",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "Member__c",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : false,
+        "showManualRefreshButton" : false,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "fd840e50-5970-486d-b4af-23896ff37c4a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0af36eec-0d07-4a2b-9d91-1b550790e2bd",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1125b7a6-cc1a-4c9c-adb8-96aaa57f9076",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list"
+}

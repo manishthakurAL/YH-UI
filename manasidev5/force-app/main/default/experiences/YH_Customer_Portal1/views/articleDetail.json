@@ -1,0 +1,82 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "6e21171c-14a1-495c-92fd-c0e264bd7a83",
+  "label" : "Article Detail",
+  "regions" : [ {
+    "id" : "7f0ddae5-f2fa-4e8d-bdff-05d757d41097",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableFeedback" : false,
+        "enableVoting" : true,
+        "recordId" : "{!recordId}",
+        "showSummaryInArticleContent" : false,
+        "showSummaryInArticleHeader" : false,
+        "showTitleInArticleHeader" : false,
+        "showTopicPills" : false,
+        "urlName" : "{!urlName}"
+      },
+      "componentName" : "selfService:singleArticleView",
+      "id" : "1959861c-84f4-4498-86da-f29781ca6582",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5fcc78db-6a48-4971-b977-0d263e72a1de",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "numberOfItems" : 5,
+        "showViewCounts" : false,
+        "title" : "Related Articles"
+      },
+      "componentName" : "selfService:similarArticles42",
+      "id" : "8f28a681-af20-4c23-99f8-ed999a52f6d0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "numberOfArticles" : 5,
+        "title" : "Trending Articles",
+        "topicId" : "{!topicId}"
+      },
+      "componentName" : "selfService:topicTrendingArticles42",
+      "id" : "215e0a33-7347-4b18-9030-1ab11fa8074e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "31e1278f-0559-4ef9-adf7-8eb87b1ea887",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "823facac-c076-4a2e-8cc0-b8a54849c02d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "{!Record.Summary}",
+        "title" : "{!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "fdf42f3c-8a4b-44d3-a4ff-3bc31f74b8d9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ba405a09-18d3-4494-ab5a-fa9dbaabecdd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "article"
+}

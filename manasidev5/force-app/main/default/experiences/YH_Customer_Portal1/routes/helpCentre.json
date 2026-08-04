@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bc7d3664-0fba-413f-9d27-729c5407bbcf",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Help_Centre__c",
+  "id" : "c157294d-0e77-4d2e-ad85-1856d77cb8dd",
+  "label" : "Help Centre",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-help-centre",
+  "type" : "route",
+  "urlPrefix" : "help-centre"
+}

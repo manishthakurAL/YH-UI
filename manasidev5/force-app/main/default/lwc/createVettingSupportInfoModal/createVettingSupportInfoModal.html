@@ -1,0 +1,29 @@
+<template>
+    <lightning-modal-header label="New Vetting Support Information"></lightning-modal-header>
+    <lightning-record-edit-form object-api-name="VettingSupportingInfo__c" 
+    onerror={handleError} onsubmit={handleSubmit} onsuccess={handleSuccess} >
+    <lightning-modal-body> 
+        <template if:true={vettingRecordId}> 
+        
+        <lightning-messages></lightning-messages>
+        <lightning-input-field field-name="Vetting__c" value={vettingRecordId}>
+        </lightning-input-field>
+        <lightning-input-field field-name="LandlordName__c"> </lightning-input-field>
+        <lightning-input-field field-name="TypeOfLandlord__c"> </lightning-input-field>
+        <lightning-input-field field-name="SecureFairRentTenancy__c"> </lightning-input-field>
+        <lightning-input-field field-name="AgreetoloseSecureFairRentTenancy__c"> </lightning-input-field>
+        <lightning-input-field field-name="LandlordPhone__c"> </lightning-input-field>
+        <lightning-input-field field-name="LandlordEmail__c"> </lightning-input-field>
+        <lightning-input-field field-name="PropertyAddress__Street__s" ></lightning-input-field>
+        <lightning-input-field field-name="PropertyAddress__City__s" ></lightning-input-field>
+        <lightning-input-field field-name="PropertyAddress__PostalCode__s"> </lightning-input-field>
+        <lightning-input-field field-name="TenancyStartDate__c"> </lightning-input-field>
+        <lightning-input-field field-name="TenancyEndDate__c"> </lightning-input-field>
+        <lightning-input-field field-name="ReasonForLeaving__c"> </lightning-input-field>
+    </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button type="submit" label="OK"></lightning-button>
+    </lightning-modal-footer>
+</lightning-record-edit-form> 
+</template>

@@ -1,0 +1,455 @@
+<template>
+
+    <template if:false={isPrintView}>
+    <!-- DESKTOP VIEW-->
+    <div class="slds-show_medium slds-table_header-fixed_container slds-p-around_medium">
+        <table class="portal-table slds-max-medium-table_stacked-horizontal">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="no-print" ></th>
+                    <th>Charging Period End Date</th>
+                    <th>Transaction Type</th>
+                    <template if:false={isMainAccount}>
+                        <th>{chargelabel} (£)</th>
+                    </template>
+                    <template if:true={isMainAccount}>
+                        <template if:false={isGarageRent}>
+                            <th>Charges (£)</th>
+                        </template>
+                        <th>Rent (£)</th>
+                        <template if:false={isGarageRent}>
+                            <th>Benefit (£)</th>
+                        </template>
+                    </template>
+                    <th>Date Of Payment</th>
+                    <th>Payments (£)</th>
+                    <th>Balance (£)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={pagedTransactions} for:item="tx">
+                    <tr key={tx.id} class="summary-row"  data-id={tx.id}  onclick={handleToggle}>
+                        <td class="no-print">
+                            <lightning-button-icon icon-name={tx.iconName}  data-id={tx.id} variant="bare"></lightning-button-icon>
+                        </td>
+                        <td data-label="Date" class="main-date" >{tx.balanceDate}</td>
+                        <template if:true={isMainAccount}>
+                            <template if:true={isGarageRent}>
+                                <td  class="spacer-cell" colspan="4"></td>
+                            </template>
+                            <template if:false={isGarageRent}>
+                                <td  class="spacer-cell" colspan="6"></td>
+                            </template>
+                        </template>
+                        <template if:false={isMainAccount}>
+                            <td  class="spacer-cell" colspan="4"></td>
+                        </template>
+                        <td data-label="Balance"  class="main-balance">{tx.formattedBalance}</td>
+                    </tr>
+                    <template if:true={tx.payments.paymentTransactions}>
+                        <template for:each={tx.payments.paymentTransactions} for:item="payment">
+                            <tr key={payment.id} class={tx.detailClass}>
+                                <td class="no-print"></td>
+                                <td></td>
+                                <td>{payment.description}</td>
+                                <template if:false={isMainAccount}>
+                                    <td>-</td>
+                                </template>
+                                <template if:true={isMainAccount}>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                    <td>-</td>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                </template>
+                                <td>{payment.transactionDate}</td>
+                                <td>{payment.amount}</td>
+                                <td>-</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:true={tx.adjustments.adjustmentTransactions}>
+                        <template for:each={tx.adjustments.adjustmentTransactions} for:item="adjustment">
+                            <tr key={adjustment.id} class={tx.detailClass}>
+                                <td class="no-print"></td>
+                                <td></td>
+                                <td>{adjustment.description}</td>
+                                <template if:false={isMainAccount}>
+                                    <td>-</td>
+                                </template>
+                                <template if:true={isMainAccount}>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                    <td>-</td>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                </template>
+                                <td>{adjustment.transactionDate}</td>
+                                <td>{adjustment.amount}</td>
+                                <td>-</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:true={tx.benefits}>
+                            <template for:each={tx.benefits} for:item="benefit">
+                                <tr key={benefit.id} class={tx.detailClass}>
+                                    <td class="no-print"></td>
+                                    <td></td>
+                                    <td>{benefit.description}</td>
+                                    <template if:false={isMainAccount}>
+                                        <td>-</td>
+                                    </template>
+                                    <template if:true={isMainAccount}>
+                                        <template if:false={isGarageRent}>
+                                            <td>-</td>
+                                        </template>
+                                        <td>-</td>
+                                        <template if:false={isGarageRent}>
+                                            <td>{benefit.amount}</td>
+                                        </template>
+                                    </template>
+                                    <td>{benefit.transactionDate}</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </template>
+                    </template>
+                    <template if:true={tx.charges.chargeTransactions}>
+                        <template if:true={hasPermissionViewBreakdowns}>
+                            <template for:each={tx.charges.chargeTransactions} for:item="charge">
+                                <tr key={charge.id} class={tx.detailClass}>
+                                    <td class="no-print"></td>
+                                    <td></td>
+                                    <td>{charge.description}</td>
+                                    <template if:false={isMainAccount}>
+                                        <td>{charge.amount}</td>
+                                    </template>
+                                    <template if:true={isMainAccount}>
+                                        <template if:false={isGarageRent}>
+                                            <td>{charge.amount}</td>
+                                        </template>
+                                        <td>-</td>
+                                        <template if:false={isGarageRent}>
+                                            <td>-</td>
+                                        </template>
+                                    </template>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </template>
+                        </template>
+                    </template>
+                    <template if:true={tx.rent.amount}>
+                        <tr key={tx.id} class={tx.detailClass}>
+                            <td class="no-print"></td>
+                            <td></td>
+                            <td>Rent</td>
+                            <template if:false={isMainAccount}>
+                                <td>-</td>
+                            </template>
+                            <template if:true={isMainAccount}>
+                                <template if:false={isGarageRent}>
+                                    <td>-</td>
+                                </template>
+                                <td>{tx.rent.amount}</td>
+                                <template if:false={isGarageRent}>
+                                    <td>-</td>
+                                </template>
+                            </template>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+        <div class="slds-m-top_medium slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+            <lightning-button 
+                label="Previous" 
+                icon-name="utility:chevronleft" 
+                onclick={handlePrevious} 
+                disabled={isFirstPage}>
+            </lightning-button>
+            
+            <span class="slds-p-horizontal_medium">
+                Page {pageNumber} of {totalPages}
+            </span>
+
+            <lightning-button 
+                label="Next" 
+                icon-name="utility:chevronright" 
+                icon-position="right" 
+                onclick={handleNext} 
+                disabled={isLastPage}>
+            </lightning-button>
+        </div>
+    </div>
+
+    <!-- MOBILE VIEW-->
+    <div class="slds-hide_medium no-print">
+        <template for:each={formattedTransactions} for:item="tx">
+            <div key={tx.id} class="mobile-card">
+                <div class="card-header slds-grid slds-grid_align-spread" onclick={handleToggle} data-id={tx.id}>
+                    <div class="header-left">
+                        <span class="card-date">{tx.balanceDate}</span>
+                    </div>
+                    <div class="header-right">
+                        <span class="card-balance">£{tx.formattedBalance}</span>
+                        <lightning-button-icon  class="slds-m-left_small" icon-name={tx.iconName}  data-id={tx.id} variant="bare"></lightning-button-icon>
+                    </div>
+                </div>
+
+                <template if:true={tx.isExpanded}>
+                    <div class="card-body">
+                        <template if:true={tx.payments.paymentTransactions}>
+                            <div class="section-header-mobile">
+                                <span class="section-title">Payments (£)</span>
+                                <span class="section-total"></span>
+                            </div>
+                            <template for:each={tx.payments.paymentTransactions} for:item="payment">
+                                <div key={payment.id} class="card-row">
+                                    <div class="row-info">
+                                        <div class="row-label">{payment.description}</div>
+                                        <div class="row-date">{payment.transactionDate}</div>
+                                    </div>
+                                    <span class="amount-credit">{payment.amount}</span>
+                                </div>
+                            </template>
+                        </template>
+
+                        <template if:true={tx.adjustments.adjustmentTransactions}>
+                            <template for:each={tx.adjustments.adjustmentTransactions} for:item="adjustment">
+                                <div key={adjustment.id} class="card-row">
+                                    <div class="row-info">
+                                        <div class="row-label">{adjustment.description}</div>
+                                        <div class="row-date">{adjustment.transactionDate}</div>
+                                    </div>
+                                    <span class="amount-credit">{adjustment.amount}</span>
+                                </div>
+                            </template>
+                        </template>
+                        
+                        <template if:true={isMainAccount}>
+                            <template if:true={hasPermissionViewBreakdowns}>
+                                <template if:false={isGarageRent}>
+                                    <template if:true={tx.benefits}>
+                                        <div class="section-header-mobile">
+                                            <span class="section-title">Benefit (£)</span>
+                                            <span class="section-total"></span>
+                                        </div>
+                                        <template for:each={tx.benefits} for:item="benefit">
+                                            <div key={benefit.id} class="card-row">
+                                                <div class="row-info">
+                                                    <div class="row-label">{benefit.description}</div>
+                                                    <div class="row-date">{benefit.transactionDate}</div>
+                                                </div>
+                                                <span class="amount-debit">{benefit.amount}</span>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </template>
+                            </template>
+                        </template>
+                        <template if:true={hasPermissionViewBreakdowns}>
+                            <template if:true={tx.charges.chargeTransactions}>
+                                <div class="section-header-mobile">
+                                    <span class="section-title">Charges (£)</span>
+                                    <span class="section-total"></span>
+                                </div>
+                                <template for:each={tx.charges.chargeTransactions} for:item="charge">
+                                    <div key={charge.id} class="card-row">
+                                        <div class="row-info">
+                                            <div class="row-label">{charge.description}</div>
+                                            <div class="row-date">{charge.transactionDate}</div>
+                                        </div>
+                                        <span class="amount-debit">{charge.amount}</span>
+                                    </div>
+                                </template>
+                            </template>
+                        </template>
+
+                        <template if:true={tx.rent.amount}>
+                            <div class="section-header-mobile">
+                                <span class="section-title">Rent (£)</span>
+                                <span class="section-total">{tx.rent.amount}</span>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+    </template>
+
+    <!-- PRINT VIEW-->
+    <template if:true={isPrintView}>
+
+    <div class="print-only-ledger">
+        <h1 class="print-header">Transactions</h1>
+        <p class="print-meta">Tenancy Number: {tenancyNumber} | Date Generated: {currentDate}</p>
+        <table class="print-table">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th>Charging Period End Date</th>
+                    <th>Transaction Type</th>
+                    <template if:false={isMainAccount}>
+                        <th>{chargelabel} (£)</th>
+                    </template>
+                    <template if:true={isMainAccount}>
+                        <template if:false={isGarageRent}>
+                            <th>Charges (£)</th>
+                        </template>
+                        <th>Rent (£)</th>
+                        <template if:false={isGarageRent}>
+                            <th>Benefit (£)</th>
+                        </template>
+                    </template>
+                    <th>Date Of Payment</th>
+                    <th>Payments (£)</th>
+                    <th>Balance (£)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={formattedTransactions} for:item="tx">
+                    <tr key={tx.id} class="print-summary-row"  data-id={tx.id}  >
+                        <td data-label="Date" class="main-date" >{tx.balanceDate}</td>
+                        <template if:true={isMainAccount}>
+                            <template if:true={isGarageRent}>
+                                <td  class="spacer-cell" colspan="4"></td>
+                            </template>
+                            <template if:false={isGarageRent}>
+                                <td  class="spacer-cell" colspan="6"></td>
+                            </template>
+                        </template>
+                        <template if:false={isMainAccount}>
+                            <td  class="spacer-cell" colspan="4"></td>
+                        </template>
+                        <td data-label="Balance"  class="main-balance">{tx.formattedBalance}</td>
+                    </tr>
+                    <template if:true={tx.payments.paymentTransactions}>
+                        <template for:each={tx.payments.paymentTransactions} for:item="payment">
+                            <tr key={payment.id} class="print-detail-row">
+                                <td></td>
+                                <td>{payment.description}</td>
+                                <template if:false={isMainAccount}>
+                                    <td>-</td>
+                                </template>
+                                <template if:true={isMainAccount}>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                    <td>-</td>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                </template>
+                                <td>{payment.transactionDate}</td>
+                                <td>{payment.amount}</td>
+                                <td>-</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:true={tx.adjustments.adjustmentTransactions}>
+                        <template for:each={tx.adjustments.adjustmentTransactions} for:item="adjustment">
+                            <tr key={adjustment.id} class="print-detail-row">
+                                <td></td>
+                                <td>{adjustment.description}</td>
+                                <template if:false={isMainAccount}>
+                                    <td>-</td>
+                                </template>
+                                <template if:true={isMainAccount}>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                    <td>-</td>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                </template>
+                                <td>{adjustment.transactionDate}</td>
+                                <td>{adjustment.amount}</td>
+                                <td>-</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:true={tx.benefits}>
+                        <template for:each={tx.benefits} for:item="benefit">
+                            <tr key={benefit.id} class="print-detail-row">
+                                <td></td>
+                                <td>{benefit.description}</td>
+                                <template if:false={isMainAccount}>
+                                    <td>-</td>
+                                </template>
+                                <template if:true={isMainAccount}>
+                                    <template if:false={isGarageRent}>
+                                        <td>-</td>
+                                    </template>
+                                    <td>-</td>
+                                    <template if:false={isGarageRent}>
+                                        <td>{benefit.amount}</td>
+                                    </template>
+                                </template>
+                                <td>{benefit.transactionDate}</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:true={tx.charges.chargeTransactions}>
+                        <template if:true={hasPermissionViewBreakdowns}>
+                            <template for:each={tx.charges.chargeTransactions} for:item="charge">
+                                <tr key={charge.id} class="print-detail-row">
+                                    <td></td>
+                                    <td>{charge.description}</td>
+                                    <template if:false={isMainAccount}>
+                                        <td>{charge.amount}</td>
+                                    </template>
+                                    <template if:true={isMainAccount}>
+                                        <template if:false={isGarageRent}>
+                                            <td>{charge.amount}</td>
+                                        </template>
+                                        <td>-</td>
+                                        <template if:false={isGarageRent}>
+                                            <td>-</td>
+                                        </template>
+                                    </template>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </template>
+                        </template>
+                    </template>
+                    <template if:true={tx.rent.amount}>
+                        <tr key={tx.rent.id} class="print-detail-row">
+                            <td></td>
+                            <td>Rent</td>
+                            <template if:false={isMainAccount}>
+                                <td>-</td>
+                            </template>
+                            <template if:true={isMainAccount}>
+                                <template if:false={isGarageRent}>
+                                    <td>-</td>
+                                </template>
+                                <td>{tx.rent.amount}</td>
+                                <template if:false={isGarageRent}>
+                                    <td>-</td>
+                                </template>
+                            </template>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    </template>
+</template>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f2e2f9e5-eb97-4cb9-90af-8f3a10ef549b",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Leave_a_Suggestion__c",
+  "id" : "96a52062-c902-497d-ae75-0ed0a40f1732",
+  "label" : "Leave a Suggestion",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-leave-suggestion",
+  "type" : "route",
+  "urlPrefix" : "leave-suggestion"
+}

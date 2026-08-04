@@ -1,0 +1,114 @@
+<template>
+    <lightning-card title="Daily Actions">
+        
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none background-styles">
+            <lightning-layout multiple-rows>
+
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+            <template lwc:if={hasError}>
+                {error}
+            </template>
+            <template lwc:if={firstScreenVisible}>
+                <template lwc:if={canYouProceedWithSANo}>
+                    Thank you for confirming that you’re not working today. No further action is required at this time. ​
+                    Please note that you will not be able to make any updates to the service appointments currently assigned to you.
+                </template>
+                <template lwc:elseif={dailyActionsCompleted}>
+                    All daily actions are complete. You are now able to update the service appointments assigned to you today.​
+                    Thank you
+                </template>
+                <template lwc:else>
+                <p class="slds-m-bottom_medium">
+                    The following actions will need to be completed before you are able to carry out any updates to the Service Appointments assigned to you today. 
+                </p>
+                </template>
+                <p class="slds-m-bottom_medium">
+                    <lightning-button variant="brand" label="Start of the day - Ready to work" title="Start of the day - Ready to work" onclick={handlReadyToWorkeClick}  disabled= {disableReadyToWork} stretch></lightning-button>
+    
+                </p>
+                <p class="slds-m-bottom_medium">
+                    <lightning-button variant="brand" label="Daily Vehicle Check" title="Daily Vehicle Checkk" onclick={handleDailyVehicleClick}  disabled = {disableVanCheck} stretch></lightning-button>
+    
+                </p>
+            </template>
+            <template lwc:if={readyToWork}>
+                <p class="slds-m-bottom_medium">
+                    Please confirm you are ready to start work:​                    
+                </p>
+                <p class="slds-m-bottom_medium">
+                    <lightning-combobox
+                    label = 'Ready to work?'
+                    options={picklistYesNo}
+                    onchange={handleChange}
+                  ></lightning-combobox>
+                </p>
+                <template lwc:if={isReadyToWorkNo}>
+                    <p class="slds-m-bottom_medium">
+                        If you’re experiencing any issues, have concerns
+                        or need to report an absence, please contact
+                        your Team Leader by phone as your first point of
+                        contact.​
+                        This will help us support you promptly and
+                        minimise any disruption to your day and to the
+                        wider service.​
+                    </p>
+                    <p class="slds-m-bottom_medium">
+                        Please record the outcome of the call below. 
+                    </p>
+                    <p class="slds-m-bottom_medium">
+                        <lightning-input type="text" value={callComments} class="callOutComeComments" label="Call Outcome Comments:​" required></lightning-input>
+                    </p>
+                    <p class="slds-m-bottom_medium">
+                        <lightning-combobox
+                        label = 'Can you now proceed?'
+                        options={picklistYesNo}
+                        onchange={handleChangeCanYouNowProceed}
+                        class ="canYouProceedWithSA"
+                        required
+                      ></lightning-combobox>
+                    </p>
+                </template>
+                <template lwc:if={canYouProceedWithSANo}>
+                    <p class="slds-m-bottom_medium">
+                        Thank you for submitting your response.​
+                        This task will now be closed.                        
+                    </p>
+                </template>
+                <p class="slds-m-bottom_medium">
+                    <lightning-button data-id="readyForWorkBtn" variant="brand" label="Submit" title="Submit" onclick={handleSubmit} class="slds-m-left_x-small" ></lightning-button>
+                </p>
+            </template>
+            <template lwc:if={vehicleCheckVisible}>
+                <p class="slds-m-bottom_medium">
+                    <lightning-button  variant="brand" label="The Driver App​" title="The Driver App​" onclick={openDriverApp} class="slds-m-left_x-small"></lightning-button>
+                </p>
+                <p class="slds-m-bottom_medium">
+                    <lightning-combobox
+                    class = 'vanCheckCompleted'
+                    label = 'Van check completed?'
+                    options={picklistYesNo}
+                    onchange={handleChangeVanCheckCompleted}
+                    required
+                  ></lightning-combobox>
+                </p>
+                <template lwc:if={vanCheckCompletedNo}>
+                    <p class="slds-m-bottom_medium">
+                        <lightning-combobox
+                        class ="vanCheckReason"
+                        label = 'Please provide a reason:'
+                        options={vanCheckNotCompletedReason}
+                        onchange={handleReasonChange}
+                        required
+                    ></lightning-combobox>
+                    </p>
+                </template>
+                <p class="slds-m-bottom_medium">
+                    <lightning-button data-id="vanCheckBtn" variant="brand" label="Submit" title="Submit" onclick={handleSubmit} class="slds-m-left_x-small" ></lightning-button>
+                </p>
+            </template>
+    </lightning-layout-item>
+    </lightning-layout>
+
+       </div>
+    </lightning-card>
+</template>

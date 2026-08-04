@@ -1,0 +1,46 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c397826e-1aeb-41bc-85b9-4bed7563e5da",
+  "label" : "New Rent Card",
+  "regions" : [ {
+    "id" : "93c56055-bd2d-4adf-95de-8d21e12b012d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:requestNewRentCard",
+      "id" : "1485a305-6d78-48fa-ac77-56a10ece2dd0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3c9c20a3-0c35-492e-a9a8-09b784a1d18b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "957ced8c-037e-4527-b349-98f73ef5723a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "New Rent Card"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "28019067-e997-4b93-83a2-d734b1118fbc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "514ce43d-321d-4141-8397-388231c527dc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-new-rent-card"
+}

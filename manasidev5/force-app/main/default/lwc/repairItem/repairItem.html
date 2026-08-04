@@ -1,0 +1,116 @@
+<template>
+    <div class="slds-card tenancy-item" >
+        <div class="tenancy-header yh-bg-purple" >
+            <template if:true={isDisplayedOnPortal}>
+            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                <div class="slds-col">
+                    <div class="slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon 
+                            icon-name="standard:address" 
+                            size="medium"
+                            class="slds-m-right_small tenant-address-icon">
+                        </lightning-icon>
+                        <div>
+                            <h3 class="slds-text-heading_small yh-text-white">
+                                {tenancy.propertyAddress}
+                                <template if:true={tenancy.isActive}>
+                                    <lightning-badge label="Active" class="slds-m-left_x-small slds-badge_inverse yh-bg-green"></lightning-badge>
+                                </template>
+                            </h3>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-no-flex">
+                <template if:true = {showbacktoallaccountsbtn}>
+                    <lightning-button 
+                    icon-name="utility:undo"
+                    alternative-text="Back to All Accounts"
+                    label="Back to All Accounts"
+                    title="Back to All Accounts"
+                    class="reportArepair"
+                    onclick={handlebacktoallaccounts}>
+                </lightning-button>
+                </template>
+                <template if:false={showbacktoallaccountsbtn}>
+                    <lightning-button-icon 
+                        class="expand-yellow-icon"
+                        icon-name={chevronIcon}
+                        variant="border-filled"
+                        alternative-text={toggleAltText}
+                        onclick={handleToggle}
+                        >
+                    </lightning-button-icon>
+                </template>
+                </div>
+            </div> 
+            </template>
+    <template if:true={isexpanded}>
+       <div class="tenancy-content yh-bg-purple" >
+        
+            <div class="slds-p-around_medium">
+                <div if:false={detailRepairItem}>
+                    <div class="accounts-list">                   
+                        <lightning-card>    
+                            <div class="slds-card__body_inner">
+                                <div class="account-header slds-grid slds-wrap slds-gutters">
+                                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                                        <lightning-combobox
+                                            label="Period"
+                                            value={selectedPeriod}
+                                            options={periodOptions}
+                                            onchange={handlePeriodChange}
+                                            class="period-combobox">
+                                        </lightning-combobox>
+                                    </div>
+                                    <div if:true={showCustomRange} class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                                        <lightning-input required type="date" id="fromdate" min={occupancyStartDate} label="From Date" value={fromDate} onchange={handleFromDateChange} onkeydown={handleKeyDown} >
+                                        </lightning-input>
+                                    </div>
+                                    <div if:true={showCustomRange} class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                                        <lightning-input required type="date" id="date" min={fromDate} max={oneYearFromStartDateISOString} disabled={disableEndDate} label="To Date" value={toDate} onchange={handleToDateChange} onkeydown={handleKeyDown} >
+                                        </lightning-input>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12 statusFilterIcon">
+                                        <lightning-combobox label="Status Filter" options={filterOptions} value={status} onchange={handleSelection}
+                                            class="slds-m-bottom_small statusFilterIcon"></lightning-combobox>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                                        <div class="action-buttons slds-align_absolute-center">
+                                            <lightning-button variant="border-filled" class="filterButtonCls" label="Apply Filter" onclick={handleApplyFilter} >
+                                            </lightning-button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </lightning-card>
+                    </div>
+                    <div  class="accounts-list">
+                        <lightning-card class="account-item">
+                            <template if:false={isloadingrepairs}>                              
+                            <template for:each={tenancy.repairs} for:item="repairDetail">
+                                    <c-repair-detail
+                                    key={repairDetail.jobNumber}
+                                    repairinitialdata={repairDetail}
+                                    onhandledetails ={handleDetails}
+                                    ></c-repair-detail>
+                            </template>
+                            <template if:false={hasRepairs}>
+                                <c-empty-state 
+                                    title="No repairs found for this tenancy"
+                                    message="No repairs found for this tenancy."
+                                    size="small">
+                                </c-empty-state>
+                            </template>
+                            </template>
+                            </lightning-card>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </template>
+    </div>
+    </div>
+</template>

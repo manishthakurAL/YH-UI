@@ -1,0 +1,113 @@
+{
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "componentName" : "siteforce:sldsThreeCol444Layout",
+  "dataProviders" : [ ],
+  "id" : "bc7d3664-0fba-413f-9d27-729c5407bbcf",
+  "label" : "Help Centre",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "config" : { }
+      },
+      "componentName" : "forceCommunity:dynamicCollection",
+      "id" : "997b78d5-e131-4a60-89f5-872609628361",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3f499b58-697a-4beb-bc8b-75a9f41cc374",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "Replace this text with content of your own."
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "459eb784-c848-4c55-ac9b-63e07f49f8d1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "numberOfArticles" : 5,
+        "showTitle" : false,
+        "title" : "Account Update",
+        "topicList" : [ {
+          "isPublic" : true,
+          "name" : "0TOAe0000003WBROA2"
+        } ]
+      },
+      "componentName" : "forceCommunity:topArticleList",
+      "id" : "b5ec7bbd-73a0-407f-a795-5af251bfa2aa",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6029ba8d-d0fa-4b60-a26a-522ccd5ede74",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "numberOfArticles" : 5,
+        "showTitle" : false,
+        "title" : "Top Articles",
+        "topicList" : [ {
+          "isPublic" : true,
+          "name" : "0TOAe0000003WD3OAM"
+        } ]
+      },
+      "componentName" : "forceCommunity:topArticleList",
+      "id" : "b895e9f7-d1c4-4be2-953b-0f10a7c78efb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "015f35f3-d7b3-4cac-8f99-88f217d6121c",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "numberOfArticles" : 5,
+        "showTitle" : true,
+        "title" : "",
+        "topicList" : [ {
+          "isPublic" : true,
+          "name" : "0TOAe0000003WGHOA2"
+        } ]
+      },
+      "componentName" : "forceCommunity:topArticleList",
+      "id" : "5b775048-b3d2-46f3-b109-93582a877899",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "51c981a3-2c88-45a3-b0a7-53381fe57683",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "91804ddc-e03a-4fcf-ab9c-c975645ce724",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Help Centre"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "d0f05682-d0c3-4951-9fa3-2eb26260e7e8",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "15fa2fda-bac1-4f9e-ad27-37111f22dd6e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-help-centre"
+}

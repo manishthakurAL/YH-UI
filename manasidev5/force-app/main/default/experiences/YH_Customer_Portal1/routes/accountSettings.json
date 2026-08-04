@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "ce03c3a8-5f12-40eb-864e-a4e0f7f18972",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Account_Settings__c",
+  "id" : "2773621c-551a-4613-861d-d5b9a8da0ba1",
+  "label" : "Account Settings",
+  "pageAccess" : "Public",
+  "routeType" : "custom-account-settings",
+  "type" : "route",
+  "urlPrefix" : "account-settings"
+}

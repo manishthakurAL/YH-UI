@@ -1,0 +1,134 @@
+<template>
+
+    <lightning-card>
+        <template lwc:if={error}>
+            <div class="slds-theme_error slds-p-around_x-small">
+                <lightning-icon icon-name="utility:error" variant="inverse" size="small"></lightning-icon>
+                <span class="slds-p-around_xx-small"><b>An error occurred:</b>&nbsp;&nbsp;{error}</span>
+            </div>
+        </template>
+        <template if:true={warningMessage}>
+            <div class="slds-theme_alert-texture slds-notify slds-notify_alert slds-alert_warning slds-m-bottom_small">
+                <lightning-icon icon-name="utility:warning" size="small" alternative-text="warning" class="slds-m-right_small"></lightning-icon>
+                <span>{warningMessage}</span>
+            </div>
+        </template>
+        <p>
+            <lightning-input type="number" 
+            required
+            name="noOfPropertiesInvolved" 
+            onchange={handleNoOfPropertiesInvolved} 
+            label="How many properties are involved ?" 
+            value={noOfPropertiesInvolved} 
+            min="2"
+            max="99"
+            ></lightning-input>
+        </p>
+        <div class="slds-expression slds-m-top_small">
+            <h2 class="property-title slds-expression__title">Properties Involved</h2>
+            <ul>
+                <template lwc:if={hasProperty}>
+                <li class="slds-expression__row">
+                    <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_striped">
+                        <thead>
+                            <tr >
+                                <th style="width:100px;"><div class="slds-truncate" title="Property">Property</div></th>
+                                <th style="width:80px;"><div class="slds-truncate" title="Type">Type</div></th>
+                                <th ><div class="slds-truncate" title="Address">Address</div></th>
+                                <th ><div class="slds-truncate" title="Tenant(s)/Applicant(s)">Tenant(s)/Applicant(s)</div></th>
+                                <th style="width:40px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={exchangeInfos} for:item="info">
+                                <tr key={info.property.propertyId} class="slds-hint-parent">
+                                        <td data-label="Name">
+                                            <div class="slds-truncate">{info.property.propertyName}</div>
+                                        </td>
+                                        <td data-label="Type">
+                                            <div class="slds-truncate">{info.property.propertyType}</div>
+                                        </td>
+                                        <td data-label="Address">
+                                            <div class="slds-truncate">
+                                                <lightning-formatted-address
+                                                street={info.property.propertyStreet}
+                                                city={info.property.propertyCity}
+                                                country={info.property.propertyCountry}
+                                                postal-code={info.property.propertyPostalCode}
+                                                ></lightning-formatted-address>
+                                            </div>
+                                        </td>
+                                        <td data-label="Tenant(s)/Applicant(s)">
+                                            <ul class="contact-list slds-has-dividers_bottom-space slds-m-left_none">
+                                                <template for:each={info.applicants} for:item="app">
+                                                    <li key={app.applicantId} class="slds-item">
+                                                        <div class="slds-media slds-media_center">
+                                                            <div class="slds-media__figure">
+                                                                <lightning-avatar  src="#" fallback-icon-name="standard:contact" alternative-text={app.applicantName}></lightning-avatar>
+                                                            </div>
+                                                            <div class="slds-media__body">
+                                                                <h3 ><a href="#">{app.applicantName}</a></h3>
+                                                                <ul class="slds-list_vertical">
+                                                                    <li class="slds-item slds-truncate">
+                                                                        <lightning-icon icon-name="utility:email" size="x-small" alternative-text="email" title="email"></lightning-icon>&nbsp;{app.applicantEmail}</li>
+                                                                    <li class="slds-item slds-truncate">
+                                                                        <lightning-icon icon-name="utility:call" size="x-small" alternative-text="phone" title="phone"></lightning-icon>&nbsp;{app.applicantPhone}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </template>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <lightning-button-icon
+                                                icon-name="utility:delete"
+                                                data-id={info.property.propertyId}
+                                                onclick={handlePropertyDelete}
+                                            ></lightning-button-icon>
+                                        </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </li>
+                </template>
+                <template lwc:else>
+                    <div class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_dark" role="status">
+                        <div class="slds-media__body">
+                            <p>
+                                The properties are yet to be added.
+                            </p>
+                        </div>
+                    </div>
+                </template>
+                <li class="slds-expression__group">
+                    <div class="slds-p-around_x-small">
+                        <h3 class="property-subtitle slds-expression__title">Add New Property</h3>
+                        <c-mex-add-property 
+                        disable-action={disableAddPropertyButton}
+                        ></c-mex-add-property>
+                        <div class="slds-expression__buttons">
+                            <lightning-button icon-name="utility:add" 
+                            disabled={disableAddPropertyButton}
+                            variant="brand-outline" 
+                            label="Add Property" 
+                            title="Add Property" 
+                            onclick={handleAddProperty} 
+                            >
+                            </lightning-button>
+                        </div>
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+        
+
+    </lightning-card>
+    <hr style="margin-bottom: 1rem;"/>
+    <lightning-button variant="brand" class="slds-float_right slds-m-bottom_medium slds-m-top_none" label="Next" onclick={handleSave}></lightning-button>
+
+    <lightning-button variant="Neutral" class="slds-float_right slds-m-bottom_medium slds-m-right_small slds-m-top_none" label="Previous" onclick={handlePrevious}></lightning-button>
+    
+</template>

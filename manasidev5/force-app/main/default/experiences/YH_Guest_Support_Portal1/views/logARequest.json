@@ -1,0 +1,59 @@
+{
+  "appPageId" : "d04aea56-4f43-43c1-9949-35f46786f71a",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "bc30e248-32e3-46f2-bd8c-c4a86bf16bf9",
+  "label" : "Log a Request",
+  "regions" : [ {
+    "id" : "d28a65fb-5750-47af-9900-68af6c9665f5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "flowArguments" : "[{\"label\":\"varT_headerType\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!c__requestType}\"}]",
+        "flowName" : "SF_Community_Portal_Header_Banner"
+      },
+      "componentName" : "forceCommunity:flowCommunity",
+      "id" : "3182ec53-29de-4ff9-be7a-4f6324d4f791",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "flowName" : "SF_Community_Create_Web_to_Case",
+        "requestType" : "ending-my-tenancy"
+      },
+      "componentName" : "c:flowLauncher",
+      "id" : "0e5164df-0e8d-49ab-98d0-c1fbd821be81",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0ba3a1f7-dc57-47c8-8d7a-b12c1ac946d4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "47b7b233-a686-4cd7-9b9a-7c92401d03b6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "YH - Log a Request"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "19bfe179-d105-4d90-924c-160d7e719dcd",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "22f3f312-70bc-4936-95f3-56fec9c632d2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-log-a-request"
+}

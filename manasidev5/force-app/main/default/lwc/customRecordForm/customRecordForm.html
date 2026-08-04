@@ -1,0 +1,23 @@
+<template>
+    <template for:each={formConfigs} for:item="formConfig">
+        <template if:true={formConfig.recordId}>
+        <lightning-accordion key={formConfig.objectAPIName} 
+        allow-multiple-sections-open
+        onsectiontoggle={handleSectionToggle}        
+        active-section-name={formConfig.expandedSection}>
+            <lightning-accordion-section class="accordion"  name={formConfig.sectionName} label={formConfig.accordianLabel}>
+              <lightning-record-form
+                record-id={formConfig.recordId}
+                object-api-name={formConfig.objectAPIName}
+                fields={formConfig.fields}
+                mode="view"
+                density="auto"> 
+            </lightning-record-form> 
+            </lightning-accordion-section>
+        </lightning-accordion>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+        </template>
+</template>

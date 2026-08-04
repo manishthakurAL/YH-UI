@@ -1,0 +1,65 @@
+<apex:component >
+
+<style>
+        .yh-footer {
+            background-color: #34215a;
+            color: #ffffff;
+            padding: 6px 0;
+            width: 100%;
+            font-family: FSElliot, sans-serif;
+        }
+
+        .yh-footer-container {
+            max-width: 965px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .yh-footer-text {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .yh-footer .copy-write {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 8px;
+        }
+
+        .yh-footer .copy-write a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+</style>
+ 
+<div class="yh-footer-wrapper">
+        <footer class="yh-footer">
+            <div class="yh-footer-container">
+                
+                <p class="yh-footer-text">
+                    Yorkshire Housing Limited is a charitable housing association (No. 30443R).
+                    Regulator of Social Housing (No. L4521). Affiliated to the National Housing Federation.
+                </p>
+
+                <div class="copy-write">
+                    <span>Copyright © 2026 - All Rights Reserved</span>
+                    <span>
+                        <a href="{!$Setup.CustomerPortalSettings__c.Customer_Portal_URL__c}/s/cookies"
+                           style="padding-right: 5px; text-decoration: underline; color: #ffffff !important;">
+                            Cookies
+                        </a>
+                        <a href="{!$Setup.CustomerPortalSettings__c.Customer_Portal_URL__c}/s/accessibility-statement"
+                           style="text-decoration: underline; color: #ffffff !important;">
+                            Accessibility Statement
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+</apex:component>

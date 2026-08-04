@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen,lightning__RecordPage">
+            <property name="noOfPropertiesInvolved" type="Integer" label="No Of Properties Involved" description="Enter No Of Properties Involved" />
+            <property name="recordId" type="String" label="Case ID" description="Enter Case ID" />
+            <property name="ineligibileAgreementType" type="Boolean" label="InEligibile Agreement Type" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

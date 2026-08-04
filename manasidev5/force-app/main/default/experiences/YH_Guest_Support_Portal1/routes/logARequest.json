@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bc30e248-32e3-46f2-bd8c-c4a86bf16bf9",
+  "appPageId" : "d04aea56-4f43-43c1-9949-35f46786f71a",
+  "configurationTags" : [ ],
+  "devName" : "Log_a_Request__c",
+  "id" : "dc78e48f-405f-4177-85e4-34aa458f4580",
+  "label" : "Log a Request",
+  "pageAccess" : "Public",
+  "routeType" : "custom-log-a-request",
+  "type" : "route",
+  "urlPrefix" : "log-a-request"
+}

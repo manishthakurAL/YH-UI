@@ -1,0 +1,129 @@
+:host {
+
+    /* Primary Palette */
+    --yh-purple: #34215a;
+    --yh-rose: #f04d6e;
+    --yh-yellow: #f9ab23;
+    --yh-green: #4fc3ae;
+    --yh-white: #fff;
+
+    /* Specialty Colors */
+    --yh-dark-purple: #1a112d;
+    --yh-light-purple: #857a9c;
+    --yh-lightest-purple: #ece6f9;
+    --yh-light-rose: #f694a8;
+    --yh-lightest-rose: #ffeef1;
+    --yh-meta-purple: #6a6a6a;
+    --yh-table-background: #eeecf2;
+  
+}
+
+.custom-modal-container { max-width: 580px !important; }
+
+.modal-wrapper {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(var(--yh-dark-purple), 0.1);
+}
+
+.custom-header {
+    border: none !important;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.header-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 40px;  
+    right: 40px; 
+    height: 1px;
+    background: var(--yh-lightest-purple);
+}
+
+.settings-row {
+    background: var(--yh-lightest-purple);
+    border: 1px solid var(--yh-lightest-purple);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.info-section { flex: 1; }
+
+.primary-text {
+    font-size: 1.1rem;
+    color: var(--yh-purple);
+}
+
+.description { font-size: 0.9rem; line-height: 1.5; }
+
+.vertical-divider {
+    width: 1px;
+    height: 50px;
+    background: var(--yh-lightest-purple);
+    margin: 0 10px;
+}
+
+.toggle-section {
+    min-width: 100px;
+    text-align: center;
+}
+;
+.brand-button {
+    --slds-c-button-brand-color-background: var(--yh-purple);
+    --slds-c-button-brand-color-border: var(--yh-purple);
+}
+
+.custom-close-btn { top: 1rem !important; right: 1rem !important; }
+
+
+.slds-modal__footer {
+    border-top: none !important;
+}
+
+.slds-modal__footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 40px;  
+    right: 40px; 
+    height: 1px;
+    background: var(--yh-lightest-purple);
+}
+
+.vertical-divider {
+    border-left: 1px solid #dddbda;
+    height: 40px;
+    margin: 0 1rem;
+}
+
+@media (max-width: 767px) {
+    .settings-container {
+        flex-direction: column !important; 
+        align-items: flex-start !important;
+    }
+
+    .vertical-divider {
+        display: none; 
+    }
+
+    .toggle-section {
+        padding-left: 0 !important;
+        margin-top: 1.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; 
+    }
+
+    .brand-button {
+        width: 100%;
+        display: block;
+    }
+
+    .slds-modal__container {
+        margin: 0 1rem;
+        padding: 1rem 0;
+    }
+}
