@@ -119,19 +119,11 @@
     "regionName" : "sidebar",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "c:cookieConsentModalBtn",
-      "id" : "3d76000f-904d-4a31-86b2-169f318d62d6",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "da30887c-4558-4623-9f2c-f39728de832f",
     "regionName" : "footer",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
   "viewType" : "my-account"
 }

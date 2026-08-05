@@ -27,18 +27,18 @@ public with sharing class YH_PortalController {
             return result;
         } 
         try {
-            ConnectApi.NavigationMenuItemCollection menu =
-                ConnectApi.NavigationMenu.getCommunityNavigationMenu(
-                    communityId,
-                    null,                                   
-                    menuName,                               
-                    ConnectApi.PublishStatus.Live,
-                    false,                                  
-                    false,                                 
-                    null
-                );
-            for (ConnectApi.NavigationMenuItem item : menu.menuItems) {
-                result.add(new NavItem(item.label, item.actionValue, String.valueOf(item.actionType)));
+         List<NavigationLinkSet> menuContainer = [SELECT Id FROM NavigationLinkSet 
+                                       WHERE NetworkId = :communityId 
+                                       AND DeveloperName = :menuName 
+                                       LIMIT 1];
+
+        List<NavigationMenuItem> menuItems = [SELECT Id, Label, Target, Type, Status 
+                FROM NavigationMenuItem 
+                WHERE NavigationLinkSetId = :menuContainer[0].Id 
+                AND Status = 'Live' 
+                ORDER BY Position];
+            for (NavigationMenuItem item :menuItems) {
+                result.add(new NavItem(item.label, item.Target, String.valueOf(item.Type)));
             }
         } catch (Exception e) {
             System.debug(LoggingLevel.WARN, 'YH_PortalController: ' + e.getMessage());

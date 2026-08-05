@@ -25,17 +25,6 @@
     "regionName" : "sidebar",
     "type" : "region"
   }, {
-    "components" : [ {
-      "componentAttributes" : {
-        "flowArguments" : "[{\"label\":\"searchTerm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Payments and Arrears\"}]",
-        "flowName" : "SF_Community_Show_Suggested_Knowledge_Article"
-      },
-      "componentName" : "forceCommunity:flowCommunity",
-      "id" : "b57182dd-5001-4d1d-83c9-f55157e0f1b9",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "13e4c7fa-00ad-4efd-9296-373e8fa29bce",
     "regionName" : "footer",
     "type" : "region"
@@ -55,7 +44,7 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
   "viewType" : "custom-rent"
 }

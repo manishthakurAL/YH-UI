@@ -16,16 +16,6 @@
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "flowArguments" : "[{\"label\":\"searchTerm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"Repairs\"}]",
-        "flowName" : "SF_Community_Show_Suggested_Knowledge_Article"
-      },
-      "componentName" : "forceCommunity:flowCommunity",
-      "id" : "505424b5-db74-4d22-8b8d-e2081deeab18",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
     } ],
     "id" : "5c5d168a-3994-4e1b-bd96-284faecce736",
     "regionName" : "content",
@@ -54,7 +44,7 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
   "viewType" : "custom-repairs"
 }

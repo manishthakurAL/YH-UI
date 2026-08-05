@@ -9,7 +9,13 @@
         'cases': 'utility:case',
         'my home': 'utility:company',
         'get in touch': 'utility:anywhere_chat',
-        'contact': 'utility:contact'
+        'contact': 'utility:contact',
+        'my details':'utility:user',
+        'account settings':'utility:settings',
+        'reset password': 'utility:lock',
+        'logout': 'utility:logout'
+
+
     },
 
     ICON_COLOR_MAP: {
@@ -21,19 +27,21 @@
         'cases': 'yh-blue',
         'my home': 'yh-purple-tint',
         'get in touch': 'yh-white',
-        'contact': 'yh-white'
+        'contact': 'yh-white',
+        'my details':'yh-nav-icon yh-blue',
+        'account settings':'yh-nav-icon yh-purple-tint',
+        'reset password': 'yh-nav-icon yh-yellow',
+        'logout': 'yh-nav-icon yh-rose'
     },
 
     loadNavigationMenu: function (component) {
         var self = this;
         var action = component.get('c.getNavigationMenuItems');
-        console.log('menu name ' + component.get('v.menuName'));
         action.setParams({ menuName: component.get('v.menuName') });
         action.setCallback(this, function (response) {
             var items = [];
             if (response.getState() === 'SUCCESS' && response.getReturnValue()) {
                 items = [{ label: 'Home', itemType: 'InternalLink', actionValue: '/' }, ...response.getReturnValue()];
-                console.log('Loaded nav menu:', JSON.stringify(items,null, 2) );
             }
             if (!items.length) {
                 // Builder preview / menu not found — keep layout intact
@@ -44,6 +52,29 @@
                 item.iconColor = self.ICON_COLOR_MAP[(item.label || '').toLowerCase()] || 'utility:home';
             });
             component.set('v.navItems', items);
+            self.setInitialActive(component, items);
+        });
+        $A.enqueueAction(action);
+    },
+
+    loadUserProfileMenu: function (component) {
+        var self = this;
+        var action = component.get('c.getNavigationMenuItems');
+        action.setParams({ menuName: component.get('v.userProfileMenu') });
+        action.setCallback(this, function (response) {
+            var items = [];
+            if (response.getState() === 'SUCCESS' && response.getReturnValue()) {
+                items = response.getReturnValue();
+            }
+            if (!items.length) {
+                // Builder preview / menu not found — keep layout intact
+                items = self.getFallbackItems();
+            }
+            items.forEach(function (item) {
+                item.icon = self.ICON_MAP[(item.label || '').toLowerCase()] || 'utility:home';
+                item.iconColor = self.ICON_COLOR_MAP[(item.label || '').toLowerCase()] || 'utility:home';
+            });
+            component.set('v.navItemsUserProfileMenu', items);
             self.setInitialActive(component, items);
         });
         $A.enqueueAction(action);

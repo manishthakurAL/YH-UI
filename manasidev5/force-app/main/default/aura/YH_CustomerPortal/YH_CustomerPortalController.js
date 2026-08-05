@@ -1,7 +1,9 @@
 ({
     doInit: function (component, event, helper) {
-        component.set('v.menuName', 'Default_Navigation2');
+        component.set('v.menuName', 'YH_Portal_Navigation_Menu');
+        component.set('v.userProfileMenu', 'YH_Portal_User_Profile_Menu');
         helper.loadNavigationMenu(component);
+        helper.loadUserProfileMenu(component);
         helper.loadCurrentUser(component);
     },
 

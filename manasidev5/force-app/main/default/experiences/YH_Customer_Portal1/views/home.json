@@ -21,6 +21,14 @@
     "regionName" : "content",
     "type" : "region"
   }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:accountOverview",
+      "id" : "85922954-6a94-4893-ad06-b3370d6914f2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "a3d2adeb-ef68-4659-abf3-5f0039ff9e6f",
     "regionName" : "sidebar",
     "type" : "region"

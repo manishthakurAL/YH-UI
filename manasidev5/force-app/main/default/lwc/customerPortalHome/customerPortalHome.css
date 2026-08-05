@@ -1,7 +1,8 @@
 :host {
     --primary: #3E145B;
     --pink: #F65B87;
-    --bg: #F5F6FA;
+    --bg: green;
+    /* --yhbg: #efedf2; */
 
     display: block;
     background: var(--bg);

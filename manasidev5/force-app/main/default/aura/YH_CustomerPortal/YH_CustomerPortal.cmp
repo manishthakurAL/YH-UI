@@ -4,7 +4,9 @@
                 description="Yorkshire Housing customer portal layout">
 
     <!-- menu name: SELECT Id, DeveloperName, MasterLabel, networkid FROM NavigationLinkSet  use the developer name-->
-    <aura:attribute name="menuName" type="String" default="Default_Navigation2" access="global"/>
+    <aura:attribute name="menuName" type="String" default="YH_Portal_Navigation_Menu" access="global"/>
+    <aura:attribute name="userProfileMenu" type="String" default="YH_Portal_User_Profile_Menu" access="global"/>
+    <aura:attribute name="navItemsUserProfileMenu" type="List" default="[]"/>
 
     <aura:attribute name="navItems" type="List" default="[]"/>
     <aura:attribute name="activeItem" type="String" default=""/>
@@ -64,19 +66,15 @@
                             <span class="yh-user-sub">{!v.userSubtitle}</span>
                         </div>
                     </div>
-                    <!-- Static by design -->
-                    <a href="javascript:void(0);" class="yh-nav-item small">
-                        <lightning:icon iconName="utility:user" size="small" class="yh-nav-icon yh-blue"/><span class="yh-blue">My Details</span>
-                    </a>
-                    <a href="javascript:void(0);" class="yh-nav-item small" onclick="{!c.openSettingPage}">
-                        <lightning:icon iconName="utility:settings" size="small" class="yh-nav-icon yh-purple-tint" /><span class="yh-purple-tint">Account Settings</span>
-                    </a>
-                    <a href="javascript:void(0);" class="yh-nav-item small">
-                        <lightning:icon iconName="utility:reset_password" size="small" class="yh-nav-icon yh-yellow"/><span class="yh-yellow">Reset Password</span>
-                    </a>
-                    <a href="javascript:void(0);" class="yh-nav-item small logout">
-                        <lightning:icon iconName="utility:logout" size="small" class="yh-nav-icon yh-rose"/><span>Log Out</span>
-                    </a>
+                     <aura:iteration items="{!v.navItemsUserProfileMenu}" var="item">
+                            <a href="javascript:void(0);"
+                               class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
+                               data-label="{!item.label}"
+                               data-url="{!item.actionValue}"
+                               onclick="{!c.handleNavClick}">
+                                <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
+                            </a>
+                    </aura:iteration>
                 </div>
             </aside>
             <aura:if isTrue="{!v.sidebarOpen}">
@@ -88,29 +86,24 @@
             <!-- ============ CONTENT AREA ============ -->
             <div class="yh-content">
                 {!v.body}
-                <div style="height:3000px;background:red;">
-                    TEST
-                </div>
             </div>
         </div>
         <footer class="yh-footer">
-  <div class="yh-footer-container">
     <div class="slds-grid">
       <div class="slds-col slds-size_1-of-1">
           <span class="slds-p-around_xxx-small">
-            <p>
+            <p class="yh-footer-text">
                 Yorkshire Housing Limited is a charitable housing association (No. 30443R). 
                 Regulator of Social Housing (No. L4521). Affiliated to the National Housing Federation.
             </p>
-            <p class="copy-write" style="display:flex; justify-content:space-between; width:98%;">
+            <p class="copy-write">
     			<span>Copyright © 2026 - All Rights Reserved</span>
-    			<span><a href="/s/cookies" style="padding-right: 5px">Cookies</a>
-                <a href="/s/accessibility-statement">Accessibility Statement</a></span>
+    			<div><a  class="yh-footer-link" href="/s/cookies" style="padding-right: 5px">Cookies</a>
+                <a href="/s/accessibility-statement" class="yh-footer-link">Accessibility Statement</a></div>
 			</p>
           </span>
       </div>
     </div>
-  </div>
 </footer>
     </div>
 </aura:component>

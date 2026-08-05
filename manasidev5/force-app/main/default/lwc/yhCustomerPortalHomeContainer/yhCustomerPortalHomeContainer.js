@@ -25,15 +25,15 @@ export default class YhCustomerPortalHomeContainer extends LightningElement {
 
         let greeting;
 
-        if (hour >= 5 && hour < 12) {
-            greeting = 'Good Morning';
-        } else if (hour >= 12 && hour < 17) {
-            greeting = 'Good Afternoon';
-        } else if (hour >= 17 && hour < 21) {
-            greeting = 'Good Evening';
-        } else {
-            greeting = 'Good Night';
-        }        
+        if (hour >= 0 && hour < 12) {
+            greeting = 'GOOD MORNING';
+        } else if (hour >= 12 && hour < 18) {
+            greeting = 'GOOD AFTERNOON';
+        } else if (hour >= 18 && hour <= 23) {
+            greeting = 'GOOD EVENING';
+        } //else {
+            //greeting = 'Good Night';
+        //}        
 
         this.greetingMessage = `${greeting}`; 
     }
