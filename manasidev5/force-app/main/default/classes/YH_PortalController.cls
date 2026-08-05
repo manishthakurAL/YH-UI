@@ -1,5 +1,14 @@
 public with sharing class YH_PortalController {
 
+    private static final Integer OPEN_CASES_LIMIT = 2;
+
+    public class OpenCaseDisplay {
+        @AuraEnabled public String caseNumber;
+        @AuraEnabled public String caseType;
+        @AuraEnabled public String status;
+        @AuraEnabled public Date openedDate;
+    }
+
     public class NavItem {
         @AuraEnabled public String label;
         @AuraEnabled public String actionValue;
@@ -65,5 +74,32 @@ public with sharing class YH_PortalController {
         Datetime since = (u.ContactId != null) ? u.Contact.CreatedDate : u.CreatedDate;
         d.subtitle = 'Tenant since ' + String.valueOf(since.year());
         return d;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<OpenCaseDisplay> getMyOpenCases() {
+        List<OpenCaseDisplay> result = new List<OpenCaseDisplay>();
+        User u = [SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1];
+        if (u.ContactId == null) {
+            return result;
+        }
+
+        for (Case c : [
+            SELECT CaseNumber, Type, ExternalCaseStatus__c, CreatedDate
+            FROM Case
+            WHERE ContactId = :u.ContactId
+                AND ExternalCaseStatus__c != null
+                AND ExternalCaseStatus__c != :CaseDecorator.EXTERNAL_STATUS_CLOSED
+            ORDER BY CreatedDate DESC
+            LIMIT :OPEN_CASES_LIMIT
+        ]) {
+            OpenCaseDisplay d = new OpenCaseDisplay();
+            d.caseNumber = c.CaseNumber;
+            d.caseType = c.Type;
+            d.status = c.ExternalCaseStatus__c;
+            d.openedDate = c.CreatedDate.date();
+            result.add(d);
+        }
+        return result;
     }
 }
