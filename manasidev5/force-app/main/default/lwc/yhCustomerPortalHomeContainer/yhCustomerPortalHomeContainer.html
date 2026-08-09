@@ -1,51 +1,69 @@
 <template>
     <main class="dashboard">
 
-        <!-- Hero -->
-        <section class="hero">
+        <!-- Main column -->
+        <div class="main-column">
 
-            <!-- Welcome -->
-            <section class="hero-left">
+            <!-- Hero -->
+            <section class="hero">
 
-                <p class="greeting">
-                    {greetingMessage}
-                </p>
+                <!-- Welcome -->
+                <section class="hero-left">
 
-                <h1 class="welcome">
-                    Welcome back, {userName}.
-                </h1>
-                <template lwc:if={hasAddress}>
-                    <p class="address">
-                        {address}
+                    <p class="greeting">
+                        {greetingMessage}
                     </p>
-                </template>
-                <template lwc:if={showAlert}>
-                    <section class="alert-box">
-                        ...
-                    </section>
-                </template>
+
+                    <h1 class="welcome">
+                        Welcome back, {userName}.
+                    </h1>
+                    <template lwc:if={hasAddress}>
+                        <p class="address">
+                            {address}
+                        </p>
+                    </template>
+                    <template lwc:if={showAlert}>
+                        <section class="alert-box">
+                            ...
+                        </section>
+                    </template>
+                </section>
+
+                <!-- Summary Card -->
+                <aside class="balance-card">
+
+                    <!-- Future balance information -->
+
+                </aside>
+
             </section>
- 
-            <!-- Summary Card -->
-            <aside class="balance-card">
 
-                <!-- Future balance information -->
+            <!-- Future Quick Actions -->
+            <!--
+            <section class="quick-actions">
+            </section>
+            -->
 
-            </aside> 
+        </div>
 
-        </section>
+        <!-- Right column -->
+        <aside class="right-column">
 
-        <!-- Future Quick Actions -->
-        <!--
-        <section class="quick-actions">
-        </section>
-        -->
+            <section class="panel-card get-in-touch-card">
+                <h3 class="panel-title">Get in Touch</h3>
 
-        <!-- Future Open Cases -->
-        <!--
-        <section class="open-cases">
-        </section>
-        -->
+                <c-ask-question-button></c-ask-question-button>
+
+                <lightning-button
+                    label="Emergency Repair"
+                    variant="destructive-text"
+                    class="full-width emergency-repair-button"
+                ></lightning-button>
+            </section>
+
+            <c-yh-my-open-cases></c-yh-my-open-cases>
+
+        </aside>
 
     </main>
 </template>

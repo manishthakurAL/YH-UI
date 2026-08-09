@@ -24,8 +24,46 @@
     padding: 24px;
     max-width: 1600px;
     margin: auto;
+    align-items: start;
 }
 
+.main-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.panel-title {
+    margin: 0 0 20px 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.get-in-touch-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.emergency-repair-button {
+    --slds-c-button-text-color: var(--pink);
+    --slds-c-button-color-border: var(--pink);
+    --slds-c-button-radius-border: 10px;
+}
 
 .hero {
     display: grid;
