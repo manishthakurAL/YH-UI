@@ -20,8 +20,9 @@
 .dashboard {
     display: grid;
     grid-template-columns: minmax(0, 3fr) 360px;
-    column-gap: 40px;
+    gap: 40px;
     padding: 24px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     max-width: 1600px;
     margin: auto;
     align-items: start;
@@ -153,6 +154,7 @@
 @media (max-width: 1200px) {
     .dashboard {
         grid-template-columns: 1fr;
+        row-gap: 24px;
     }
 
     .hero {
@@ -167,6 +169,8 @@
 @media (max-width: 768px) {
     .dashboard {
         padding: 18px;
+        padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+        row-gap: 20px;
     }
 
     .hero-left {
