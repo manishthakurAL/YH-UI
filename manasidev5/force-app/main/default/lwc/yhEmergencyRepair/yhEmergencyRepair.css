@@ -55,9 +55,15 @@
 .emergency-details ul {
     margin: 0;
     padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    list-style: disc;
+}
+
+.emergency-details li {
+    margin-bottom: 8px;
+}
+
+.emergency-details li:last-child {
+    margin-bottom: 0;
 }
 
 .emergency-details p {
