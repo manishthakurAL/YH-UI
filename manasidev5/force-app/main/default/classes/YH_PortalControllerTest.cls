@@ -34,6 +34,7 @@ public class YH_PortalControllerTest {
         Case newestOpenCase = UthCase.build(con.Id);
         newestOpenCase.ExternalCaseStatus__c = CaseDecorator.EXTERNAL_STATUS_INPROGRESS;
         newestOpenCase.CaseType__c = CaseDecorator.CASE_TYPE_CUSTOMER_EXPERIENCE_CENTRE;
+        newestOpenCase.Description = 'Leaking kitchen tap';
 
         Case closedCase = UthCase.build(con.Id);
         closedCase.ExternalCaseStatus__c = CaseDecorator.EXTERNAL_STATUS_CLOSED;
@@ -71,6 +72,7 @@ public class YH_PortalControllerTest {
         Assert.areEqual(2, result.size(), 'Should return at most 2 open cases');
         Assert.areEqual(newestOpenCase.CaseNumber, result[0].caseNumber, 'Most recently opened case should be first');
         Assert.areEqual(newestOpenCase.CaseType__c, result[0].caseType, 'Case type should be populated');
+        Assert.areEqual('Leaking kitchen tap', result[0].description, 'Description should be populated');
         Assert.areEqual(CaseDecorator.EXTERNAL_STATUS_INPROGRESS, result[0].status, 'Status should be the external case status');
         Assert.areEqual(middleOpenCase.CaseNumber, result[1].caseNumber, 'Second most recently opened case should be second');
     }

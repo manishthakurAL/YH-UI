@@ -5,12 +5,10 @@
         <template lwc:if={hasCases}>
             <template for:each={cases} for:item="caseItem">
                 <div class="case-card" key={caseItem.caseNumber}>
-                    <div class="case-meta">
-                        <span class="case-number">#{caseItem.caseNumber}</span>
-                        <template lwc:if={caseItem.caseType}>
-                            <span class="case-type">{caseItem.caseType}</span>
-                        </template>
-                    </div>
+                    <p class="case-meta">{caseItem.caseMeta}</p>
+                    <template lwc:if={caseItem.description}>
+                        <p class="case-description">{caseItem.description}</p>
+                    </template>
                     <p class="case-opened">Opened: {caseItem.formattedOpenedDate}</p>
                     <span class="badge">{caseItem.status}</span>
                 </div>

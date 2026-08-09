@@ -5,6 +5,7 @@ public with sharing class YH_PortalController {
     public class OpenCaseDisplay {
         @AuraEnabled public String caseNumber;
         @AuraEnabled public String caseType;
+        @AuraEnabled public String description;
         @AuraEnabled public String status;
         @AuraEnabled public Date openedDate;
     }
@@ -85,7 +86,7 @@ public with sharing class YH_PortalController {
         }
 
         for (Case c : [
-            SELECT CaseNumber, CaseType__c, ExternalCaseStatus__c, CreatedDate
+            SELECT CaseNumber, CaseType__c, Description, ExternalCaseStatus__c, CreatedDate
             FROM Case
             WHERE ContactId = :u.ContactId
                 AND ExternalCaseStatus__c != null
@@ -96,6 +97,7 @@ public with sharing class YH_PortalController {
             OpenCaseDisplay d = new OpenCaseDisplay();
             d.caseNumber = c.CaseNumber;
             d.caseType = c.CaseType__c;
+            d.description = c.Description;
             d.status = c.ExternalCaseStatus__c;
             d.openedDate = c.CreatedDate.date();
             result.add(d);
