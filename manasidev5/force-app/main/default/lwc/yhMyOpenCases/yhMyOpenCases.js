@@ -2,7 +2,6 @@ import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import getMyOpenCases from '@salesforce/apex/YH_PortalController.getMyOpenCases';
 
-const CASE_LIST_PAGE_NAME = 'Case_List__c';
 const DATE_FORMAT_OPTIONS = { day: 'numeric', month: 'short', year: 'numeric' };
 
 export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
@@ -36,9 +35,10 @@ export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
 
     handleViewAllCases() {
         this[NavigationMixin.Navigate]({
-            type: 'comm__namedPage',
+            type: 'standard__objectPage',
             attributes: {
-                name: CASE_LIST_PAGE_NAME
+                objectApiName: 'Case',
+                actionName: 'home'
             }
         });
     }
