@@ -1,0 +1,36 @@
+:host {
+    --yh-purple: #34215a;
+    --yh-divider: #e8e1f0;
+
+    display: block;
+    --slds-g-font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.panel-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel-title {
+    margin: 0 0 4px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--yh-divider);
+    color: var(--yh-purple);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .panel-card {
+        padding: 20px;
+    }
+}

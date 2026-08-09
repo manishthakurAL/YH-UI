@@ -1,0 +1,37 @@
+<template>
+    <lightning-button
+        variant="neutral"
+        label="Emergency Repair"
+        icon-name="utility:warning"
+        icon-position="left"
+        onclick={toggleExpanded}
+        class="emergency-repair-button"
+        aria-expanded={isExpanded}
+        stretch
+    ></lightning-button>
+
+    <template lwc:if={isExpanded}>
+        <div class="emergency-details">
+            <h4>What is an emergency?</h4>
+            <ul>
+                <li>Total loss of electricity, gas or water supply</li>
+                <li>Unsafe power, lighting or electrical fittings</li>
+                <li>Blocked flue to open fire or boiler</li>
+                <li>Total loss of heating in winter months</li>
+                <li>Taps that can't be turned off and are running at full flow</li>
+                <li>Uncontainable water leak</li>
+                <li>A home being insecure because of fire, police activity, harassment, domestic violence or if the property is empty</li>
+                <li>If the external door can't be locked or if the lock is faulty and you can't get into your home. If you've lost your keys however, you'll need to arrange a locksmith yourself and that wouldn't be an emergency repair</li>
+                <li>Serious roof leak or major structural failure</li>
+                <li>Total loss of hot water (for vulnerable customers)</li>
+                <li>If you spot mould on your windows, ceiling or walls, damp patches behind furniture, or smell something musty, tell us straight away - you can find more information about Damp &amp; Mould on the Yorkshire Housing Website</li>
+            </ul>
+
+            <h4>Gas leaks</h4>
+            <p>
+                Report gas leaks immediately by calling the National Gas Emergency Service on
+                <a href="tel:0800111999">0800 111 999</a>
+            </p>
+        </div>
+    </template>
+</template>
