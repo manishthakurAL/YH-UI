@@ -85,18 +85,15 @@ public with sharing class YH_PortalController {
         }
 
         for (Case c : [
-            SELECT CaseNumber, Type, ExternalCaseStatus__c, CreatedDate
+            SELECT CaseNumber, CaseType__c, Status, CreatedDate
             FROM Case
-            WHERE ContactId = :u.ContactId
-                AND ExternalCaseStatus__c != null
-                AND ExternalCaseStatus__c != :CaseDecorator.EXTERNAL_STATUS_CLOSED
             ORDER BY CreatedDate DESC
             LIMIT :OPEN_CASES_LIMIT
         ]) {
             OpenCaseDisplay d = new OpenCaseDisplay();
             d.caseNumber = c.CaseNumber;
-            d.caseType = c.Type;
-            d.status = c.ExternalCaseStatus__c;
+            d.caseType = c.CaseType__c;
+            d.status = c.Status;
             d.openedDate = c.CreatedDate.date();
             result.add(d);
         }
