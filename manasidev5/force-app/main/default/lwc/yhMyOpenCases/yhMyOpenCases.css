@@ -1,8 +1,9 @@
 :host {
     --yh-purple: #34215a;
-    --yh-rose: #f04d6e;
-    --yh-yellow-tint-bg: #fdeed3;
-    --yh-yellow-tint-text: #7d5612;
+    --yh-cases-accent: #c2185b;
+    --yh-divider: #e8e1f0;
+    --yh-yellow-tint-bg: #fff2da;
+    --yh-yellow-tint-text: #cc8300;
 
     display: block;
     --slds-g-font-family: 'Source Sans Pro', Arial, sans-serif;
@@ -20,7 +21,9 @@
 }
 
 .panel-title {
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--yh-divider);
     color: var(--yh-purple);
     font-size: 1.1rem;
     font-weight: 700;
@@ -38,30 +41,20 @@
 }
 
 .case-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px;
-    color: var(--yh-purple);
+    margin: 0 0 6px 0;
+    color: #757575;
+    font-size: 0.8rem;
 }
 
-.case-number {
+.case-description {
+    margin: 0 0 8px 0;
+    color: #1a1a2e;
+    font-size: 0.95rem;
     font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.case-type {
-    font-size: 0.9rem;
-    opacity: 0.75;
-}
-
-.case-type::before {
-    content: '\00b7';
-    margin-right: 6px;
 }
 
 .case-opened {
-    margin: 8px 0 10px 0;
+    margin: 0 0 10px 0;
     font-size: 0.85rem;
     color: #5c5470;
 }
@@ -90,10 +83,16 @@
 }
 
 .view-all-button {
-    --slds-c-button-brand-color-background: var(--yh-rose);
-    --slds-c-button-brand-color-border: var(--yh-rose);
-    --slds-c-button-brand-color-background-hover: #d43a5c;
-    --slds-c-button-brand-color-border-hover: #d43a5c;
-    --slds-c-button-radius-border: 10px;
+    display: block;
+    width: 100%;
+    height: 48px;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    --slds-c-button-brand-color-background: var(--yh-cases-accent);
+    --slds-c-button-brand-color-border: var(--yh-cases-accent);
+    --slds-c-button-brand-color-background-hover: #a3134c;
+    --slds-c-button-brand-color-border-hover: #a3134c;
+    --slds-c-button-radius-border: 12px;
     --slds-c-button-text-color: #ffffff;
+    --slds-c-button-line-height: 48px;
 }

@@ -2,8 +2,8 @@ import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import getMyOpenCases from '@salesforce/apex/YH_PortalController.getMyOpenCases';
 
-const CASE_LIST_PAGE_NAME = 'Case_List__c';
 const DATE_FORMAT_OPTIONS = { day: 'numeric', month: 'short', year: 'numeric' };
+const DESCRIPTION_MAX_LENGTH = 80;
 
 export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
     cases = [];
@@ -13,7 +13,8 @@ export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
         if (data) {
             this.cases = data.map((caseRecord) => ({
                 caseNumber: caseRecord.caseNumber,
-                caseType: caseRecord.caseType,
+                caseMeta: this.formatCaseMeta(caseRecord.caseNumber, caseRecord.caseType),
+                description: this.truncateDescription(caseRecord.description),
                 status: caseRecord.status,
                 formattedOpenedDate: this.formatDate(caseRecord.openedDate)
             }));
@@ -27,6 +28,22 @@ export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
         return this.cases.length > 0;
     }
 
+    formatCaseMeta(caseNumber, caseType) {
+        const number = `#${caseNumber}`;
+        return caseType ? `${number} · ${caseType}` : number;
+    }
+
+    truncateDescription(value) {
+        if (!value) {
+            return '';
+        }
+        const singleLine = value.replace(/\s+/g, ' ').trim();
+        if (singleLine.length <= DESCRIPTION_MAX_LENGTH) {
+            return singleLine;
+        }
+        return `${singleLine.slice(0, DESCRIPTION_MAX_LENGTH - 1)}…`;
+    }
+
     formatDate(value) {
         if (!value) {
             return '';
@@ -36,9 +53,10 @@ export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
 
     handleViewAllCases() {
         this[NavigationMixin.Navigate]({
-            type: 'comm__namedPage',
+            type: 'standard__objectPage',
             attributes: {
-                name: CASE_LIST_PAGE_NAME
+                objectApiName: 'Case',
+                actionName: 'home'
             }
         });
     }
