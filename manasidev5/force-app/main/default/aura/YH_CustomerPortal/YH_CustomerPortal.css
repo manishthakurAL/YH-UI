@@ -42,8 +42,9 @@
     flex-shrink: 0;
     background: var(--yh-primary-color) !important;
     color: white;
-    height: 20vh;
+    height: auto;
     min-height: 0;
+    padding: 24px 32px;
 
     /* Center content */
     display: flex;
@@ -340,11 +341,11 @@
 
     .THIS .yh-portal {
         min-height: 100vh !important;
-        min-height: -webkit-fill-available !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        overflow: visible !important;
+        min-height: 100dvh !important;
+        height: auto !important;
+        max-height: none !important;
         overflow-x: hidden !important;
+        overflow-y: visible !important;
         display: flex !important;
         flex-direction: column !important;
         box-sizing: border-box;
@@ -359,48 +360,29 @@
         overflow: visible !important;
     }
 
+    /* Let the page itself scroll on mobile instead of trapping scroll
+       inside a fixed-height region — nested overflow:auto regions
+       inside a hard height:100vh box are what caused mobile scrolling
+       to break, since 100vh doesn't account for the browser's
+       dynamic address bar. */
     .THIS .yh-content {
         flex: 1 1 auto !important;
         min-height: 0 !important;
         width: 100% !important;
         overflow-x: hidden !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: contain;
-        /*padding-bottom: 10dvh;*/
+        overflow-y: visible !important;
     }
   
 
-   /* .THIS .yh-footer {
-        position: fixed !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 100% !important;
-        flex: 0 0 auto !important;
-        flex-shrink: 0 !important;
-        margin-top: auto !important;
-        height: auto !important;
-        min-height: unset !important;
-        padding: 24px 16px !important;
-        padding-bottom: max(24px, env(safe-area-inset-bottom)) !important;
-        padding-left: max(16px, env(safe-area-inset-left)) !important;
-        padding-right: max(16px, env(safe-area-inset-right)) !important;
-        clear: both !important;
-        z-index: 900 !important;
-        background: var(--yh-primary-color) !important;
-        margin-top: auto;
-        flex-shrink: 0;
-    }*/
-  
     .THIS .yh-footer {
         width: 100% !important;
         height: auto !important;
         padding: 24px 16px !important;
+        padding-bottom: max(24px, env(safe-area-inset-bottom)) !important;
+        padding-left: max(16px, env(safe-area-inset-left)) !important;
+        padding-right: max(16px, env(safe-area-inset-right)) !important;
         margin-top: auto !important;
+        flex-shrink: 0 !important;
         position: relative !important;
     }
 
