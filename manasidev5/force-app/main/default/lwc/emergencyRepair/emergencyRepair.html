@@ -1,14 +1,10 @@
 <template>
-    <lightning-button
-        variant="neutral"
-        label="Emergency Repair"
-        icon-name="utility:warning"
-        icon-position="left"
-        onclick={toggleExpanded}
+    <button
+        type="button"
         class="emergency-repair-button"
+        onclick={toggleExpanded}
         aria-expanded={isExpanded}
-        stretch
-    ></lightning-button>
+    >🚨 Emergency Repair</button>
 
     <template lwc:if={isExpanded}>
         <div class="emergency-details">
