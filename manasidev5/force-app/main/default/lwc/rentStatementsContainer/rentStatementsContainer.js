@@ -57,12 +57,15 @@ export default class RentStatementsContainer extends NavigationMixin(LightningEl
 
     handleMakePayment(event) {
         let tenancyNumber = event.detail?.tenancyNumber;
-        let orchardChequeDigit = event.detail?.orchardChequeDigit;
+        let orchardChequeDigit = event.detail.orchardChequeDigit;
         let prnNumber;
         try{
+            console.log('Generating PRN for tenancyNumber: ' + tenancyNumber + ', accountId: ' + event.detail?.accountid + ', orchardChequeDigit: ' + orchardChequeDigit);
             prnNumber = generatePRN(tenancyNumber, event.detail?.accountid, orchardChequeDigit);
+            console.log('Generated PRN: ' + prnNumber);
         }catch(error){
             prnNumber = null;
+            console.log('Error generating PRN: ' + error);
         }
 
         let url = prnNumber? this.allPayURL.data+prnNumber : this.allPayURL.data;

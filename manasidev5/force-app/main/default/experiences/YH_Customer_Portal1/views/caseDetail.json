@@ -39,16 +39,6 @@
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
-    }, {
-      "componentAttributes" : {
-        "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":true,\"value\":\"{!Record.Id}\"}]",
-        "flowName" : "SF_Community_Show_Suggested_Knowledge_Article"
-      },
-      "componentName" : "forceCommunity:flowCommunity",
-      "id" : "c9ab60eb-f85e-492e-ba80-0f02e8004ec0",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
     } ],
     "id" : "f1f1d1b9-8719-4eae-ae45-2d7280a0848d",
     "regionName" : "content",

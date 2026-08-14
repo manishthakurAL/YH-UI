@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 
-export default class YhEmergencyRepair extends LightningElement {
+export default class emergencyRepair extends LightningElement {
     isExpanded = false;
 
     toggleExpanded() {

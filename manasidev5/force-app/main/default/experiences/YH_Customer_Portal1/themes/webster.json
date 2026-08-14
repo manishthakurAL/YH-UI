@@ -505,7 +505,7 @@
     "componentAttributes" : {
       "menuName" : "Default Navigation"
     },
-    "componentName" : "c:YH_CustomerPortal",
+    "componentName" : "c:customPortalTheme",
     "id" : "7add2242-af3a-4291-884e-3cb052fd5efd",
     "label" : "YH Default Theme",
     "regions" : [ {

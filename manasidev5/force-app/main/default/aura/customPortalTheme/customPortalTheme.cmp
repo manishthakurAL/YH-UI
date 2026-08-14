@@ -1,0 +1,108 @@
+<aura:component  implements="forceCommunity:themeLayout" 
+                access="global"
+                controller="CustomPortalThemeController"
+                description="Yorkshire Housing customer portal layout">
+
+    <aura:attribute name="menuName" type="String" default="YH_Portal_Navigation_Menu" access="global"/>
+    <aura:attribute name="userProfileMenu" type="String" default="YH_Portal_User_Profile_Menu" access="global"/>
+    <aura:attribute name="navItemsUserProfileMenu" type="List" default="[]"/>
+
+    <aura:attribute name="navItems" type="List" default="[]"/>
+    <aura:attribute name="activeItem" type="String" default=""/>
+    <aura:attribute name="userName" type="String" default=""/>
+    <aura:attribute name="userInitials" type="String" default=""/>
+    <aura:attribute name="userSubtitle" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="body" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="sidebarOpen" type="Boolean" default="false"/>
+
+    <div class="yh-portal">
+
+        <!-- ============ TOP HEADER ============ -->
+        <header class="yh-header">
+            <lightning:buttonIcon
+            class="yh-menu-btn"
+            iconName="utility:rows"
+            alternativeText="Menu"
+            variant="bare"
+            onclick="{!c.toggleSidebar}" />
+            <div class="yh-logo">
+                <lightning:icon iconName="standard:home" size="medium" alternativeText="Home" class="yh-logo-icon"/>
+                <div class="yh-logo-text">
+                    <span class="yh-logo-name">Yorkshire Housing</span>
+                    <span class="yh-logo-sub">CUSTOMER PORTAL</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="yh-body">
+
+            <!-- ============ SIDEBAR ============ -->
+            <aside class="{! v.sidebarOpen ? 'yh-sidebar open' : 'yh-sidebar'}">                
+                    <div class="yh-sidebar-top">
+                    <!-- Dynamic: driven by the site's Navigation Menu -->
+                    <nav class="yh-nav">
+                        <aura:iteration items="{!v.navItems}" var="item">
+                            <a href="javascript:void(0);"
+                               class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
+                               data-label="{!item.label}"
+                               data-url="{!item.actionValue}"
+                               onclick="{!c.handleNavClick}">
+                                <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
+                            </a>
+                        </aura:iteration>
+                    </nav>
+                </div>
+
+                <div class="yh-sidebar-bottom">
+                    <!-- Dynamic: logged-in user -->
+                    <div class="yh-user">
+                        <span class="yh-avatar">{!v.userInitials}</span>
+                        <div class="yh-user-text">
+                            <span class="yh-user-name">{!v.userName}</span>
+                            <span class="yh-user-sub">{!v.userSubtitle}</span>
+                        </div>
+                    </div>
+                     <aura:iteration items="{!v.navItemsUserProfileMenu}" var="item">
+                            <a href="javascript:void(0);"
+                               class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
+                               data-label="{!item.label}"
+                               data-url="{!item.actionValue}"
+                               onclick="{!c.handleNavClick}">
+                                <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
+                            </a>
+                    </aura:iteration>
+                </div>
+            </aside>
+            <aura:if isTrue="{!v.sidebarOpen}">
+                <div class="yh-overlay"
+                onclick="{!c.toggleSidebar}">
+                </div>
+            </aura:if>
+
+            <!-- ============ CONTENT AREA ============ -->
+            <div class="yh-content">
+                {!v.body}
+            </div>
+        </div>
+        <footer class="yh-footer">
+    <div class="slds-grid">
+      <div class="slds-col slds-size_1-of-1">
+          <span class="slds-p-around_xxx-small">
+            <p class="yh-footer-text">
+                Yorkshire Housing Limited is a charitable housing association (No. 30443R). 
+                Regulator of Social Housing (No. L4521). Affiliated to the National Housing Federation.
+            </p>
+            <p class="copy-write">
+    			<span>Copyright © 2026 - All Rights Reserved</span>
+    			<div><a  class="yh-footer-link" href="/s/cookies" style="padding-right: 5px">Cookies</a>
+                <a href="/s/accessibility-statement" class="yh-footer-link">Accessibility Statement</a></div>
+			</p>
+          </span>
+      </div>
+    </div>
+</footer>
+    </div>
+</aura:component>

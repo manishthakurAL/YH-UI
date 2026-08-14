@@ -3,8 +3,6 @@ public with sharing class FetchSuggestedKnowledgeArticleInvcblTest {
     @TestSetup
     static void makeData(){
        Knowledge__kav article = UthKnowledge.create();
-       UthKnowledge.addDataCategory(article.Id, KnowledgeDecorator.DATACATEGORY_AUDIENCE, KnowledgeDecorator.DATACATEGORY_EXTERNALLOGGEDIN_LABEL);
-       UthKnowledge.addDataCategory(article.Id, KnowledgeDecorator.DATACATEGORY_DOMAIN, CaseDecorator.TYPE_COMPLAINT);
        Knowledge__kav obj1 = [SELECT Id,Title,KnowledgeArticleId FROM Knowledge__kav WHERE id =: article.id];
        KbManagement.PublishingService.publishArticle(obj1.KnowledgeArticleId, true);
 
@@ -28,24 +26,7 @@ public with sharing class FetchSuggestedKnowledgeArticleInvcblTest {
         Test.stopTest();
     }
 
-     @isTest
-    static void testDataCategoryNotFound(){
-        FetchSuggestedKnowledgeArticleInvocable.FetchSuggestedKnowledgeArticleInvocableRequest request = new FetchSuggestedKnowledgeArticleInvocable.FetchSuggestedKnowledgeArticleInvocableRequest();
-        request.searchTerm = 'NoDataCategory';
-        request.isDisplayedInPortal = true;
-        List<FetchSuggestedKnowledgeArticleInvocable.FetchSuggestedKnowledgeArticleInvocableResult> results;
-        String exceptionMessage;
-        Test.startTest();
-        try{
-            results = FetchSuggestedKnowledgeArticleInvocable.fetchSuggestedKnowledgeArticle(new List<FetchSuggestedKnowledgeArticleInvocable.FetchSuggestedKnowledgeArticleInvocableRequest>{request});
-        }catch(Exception e){ 
-            exceptionMessage = e.getMessage();
-            Assert.isNull(results, 'KA should not be returned');
-        }finally{
-            Assert.isTrue(String.isNotBlank(exceptionMessage), 'Exception message should get populated');
-        }
-        Test.stopTest();
-    }
+    
 
      @isTest
     static void testFilteredArticlesNotFound(){

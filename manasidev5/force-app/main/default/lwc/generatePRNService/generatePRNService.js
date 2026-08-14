@@ -1,7 +1,9 @@
 const YH_ALLPAY_CLIENTCODE  = '98269064'; 
 export function generatePRN(tenancyNumber, subAccountNumber, orchardCheckDigit) {
     let prnNumber;
-    if(orchardCheckDigit && subAccountNumber && tenancyNumber){
+    if (orchardCheckDigit != null && orchardCheckDigit !== '' &&
+        subAccountNumber != null && subAccountNumber !== '' &&
+        tenancyNumber != null && tenancyNumber !== '') {
         tenancyNumber = tenancyNumber.padStart(8, '0');
         prnNumber = YH_ALLPAY_CLIENTCODE  + tenancyNumber + subAccountNumber + orchardCheckDigit;
         let checkDigitLuhn = calculateLuhnCheckDigit(prnNumber);

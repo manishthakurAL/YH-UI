@@ -8,10 +8,7 @@ public with sharing class FetchSuggestedKnowledgeArticleInvocable {
         for (FetchSuggestedKnowledgeArticleInvocableRequest request : requests) {
             try{
                 FetchSuggestedKnowledgeArticleInvocableResult result = new FetchSuggestedKnowledgeArticleInvocableResult();
-                String sosl = 'FIND \'' + String.escapeSingleQuotes(request.searchTerm) + '*\' IN ALL FIELDS RETURNING KnowledgeArticleVersion (Id, Title WHERE PublishStatus=\''+String.escapeSingleQuotes(KnowledgeDecorator.KNOWLEDGE_PUBLISH) +'\') WITH DATA CATEGORY Audience__c AT '+ String.escapeSingleQuotes(KnowledgeDecorator.DATACATEGORY_EXTERNALLOGGEDIN)  + ' AND Domain__c AT ' + string.escapeSingleQuotes(KnowledgeDecorator.DATA_CATEGORY_LABEL_BY_DEV_NAME.get(request.searchTerm));
-                if( String.isNotEmpty(KnowledgeDecorator.INTENT_BY_DOMAIN.get(request.searchTerm))){
-                    sosl += ' AND Intent__c AT ' + String.escapeSingleQuotes(KnowledgeDecorator.INTENT_BY_DOMAIN.get(request.searchTerm));
-                } 
+                String sosl = 'FIND \'' + String.escapeSingleQuotes(request.searchTerm) + '*\' IN ALL FIELDS RETURNING KnowledgeArticleVersion (Id, Title WHERE PublishStatus=\''+String.escapeSingleQuotes(KnowledgeDecorator.KNOWLEDGE_PUBLISH) +'\')';
                 List<List<SObject>> searchList = search.query(sosl);
                 List<KnowledgeArticleVersion> articles = (List<KnowledgeArticleVersion>)searchList[0];
                 for(KnowledgeArticleVersion article : articles){
@@ -30,6 +27,9 @@ public with sharing class FetchSuggestedKnowledgeArticleInvocable {
         public String searchTerm;
         @InvocableVariable
         public Boolean isDisplayedInPortal;
+
+        //non-argument constructer
+        public FetchSuggestedKnowledgeArticleInvocableRequest(){}
     }
 
     public class FetchSuggestedKnowledgeArticleInvocableResult{

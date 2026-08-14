@@ -1,7 +1,7 @@
 import { LightningElement, wire } from 'lwc';
-import getCurrentUserName from '@salesforce/apex/YH_PortalController.getCurrentUser';
+import getCurrentUserName from '@salesforce/apex/CustomPortalThemeController.getCurrentUser';
 
-export default class YhCustomerPortalHomeContainer extends LightningElement {
+export default class CustomerPortalHomeContainer extends LightningElement {
     greetingMessage;
     userName;
 
@@ -13,7 +13,6 @@ export default class YhCustomerPortalHomeContainer extends LightningElement {
     wiredUser({ error, data }) {
         if (data) {
             this.userName = data.firstName;
-            console.log('Data:****', data);
         } else if (error) {
             console.log('Error:', JSON.stringify(error));  
         }
@@ -31,9 +30,7 @@ export default class YhCustomerPortalHomeContainer extends LightningElement {
             greeting = 'GOOD AFTERNOON';
         } else if (hour >= 18 && hour <= 23) {
             greeting = 'GOOD EVENING';
-        } //else {
-            //greeting = 'Good Night';
-        //}        
+        }        
 
         this.greetingMessage = `${greeting}`; 
     }

@@ -1,11 +1,11 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import getMyOpenCases from '@salesforce/apex/YH_PortalController.getMyOpenCases';
+import getMyOpenCases from '@salesforce/apex/CustomPortalThemeController.getMyOpenCases';
 
 const DATE_FORMAT_OPTIONS = { day: 'numeric', month: 'short', year: 'numeric' };
 const DESCRIPTION_MAX_LENGTH = 80;
 
-export default class YhMyOpenCases extends NavigationMixin(LightningElement) {
+export default class myOpenCases extends NavigationMixin(LightningElement) {
     cases = [];
 
     @wire(getMyOpenCases)

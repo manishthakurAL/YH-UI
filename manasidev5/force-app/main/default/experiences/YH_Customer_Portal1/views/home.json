@@ -11,8 +11,8 @@
   }, {
     "components" : [ {
       "componentAttributes" : { },
-      "componentName" : "c:yhCustomerPortalHomeContainer",
-      "id" : "63bc7319-022c-4659-b182-4804cad528da",
+      "componentName" : "c:customerPortalHomeContainer",
+      "id" : "2d1c0a1d-37da-40a0-9342-e0a914bf8158",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -33,6 +33,14 @@
     "regionName" : "sidebar",
     "type" : "region"
   }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:accountOverview",
+      "id" : "6d1ee40b-9c54-45c4-837e-d51a616662e1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "1202eee0-1d3b-45db-b749-e929b6ecd209",
     "regionName" : "footer",
     "type" : "region"

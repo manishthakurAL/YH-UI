@@ -1,0 +1,5 @@
+<design:component label="YH Customer Portal Theme Layout">
+    <design:attribute name="menuName" label="Navigation Menu Name"
+                      description="Master label of the Experience Cloud navigation menu (Settings > Navigation) to render in the sidebar."
+                      default="Default Navigation"/>
+</design:component>

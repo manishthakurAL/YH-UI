@@ -33,7 +33,7 @@ export default class AccountOverview  extends NavigationMixin(LightningElement) 
                 this.tenancy = data.find(tenancy => (
                 tenancy.propertyType === 'Garage Rent' ));
             }
-            this.orchardChequeDigit = this.tenancy?.orchardChequeDigit || null;
+            this.orchardChequeDigit = this.tenancy?.orchardChequeDigit !=null && this.tenancy?.orchardChequeDigit !== '' ? this.tenancy?.orchardChequeDigit : null;
             this.tenancyNumber = this.tenancy?.tenancyNumber;
             
         } else if (error) {
