@@ -111,12 +111,12 @@
 
     getFallbackItems: function () {
         return [
-            { label: 'Home', actionValue: '/' },
-            { label: 'Repairs', actionValue: '' },
-            { label: 'Rent & Payments', actionValue: '' },
-            { label: 'My Cases', actionValue: '' },
-            { label: 'My Home', actionValue: '' },
-            { label: 'Get in Touch', actionValue: '' }
+            { label: $A.get('$Label.c.CP_Home'), actionValue: '/' },
+            { label: $A.get('$Label.c.CP_Repairs'), actionValue: '' },
+            { label: $A.get('$Label.c.CP_RentAndPayments'), actionValue: '' },
+            { label: $A.get('$Label.c.CP_MyCases'), actionValue: '' },
+            { label: $A.get('$Label.c.CP_MyHome'), actionValue: '' },
+            { label: $A.get('$Label.c.CP_GetInTouch'), actionValue: '' }
         ];
     }
 })

@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AbsenceReporting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AbsenceReporting</shortDescription>
+        <value>You have reported that you are not working today; therefore, you cannot make changes to the appointment or complete appointment work steps.</value>
+    </labels>
+    <labels>
+        <fullName>AccountLocked</fullName>
+        <categories>CustomYHLogin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLocked</shortDescription>
+        <value>&lt;b&gt;Something&apos;s not quite right.&lt;/b&gt;&lt;br/&gt;The email or password you entered doesn&apos;t match our records.&lt;br/&gt;
+
+For security, your account has been temporarily locked, please try again in 30 minutes.&lt;br/&gt;
+
+If you&apos;re not a Yorkshire Housing customer anymore, your online account may no longer be active.&lt;br/&gt;&lt;br/&gt;
+
+&lt;b&gt;Need help?&lt;/b&gt;
+&lt;a href=&quot;https://www.yorkshirehousing.co.uk/customer-portal/&quot; style=&quot;color: white; text-decoration: underline;&quot;&gt;https://www.yorkshirehousing.co.uk/customer-portal/&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>AccountLockedMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLockedMessage</shortDescription>
+        <value>Your account has been temporarily locked because you&apos;ve entered an incorrect code too many times. This is an automatic security step so we can protect your personal information.
+Please wait 30 minutes before trying to log in again.</value>
+    </labels>
+    <labels>
+        <fullName>AccountLockedResendLimitMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLockedResendLimitMessage</shortDescription>
+        <value>Your account has been temporarily locked because you&apos;ve requested a security code too many times. This is an automatic security step so we can protect your personal information.
+Please wait 30 minutes before trying to log in again.</value>
+    </labels>
+    <labels>
+        <fullName>AccountLockedSMSNotification</fullName>
+        <categories>CustomYHLogin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLockedSMSNotification</shortDescription>
+        <value>For your security, we&apos;ve temporarily locked your account after multiple sign in attempts. Wait 30 minutes to try again or reset your password. If this wasn’t you, please get in touch with us on 0345 366 4404</value>
+    </labels>
+    <labels>
+        <fullName>ActiveAdvocateAlreadyExistsError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActiveAdvocateAlreadyExistsError</shortDescription>
+        <value>Active Authorization already exists for the linked Tenant and the Inquirer.</value>
+    </labels>
+    <labels>
+        <fullName>AdvocateNotFoundError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AdvocateNotFoundError</shortDescription>
+        <value>We could not find active authorization for linked Tenant and the Inquirer.</value>
+    </labels>
+    <labels>
+        <fullName>AlertNotesByAuthorisationType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AlertNotesByAuthorisationType</shortDescription>
+        <value>{0} (Tenant) {1} to {2} ({3})</value>
+    </labels>
+    <labels>
+        <fullName>AwaabReasonForPriorityRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AwaabReasonForPriorityRequired</shortDescription>
+        <value>Reason for Priority is required when Priority is being changed</value>
+    </labels>
+    <labels>
+        <fullName>CasePermissionValidationError</fullName>
+        <categories>Complaints</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Permission Validation Error</shortDescription>
+        <value>You do not have the rights to create or edit this type of case. Please contact your system administrator to request access permissions.</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleAddInquirerError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleAddInquirerError</shortDescription>
+        <value>Please add the relevant Inquirer to the Case under case Role.</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleAddTenantError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleAddTenantError</shortDescription>
+        <value>Please add the Tenant to the Case under case Role</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleApplicantError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleApplicantError</shortDescription>
+        <value>Please Link Applicant Case Role</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleApplicantMissingError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleApplicantError</shortDescription>
+        <value>Please link an applicant in order to confirm changes</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleCustomerDeseasedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleCustomerDeseasedError</shortDescription>
+        <value>Please Link Customer Deceased</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleMoreApplicantError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleMoreApplicantError</shortDescription>
+        <value>More than one Applicant case role present</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleMoreCustomerDeseasedError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleCustomerDeseasedError</shortDescription>
+        <value>More than one Customer Deceased case role present</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleMoreOutgoingCustomerError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleOutgoingCustomerError</shortDescription>
+        <value>More than one Outgoing Customer case role present</value>
+    </labels>
+    <labels>
+        <fullName>CaseRoleOutgoingCustomerError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseRoleOutgoingCustomerError</shortDescription>
+        <value>Please Link Outgoing Customer</value>
+    </labels>
+    <labels>
+        <fullName>CongaBaseUrl</fullName>
+        <categories>Conga</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Conga Base Url</shortDescription>
+        <value>/apex/APXTConga4__Conga_Composer?serverUrl={0}/services/Soap/u/58.0/{1}</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemBlockedFlue</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemBlockedFlue</shortDescription>
+        <value>Blocked flue to open fire or boiler</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemElectricityGasWater</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemElectricityGasWater</shortDescription>
+        <value>Total loss of electricity, gas or water supply</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemExternalDoor</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemExternalDoor</shortDescription>
+        <value>If the external door can&apos;t be locked or if the lock is faulty and you can&apos;t get into your home. If you&apos;ve lost your keys however, you&apos;ll need to arrange a locksmith yourself and that wouldn&apos;t be an emergency repair</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemHomeInsecure</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemHomeInsecure</shortDescription>
+        <value>A home being insecure because of fire, police activity, harassment, domestic violence or if the property is empty</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemHotWater</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemHotWater</shortDescription>
+        <value>Total loss of hot water (for vulnerable customers)</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemMould</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemMould</shortDescription>
+        <value>If you spot mould on your windows, ceiling or walls, damp patches behind furniture, or smell something musty, tell us straight away - you can find more information about Damp &amp; Mould on the Yorkshire Housing Website</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemRoofLeak</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemRoofLeak</shortDescription>
+        <value>Serious roof leak or major structural failure</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemTapsRunning</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemTapsRunning</shortDescription>
+        <value>Taps that can&apos;t be turned off and are running at full flow</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemTotalLossHeating</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemTotalLossHeating</shortDescription>
+        <value>Total loss of heating in winter months</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemUnsafePower</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemUnsafePower</shortDescription>
+        <value>Unsafe power, lighting or electrical fittings</value>
+    </labels>
+    <labels>
+        <fullName>CP_EmergencyItemWaterLeak</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_EmergencyItemWaterLeak</shortDescription>
+        <value>Uncontainable water leak</value>
+    </labels>
+    <labels>
+        <fullName>CP_GasLeaks</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GasLeaks</shortDescription>
+        <value>Gas leaks</value>
+    </labels>
+    <labels>
+        <fullName>CP_GasLeaksMessage</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GasLeaksMessage</shortDescription>
+        <value>Report gas leaks immediately by calling the National Gas Emergency Service on</value>
+    </labels>
+    <labels>
+        <fullName>CP_GetInTouch</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GetInTouch</shortDescription>
+        <value>Get in Touch</value>
+    </labels>
+    <labels>
+        <fullName>CP_Home</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_Home</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>CP_MyCases</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_MyCases</shortDescription>
+        <value>My Cases</value>
+    </labels>
+    <labels>
+        <fullName>CP_MyHome</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_MyHome</shortDescription>
+        <value>My Home</value>
+    </labels>
+    <labels>
+        <fullName>CP_Repairs</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_Repairs</shortDescription>
+        <value>Repairs</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentAndPayments</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentAndPayments</shortDescription>
+        <value>Rent &amp; Payments</value>
+    </labels>
+    <labels>
+        <fullName>CP_WhatIsAnEmergency</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_WhatIsAnEmergency</shortDescription>
+        <value>What is an emergency?</value>
+    </labels>
+    <labels>
+        <fullName>CustomerUserNameChangedLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CustomerUserNameChangedLabel</shortDescription>
+        <value>Your YH Customer Portal account’s username has been changed</value>
+    </labels>
+    <labels>
+        <fullName>DOBInvalidDate</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DOBInvalidDate</shortDescription>
+        <value>Date of Birth appears invalid.</value>
+    </labels>
+    <labels>
+        <fullName>DOBMustBePastDate</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DOBMustBePastDate</shortDescription>
+        <value>Date of Birth must be in the past.</value>
+    </labels>
+    <labels>
+        <fullName>DOBRequired</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DOBRequired</shortDescription>
+        <value>Date of Birth is required.</value>
+    </labels>
+    <labels>
+        <fullName>DateInvalidFormat</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DateInvalidFormat</shortDescription>
+        <value>Date format is invalid. (DD/MM/YYYY)</value>
+    </labels>
+    <labels>
+        <fullName>EmailInvalidFormat</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailInvalidFormat</shortDescription>
+        <value>Email format is invalid.</value>
+    </labels>
+    <labels>
+        <fullName>EmailRequired</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailRequired</shortDescription>
+        <value>Email is required.</value>
+    </labels>
+    <labels>
+        <fullName>EndDateCannotBeBeforeTerminationEndDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EndDateCannotBeBeforeTerminationEndDate</shortDescription>
+        <value>End date cannot be before the date the termination notice recieved date: {0}</value>
+    </labels>
+    <labels>
+        <fullName>EnterOtpMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EnterOtpMessage</shortDescription>
+        <value>Enter the verification code.</value>
+    </labels>
+    <labels>
+        <fullName>FSMobileAbestosPortalUrl</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FSMobileAbestosPortalUrl</shortDescription>
+        <value>https://portalyorkshirehousing.teams-software.co.uk/Account/Login?ReturnUrl=%2f</value>
+    </labels>
+    <labels>
+        <fullName>FSMobileHealthSafetyAssessments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FSMobileHealthSafetyAssessments</shortDescription>
+        <value>https://yhcloud.sharepoint.com/teams/Homeworks/OPERATIVES%20HS%20AND%20EQUIPMENT/Forms/AllItems.aspx?id=%2fteams%2fHomeworks%2fOPERATIVES%20HS%20AND%20EQUIPMENT%2fRAID%20RAMS%20%26%20COSHH%20SHEETS%202025&amp;viewid=557dc920%2D1160%2D4c18%2D9f7d%2D07e8f6bb973f&amp;ovuser=c7337f18%2D48f0%2D40a9%2Db3af%2Df1321a74a12e%2CDavid%2ESwain%40yorkshirehousing%2Eco%2Euk&amp;TeamsCID=c011363c%2Dc1dc%2D4e44%2Dbbc7%2Dff3f97f0fdc0&amp;OR=Teams%2DHL&amp;CT=1781075917687&amp;clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNjA1MTQxNjcxMyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D</value>
+    </labels>
+    <labels>
+        <fullName>FSMobileLaunchpad</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FSMobileLaunchpad</shortDescription>
+        <value>https://central.yorkshirehousing.co.uk/launchpad</value>
+    </labels>
+    <labels>
+        <fullName>FSMobileSIRFForm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FSMobileSIRFForm</shortDescription>
+        <value>https://apps.powerapps.com/play/e/default-c7337f18-48f0-40a9-b3af-f1321a74a12e/a/f89081af-1c36-45d3-9f30-1e10bf417b8f?tenantId=c7337f18-48f0-40a9-b3af-f1321a74a12e&amp;sourcetime=1764600836461&amp;source=portal</value>
+    </labels>
+    <labels>
+        <fullName>FSMobileTPGO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FSMobileTPGO</shortDescription>
+        <value>https://mantle.iam.travisperkins.group/auth/realms/managed-services-prod/protocol/openid-connect/auth?client_id=managed-services&amp;redirect_uri=https:%2f%2foperative.apps.tpmanagedservices.co.uk%2f&amp;state=f1638532-93ad-4915-af1e-b8a73d642420&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=55cfe937-fe24-4444-b576-eb258dc1b3c0&amp;code_challenge=_6pkRPglo0_uOVpGqhGVXukNYQG2OrkgyaU_dL0fniE&amp;code_challenge_method=S256</value>
+    </labels>
+    <labels>
+        <fullName>FirstNameRequired</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FirstNameRequired</shortDescription>
+        <value>First Name is required.</value>
+    </labels>
+    <labels>
+        <fullName>GeneralEnquiryCaseOwnerChangeReassignmentReaosnRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GeneralEnquiryCaseOwnerChangeReassignmentReaosnRequired</shortDescription>
+        <value>Case Re-Assignment Reason is mandatory if general enquiry is manually re-assigned</value>
+    </labels>
+    <labels>
+        <fullName>GenericContactUsMessage</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GenericContactUsMessage</shortDescription>
+        <value>&lt;b&gt;We couldn’t find a match for the details you entered.&lt;/b&gt;&lt;br/&gt; Please check that the information you’ve entered is correct and matches what you’ve given us before.&lt;br/&gt;
+Still having trouble? Visit &lt;a href=&quot;https://www.yorkshirehousing.co.uk/customer-portal/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&quot;color: white; text-decoration: underline;&quot;&gt;https://www.yorkshirehousing.co.uk/customer-portal/&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>IncorrectServiceAppointmentUpdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IncorrectServiceAppointmentUpdate</shortDescription>
+        <value>You don&apos;t have permission to update this Service Appointment</value>
+    </labels>
+    <labels>
+        <fullName>InvalidPassword</fullName>
+        <categories>CustomYHLogin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InvalidPassword</shortDescription>
+        <value>&lt;b&gt;Something&apos;s not quite right.&lt;/b&gt;&lt;/br&gt;
+The email or password you entered doesn&apos;t match our records, please check your details and try again.&lt;/br&gt;&lt;/br&gt;
+
+&lt;b&gt;Forgotten your password?&lt;/b&gt;&lt;/br&gt;
+Use the Forgot your password link.&lt;/br&gt;
+If you&apos;re not a Yorkshire Housing customer anymore, your online account may no longer be active.&lt;/br&gt;&lt;/br&gt;
+
+&lt;b&gt;Need help?&lt;/b&gt;
+&lt;a href=&quot;https://www.yorkshirehousing.co.uk/customer-portal/&quot; style=&quot;color: white; text-decoration: underline;&quot;&gt;https://www.yorkshirehousing.co.uk/customer-portal/&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>LastNameRequired</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LastNameRequired</shortDescription>
+        <value>Last Name is required.</value>
+    </labels>
+    <labels>
+        <fullName>LocatorPlusURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Locator Plus URL</shortDescription>
+        <value>https://m3central.net/index.cfm?ID=238682</value>
+    </labels>
+    <labels>
+        <fullName>MarketRentTenancyEndDateMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketRentTenancyEndDateMessage</shortDescription>
+        <value>A market rent, intermediate rent or rent to buy tenancy has a minimum fixed term of 6 calendar months</value>
+    </labels>
+    <labels>
+        <fullName>MoreThanOneTenantError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MoreThanOneTenantError</shortDescription>
+        <value>Please remove the Joint Tenant from the Case Roles list, Remove the tenant who is not the individual we are granting authority for as part of this case.</value>
+    </labels>
+    <labels>
+        <fullName>NewDateGreaterThanFixedTermEndDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewDateGreaterThanFixedTermEndDate</shortDescription>
+        <value>The new end date must be greater than the Fixed term end date: {0}</value>
+    </labels>
+    <labels>
+        <fullName>NewDateMustBeGreaterThanPrevTenancyEndDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewDateMustBeGreaterThanPrevTenancyEndDate</shortDescription>
+        <value>The new end date must be greater than the previous end date + 7 days: {0}</value>
+    </labels>
+    <labels>
+        <fullName>NoDailyActionRecordFound</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoDailyActionRecordFound</shortDescription>
+        <value>No Daily Actions Record found for the operative. Please contact System Admin before proceeding.</value>
+    </labels>
+    <labels>
+        <fullName>OtpCodeExpiredMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OtpCodeExpiredMessage</shortDescription>
+        <value>The code has expired. Request a new code.</value>
+    </labels>
+    <labels>
+        <fullName>OtpCodeInvalid</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OtpCodeInvalid</shortDescription>
+        <value>The code you entered isn&apos;t quite right! Please check the code we sent you and try again. You&apos;ve got ({{remainingAttempts}}) attempts remaining.</value>
+    </labels>
+    <labels>
+        <fullName>OtpCodeSendFailedMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OtpCodeSendFailedMessage</shortDescription>
+        <value>Failed to send OTP. Try again.</value>
+    </labels>
+    <labels>
+        <fullName>OtpCodeSendSuccessMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OtpCodeSendSuccessMessage</shortDescription>
+        <value>A code has been sent. Please check and enter it below.</value>
+    </labels>
+    <labels>
+        <fullName>OtpSelectValidDeliveryMethod</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OtpSelectValidDeliveryMethod</shortDescription>
+        <value>Select a valid delivery method.</value>
+    </labels>
+    <labels>
+        <fullName>OutstandingDailyTasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OutstandingDailyTasks</shortDescription>
+        <value>There are outstanding daily tasks that must be completed before you can make changes to the appointment or complete appointment work steps.</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccountEmailNotBlankForPortalUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccountEmailNotBlankForPortalUser</shortDescription>
+        <value>Email address is required when a customer has a registered portal account</value>
+    </labels>
+    <labels>
+        <fullName>PostCodeInvalidFormat</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostCodeInvalidFormat</shortDescription>
+        <value>Postcode format is invalid.</value>
+    </labels>
+    <labels>
+        <fullName>PostCodeRequired</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostCodeRequired</shortDescription>
+        <value>Postcode is required.</value>
+    </labels>
+    <labels>
+        <fullName>ProcessObjectPermissionValidationError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProcessObjectPermissionValidationError</shortDescription>
+        <value>You do not have the rights to create for {0} case . Please contact your system administrator to request access permissions.</value>
+    </labels>
+    <labels>
+        <fullName>ProcessObjectPermissionValidationErrorEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProcessObjectPermissionValidationErrorEdit</shortDescription>
+        <value>You do not have edit access for {0} case. Please contact you System Administrator to request access.</value>
+    </labels>
+    <labels>
+        <fullName>ResendTimeLeftMessage</fullName>
+        <categories>MFA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ResendTimeLeftMessage</shortDescription>
+        <value>Please wait {{remaining}}s before requesting another code.</value>
+    </labels>
+    <labels>
+        <fullName>SMS_OTP_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SMS_OTP_Message</shortDescription>
+        <value>Your security code is {0}. It will expire in 10 minutes. Do not share this code with anyone, including YH staff.</value>
+    </labels>
+    <labels>
+        <fullName>SynchErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SynchErrorMessage</shortDescription>
+        <value>This is not a possible scenario in integration when synching from Salesforce to External</value>
+    </labels>
+    <labels>
+        <fullName>SynchErrorMessageExtToSF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SynchErrorMessageExtToSF</shortDescription>
+        <value>This scenario is not possible whilst synching changes from External to Salesforce</value>
+    </labels>
+    <labels>
+        <fullName>TaskPermissionValidationError</fullName>
+        <categories>Complaints</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Permission Validation Error</shortDescription>
+        <value>You do not have the right to create or edit a task. Please contact your system administrator to request access permissions.</value>
+    </labels>
+    <labels>
+        <fullName>TenancyEndDateCannotExceedFourWeeks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TenancyEndDateCannotExceedFourWeeks</shortDescription>
+        <value>The new end date can&apos;t be more than 4 weeks after the previous end date. Please go back to select another date before {0} or return to the homepage.</value>
+    </labels>
+    <labels>
+        <fullName>TenancyEndDateCannotExceedTwoMonths</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TenancyEndDateCannotExceedTwoMonths</shortDescription>
+        <value>The new end date can&apos;t be more than 2 calendar months after the previous end date. Please go back to select another date before {0} or return to the homepage.</value>
+    </labels>
+    <labels>
+        <fullName>TenancyMustBeOnSunday</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TenancyMustBeOnSunday</shortDescription>
+        <value>Tenancy must end on a Sunday</value>
+    </labels>
+    <labels>
+        <fullName>UnderstandingRentStatementKAURLName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Understanding Rent Statement KA URL Name</shortDescription>
+        <value>Understanding-your-rent-statement</value>
+    </labels>
+    <labels>
+        <fullName>UpdateUsernameEmailBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UpdateUsernameEmailBody</shortDescription>
+        <value>&lt;br/&gt;
+&lt;img src=&quot;{0}&quot;/&gt;
+&lt;br/&gt;&lt;br/&gt;
+Hi {1},&lt;br/&gt;
+&lt;br/&gt;We&apos;re letting you know that the email address linked to your Yorkshire Housing online account has been changed. &lt;br/&gt;Your new login email is: {2}. &lt;br/&gt;If you made this change, you don&apos;t need to do anything. &lt;br/&gt;
+&lt;br/&gt;If you didn&apos;t make this change - please get in touch with us immediately on 0345 366 4044 so we can secure your account. 
+&lt;br/&gt;Thanks,&lt;br/&gt;
+Yorkshire Housing
+&lt;br/&gt;&lt;br/&gt;</value>
+    </labels>
+    <labels>
+        <fullName>UserAlreadyExist</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserAlreadyExist</shortDescription>
+        <value>It looks like you already have an account with us. Log in using your email and password. 
+&lt;br/&gt;If you&apos;ve forgotten your details, you can reset your password. Need help? Visit  &lt;a href=&quot;https://www.yorkshirehousing.co.uk/customer-portal/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&quot;color: white; text-decoration: underline;&quot;&gt;https://www.yorkshirehousing.co.uk/customer-portal/&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>UserAlreadyExistActivated</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserAlreadyExistActivated</shortDescription>
+        <value>Almost done! - As we have re-activated your account we have sent you 2 emails. To finish re-activation, please click the link in the email and reset your password. (Tip: if you don&apos;t see the emails in a few minutes, please check your junk/spam folder)</value>
+    </labels>
+    <labels>
+        <fullName>UserCreatedSuccessfully</fullName>
+        <categories>CommunitySelfRegistration</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserCreatedSuccessfully</shortDescription>
+        <value>&lt;b&gt;Nearly there.&lt;/b&gt; &lt;br/&gt;
+We’ve sent you an email with a link to set your password. If you can’t see it in your inbox, make sure to check your junk or spam folder.</value>
+    </labels>
+    <labels>
+        <fullName>greetingAfternoon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>greetingAfternoon</shortDescription>
+        <value>GOOD AFTERNOON</value>
+    </labels>
+    <labels>
+        <fullName>greetingEvening</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>greetingEvening</shortDescription>
+        <value>GOOD EVENING</value>
+    </labels>
+    <labels>
+        <fullName>greetingMorning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>greetingMorning</shortDescription>
+        <value>GOOD MORNING</value>
+    </labels>
+</CustomLabels>
