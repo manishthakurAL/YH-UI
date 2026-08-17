@@ -94,28 +94,47 @@
     width: 100%;
 }
 
-.action-buttons lightning-button {
-    display: block;
+.action-buttons button {
     width: 100%;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.action-buttons button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .btn-make-payment {
-    --slds-c-button-brand-color-background: var(--v1-rose);
-    --slds-c-button-brand-color-border: var(--v1-rose);
-    --slds-c-button-brand-color-background-hover: #e14b76;
-    --slds-c-button-brand-color-border-hover: #e14b76;
-    --slds-c-button-brand-color-background-active: #e14b76;
-    font-weight: 700;
+    background: var(--v1-rose);
+    border: 1px solid var(--v1-rose);
+    color: var(--v1-white);
+}
+
+.btn-make-payment:hover:not(:disabled),
+.btn-make-payment:focus-visible:not(:disabled) {
+    background: #e14b76;
+    border-color: #e14b76;
 }
 
 .btn-view-statements {
-    --slds-c-button-neutral-color-background: transparent;
-    --slds-c-button-neutral-text-color: var(--v1-white);
-    --slds-c-button-neutral-color-border: rgba(255, 255, 255, 0.4);
-    --slds-c-button-neutral-color-background-hover: rgba(255, 255, 255, 0.1);
-    --slds-c-button-neutral-text-color-hover: var(--v1-white);
-    --slds-c-button-neutral-color-border-hover: rgba(255, 255, 255, 0.6);
-    font-weight: 700;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--v1-white);
+}
+
+.btn-view-statements:hover:not(:disabled),
+.btn-view-statements:focus-visible:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .error-message {

@@ -117,6 +117,8 @@
 
 .balance-card {
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 20px 20px 20px 0;
     padding: 28px;
     display: flex;
     flex-direction: column;
@@ -162,6 +164,7 @@
     }
 
     .balance-card {
+        margin: 0 20px 20px 20px;
         padding: 28px;
     }
 }
@@ -178,6 +181,7 @@
     }
 
     .balance-card {
+        margin: 0 16px 16px 16px;
         padding: 24px;
     }
 

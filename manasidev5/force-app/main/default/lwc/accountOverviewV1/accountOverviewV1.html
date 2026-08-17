@@ -19,20 +19,18 @@
         </template>
 
         <div class="action-buttons">
-            <lightning-button
-                label="Make a Payment"
-                variant="brand"
+            <button
+                type="button"
                 class="btn-make-payment"
                 disabled={disabledMakePayment}
                 onclick={handleMakePayment}
-            ></lightning-button>
-            <lightning-button
-                label="View Statements"
-                variant="neutral"
+            >Make a Payment</button>
+            <button
+                type="button"
                 class="btn-view-statements"
                 disabled={disabledViewStatements}
                 onclick={handleViewStatements}
-            ></lightning-button>
+            >View Statements</button>
         </div>
 
         <template lwc:if={errorMessage}>
