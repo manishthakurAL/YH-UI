@@ -16,18 +16,26 @@
 .emergency-repair-button {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     height: 52px;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    --slds-c-button-color-background: var(--yh-emergency-bg);
-    --slds-c-button-color-background-hover: var(--yh-emergency-bg-hover);
-    --slds-c-button-color-border: var(--yh-emergency-border);
-    --slds-c-button-text-color: var(--yh-emergency-text);
-    --slds-c-button-text-color-hover: var(--yh-emergency-text);
-    --slds-c-button-radius-border: 12px;
-    --slds-c-button-line-height: 52px;
-    --slds-c-icon-color-foreground-default: var(--yh-emergency-text);
-    --slds-c-icon-sizing: 1.1rem;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--yh-emergency-text);
+    background: var(--yh-emergency-bg);
+    border: 1px solid var(--yh-emergency-border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.emergency-repair-button:hover {
+    background: var(--yh-emergency-bg-hover);
+}
+
+.emergency-repair-button:focus-visible {
+    outline: 2px solid var(--yh-emergency-text);
+    outline-offset: 2px;
 }
 
 .emergency-details {
@@ -79,8 +87,7 @@
 @media (max-width: 480px) {
     .emergency-repair-button {
         height: 48px;
-        font-size: 15px !important;
-        --slds-c-button-line-height: 48px;
+        font-size: 15px;
     }
 
     .emergency-details {

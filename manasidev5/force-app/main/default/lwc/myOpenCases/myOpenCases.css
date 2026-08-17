@@ -85,14 +85,24 @@
 .view-all-button {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     height: 48px;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    --slds-c-button-brand-color-background: var(--yh-cases-accent);
-    --slds-c-button-brand-color-border: var(--yh-cases-accent);
-    --slds-c-button-brand-color-background-hover: #a3134c;
-    --slds-c-button-brand-color-border-hover: #a3134c;
-    --slds-c-button-radius-border: 12px;
-    --slds-c-button-text-color: #ffffff;
-    --slds-c-button-line-height: 48px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--yh-cases-accent);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.view-all-button:hover {
+    background: #a3134c;
+}
+
+.view-all-button:focus-visible {
+    outline: 2px solid var(--yh-cases-accent);
+    outline-offset: 2px;
 }

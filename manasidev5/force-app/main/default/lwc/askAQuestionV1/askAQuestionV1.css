@@ -6,24 +6,31 @@
 .ask-question-button {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     height: 52px;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    --slds-c-button-brand-color-background: #3e145b;
-    --slds-c-button-brand-color-border: #3e145b;
-    --slds-c-button-brand-color-background-hover: #2c0f42;
-    --slds-c-button-brand-color-border-hover: #2c0f42;
-    --slds-c-button-radius-border: 12px;
-    --slds-c-button-text-color: #ffffff;
-    --slds-c-button-line-height: 52px;
-    --slds-c-icon-color-foreground-default: #ffffff;
-    --slds-c-icon-sizing: 1.1rem;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #3e145b;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.ask-question-button:hover {
+    background: #2c0f42;
+}
+
+.ask-question-button:focus-visible {
+    outline: 2px solid #3e145b;
+    outline-offset: 2px;
 }
 
 @media (max-width: 480px) {
     .ask-question-button {
         height: 48px;
-        font-size: 15px !important;
-        --slds-c-button-line-height: 48px;
+        font-size: 15px;
     }
 }
