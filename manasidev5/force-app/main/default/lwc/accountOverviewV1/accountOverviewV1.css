@@ -1,0 +1,131 @@
+:host {
+    --v1-rose: #f65b87;
+    --v1-green: #4fc3ae;
+    --v1-white: #ffffff;
+
+    display: block;
+    width: 100%;
+    color: var(--v1-white);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.rent-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.balance {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.balance-symbol {
+    font-size: 0.55em;
+    font-weight: 600;
+    vertical-align: super;
+    margin-right: 2px;
+}
+
+.balance-arrears {
+    color: var(--v1-rose);
+}
+
+.balance-credit {
+    color: var(--v1-green);
+}
+
+.balance-neutral {
+    color: var(--v1-white);
+}
+
+.balance-message {
+    margin: -8px 0 0 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.info-label {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.info-value {
+    margin: 4px 0 0 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.info-sub {
+    margin: 2px 0 0 0;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.action-buttons lightning-button {
+    display: block;
+    width: 100%;
+}
+
+.btn-make-payment {
+    --slds-c-button-brand-color-background: var(--v1-rose);
+    --slds-c-button-brand-color-border: var(--v1-rose);
+    --slds-c-button-brand-color-background-hover: #e14b76;
+    --slds-c-button-brand-color-border-hover: #e14b76;
+    --slds-c-button-brand-color-background-active: #e14b76;
+    font-weight: 700;
+}
+
+.btn-view-statements {
+    --slds-c-button-neutral-color-background: transparent;
+    --slds-c-button-neutral-text-color: var(--v1-white);
+    --slds-c-button-neutral-color-border: rgba(255, 255, 255, 0.4);
+    --slds-c-button-neutral-color-background-hover: rgba(255, 255, 255, 0.1);
+    --slds-c-button-neutral-text-color-hover: var(--v1-white);
+    --slds-c-button-neutral-color-border-hover: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+}
+
+.error-message {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--v1-rose);
+}
+
+@media (max-width: 480px) {
+    .balance {
+        font-size: 2.25rem;
+    }
+}

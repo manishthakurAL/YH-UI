@@ -562,7 +562,8 @@ public with sharing class RentStatementController {
         @AuraEnabled public Date occupancyStartDate {get; set;}
         @AuraEnabled public String rentType {get; set;}
         @AuraEnabled public String chargeFrequency {get; set;}
-       
+        @AuraEnabled public Decimal weeklyRent {get; set;}
+
         public TenancyWrapper(Member__c member) {
             this.tenancyId = member.Tenancy__c;
             this.customerName = member.Contact__r.name;
@@ -575,6 +576,7 @@ public with sharing class RentStatementController {
             this.occupancyStartDate = member.DateOfOccupancy__c;
             this.rentType = member.Tenancy__r.RentType__c;
             this.chargeFrequency = member.Tenancy__r.YH_ChargeFrequency__c;
+            this.weeklyRent = member.Tenancy__r.Property__r.CurrentGrossRent__c;
         }
     }
    /* public class TenancyGroupWrapper {

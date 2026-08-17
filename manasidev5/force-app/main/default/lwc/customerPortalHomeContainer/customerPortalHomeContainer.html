@@ -19,7 +19,7 @@
                     </h1>
                     <template lwc:if={hasAddress}>
                         <p class="address">
-                            {address}
+                            Here's what's happening with your home at <strong>{address}</strong>.
                         </p>
                     </template>
                     <template lwc:if={showAlert}>
@@ -31,9 +31,7 @@
 
                 <!-- Summary Card -->
                 <aside class="balance-card">
-
-                    <!-- Future balance information -->
-
+                    <c-account-overview-v1 onaddresschange={handleAddressChange}></c-account-overview-v1>
                 </aside>
 
             </section>
