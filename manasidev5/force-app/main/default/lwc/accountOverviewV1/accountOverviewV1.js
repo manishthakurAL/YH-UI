@@ -10,8 +10,8 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
     mainRentAccount = {};
     errorMessage = '';
 
-    tenancyNumber = null;
-    orchardChequeDigit = null;
+    tenancyNumber;
+    orchardChequeDigit;
     allPayURL;
 
     @wire(getAllPayPaymentURL)
