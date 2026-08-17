@@ -1,5 +1,6 @@
 :host {
     --v1-rose: #f65b87;
+    --v1-accent: #c2185b;
     --v1-green: #4fc3ae;
     --v1-white: #ffffff;
 
@@ -95,10 +96,12 @@
 }
 
 .action-buttons button {
+    display: block;
     width: 100%;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-size: 0.95rem;
+    box-sizing: border-box;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 15px;
     font-weight: 700;
     font-family: inherit;
     cursor: pointer;
@@ -114,15 +117,15 @@
 }
 
 .btn-make-payment {
-    background: var(--v1-rose);
-    border: 1px solid var(--v1-rose);
+    background: var(--v1-accent);
+    border: 1px solid var(--v1-accent);
     color: var(--v1-white);
 }
 
 .btn-make-payment:hover:not(:disabled),
 .btn-make-payment:focus-visible:not(:disabled) {
-    background: #e14b76;
-    border-color: #e14b76;
+    background: #a3134c;
+    border-color: #a3134c;
 }
 
 .btn-view-statements {

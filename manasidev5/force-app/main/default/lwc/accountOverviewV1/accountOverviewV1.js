@@ -118,6 +118,28 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
         return this.isArrears ? 'balance-message balance-arrears' : 'balance-message balance-credit';
     }
 
+    // MOCK DATA — no next-payment (date/amount/method) field exists anywhere
+    // in the Salesforce data model yet (checked YH_Tenancy__c, YH_Property__c,
+    // PaymentArrangement__c, and both external services RentStatementController
+    // already calls). Hardcoded here purely so the "Next Payment" card can be
+    // reviewed visually. Replace with real data once a source is identified —
+    // do not ship this to production as-is.
+    get hasNextPayment() {
+        return true;
+    }
+
+    get nextPaymentDate() {
+        return '1 October 2025';
+    }
+
+    get nextPaymentAmount() {
+        return '512.00';
+    }
+
+    get nextPaymentMethod() {
+        return 'Direct debit';
+    }
+
     get hasRentAmount() {
         return this.tenancy?.weeklyRent != null;
     }
