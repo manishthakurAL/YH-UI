@@ -4,9 +4,16 @@ import getCurrentUserName from '@salesforce/apex/CustomPortalThemeController.get
 export default class CustomerPortalHomeContainer extends LightningElement {
     greetingMessage;
     userName;
+    address;
+    hasAddress = false;
 
     connectedCallback() {
         this.updateGreeting();
+    }
+
+    handleAddressChange(event) {
+        this.address = event.detail.address;
+        this.hasAddress = !!this.address;
     }
 
      @wire(getCurrentUserName)

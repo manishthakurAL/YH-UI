@@ -52,7 +52,8 @@
 
 .hero-left {
     background: #51216D;
-    padding: 32px;
+    padding: 48px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -117,6 +118,8 @@
 
 .balance-card {
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 20px 20px 20px 0;
     padding: 28px;
     display: flex;
     flex-direction: column;
@@ -151,18 +154,25 @@
     width: 100%;
 }
 
-@media (max-width: 1200px) {
-    .dashboard {
-        grid-template-columns: 1fr;
-        row-gap: 24px;
-    }
-
+@media (max-width: 1450px) {
+    /* The fixed 420px balance-card column plus hero-left's min content
+       width no longer fit once the persistent nav rail and right column
+       are accounted for, even though the viewport itself isn't "narrow"
+       (this range covers common laptop widths like 1280/1366px) */
     .hero {
         grid-template-columns: 1fr;
     }
 
     .balance-card {
+        margin: 0 20px 20px 20px;
         padding: 28px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
     }
 }
 
@@ -174,10 +184,11 @@
     }
 
     .hero-left {
-        padding: 28px;
+        padding: 40px;
     }
 
     .balance-card {
+        margin: 0 16px 16px 16px;
         padding: 24px;
     }
 
