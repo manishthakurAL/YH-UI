@@ -1,0 +1,48 @@
+<template>
+    <div class="rent-overview">
+        <p class="card-title">Current Balance</p>
+
+        <p class={balanceClass}>
+            <span class="balance-symbol">{balanceSign}£</span><span class="balance-value">{formattedBalance}</span>
+        </p>
+
+        <template lwc:if={hasBalanceMessage}>
+            <p class={balanceMessageClass}>{balanceMessage}</p>
+        </template>
+
+        <template lwc:if={hasNextPayment}>
+            <div class="info-card">
+                <p class="info-label">Next Payment</p>
+                <p class="info-value">{nextPaymentDate}</p>
+                <p class="info-sub">£{nextPaymentAmount} &middot; {nextPaymentMethod}</p>
+            </div>
+        </template>
+
+        <template lwc:if={hasRentAmount}>
+            <div class="info-card">
+                <p class="info-label">{rentFrequencyLabel}</p>
+                <p class="info-value">£{formattedRentAmount}</p>
+                <p class="info-sub">{rentPeriodLabel}</p>
+            </div>
+        </template>
+
+        <div class="action-buttons">
+            <button
+                type="button"
+                class="btn-make-payment"
+                disabled={disabledMakePayment}
+                onclick={handleMakePayment}
+            >Make a Payment</button>
+            <button
+                type="button"
+                class="btn-view-statements"
+                disabled={disabledViewStatements}
+                onclick={handleViewStatements}
+            >View Statements</button>
+        </div>
+
+        <template lwc:if={errorMessage}>
+            <p class="error-message">{errorMessage}</p>
+        </template>
+    </div>
+</template>
