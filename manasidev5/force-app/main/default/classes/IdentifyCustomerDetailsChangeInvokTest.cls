@@ -316,5 +316,33 @@ public with sharing class IdentifyCustomerDetailsChangeInvokTest {
         Assert.isNull(actual, 'Exception should be null');
         Assert.areEqual(false, results[0].isDisabilityChanged, 'Disability changed must be false');
     }
+
+        @isTest
+    static void test_yhdisablityChangesDisablityBlank(){
+        CustomerDetailsInput myDetailsdisability = new CustomerDetailsInput();
+        myDetailsdisability.yhDisability = '';
+        myDetailsdisability.mailingAddress = 'Streeet, Town, ZZ1 1ZZ';
+        myDetailsdisability.yhMaritalStatus = CustomerDetailsDecorator.MARITAL_STATUS_MARRIED;
+        myDetailsdisability.yhEthnicity = CustomerDetailsDecorator.ETHINICITY_INDIAN;
+        CustomerDetailsInput myNewDetails = (CustomerDetailsInput) JSON.deserialize(JSON.serialize(myDetailsdisability), CustomerDetailsInput.class);
+        myNewDetails.yhDisability = '';
+        List<CustomerDetailsChangeResult> results;
+        String expected = 'Both instances must be non-null.';
+        String actual;
+        Test.startTest();
+        IdentifyCustomerChangesInput myInput = new IdentifyCustomerChangesInput();
+        myInput.oldCustomerDetails = myDetailsdisability;
+        myInput.newCustomerDetails = myNewDetails;
+        try {
+            results = IdentifyCustomerDetailsChangeInvocable.identifyChanges(
+                new List<IdentifyCustomerChangesInput>{myInput}
+            );
+        }catch(Exception exp) {
+            actual=exp.getMessage();
+        }
+        Test.stopTest();
+        Assert.isNull(actual, 'Exception should be null');
+        Assert.areEqual(false, results[0].isDisabilityChanged, 'Disability changed must be false');
+    }
     
 }

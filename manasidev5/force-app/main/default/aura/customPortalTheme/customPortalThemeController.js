@@ -11,13 +11,33 @@
     handleNavClick: function (component, event, helper) {
         var label = event.currentTarget.dataset.label;
         var url = event.currentTarget.dataset.url;
+        var type = event.currentTarget.dataset.type;
+        var defaultListViewId = event.currentTarget.dataset.defaultlistviewid;     
         component.set('v.activeItem', label);
 
-        if (url) {
+        if (type== 'InternalLink' && url) {
             component.find('navService').navigate({
                 type: 'standard__webPage',
                 attributes: { url: url }
             });
+        }else if(type == 'SalesforceObject'){
+            component.find('navService').navigate({
+            type: "standard__objectPage",
+            attributes: {
+                objectApiName: url,
+                actionName: "list",
+            },
+            state: {
+                // 'filterName' is a property on the page 'state'
+                // and identifies the target list view.
+                // It may also be an 18 character list view id.
+                filterName: defaultListViewId,
+            },
+            });
+        }else if(type == 'Event'){
+         if(url == 'Logout'){
+            $A.get("e.force:logout").fire();
+         }   
         }
         component.set("v.sidebarOpen", false);
     },

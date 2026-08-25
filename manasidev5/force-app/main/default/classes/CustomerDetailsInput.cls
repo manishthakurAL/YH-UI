@@ -33,14 +33,8 @@ public with sharing class CustomerDetailsInput {
     public String yhMaritalStatus;
     @AuraEnabled @InvocableVariable(label='Customer Ethinicity' required=true)
     public String yhEthnicity;
-    @AuraEnabled @InvocableVariable(label='Preferred Method of Contact' required=true)
-    public String yhPreferredMethodofContact;
     @AuraEnabled @InvocableVariable(label='Sexual Orientation' required=true)
     public String yhSexualOrientation;
-    @AuraEnabled @InvocableVariable(label='Living Arrangements' required=true)
-    public String yhLivingArrangements;
-    @AuraEnabled @InvocableVariable(label='Accessibility Requirements' required=true)
-    public String yhAccessibilityRequirements;
     @AuraEnabled @InvocableVariable(label='Marketing Preference' required=true)
     public String yhMarketingPreference;
 }

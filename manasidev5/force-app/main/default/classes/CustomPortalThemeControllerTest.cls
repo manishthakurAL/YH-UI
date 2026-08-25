@@ -1,5 +1,36 @@
 @isTest
 public class CustomPortalThemeControllerTest {
+    @TestSetup
+    static void setupTestData() {
+        TriggerBase.bypass('Account');
+        TriggerBase.bypass('Contact');
+
+        Account account = UthAccount.build();
+        insert account;
+
+        Contact contact = UthContact.build(account.Id);
+        insert contact; 
+
+        YH_Property__c property = UthProperty.buildHousingPurposeProperty(
+            'Leeds', 
+            'E08000035', 
+            PropertyDecorator.HOUSINGPURPOSE_HOUSING_FOR_OLD_PEOPLE
+        );
+        insert property; 
+        YH_Tenancy__c tenancyJoint = UthTenancy.build(property.Id, true, TenancyDecorator.TENANCY_TYPE_JOINT,'123456');
+        tenancyJoint.StartDate__c = System.today().addyears(-6);
+        insert tenancyJoint;
+        insert UthMember.build(contact.Id, tenancyJoint.Id, MemberDecorator.TYPE_JOINT, true);
+        User portalUser = UthUser.buildPortalUser('test','testlast',contact.Id);
+        insert portalUser;
+        String tenancyName = new TenancyService().getGroupName(UthTenancy.getAll()[0].Name);
+        List<Group> resultGroup = UthGroup.getGroupUsingName(tenancyName);
+        
+        List<GroupMember> groupMembersToInsert = new List<GroupMember>{
+            UthGroupMember.build(resultGroup[0].Id,portalUser.Id)
+        };
+        insert groupMembersToInsert;
+    }
     
     @isTest
     static void testGetNavigationMenuItemsWithoutCommunity() {
@@ -24,19 +55,20 @@ public class CustomPortalThemeControllerTest {
     
     @isTest
     static void testGetCurrentUser() {
-        User testUser = [SELECT Id, FirstName, LastName, Name FROM User WHERE Id = :UserInfo.getUserId()];
-        
-        CustomPortalThemeController.UserDisplay result = 
-            CustomPortalThemeController.getCurrentUser();
-        
-        System.assertNotEquals(null, result, 'Should return user display object');
-        Assert.areEqual(testUser.Name, result.name, 'User name should match');
-        Assert.areEqual(testUser.FirstName, result.firstname, 'First name should match');
+        User testUser = [SELECT Id, FirstName, LastName, Name FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        System.runAs(testUser) {
+            CustomPortalThemeController.UserDisplay result = 
+                CustomPortalThemeController.getCurrentUser();
+            
+            System.assertNotEquals(null, result, 'Should return user display object');
+            Assert.areEqual(testUser.Name, result.name, 'User name should match');
+            Assert.areEqual(testUser.FirstName, result.firstname, 'First name should match');
+        }   
     }
     
     @isTest
     static void testGetCurrentUserInitials() {
-        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE Id = :UserInfo.getUserId()];
+        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
         
         CustomPortalThemeController.UserDisplay result = 
             CustomPortalThemeController.getCurrentUser();
@@ -65,7 +97,7 @@ public class CustomPortalThemeControllerTest {
     @isTest
     static void testNavItemConstructor() {
         CustomPortalThemeController.NavItem item = 
-            new CustomPortalThemeController.NavItem('Test Label', 'test_action', 'Link');
+new CustomPortalThemeController.NavItem('Test Label', 'test_action', 'Link', null);
         
         Assert.areEqual('Test Label', item.label, 'Label should match');
         Assert.areEqual('test_action', item.actionValue, 'Action value should match');
@@ -74,15 +106,16 @@ public class CustomPortalThemeControllerTest {
     
     @isTest
     static void testUserDisplayFields() {
-        CustomPortalThemeController.UserDisplay display = new CustomPortalThemeController.UserDisplay();
+        CustomPortalThemeController.UserDisplay display = 
+            CustomPortalThemeController.getCurrentUser();
         display.name = 'Test User';
         display.firstName = 'Test';
         display.initials = 'TU';
-        display.subtitle = 'Tenant since 2020';
+        display.subtitle = 'Tenant since'+ UthMember.getMembersByContactId(UserInfo.getUserId())[0].TenancyStartDate__c.year(); 
         
         Assert.areEqual('Test User', display.name, 'Name field should be set');
         Assert.areEqual('Test', display.firstName, 'FirstName field should be set');
         Assert.areEqual('TU', display.initials, 'Initials field should be set');
-        Assert.areEqual('Tenant since 2020', display.subtitle, 'Subtitle field should be set');
+        Assert.areEqual('Tenant since' + System.today().addyears(-6).year(), display.subtitle, 'Subtitle field should be set');
     }
 }

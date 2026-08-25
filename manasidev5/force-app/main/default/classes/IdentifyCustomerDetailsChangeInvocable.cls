@@ -24,10 +24,16 @@ public with sharing class IdentifyCustomerDetailsChangeInvocable {
                 List<Object> disabilityListOld = new List<Object>();
                 List<Object> disabilityListNew = new List<Object>();
                 if(oldValue != null){
-                    disabilityListOld = oldValue.toString().split(';');
+                    Boolean isBlankOldValue = String.isBlank(oldValue.toString());
+                    if(!isBlankOldValue){
+                        disabilityListOld = oldValue.toString().split(';');
+                    }
                 }
                 if(newValue != null){
-                    disabilityListNew = newValue.toString().split(';');
+                    Boolean isBlankNewValue = String.isBlank(newValue.toString());
+                    if(!isBlankNewValue){
+                        disabilityListNew = newValue.toString().split(';');
+                    }
                 }
                 disabilityListNew.sort();
                 disabilityListOld.sort();
@@ -109,12 +115,9 @@ public with sharing class IdentifyCustomerDetailsChangeInvocable {
         'isYhMaritalStatusChanged'             => new List<String>{'yhMaritalStatus'},
         'isYhEthnicityChanged'                 => new List<String>{'yhEthnicity'},
         'isMailingAddressChanged'              => new List<String>{'mailingAddress'},
-        'isYhPreferredMethodofContactChanged'  => new List<String>{'yhPreferredMethodofContact'},
         'isYhSexualOrientationChanged'         => new List<String>{'yhSexualOrientation'},
-        'isYhLivingArrangementsChanged'        => new List<String>{'yhLivingArrangements'},
-        'isYhAccessibilityRequirementsChanged' => new List<String>{'yhAccessibilityRequirements'},
         'hasNameChanges'                       => new List<String>{'firstName', 'lastName', 'middleName'},
-        'hasOtherChanges'                      => new List<String>{'pronouns', 'homePhone', 'OtherPhone', 'yhReligionOrBelief',  'yhMainLanguage', 'mailingAddress', 'yhMaritalStatus', 'yhEthnicity', 'yhPreferredMethodofContact', 'yhSexualOrientation', 'yhLivingArrangements', 'yhAccessibilityRequirements' }
+        'hasOtherChanges'                      => new List<String>{'pronouns', 'homePhone', 'OtherPhone', 'yhReligionOrBelief',  'yhMainLanguage', 'mailingAddress', 'yhMaritalStatus', 'yhEthnicity', 'yhSexualOrientation'}
     };
 
     public class IdentifyCustomerDetailsChangeException extends Exception{}  

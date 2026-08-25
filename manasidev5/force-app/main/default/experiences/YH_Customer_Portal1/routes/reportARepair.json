@@ -5,7 +5,7 @@
   "devName" : "Report_A_Repair__c",
   "id" : "b2a56184-4cdb-409c-9bed-6d7dd2e81d7a",
   "label" : "Report A Repair",
-  "pageAccess" : "UseParent",
+  "pageAccess" : "Public",
   "routeType" : "custom-report-a-repair",
   "type" : "route",
   "urlPrefix" : "report-a-repair"

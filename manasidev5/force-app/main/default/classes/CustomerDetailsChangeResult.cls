@@ -43,14 +43,8 @@ public with sharing class CustomerDetailsChangeResult {
     public Boolean hasOtherChanges;
     @AuraEnabled @InvocableVariable(label='Other Change Details' required=true)
     public String otherChangeDetails;
-    @AuraEnabled @InvocableVariable(label='Is Preferred Method of Contact Changed' required=true)
-    public Boolean isYhPreferredMethodofContactChanged;
     @AuraEnabled @InvocableVariable(label='Is Sexual Orientation Changed' required=true)
     public Boolean isYhSexualOrientationChanged;
-    @AuraEnabled @InvocableVariable(label='Is Living Arrangements Changed' required=true)
-    public Boolean isYhLivingArrangementsChanged;
-    @AuraEnabled @InvocableVariable(label='Is Accessibility Requirements Changed' required=true)
-    public Boolean isYhAccessibilityRequirementsChanged;
 
     public CustomerDetailsChangeResult() {
         isTitleChanged = false;
@@ -74,9 +68,6 @@ public with sharing class CustomerDetailsChangeResult {
         isYhMaritalStatusChanged = false;
         isYhEthnicityChanged = false;
         isMailingAddressChanged = false;
-        isYhPreferredMethodofContactChanged = false;
         isYhSexualOrientationChanged = false;
-        isYhLivingArrangementsChanged = false;
-        isYhAccessibilityRequirementsChanged = false;
     }
 }

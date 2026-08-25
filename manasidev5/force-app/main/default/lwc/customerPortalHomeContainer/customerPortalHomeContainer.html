@@ -1,27 +1,19 @@
 <template>
     <main class="dashboard">
-
         <!-- Main column -->
         <div class="main-column">
-
             <!-- Hero -->
             <section class="hero">
-
                 <!-- Welcome -->
                 <section class="hero-left">
+                    <p class="greeting">{greetingMessage}</p>
 
-                    <p class="greeting">
-                        {greetingMessage}
-                    </p>
+                    <h1 class="welcome">{label.CP_WelcomeBack}, {userName}</h1>
 
-                    <h1 class="welcome">
-                        Welcome back, {userName}
-                    </h1>
                     <template lwc:if={hasAddress}>
-                        <p class="address">
-                            Here's what's happening with your home at <strong>{address}</strong>.
-                        </p>
+                        <p class="address">{label.CP_HomeAddress} <strong>{address}</strong>.</p>
                     </template>
+
                     <template lwc:if={showAlert}>
                         <section class="alert-box">
                             ...
@@ -33,7 +25,6 @@
                 <aside class="balance-card">
                     <c-account-overview-v1 onaddresschange={handleAddressChange}></c-account-overview-v1>
                 </aside>
-
             </section>
 
             <!-- Future Quick Actions -->

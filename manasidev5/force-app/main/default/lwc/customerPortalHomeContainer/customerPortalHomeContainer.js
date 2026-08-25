@@ -1,11 +1,13 @@
 import { LightningElement, wire } from 'lwc';
 import getCurrentUserName from '@salesforce/apex/CustomPortalThemeController.getCurrentUser';
+import * as labels from 'c/labelService';
 
 export default class CustomerPortalHomeContainer extends LightningElement {
     greetingMessage;
     userName;
     address;
     hasAddress = false;
+    label = labels;
 
     connectedCallback() {
         this.updateGreeting();
@@ -32,11 +34,11 @@ export default class CustomerPortalHomeContainer extends LightningElement {
         let greeting;
 
         if (hour >= 0 && hour < 12) {
-            greeting = 'GOOD MORNING';
+            greeting = this.label.CP_GoodMorning;
         } else if (hour >= 12 && hour < 18) {
-            greeting = 'GOOD AFTERNOON';
+            greeting = this.label.CP_GoodAfternoon;
         } else if (hour >= 18 && hour <= 23) {
-            greeting = 'GOOD EVENING';
+            greeting = this.label.CP_GoodEvening;
         }        
 
         this.greetingMessage = `${greeting}`; 

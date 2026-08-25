@@ -728,4 +728,300 @@ We’ve sent you an email with a link to set your password. If you can’t see i
         <shortDescription>greetingMorning</shortDescription>
         <value>GOOD MORNING</value>
     </labels>
+    <labels>
+        <fullName>CP_CMASB</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMASB</shortDescription>
+        <value>Report antisocial behaviour</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMASB1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMASB1</shortDescription>
+        <value>— Noise, harassment or nuisance that’s affecting you.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMComplaint</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMComplaint</shortDescription>
+        <value>Make a complaint</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMComplaint1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMComplaint1</shortDescription>
+        <value>— Something’s gone wrong and you want us to put it right.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMFeedback</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMFeedback</shortDescription>
+        <value>Give feedback or a compliment</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMFeedback1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMFeedback1</shortDescription>
+        <value>— Share a suggestion, or tell us when we’ve done well.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMHeaderASB_Tenancy</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMHeaderASB_Tenancy</shortDescription>
+        <value>My neighbourhood &amp; tenancy</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMHeaderFeedback</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMHeaderFeedback</shortDescription>
+        <value>Feedback &amp; complaints</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMHeaderNotSure</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMHeaderNotSure</shortDescription>
+        <value>Not sure?</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMHeaderRequests</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMHeaderRequests</shortDescription>
+        <value>Requests</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMQuestion</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMQuestion</shortDescription>
+        <value>Ask a question</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMQuestion1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMQuestion1</shortDescription>
+        <value>— A general query, or most commonly asked questions.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMRent</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMRent</shortDescription>
+        <value>Request a rent payment card</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMRent1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMRent1</shortDescription>
+        <value>— Order a card to pay your rent.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMTenancy</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMTenancy</shortDescription>
+        <value>End my tenancy</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMTenancy1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMTenancy1</shortDescription>
+        <value>— Let us know you’re planning to move out.</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMbreach</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMbreach</shortDescription>
+        <value>Report a tenancy breach</value>
+    </labels>
+    <labels>
+        <fullName>CP_CMbreach1</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_CMbreach1</shortDescription>
+        <value>— Someone breaking the terms of their tenancy.</value>
+    </labels>
+    <labels>
+        <fullName>CP_GoodAfternoon</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GoodAfternoon</shortDescription>
+        <value>Good Afternoon</value>
+    </labels>
+    <labels>
+        <fullName>CP_GoodEvening</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GoodEvening</shortDescription>
+        <value>Good Evening</value>
+    </labels>
+    <labels>
+        <fullName>CP_GoodMorning</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_GoodMorning</shortDescription>
+        <value>Good Morning</value>
+    </labels>
+    <labels>
+        <fullName>CP_HomeAddress</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HomeAddress</shortDescription>
+        <value>Here&apos;s what&apos;s happening with your home at</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileDespMyDetails</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileDespMyDetails</shortDescription>
+        <value>Update your contact and personal information</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileDespRentPayment</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileDespRentPayment</shortDescription>
+        <value>View your balance, statments and payments</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileDespSubmitCase</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileDespSubmitCase</shortDescription>
+        <value>Log a complanit, query or feedback</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileLogRepair</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileLogRepair</shortDescription>
+        <value>Log a repair</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileLogRepairImg</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileLogRepairImg</shortDescription>
+        <value>/sfsites/c/file-asset/Spannerfilltilesvg</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileMyDetails</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileMyDetails</shortDescription>
+        <value>My Details</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileMyDetailsImg</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileMyDetailsImg</shortDescription>
+        <value>/sfsites/c/file-asset/persontilesvg</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileRentPayment</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileRentPayment</shortDescription>
+        <value>Rent &amp; Payments</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileRentPaymentImg</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileRentPaymentImg</shortDescription>
+        <value>/sfsites/c/file-asset/creditcardtilesvg</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileStart</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileStart</shortDescription>
+        <value>Start</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileSubmitCase</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileSubmitCase</shortDescription>
+        <value>Submit a Case</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileSubmitCaseImg</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileSubmitCaseImg</shortDescription>
+        <value>/sfsites/c/file-asset/notetilesvg</value>
+    </labels>
+    <labels>
+        <fullName>CP_TileView</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileView</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>CP_WelcomeBack</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_WelcomeBack</shortDescription>
+        <value>Welcome back</value>
+    </labels>
+    <labels>
+        <fullName>CP_tileDespLogRepair</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_TileDespLogRepair</shortDescription>
+        <value>Tell us about a problem with your home</value>
+    </labels>
 </CustomLabels>

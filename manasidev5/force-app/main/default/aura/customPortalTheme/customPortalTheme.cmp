@@ -49,7 +49,9 @@
                                class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
                                data-label="{!item.label}"
                                data-url="{!item.actionValue}"
-                               onclick="{!c.handleNavClick}">
+                               onclick="{!c.handleNavClick}"
+                               data-type="{!item.itemType}"
+                               data-defaultListViewId="{!item.defaultListViewId}">
                                 <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
                             </a>
                         </aura:iteration>
@@ -70,6 +72,8 @@
                                class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
                                data-label="{!item.label}"
                                data-url="{!item.actionValue}"
+                               data-type="{!item.itemType}"
+                               data-defaultListViewId="{!item.defaultListViewId}"
                                onclick="{!c.handleNavClick}">
                                 <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
                             </a>

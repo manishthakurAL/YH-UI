@@ -5,40 +5,14 @@
   "id" : "b4d156bb-1153-4f7a-b9e6-8f4cd9280295",
   "label" : "case management",
   "regions" : [ {
-    "components" : [ {
-      "componentAttributes" : {
-        "richTextValue" : "<div style=\"height:60px;\"> </div>"
-      },
-      "componentName" : "forceCommunity:htmlBlock",
-      "id" : "98a8abc7-94a3-495e-b43d-b6866224338f",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    } ],
     "id" : "fb707a6d-66df-4722-8496-f6028e6e7a72",
     "regionName" : "header",
     "type" : "region"
   }, {
     "components" : [ {
-      "componentAttributes" : {
-        "bannerBackgroundColor" : "rgb(255, 255, 255)",
-        "bannerPosition" : "bottom",
-        "bannerSizePercent" : 30,
-        "borderRadius" : 20,
-        "boxShadow" : true,
-        "haveBanner" : true,
-        "iconBackgroundColor" : "rgb(255,255,255)",
-        "iconSize" : "medium",
-        "noImageColor" : "rgb(116,116,116)",
-        "overlay" : "rgba(243, 243, 243, 0.03)",
-        "templateType" : "full",
-        "tileMenuEditor" : "Case_Management",
-        "titleColor" : "",
-        "titleFontSize" : "medium",
-        "titleHorizontalAlign" : "center"
-      },
-      "componentName" : "community_navigation:tileMenu",
-      "id" : "1730c693-c331-4086-b77d-9b23bc14ebf3",
+      "componentAttributes" : { },
+      "componentName" : "c:caseManagementLink",
+      "id" : "ad7501b1-f10b-4ef4-8f93-af626586b4c9",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -66,7 +40,7 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
   "viewType" : "custom-case-management"
 }
