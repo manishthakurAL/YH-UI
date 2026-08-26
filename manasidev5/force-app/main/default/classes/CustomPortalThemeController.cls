@@ -1,4 +1,4 @@
-public without sharing class CustomPortalThemeController {
+public with sharing class CustomPortalThemeController {
     private static final Integer OPEN_CASES_LIMIT = 2;
 
     public class OpenCaseDisplay {
@@ -27,6 +27,31 @@ public without sharing class CustomPortalThemeController {
         @AuraEnabled public String firstName;
         @AuraEnabled public String initials;
         @AuraEnabled public String subtitle;
+    }
+
+    private static User aUser{
+        get{
+            if(aUser == null){
+                aUser = [SELECT FirstName, LastName, Name, CreatedDate, ContactId, Contact.CreatedDate
+                    FROM User
+                    WHERE Id = :UserInfo.getUserId()
+                    LIMIT 1];
+            }
+            return aUser;
+        }
+        set;
+    }
+    
+    private static List<Member__c> memberList {
+        get{
+            if(memberList == null){
+                memberList = [SELECT Id, TenancyStartDate__c FROM Member__c WHERE Contact__c = :aUser.ContactId AND IsActive__c = true
+                    AND (Type__c =: MemberDecorator.TYPE_SOLO OR Type__c =: MemberDecorator.TYPE_JOINT) ORDER BY TenancyStartDate__c ASC LIMIT 1];
+            }
+            return memberList;
+        }
+        set;
+        
     }
 
 
@@ -59,24 +84,16 @@ public without sharing class CustomPortalThemeController {
 
     @AuraEnabled(cacheable=true)
     public static UserDisplay getCurrentUser() {
-        User u = [
-            SELECT FirstName, LastName, Name, CreatedDate, ContactId, Contact.CreatedDate
-            FROM User
-            WHERE Id = :UserInfo.getUserId()
-            LIMIT 1
-        ];
-
-        List<Member__c> memberList = [SELECT Id, TenancyStartDate__c FROM Member__c WHERE Contact__c = :u.ContactId AND IsActive__c = true
-                AND (Type__c =: MemberDecorator.TYPE_SOLO OR Type__c =: MemberDecorator.TYPE_JOINT) ORDER BY TenancyStartDate__c ASC LIMIT 1];
+       
         UserDisplay d = new UserDisplay();
-        d.name = u.Name;
-        d.firstname = u.FirstName;
+        d.name = aUser.Name;
+        d.firstname = aUser.FirstName;
         d.initials =
-            (String.isNotBlank(u.FirstName) ? u.FirstName.left(1) : '') +
-            (String.isNotBlank(u.LastName) ? u.LastName.left(1) : '');
+            (String.isNotBlank(aUser.FirstName) ? aUser.FirstName.left(1) : '') +
+            (String.isNotBlank(aUser.LastName) ? aUser.LastName.left(1) : '');
         d.initials = d.initials.toUpperCase();
 
-        Datetime since = (memberList != null && !memberList.isEmpty()) ? memberList[0].TenancyStartDate__c : u.Contact.CreatedDate;
+        Datetime since = (memberList != null && !memberList.isEmpty()) ? memberList[0].TenancyStartDate__c : aUser.Contact.CreatedDate;
         d.subtitle = 'Tenant since ' + String.valueOf(since.year());
         return d;
     }
@@ -92,8 +109,9 @@ public without sharing class CustomPortalThemeController {
         for (Case c : [
             SELECT CaseNumber, CaseType__c, Description, ExternalCaseStatus__c, CreatedDate
             FROM Case
-            WHERE ExternalCaseStatus__c != null
-                AND ExternalCaseStatus__c != :CaseDecorator.EXTERNAL_STATUS_CLOSED WITH SYSTEM_MODE 
+            WHERE ContactId = :u.ContactId
+                AND ExternalCaseStatus__c != null
+                AND ExternalCaseStatus__c != :CaseDecorator.EXTERNAL_STATUS_CLOSED
             ORDER BY CreatedDate DESC
             LIMIT :OPEN_CASES_LIMIT
         ]) {
@@ -111,10 +129,6 @@ public without sharing class CustomPortalThemeController {
     @AuraEnabled(cacheable=true)
     public static String getCustomerPortalURL() {
         CustomerPortalSettings__c settings = CustomerPortalSettings__c.getInstance();
-
-        if (settings == null || String.isBlank(settings.Customer_Portal_URL__c)) {
-            return null;
-        }
         return settings.Customer_Portal_URL__c;
     }
 }

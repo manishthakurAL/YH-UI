@@ -1,0 +1,55 @@
+<template>
+    <div class="page-container">
+        <div class="tile-grid" role="group" aria-label="Tile Menu">
+
+            <!-- Tile - 1 -->
+            <div class="tile-column">
+                <div class="tile">
+                    <img src={label.CP_TileLogRepairImg} alt="Log a Repair" class="icon" />
+                    <h3>{label.CP_TileLogRepair}</h3>
+                    <p>{label.CP_TileDespLogRepair}</p>
+                    <a href={repairUrl}> {label.CP_TileStart}
+                        <span><lightning-icon icon-name="utility:forward" size="x-small" alternative-text="Right arrow" class="link"></lightning-icon></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tile - 2 -->
+            <div class="tile-column">
+                <div class="tile">
+                    <img src={label.CP_TileRentPaymentImg} alt="Rent & Payments" class="icon" />
+                    <h3>{label.CP_TileRentPayment}</h3>
+                    <p>{label.CP_TileDespRentPayment}</p>
+                    <a href={rentUrl}> {label.CP_TileView}
+                        <span><lightning-icon icon-name="utility:forward" size="x-small" alternative-text="Right arrow" class="link"></lightning-icon></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tile - 3 -->
+            <div class="tile-column">
+                <div class="tile">
+                    <img src={label.CP_TileMyDetailsImg} alt="My Details" class="icon" />
+                    <h3>{label.CP_TileMyDetails}</h3>
+                    <p>{label.CP_TileDespMyDetails}</p>
+                    <a href={myDetailsUrl}> {label.CP_TileView}
+                        <span><lightning-icon icon-name="utility:forward" size="x-small" alternative-text="Right arrow" class="link"></lightning-icon></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tile - 4 -->
+            <div class="tile-column">
+                <div class="tile">
+                    <img src={label.CP_TileSubmitCaseImg} alt="Submit a Case" class="icon" />
+                    <h3>{label.CP_TileSubmitCase}</h3>
+                    <p>{label.CP_TileDespSubmitCase}</p>
+                    <a href={submitCaseUrl}> {label.CP_TileStart}
+                        <span><lightning-icon icon-name="utility:forward" size="x-small" alternative-text="Right arrow" class="link"></lightning-icon></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

@@ -43,6 +43,12 @@ public class UthUser {
         return testUser;
     }
 
+    public static User buildKnowledgeUser(Id roleId, Id profileId, String firstName, String lastName) {
+        User testUser = buildUser(roleId, profileId, firstName, lastName);
+        testUser.UserPermissionsKnowledgeUser = true;
+        return testUser;
+    }
+
     public static List<User> getUser(Id profileId, String fName, String lName){
         return [SELECT Id 
             FROM User 

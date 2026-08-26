@@ -48,6 +48,8 @@ public with sharing class UthPermissionSet {
     public static final String Bypass_CP_Case_TF_BIU_SETAWAITINGINFORMATIONCHANGEDATETIME = PermissionSetDecorator.PS_BYPASS_CP_Case_TF_BIU_SETAWAITINGINFORMATIONCHANGEDATETIME;
     public static final String FSL_RESOURCE_LICENSE = PermissionSetDecorator.FSL_RESOURCE_LICENSE;
     public static final String FSL_RESOURCE_PERMISSIONS = PermissionSetDecorator.FSL_RESOURCE_PERMISSIONS;
+    public static final String YH_CUSTOMERCOMMUNITY_USER_PS = PermissionSetDecorator.YH_CUSTOMERCOMMUNITY_USER_PS;
+
      
     public static List<PermissionSet> getAll(){
         return [SELECT Id FROM PermissionSet];

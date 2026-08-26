@@ -1,0 +1,55 @@
+<template>
+    <div class="knowledge-search-results">
+        <form class="search-form" onsubmit={handleSearchSubmit}>
+            <label class="visually-hidden" for="help-search-results-input">{label.searchPlaceholder}</label>
+            <div class="search-row">
+                <input
+                    type="search"
+                    id="help-search-results-input"
+                    class="search-input"
+                    placeholder={label.searchPlaceholder}
+                    value={searchTerm}
+                    oninput={handleSearchTermChange}
+                    aria-describedby="help-search-results-status"
+                />
+                <button type="submit" class="search-button">{label.searchButton}</button>
+            </div>
+        </form>
+
+        <p id="help-search-results-status" class="visually-hidden" aria-live="polite">{statusMessage}</p>
+
+        <template lwc:if={hasAppliedTerm}>
+            <h1 class="results-heading">{label.searchResultsFor} "{appliedTerm}"</h1>
+
+            <template lwc:if={isSearching}>
+                <p class="status-text">{label.searching}</p>
+            </template>
+            <template lwc:elseif={hasSearchResults}>
+                <ul class="article-list">
+                    <template for:each={searchResults} for:item="article">
+                        <li key={article.articleId} class="article-list-item">
+                            <a
+                                href={article.url}
+                                class="article-link"
+                                onclick={handleArticleClick}
+                                data-article-type={article.articleType}
+                                data-url-name={article.urlName}
+                            >
+                                <span class="article-icon-badge">
+                                    <lightning-icon icon-name="utility:search" size="x-small" class="article-icon" alternative-text=""></lightning-icon>
+                                </span>
+                                <span>{article.title}</span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template lwc:else>
+                <p class="empty-state">{label.noResults}</p>
+            </template>
+        </template>
+        <template lwc:else>
+            <p class="empty-state">{label.enterTerm}</p>
+        </template>
+    </div>
+</template>

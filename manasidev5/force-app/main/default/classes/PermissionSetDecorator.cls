@@ -48,6 +48,7 @@ public with sharing class PermissionSetDecorator {
     public static final String FSL_RESOURCE_LICENSE = 'FSL_Resource_License'; 
     public static final String FSL_RESOURCE_PERMISSIONS = 'FSL_Resource_Permissions'; 
     public static final String YH_CUSTOMERPORTAL_PSG = 'YHCustomerPortalUserPSG'; 
+    public static final String YH_CUSTOMERCOMMUNITY_USER_PS = 'FunctionalYHCustomerCommunityUserPS';
 
     public static final Id YH_CUSTOMERPORTAL_PSG_ID{
         get{

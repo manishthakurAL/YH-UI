@@ -926,7 +926,7 @@ We’ve sent you an email with a link to set your password. If you can’t see i
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CP_TileDespSubmitCase</shortDescription>
-        <value>Log a complanit, query or feedback</value>
+        <value>Report something, make a request or give feedback.</value>
     </labels>
     <labels>
         <fullName>CP_TileLogRepair</fullName>
@@ -934,7 +934,7 @@ We’ve sent you an email with a link to set your password. If you can’t see i
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CP_TileLogRepair</shortDescription>
-        <value>Log a repair</value>
+        <value>Report a Repair</value>
     </labels>
     <labels>
         <fullName>CP_TileLogRepairImg</fullName>
@@ -1023,5 +1023,85 @@ We’ve sent you an email with a link to set your password. If you can’t see i
         <protected>false</protected>
         <shortDescription>CP_TileDespLogRepair</shortDescription>
         <value>Tell us about a problem with your home</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpAndSupport</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpAndSupport</shortDescription>
+        <value>Help &amp; Support</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpNoPopularArticles</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpNoPopularArticles</shortDescription>
+        <value>No help articles are available right now.</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpPopularSearches</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpPopularSearches</shortDescription>
+        <value>Popular searches</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchButton</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchButton</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchEnterTerm</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchEnterTerm</shortDescription>
+        <value>Enter a search term above to find help articles.</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchError</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchError</shortDescription>
+        <value>We couldn&apos;t load help articles right now. Please try again later.</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchNoResults</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchNoResults</shortDescription>
+        <value>No help articles found for your search.</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchPlaceholder</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchPlaceholder</shortDescription>
+        <value>Search help articles</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearchResultsFor</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearchResultsFor</shortDescription>
+        <value>Search results for</value>
+    </labels>
+    <labels>
+        <fullName>CP_HelpSearching</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_HelpSearching</shortDescription>
+        <value>Searching…</value>
     </labels>
 </CustomLabels>

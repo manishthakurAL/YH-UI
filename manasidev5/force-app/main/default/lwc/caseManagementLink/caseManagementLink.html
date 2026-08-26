@@ -1,0 +1,38 @@
+<template>
+
+    <div class="main-container">
+
+        <div class="section">
+            <h1><Strong>{label.CP_CMHeaderFeedback}</Strong></h1>
+            <ul>
+                <li><a href={complaintUrl}><Strong>{label.CP_CMComplaint}</Strong> {label.CP_CMComplaint1}</a></li>
+                <li><a href={complaintUrl}><Strong>{label.CP_CMFeedback} </Strong> {label.CP_CMFeedback1}</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h1><Strong>{label.CP_CMHeaderASB_Tenancy}</Strong></h1>
+            <ul>
+                <li><a href={ASBUrl}><Strong>{label.CP_CMASB} </Strong> {label.CP_CMASB1}</a></li>
+                <li><a href={ASBUrl}><Strong>{label.CP_CMbreach} </Strong> {label.CP_CMbreach1}</a></li>
+                <li><a href={endTenancyUrl}><Strong>{label.CP_CMTenancy} </Strong> {label.CP_CMTenancy1}</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h1><Strong>{label.CP_CMHeaderRequests}</Strong></h1>
+            <ul>
+                <li><a href={rentUrl}><Strong>{label.CP_CMRent} </Strong> {label.CP_CMRent1}</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h1><Strong>{label.CP_CMHeaderNotSure}</Strong></h1>
+            <ul>
+                <li><a href={askQuestionUrl}><Strong>{label.CP_CMQuestion} </Strong> {label.CP_CMQuestion1}</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</template>

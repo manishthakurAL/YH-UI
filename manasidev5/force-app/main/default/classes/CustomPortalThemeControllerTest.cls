@@ -23,13 +23,17 @@ public class CustomPortalThemeControllerTest {
         insert UthMember.build(contact.Id, tenancyJoint.Id, MemberDecorator.TYPE_JOINT, true);
         User portalUser = UthUser.buildPortalUser('test','testlast',contact.Id);
         insert portalUser;
-        String tenancyName = new TenancyService().getGroupName(UthTenancy.getAll()[0].Name);
-        List<Group> resultGroup = UthGroup.getGroupUsingName(tenancyName);
-        
-        List<GroupMember> groupMembersToInsert = new List<GroupMember>{
-            UthGroupMember.build(resultGroup[0].Id,portalUser.Id)
-        };
-        insert groupMembersToInsert;
+        System.runAs(new User(Id=UserInfo.getUserId())){
+            Id permissionSetId = UthPermissionSet.getByName(UthPermissionSet.YH_CUSTOMERCOMMUNITY_USER_PS).Id;
+            UthPermissionAssigner.assignPermissionSet(portalUser.Id, permissionSetId);
+            YH_Tenancy__c resultTenancy = UthTenancy.getAll()[0];
+            Group tenancyGroup = UthGroup.build('TenancySharing' + resultTenancy.Name.replace('-', '_'));
+            insert tenancyGroup;
+            insert UthGroupMember.build(tenancyGroup.Id, portalUser.Id);
+            YH_Tenancy__Share tenancyShare = UthTenancyShare.build(resultTenancy.Id, tenancyGroup.Id);
+            insert tenancyShare;
+        }
+            
     }
     
     @isTest
@@ -69,29 +73,33 @@ public class CustomPortalThemeControllerTest {
     @isTest
     static void testGetCurrentUserInitials() {
         User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
-        
-        CustomPortalThemeController.UserDisplay result = 
-            CustomPortalThemeController.getCurrentUser();
-        
-        String expectedInitials = '';
-        if (String.isNotBlank(testUser.FirstName)) {
-            expectedInitials += testUser.FirstName.left(1);
+        System.runAs(testUser) {
+            CustomPortalThemeController.UserDisplay result = 
+                CustomPortalThemeController.getCurrentUser();
+            
+            String expectedInitials = '';
+            if (String.isNotBlank(testUser.FirstName)) {
+                expectedInitials += testUser.FirstName.left(1);
+            }
+            if (String.isNotBlank(testUser.LastName)) {
+                expectedInitials += testUser.LastName.left(1);
+            }
+            expectedInitials = expectedInitials.toUpperCase();
+            
+            Assert.areEqual(expectedInitials, result.initials, 'Initials should be calculated correctly');
         }
-        if (String.isNotBlank(testUser.LastName)) {
-            expectedInitials += testUser.LastName.left(1);
-        }
-        expectedInitials = expectedInitials.toUpperCase();
-        
-        Assert.areEqual(expectedInitials, result.initials, 'Initials should be calculated correctly');
     }
     
     @isTest
     static void testGetCurrentUserSubtitle() {
-        CustomPortalThemeController.UserDisplay result = 
-            CustomPortalThemeController.getCurrentUser();
-        
-        System.assertNotEquals(null, result.subtitle, 'Subtitle should not be null');
-        System.assert(result.subtitle.contains('Tenant since'), 'Subtitle should contain tenant since text');
+        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        System.runAs(testUser) {
+            CustomPortalThemeController.UserDisplay result = 
+                CustomPortalThemeController.getCurrentUser();
+            
+            System.assertNotEquals(null, result.subtitle, 'Subtitle should not be null');
+            System.assert(result.subtitle.contains('Tenant since'), 'Subtitle should contain tenant since text');
+        }
     }
     
     @isTest
@@ -106,16 +114,20 @@ new CustomPortalThemeController.NavItem('Test Label', 'test_action', 'Link', nul
     
     @isTest
     static void testUserDisplayFields() {
-        CustomPortalThemeController.UserDisplay display = 
-            CustomPortalThemeController.getCurrentUser();
-        display.name = 'Test User';
-        display.firstName = 'Test';
-        display.initials = 'TU';
-        display.subtitle = 'Tenant since'+ UthMember.getMembersByContactId(UserInfo.getUserId())[0].TenancyStartDate__c.year(); 
-        
-        Assert.areEqual('Test User', display.name, 'Name field should be set');
-        Assert.areEqual('Test', display.firstName, 'FirstName field should be set');
-        Assert.areEqual('TU', display.initials, 'Initials field should be set');
-        Assert.areEqual('Tenant since' + System.today().addyears(-6).year(), display.subtitle, 'Subtitle field should be set');
+        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+
+        System.runAs(testUser) {
+            CustomPortalThemeController.UserDisplay display = 
+                CustomPortalThemeController.getCurrentUser();
+            display.name = 'Test User';
+            display.firstName = 'Test';
+            display.initials = 'TU';
+            display.subtitle = 'Tenant since'+ UthMember.getMembersByContactId(UthContact.getAll()[0].Id)[0].TenancyStartDate__c.year(); 
+            
+            Assert.areEqual('Test User', display.name, 'Name field should be set');
+            Assert.areEqual('Test', display.firstName, 'FirstName field should be set');
+            Assert.areEqual('TU', display.initials, 'Initials field should be set');
+            Assert.areEqual('Tenant since' + System.today().addyears(-6).year(), display.subtitle, 'Subtitle field should be set');
+        }
     }
 }
