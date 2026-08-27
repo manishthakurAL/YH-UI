@@ -7,6 +7,8 @@ const DESCRIPTION_MAX_LENGTH = 80;
 
 export default class myOpenCases extends NavigationMixin(LightningElement) {
     cases = [];
+    isLoading = true;
+    statusMessage = '';
 
     @wire(getMyOpenCases)
     wiredCases({ data, error }) {
@@ -18,9 +20,16 @@ export default class myOpenCases extends NavigationMixin(LightningElement) {
                 status: caseRecord.status,
                 formattedOpenedDate: this.formatDate(caseRecord.openedDate)
             }));
+            this.statusMessage = this.cases.length
+                ? `${this.cases.length} open case${this.cases.length === 1 ? '' : 's'} loaded`
+                : 'You have no open cases right now.';
+            this.isLoading = false;
         } else if (error) {
             this.cases = [];
-            console.log('Error:', JSON.stringify(error));
+            this.statusMessage = 'We couldn’t load your cases right now.';
+            this.isLoading = false;
+            // eslint-disable-next-line no-console
+            console.error('myOpenCases: unable to load cases', error);
         }
     }
 
