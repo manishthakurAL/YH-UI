@@ -155,10 +155,6 @@
 }
 
 @media (max-width: 1450px) {
-    /* The fixed 420px balance-card column plus hero-left's min content
-       width no longer fit once the persistent nav rail and right column
-       are accounted for, even though the viewport itself isn't "narrow"
-       (this range covers common laptop widths like 1280/1366px) */
     .hero {
         grid-template-columns: 1fr;
     }

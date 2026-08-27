@@ -56,4 +56,13 @@ public inherited sharing class MemberService {
         }
         return memberList;
     }
+
+    public  List<Member__c> getActiveMembersByContactIdOrderByTenancyStartDate(Id contactId) {
+        List<Member__c> memberList = new List<Member__c>();
+        if(contactId != null){
+            memberList = [SELECT Id, TenancyStartDate__c FROM Member__c WHERE Contact__c = :contactId AND IsActive__c = true
+                    AND (Type__c =: MemberDecorator.TYPE_SOLO OR Type__c =: MemberDecorator.TYPE_JOINT) ORDER BY TenancyStartDate__c ASC];
+        }
+        return memberList;
+    }
 }

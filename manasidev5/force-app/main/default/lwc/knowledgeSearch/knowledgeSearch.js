@@ -1,20 +1,17 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import getPopularArticles from '@salesforce/apex/KnowledgeSearchController.getPopularArticles';
-import CP_HelpSearchPlaceholder from '@salesforce/label/c.CP_HelpSearchPlaceholder';
-import CP_HelpSearchButton from '@salesforce/label/c.CP_HelpSearchButton';
-import CP_HelpPopularSearches from '@salesforce/label/c.CP_HelpPopularSearches';
-import CP_HelpNoPopularArticles from '@salesforce/label/c.CP_HelpNoPopularArticles';
+import * as labels from 'c/labelService';
 
 const KNOWLEDGE_ARTICLE_PAGE = 'standard__knowledgeArticlePage';
 const SEARCH_RESULTS_PAGE_NAME = 'Knowledge_Search_Results';
 
 export default class KnowledgeSearch extends NavigationMixin(LightningElement) {
     label = {
-        searchPlaceholder: CP_HelpSearchPlaceholder,
-        searchButton: CP_HelpSearchButton,
-        popularSearches: CP_HelpPopularSearches,
-        noPopularArticles: CP_HelpNoPopularArticles
+        searchPlaceholder: labels.CP_HelpSearchPlaceholder,
+        searchButton: labels.CP_HelpSearchButton,
+        popularSearches: labels.CP_HelpPopularSearches,
+        noPopularArticles: labels.CP_HelpNoPopularArticles
     };
 
     searchTerm = '';

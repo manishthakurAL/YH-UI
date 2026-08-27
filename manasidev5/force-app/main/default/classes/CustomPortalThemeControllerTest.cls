@@ -59,7 +59,7 @@ public class CustomPortalThemeControllerTest {
     
     @isTest
     static void testGetCurrentUser() {
-        User testUser = [SELECT Id, FirstName, LastName, Name FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        User testUser = UthUser.getUserUsingContactId(new List<Id>{UthContact.getAll()[0].Id})[0];
         System.runAs(testUser) {
             CustomPortalThemeController.UserDisplay result = 
                 CustomPortalThemeController.getCurrentUser();
@@ -72,7 +72,7 @@ public class CustomPortalThemeControllerTest {
     
     @isTest
     static void testGetCurrentUserInitials() {
-        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        User testUser = UthUser.getUserUsingContactId(new List<Id>{UthContact.getAll()[0].Id})[0];
         System.runAs(testUser) {
             CustomPortalThemeController.UserDisplay result = 
                 CustomPortalThemeController.getCurrentUser();
@@ -92,7 +92,7 @@ public class CustomPortalThemeControllerTest {
     
     @isTest
     static void testGetCurrentUserSubtitle() {
-        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        User testUser = UthUser.getUserUsingContactId(new List<Id>{UthContact.getAll()[0].Id})[0];
         System.runAs(testUser) {
             CustomPortalThemeController.UserDisplay result = 
                 CustomPortalThemeController.getCurrentUser();
@@ -114,7 +114,7 @@ new CustomPortalThemeController.NavItem('Test Label', 'test_action', 'Link', nul
     
     @isTest
     static void testUserDisplayFields() {
-        User testUser = [SELECT Id, FirstName, LastName FROM User WHERE ContactId = :UthContact.getAll()[0].Id LIMIT 1];
+        User testUser = UthUser.getUserUsingContactId(new List<Id>{UthContact.getAll()[0].Id})[0];
 
         System.runAs(testUser) {
             CustomPortalThemeController.UserDisplay display = 

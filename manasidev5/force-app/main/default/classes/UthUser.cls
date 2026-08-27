@@ -43,12 +43,6 @@ public class UthUser {
         return testUser;
     }
 
-    public static User buildKnowledgeUser(Id roleId, Id profileId, String firstName, String lastName) {
-        User testUser = buildUser(roleId, profileId, firstName, lastName);
-        testUser.UserPermissionsKnowledgeUser = true;
-        return testUser;
-    }
-
     public static List<User> getUser(Id profileId, String fName, String lName){
         return [SELECT Id 
             FROM User 
@@ -58,7 +52,7 @@ public class UthUser {
     }
 
     public static List<User> getUserUsingContactId(List<Id> contactIds){
-        return [SELECT Id, IsActive, Username, Email, Contact.MobilePhone, Contact.Id, Contact.Name
+        return [SELECT Id, IsActive, Username, Name, FirstName, LastName, Email, Contact.MobilePhone, Contact.Id, Contact.Name
             FROM User 
             WHERE ContactId IN : contactIds];
     }

@@ -14,6 +14,7 @@ public with sharing class KnowledgeDecorator {
    public static final String GENERAL_INFO = 'General_Info__c';
    public static final String REPAIRS_LABEL = 'Repairs';
    public static final String REPAIRS_API = 'Repairs__c';
+   public static final String ARTICLE_TYPE = 'Knowledge__kav';
 
 
 

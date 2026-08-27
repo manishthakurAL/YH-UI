@@ -13,11 +13,6 @@ export default class CustomerPortalHomeContainer extends LightningElement {
         this.updateGreeting();
     }
 
-    handleAddressChange(event) {
-        this.address = event.detail.address;
-        this.hasAddress = !!this.address;
-    }
-
      @wire(getCurrentUserName)
     wiredUser({ error, data }) {
         if (data) {

@@ -7,6 +7,14 @@ public with sharing class CustomPortalThemeController {
         @AuraEnabled public String description;
         @AuraEnabled public String status;
         @AuraEnabled public Date openedDate;
+
+        public OpenCaseDisplay(String caseNumber, String caseType, String description, String status, Date openedDate) {
+            this.caseNumber = caseNumber;
+            this.caseType = caseType;
+            this.description = description;
+            this.status = status;
+            this.openedDate = openedDate;
+        }
     }
 
     public class NavItem {
@@ -27,6 +35,13 @@ public with sharing class CustomPortalThemeController {
         @AuraEnabled public String firstName;
         @AuraEnabled public String initials;
         @AuraEnabled public String subtitle;
+
+        public UserDisplay(String name, String firstName, String initials, String subtitle) {
+            this.name = name;
+            this.firstName = firstName;
+            this.initials = initials;
+            this.subtitle = subtitle;
+        }
     }
 
     private static User aUser{
@@ -42,19 +57,6 @@ public with sharing class CustomPortalThemeController {
         set;
     }
     
-    private static List<Member__c> memberList {
-        get{
-            if(memberList == null){
-                memberList = [SELECT Id, TenancyStartDate__c FROM Member__c WHERE Contact__c = :aUser.ContactId AND IsActive__c = true
-                    AND (Type__c =: MemberDecorator.TYPE_SOLO OR Type__c =: MemberDecorator.TYPE_JOINT) ORDER BY TenancyStartDate__c ASC LIMIT 1];
-            }
-            return memberList;
-        }
-        set;
-        
-    }
-
-
     @AuraEnabled(cacheable=true)
     public static List<NavItem> getNavigationMenuItems(String menuName) {
         List<NavItem> result = new List<NavItem>();
@@ -84,44 +86,36 @@ public with sharing class CustomPortalThemeController {
 
     @AuraEnabled(cacheable=true)
     public static UserDisplay getCurrentUser() {
-       
-        UserDisplay d = new UserDisplay();
-        d.name = aUser.Name;
-        d.firstname = aUser.FirstName;
-        d.initials =
+        String initials =
             (String.isNotBlank(aUser.FirstName) ? aUser.FirstName.left(1) : '') +
             (String.isNotBlank(aUser.LastName) ? aUser.LastName.left(1) : '');
-        d.initials = d.initials.toUpperCase();
-
+        List<Member__c> memberList = new MemberService().getActiveMembersByContactIdOrderByTenancyStartDate(aUser.ContactId);
         Datetime since = (memberList != null && !memberList.isEmpty()) ? memberList[0].TenancyStartDate__c : aUser.Contact.CreatedDate;
-        d.subtitle = 'Tenant since ' + String.valueOf(since.year());
-        return d;
+        String subtitle = 'Tenant since ' + String.valueOf(since.year());
+        UserDisplay aUserDisplay = new UserDisplay(aUser.Name, aUser.FirstName, initials.toUpperCase(), subtitle);
+        
+        return aUserDisplay;
     }
 
     @AuraEnabled(cacheable=true)
     public static List<OpenCaseDisplay> getMyOpenCases() {
         List<OpenCaseDisplay> result = new List<OpenCaseDisplay>();
-        User u = [SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1];
-        if (u.ContactId == null) {
-            return result;
-        }
-
         for (Case c : [
             SELECT CaseNumber, CaseType__c, Description, ExternalCaseStatus__c, CreatedDate
             FROM Case
-            WHERE ContactId = :u.ContactId
-                AND ExternalCaseStatus__c != null
+            WHERE ExternalCaseStatus__c != null
                 AND ExternalCaseStatus__c != :CaseDecorator.EXTERNAL_STATUS_CLOSED
             ORDER BY CreatedDate DESC
             LIMIT :OPEN_CASES_LIMIT
         ]) {
-            OpenCaseDisplay d = new OpenCaseDisplay();
-            d.caseNumber = c.CaseNumber;
-            d.caseType = c.CaseType__c;
-            d.description = c.Description;
-            d.status = c.ExternalCaseStatus__c;
-            d.openedDate = c.CreatedDate.date();
-            result.add(d);
+            OpenCaseDisplay aOpenCaseDisplay = new OpenCaseDisplay(
+                c.CaseNumber,
+                c.CaseType__c,
+                c.Description,
+                c.ExternalCaseStatus__c,
+                c.CreatedDate.date()
+            );
+            result.add(aOpenCaseDisplay);
         }
         return result;
     }
