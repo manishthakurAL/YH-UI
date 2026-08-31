@@ -51,7 +51,7 @@
 }
 
 .hero-left {
-    background: #51216D;
+    background: var(--primary);
     padding: 48px;
     min-width: 0;
     display: flex;
