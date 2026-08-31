@@ -2,17 +2,24 @@
     <section class="panel-card open-cases-card">
         <h3 class="panel-title">My Open Cases</h3>
 
-        <template lwc:if={hasCases}>
-            <template for:each={cases} for:item="caseItem">
-                <div class="case-card" key={caseItem.caseNumber}>
-                    <p class="case-meta">{caseItem.caseMeta}</p>
-                    <template lwc:if={caseItem.description}>
-                        <p class="case-description">{caseItem.description}</p>
-                    </template>
-                    <p class="case-opened">Opened: {caseItem.formattedOpenedDate}</p>
-                    <span class="badge">{caseItem.status}</span>
-                </div>
-            </template>
+        <p class="visually-hidden" aria-live="polite">{statusMessage}</p>
+
+        <template lwc:if={isLoading}>
+            <p class="no-cases">Loading your cases…</p>
+        </template>
+        <template lwc:elseif={hasCases}>
+            <ul class="case-list">
+                <template for:each={cases} for:item="caseItem">
+                    <li key={caseItem.caseNumber} class="case-card">
+                        <p class="case-meta">{caseItem.caseMeta}</p>
+                        <template lwc:if={caseItem.description}>
+                            <p class="case-description">{caseItem.description}</p>
+                        </template>
+                        <p class="case-opened">Opened: {caseItem.formattedOpenedDate}</p>
+                        <span class="badge">{caseItem.status}</span>
+                    </li>
+                </template>
+            </ul>
         </template>
         <template lwc:else>
             <p class="no-cases">You have no open cases right now.</p>
