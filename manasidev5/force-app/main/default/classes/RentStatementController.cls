@@ -1,44 +1,26 @@
 public with sharing class RentStatementController {
 
-    private static final Set<String> WEEKLY_CHARGE_FREQUENCIES = new Set<String>{
-        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_WEEKLY,
-        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_WEEKLY,
-        TenancyDecorator.CHARGE_FREQUENCY_SUPPORT_WEEKS_WEEKLY,
-        TenancyDecorator.CHARGE_FREQUENCY_RHA_HOMELESS,
-        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_SHARED_OWNERSHIP
-    };
-    private static final Set<String> MONTHLY_CHARGE_FREQUENCIES = new Set<String>{
-        TenancyDecorator.CHARGE_FREQUENCY_MARKET_RENTS,
-        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_MONTHLY_HOME_OWNERS,
-        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_MONTHLY_CALENDAR
-    };
-    private static final Set<String> QUARTERLY_CHARGE_FREQUENCIES = new Set<String>{
-        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_QUARTERLY_RTBS,
-        TenancyDecorator.CHARGE_FREQUENCY_QUARTERLY,
-        TenancyDecorator.CHARGE_FREQUENCY_QUARTERLY_DEBIT_WEEKLY_BALS
-    };
-
     private static String getRentFrequencyLabel(String chargeFrequency) {
-        if (WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Weekly Rent';
         }
-        if (MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Monthly Rent';
         }
-        if (QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Quarterly Rent';
         }
         return 'Rent';
     }
 
     private static String getRentPeriodLabel(String chargeFrequency) {
-        if (WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Per week';
         }
-        if (MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Per month';
         }
-        if (QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+        if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             return 'Per quarterly';
         }
         return chargeFrequency;
