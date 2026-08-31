@@ -35,8 +35,30 @@ public with sharing class RentStatementController {
                 TenancyWrapper tenancy = new TenancyWrapper(mem);
                 tenancyList.add(tenancy);
         }
-        new RentDetailsReader().populate(tenancyList);
+        populateRentDetails(tenancyList);
         return tenancyList;
+    }
+
+    private static void populateRentDetails(List<TenancyWrapper> tenancies) {
+        Set<Id> tenancyIds = new Set<Id>();
+        for (TenancyWrapper t : tenancies) {
+            if (t.tenancyId != null) {
+                tenancyIds.add(t.tenancyId);
+            }
+        }
+        if (tenancyIds.isEmpty()) {
+            return;
+        }
+        Map<Id, YH_Tenancy__c> tenancyById = new TenancyService().getTenanciesWithRentDetails(tenancyIds);
+        for (TenancyWrapper t : tenancies) {
+            YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
+            if (ten != null) {
+                t.chargeFrequency = ten.YH_ChargeFrequency__c;
+                t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
+                t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
+                t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
+            }
+        }
     }
 
     @AuraEnabled(cacheable=true)
@@ -607,38 +629,6 @@ public with sharing class RentStatementController {
         }
     }
 
-    /* Portal users' sharing model doesn't grant record-level access to
-       YH_Property__c, so the standard "with sharing" traversal above
-       silently nulls out weeklyRent/chargeFrequency even though the
-       tenant has every right to see their own rent amount. This reads
-       just those two fields for the tenant's own tenancy. */
-    private without sharing class RentDetailsReader {
-        public void populate(List<TenancyWrapper> tenancies) {
-            Set<Id> tenancyIds = new Set<Id>();
-            for (TenancyWrapper t : tenancies) {
-                if (t.tenancyId != null) {
-                    tenancyIds.add(t.tenancyId);
-                }
-            }
-            if (tenancyIds.isEmpty()) {
-                return;
-            }
-            Map<Id, YH_Tenancy__c> tenancyById = new Map<Id, YH_Tenancy__c>(
-                [SELECT Id, YH_ChargeFrequency__c, Property__r.CurrentGrossRent__c
-                 FROM YH_Tenancy__c
-                 WHERE Id IN :tenancyIds]
-            );
-            for (TenancyWrapper t : tenancies) {
-                YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
-                if (ten != null) {
-                    t.chargeFrequency = ten.YH_ChargeFrequency__c;
-                    t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
-                    t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
-                    t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
-                }
-            }
-        }
-    }
    /* public class TenancyGroupWrapper {
         @AuraEnabled public String tenancyId { get; set; }
         @AuraEnabled public Boolean isExpand { get; set; }
