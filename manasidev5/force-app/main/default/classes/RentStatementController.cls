@@ -2,26 +2,26 @@ public with sharing class RentStatementController {
 
     private static String getRentFrequencyLabel(String chargeFrequency) {
         if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Weekly Rent';
+            return Label.CP_RentFrequencyWeekly;
         }
         if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Monthly Rent';
+            return Label.CP_RentFrequencyMonthly;
         }
         if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Quarterly Rent';
+            return Label.CP_RentFrequencyQuarterly;
         }
-        return 'Rent';
+        return Label.CP_RentFrequencyDefault;
     }
 
     private static String getRentPeriodLabel(String chargeFrequency) {
         if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Per week';
+            return Label.CP_RentPeriodWeekly;
         }
         if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Per month';
+            return Label.CP_RentPeriodMonthly;
         }
         if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            return 'Per quarterly';
+            return Label.CP_RentPeriodQuarterly;
         }
         return chargeFrequency;
     }
