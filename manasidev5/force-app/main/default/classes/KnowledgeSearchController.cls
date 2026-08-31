@@ -8,6 +8,13 @@ public with sharing class KnowledgeSearchController {
         @AuraEnabled public String title;
         @AuraEnabled public String urlName;
         @AuraEnabled public String articleType;
+
+        public ArticleSummary(String articleId, String title, String urlName, String articleType){
+            this.articleId = articleId;
+            this.title = title;
+            this.urlName = urlName;
+            this.articleType = articleType;
+        }
     }
 
     @AuraEnabled(cacheable=true)
@@ -17,7 +24,7 @@ public with sharing class KnowledgeSearchController {
             SELECT Id, Title, UrlName
             FROM KnowledgeArticleVersion
             WHERE PublishStatus =: KnowledgeDecorator.PUBLISH_STATUS_ONLINE
-            WITH SYSTEM_MODE
+            WITH USER_MODE
             ORDER BY ArticleTotalViewCount DESC NULLS LAST, Title ASC
             LIMIT :POPULAR_ARTICLES_LIMIT
         ]) {
@@ -29,39 +36,17 @@ public with sharing class KnowledgeSearchController {
     @AuraEnabled(cacheable=true)
     public static List<ArticleSummary> searchArticles(String searchTerm) {
         List<ArticleSummary> results = new List<ArticleSummary>();
-        List<List<SObject>> searchResults = new List<List<SObject>>();
-        String sanitizedTerm = sanitizeSearchTerm(searchTerm);
-        if (sanitizedTerm == null) {
-            return results;
-        }
-
-        // TODO login needed to populate surch result
-
-        if (!searchResults.isEmpty()) {
-            for (SObject record : searchResults[0]) {
-                results.add(toSummary((KnowledgeArticleVersion) record));
-            }
-        }
+        //TODO logic to be implemented in ticket 42209, this method is place holder for now.
         return results;
     }
 
     private static ArticleSummary toSummary(KnowledgeArticleVersion article) {
-        ArticleSummary summary = new ArticleSummary();
-        summary.articleId = article.Id;
-        summary.title = article.Title;
-        summary.urlName = article.UrlName;
-        summary.articleType = KnowledgeDecorator.ARTICLE_TYPE;
+        ArticleSummary summary = new ArticleSummary(
+            article.Id, 
+            article.Title, 
+            article.UrlName, 
+            KnowledgeDecorator.ARTICLE_TYPE
+        );
         return summary;
-    }
-
-    private static String sanitizeSearchTerm(String searchTerm) {
-        if (String.isBlank(searchTerm)) {
-            return null;
-        }
-        String withoutSpecialChars = searchTerm.replaceAll('[^\\p{L}\\p{N}\\s]', ' ').trim();
-        if (withoutSpecialChars.length() < MIN_SEARCH_TERM_LENGTH) {
-            return null;
-        }
-        return withoutSpecialChars;
     }
 }

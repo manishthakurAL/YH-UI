@@ -10,6 +10,15 @@ public with sharing class UthKnowledge {
         return article;
     }
 
+    public static Knowledge__kav build(String title, String summary, string urlName){
+        return new Knowledge__kav(
+            Title = title,
+            Summary = summary,
+            urlName = urlName,
+            Language = 'en_US'
+        );
+    }
+
      public static void addDataCategory(Id articleId, String dataCategoryGroupName, String dataCategory){
         Knowledge__DataCategorySelection dcs = new Knowledge__DataCategorySelection(
             ParentId = articleId,
@@ -24,6 +33,14 @@ public with sharing class UthKnowledge {
         return Database.query('SELECT '+
 			String.join(new List<String>(Knowledge__kav.getSObjectType().getDescribe().fields.getMap().keySet()), ',') +
 			' FROM Knowledge__kav '
+		);
+    }
+
+    public static List<Knowledge__kav> getUsingId(Id articleId){
+        return Database.query('SELECT '+
+			String.join(new List<String>(Knowledge__kav.getSObjectType().getDescribe().fields.getMap().keySet()), ',') +
+			' FROM Knowledge__kav ' +
+            ' WHERE Id = \'' + articleId + '\''
 		);
     }
 }

@@ -443,7 +443,7 @@
         overflow-y: auto !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch;
-        background: var(--yh-primary-color) !important;
+        background: var(--yh-purple) !important;
         z-index: 1000 !important;
         transition: left .3s ease !important;
         display: flex !important;
