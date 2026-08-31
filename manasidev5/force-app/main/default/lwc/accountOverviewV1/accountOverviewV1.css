@@ -49,7 +49,10 @@
 }
 
 .balance-arrears {
-    color: var(--v1-rose);
+    /* #b43a53 measures 1.91:1 against this card's #512c6b background —
+       fails WCAG 1.4.3 (needs 3:1 for this large text). Requested and
+       confirmed explicitly despite the contrast failure. */
+    color: #b43a53;
 }
 
 .balance-credit {
