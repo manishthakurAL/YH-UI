@@ -300,6 +300,14 @@ Please wait 30 minutes before trying to log in again.</value>
         <value>Repairs</value>
     </labels>
     <labels>
+        <fullName>CP_AccountInCreditMessage</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_AccountInCreditMessage</shortDescription>
+        <value>Your account is in credit</value>
+    </labels>
+    <labels>
         <fullName>CP_RentAndPayments</fullName>
         <categories>CustomPortal</categories>
         <language>en_US</language>
@@ -338,6 +346,14 @@ Please wait 30 minutes before trying to log in again.</value>
         <protected>false</protected>
         <shortDescription>CP_RentFrequencyWeekly</shortDescription>
         <value>Weekly Rent</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentOverdueMessage</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentOverdueMessage</shortDescription>
+        <value>Your rent is overdue — pay now</value>
     </labels>
     <labels>
         <fullName>CP_RentPeriodMonthly</fullName>

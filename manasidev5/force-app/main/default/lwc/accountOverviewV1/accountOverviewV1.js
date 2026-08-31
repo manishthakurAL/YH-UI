@@ -1,11 +1,14 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { buildPaymentUrl } from 'c/paymentUrlService';
+import * as labels from 'c/labelService';
 import getTenancies from '@salesforce/apex/RentStatementController.getTenancies';
 import getAccountsByTenancyNumber from '@salesforce/apex/RentStatementController.getAccountsByTenancyNumber';
 import getAllPayPaymentURL from '@salesforce/apex/RentStatementController.getAllPayPaymentURL';
 
 export default class AccountOverviewV1 extends NavigationMixin(LightningElement) {
+    label = labels;
+
     tenancy = {};
     mainRentAccount = {};
     errorMessage = '';
@@ -102,10 +105,10 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
 
     get balanceMessage() {
         if (this.isArrears) {
-            return 'Your rent is overdue — pay now';
+            return this.label.CP_RentOverdueMessage;
         }
         if (this.isCredit) {
-            return 'Your account is in credit';
+            return this.label.CP_AccountInCreditMessage;
         }
         return '';
     }
