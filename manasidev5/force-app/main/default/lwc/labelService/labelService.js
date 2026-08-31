@@ -46,6 +46,7 @@ import CP_HelpNoPopularArticles from '@salesforce/label/c.CP_HelpNoPopularArticl
 
 import CP_RentOverdueMessage from '@salesforce/label/c.CP_RentOverdueMessage';
 import CP_AccountInCreditMessage from '@salesforce/label/c.CP_AccountInCreditMessage';
+import CP_RentFrequencyDefault from '@salesforce/label/c.CP_RentFrequencyDefault';
 
 export  {
     CP_TileLogRepair,
@@ -90,5 +91,6 @@ export  {
     CP_HelpPopularSearches,
     CP_HelpNoPopularArticles,
     CP_RentOverdueMessage,
-    CP_AccountInCreditMessage
+    CP_AccountInCreditMessage,
+    CP_RentFrequencyDefault
 }

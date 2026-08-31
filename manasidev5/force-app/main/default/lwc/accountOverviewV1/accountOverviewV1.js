@@ -139,7 +139,7 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
     }
 
     get rentFrequencyLabel() {
-        return this.tenancy?.rentFrequencyLabel || 'Rent';
+        return this.tenancy?.rentFrequencyLabel || this.label.CP_RentFrequencyDefault;
     }
 
     get rentPeriodLabel() {
