@@ -7,13 +7,13 @@
         </p>
 
         <template lwc:if={hasBalanceMessage}>
-            <p class={balanceMessageClass}>{balanceMessage}</p>
+            <p class="balance-message">{balanceMessage}</p>
         </template>
 
         <template lwc:if={hasRentAmount}>
             <div class="info-card">
                 <p class="info-label">{rentFrequencyLabel}</p>
-                <p class="info-value">£{formattedRentAmount}</p>
+                <p class={rentValueClass}>{formattedRentAmount}</p>
                 <p class="info-sub">{rentPeriodLabel}</p>
             </div>
         </template>

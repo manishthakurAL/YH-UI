@@ -114,16 +114,25 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
         return !!this.balanceMessage;
     }
 
-    get balanceMessageClass() {
-        return this.isArrears ? 'balance-message balance-arrears' : 'balance-message balance-credit';
-    }
-
     get hasRentAmount() {
         return this.tenancy?.weeklyRent != null;
     }
 
+    get isNegativeRent() {
+        return this.hasRentAmount && Number(this.tenancy.weeklyRent) < 0;
+    }
+
+    get rentValueClass() {
+        return this.isNegativeRent ? 'info-value info-value-negative' : 'info-value';
+    }
+
     get formattedRentAmount() {
-        return this.hasRentAmount ? Number(this.tenancy.weeklyRent).toFixed(2) : '--';
+        if (!this.hasRentAmount) {
+            return '£--';
+        }
+        const amount = Number(this.tenancy.weeklyRent);
+        const sign = amount < 0 ? '-' : '';
+        return `${sign}£${Math.abs(amount).toFixed(2)}`;
     }
 
     get rentFrequencyLabel() {

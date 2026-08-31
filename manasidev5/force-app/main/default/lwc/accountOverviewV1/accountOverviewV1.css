@@ -4,6 +4,8 @@
     --v1-accent-hover: #782737;
     --v1-green: #95dace;
     --v1-white: #ffffff;
+    --v1-muted: #ada6bd;
+    --v1-negative: #f9b8c5;
 
     display: block;
     width: 100%;
@@ -29,6 +31,7 @@
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
+    color: var(--v1-muted);
 }
 
 .balance {
@@ -61,6 +64,7 @@
     margin: -8px 0 0 0;
     font-size: 0.85rem;
     font-weight: 600;
+    color: var(--v1-muted);
 }
 
 .info-card {
@@ -80,6 +84,10 @@
     margin: 4px 0 0 0;
     font-size: 1.25rem;
     font-weight: 800;
+}
+
+.info-value-negative {
+    color: var(--v1-negative);
 }
 
 .info-sub {
