@@ -21,4 +21,16 @@ public with sharing class TenancyDecorator {
     public static final String TENANCY_END_DATE_ON_SUNDAY = 'Sunday';
     public static final String CUSTOMER_SHARING_REASON_TENANCY = 'Tenancy';
     public static final String TENANCY_SHARING = 'TenancySharing';
+
+    public static final String CHARGE_FREQUENCY_RYEDALE_WEEKLY = 'Ryedale Weekly';
+    public static final String CHARGE_FREQUENCY_CRAVEN_WEEKLY = 'Craven Weekly';
+    public static final String CHARGE_FREQUENCY_SUPPORT_WEEKS_WEEKLY = 'Support Weeks Weekly';
+    public static final String CHARGE_FREQUENCY_RHA_HOMELESS = 'RHA Homeless';
+    public static final String CHARGE_FREQUENCY_RYEDALE_SHARED_OWNERSHIP = 'Ryedale Shared Ownership';
+    public static final String CHARGE_FREQUENCY_MARKET_RENTS = 'Market Rents';
+    public static final String CHARGE_FREQUENCY_RYEDALE_MONTHLY_HOME_OWNERS = 'Ryedale Monthly Home Owners';
+    public static final String CHARGE_FREQUENCY_CRAVEN_MONTHLY_CALENDAR = 'Craven Monthly Calendar';
+    public static final String CHARGE_FREQUENCY_CRAVEN_QUARTERLY_RTBS = 'Craven Quarterly RTB\'s';
+    public static final String CHARGE_FREQUENCY_QUARTERLY = 'Quarterly';
+    public static final String CHARGE_FREQUENCY_QUARTERLY_DEBIT_WEEKLY_BALS = 'Quarterly Debit Weekly Bals';
 }

@@ -1,0 +1,90 @@
+:host {
+    --alert-bg: #782737;
+    --alert-button-bg: #b43a53;
+    --alert-button-hover-bg: #782737;
+
+    display: block;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.rent-overdue-alert {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: var(--alert-bg);
+    border-radius: 16px;
+    padding: 16px;
+    color: #ffffff;
+}
+
+.alert-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.alert-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.alert-icon lightning-icon {
+    --slds-c-icon-color-foreground-default: #ffffff;
+}
+
+.alert-text {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.btn-make-payment {
+    flex-shrink: 0;
+    height: 44px;
+    padding: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--alert-button-bg);
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.btn-make-payment:hover:not(:disabled),
+.btn-make-payment:focus-visible:not(:disabled) {
+    background: var(--alert-button-hover-bg);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-make-payment:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.btn-make-payment:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+    .rent-overdue-alert {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-make-payment {
+        width: 100%;
+    }
+}

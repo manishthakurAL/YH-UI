@@ -14,18 +14,14 @@
                         <p class="address">{label.CP_HomeAddress} <strong>{address}</strong>.</p>
                     </template>
 
-                    <template lwc:if={showAlert}>
-                        <section class="alert-box">
-                            ...
-                        </section>
-                    </template>
+                    <section class="alert-box">
+                        <c-rent-overdue-alert></c-rent-overdue-alert>
+                    </section>
                 </section>
 
                 <!-- Summary Card -->
                 <aside class="balance-card">
-
-                    <!-- Future balance information -->
-
+                    <c-account-overview-v1></c-account-overview-v1>
                 </aside>
             </section>
 

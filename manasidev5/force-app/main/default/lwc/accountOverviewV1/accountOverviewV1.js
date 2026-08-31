@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import { generatePRN } from 'c/generatePRNService';
+import { buildPaymentUrl } from 'c/paymentUrlService';
 import getTenancies from '@salesforce/apex/RentStatementController.getTenancies';
 import getAccountsByTenancyNumber from '@salesforce/apex/RentStatementController.getAccountsByTenancyNumber';
 import getAllPayPaymentURL from '@salesforce/apex/RentStatementController.getAllPayPaymentURL';
@@ -118,28 +118,6 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
         return this.isArrears ? 'balance-message balance-arrears' : 'balance-message balance-credit';
     }
 
-    // MOCK DATA — no next-payment (date/amount/method) field exists anywhere
-    // in the Salesforce data model yet (checked YH_Tenancy__c, YH_Property__c,
-    // PaymentArrangement__c, and both external services RentStatementController
-    // already calls). Hardcoded here purely so the "Next Payment" card can be
-    // reviewed visually. Replace with real data once a source is identified —
-    // do not ship this to production as-is.
-    get hasNextPayment() {
-        return true;
-    }
-
-    get nextPaymentDate() {
-        return '1 October 2025';
-    }
-
-    get nextPaymentAmount() {
-        return '512.00';
-    }
-
-    get nextPaymentMethod() {
-        return 'Direct debit';
-    }
-
     get hasRentAmount() {
         return this.tenancy?.weeklyRent != null;
     }
@@ -149,36 +127,15 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
     }
 
     get rentFrequencyLabel() {
-        const frequency = (this.tenancy?.chargeFrequency || '').toLowerCase();
-        if (frequency === 'weekly') {
-            return 'Weekly Rent';
-        }
-        if (frequency === 'monthly') {
-            return 'Monthly Rent';
-        }
-        return 'Rent';
+        return this.tenancy?.rentFrequencyLabel || 'Rent';
     }
 
     get rentPeriodLabel() {
-        const frequency = (this.tenancy?.chargeFrequency || '').toLowerCase();
-        if (frequency === 'weekly') {
-            return 'Per week';
-        }
-        if (frequency === 'monthly') {
-            return 'Per month';
-        }
-        return this.tenancy?.chargeFrequency || '';
+        return this.tenancy?.rentPeriodLabel || '';
     }
 
     handleMakePayment() {
-        let prnNumber;
-        try {
-            prnNumber = generatePRN(this.tenancyNumber, this.mainRentAccount?.id, this.orchardChequeDigit);
-        } catch (error) {
-            prnNumber = null;
-        }
-
-        const url = prnNumber ? this.allPayURL.data + prnNumber : this.allPayURL.data;
+        const url = buildPaymentUrl(this.allPayURL.data, this.tenancyNumber, this.mainRentAccount?.id, this.orchardChequeDigit);
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
             attributes: { url }

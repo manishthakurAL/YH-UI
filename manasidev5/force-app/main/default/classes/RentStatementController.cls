@@ -1,6 +1,49 @@
 public with sharing class RentStatementController {
 
-    
+    private static final Set<String> WEEKLY_CHARGE_FREQUENCIES = new Set<String>{
+        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_WEEKLY,
+        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_WEEKLY,
+        TenancyDecorator.CHARGE_FREQUENCY_SUPPORT_WEEKS_WEEKLY,
+        TenancyDecorator.CHARGE_FREQUENCY_RHA_HOMELESS,
+        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_SHARED_OWNERSHIP
+    };
+    private static final Set<String> MONTHLY_CHARGE_FREQUENCIES = new Set<String>{
+        TenancyDecorator.CHARGE_FREQUENCY_MARKET_RENTS,
+        TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_MONTHLY_HOME_OWNERS,
+        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_MONTHLY_CALENDAR
+    };
+    private static final Set<String> QUARTERLY_CHARGE_FREQUENCIES = new Set<String>{
+        TenancyDecorator.CHARGE_FREQUENCY_CRAVEN_QUARTERLY_RTBS,
+        TenancyDecorator.CHARGE_FREQUENCY_QUARTERLY,
+        TenancyDecorator.CHARGE_FREQUENCY_QUARTERLY_DEBIT_WEEKLY_BALS
+    };
+
+    private static String getRentFrequencyLabel(String chargeFrequency) {
+        if (WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Weekly Rent';
+        }
+        if (MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Monthly Rent';
+        }
+        if (QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Quarterly Rent';
+        }
+        return 'Rent';
+    }
+
+    private static String getRentPeriodLabel(String chargeFrequency) {
+        if (WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Per week';
+        }
+        if (MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Per month';
+        }
+        if (QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            return 'Per quarterly';
+        }
+        return chargeFrequency;
+    }
+
     @AuraEnabled(cacheable=true)
     public static List<TenancyWrapper> getTenancies() {
         List<TenancyWrapper> tenancyList = new List<TenancyWrapper>();
@@ -564,6 +607,8 @@ public with sharing class RentStatementController {
         @AuraEnabled public String rentType {get; set;}
         @AuraEnabled public String chargeFrequency {get; set;}
         @AuraEnabled public Decimal weeklyRent {get; set;}
+        @AuraEnabled public String rentFrequencyLabel {get; set;}
+        @AuraEnabled public String rentPeriodLabel {get; set;}
 
         public TenancyWrapper(Member__c member) {
             this.tenancyId = member.Tenancy__c;
@@ -606,6 +651,8 @@ public with sharing class RentStatementController {
                 if (ten != null) {
                     t.chargeFrequency = ten.YH_ChargeFrequency__c;
                     t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
+                    t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
+                    t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
                 }
             }
         }

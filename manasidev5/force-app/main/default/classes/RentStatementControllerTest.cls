@@ -56,6 +56,45 @@ public class RentStatementControllerTest {
         }
     }
 
+    @isTest
+    static void testGetTenancies_RentFrequencyCategorization() {
+        YH_Tenancy__c tenancy = UthTenancy.getAll()[0];
+        List<Contact> contactList = UthContact.getAll();
+        User cUser = UthUser.buildPortalUser('fname', 'lname', contactList[0].Id);
+        insert cUser;
+        String tenancyName = new TenancyService().getGroupName(tenancy.Name);
+        List<Group> resultGroup = UthGroup.getGroupUsingName(tenancyName);
+
+        List<GroupMember> groupMembersToInsert = new List<GroupMember>{
+            UthGroupMember.build(resultGroup[0].Id, cUser.Id)
+        };
+        insert groupMembersToInsert;
+
+        Map<String, List<String>> expectedLabelsByFrequency = new Map<String, List<String>>{
+            TenancyDecorator.CHARGE_FREQUENCY_RYEDALE_WEEKLY => new List<String>{ 'Weekly Rent', 'Per week' },
+            TenancyDecorator.CHARGE_FREQUENCY_MARKET_RENTS => new List<String>{ 'Monthly Rent', 'Per month' },
+            TenancyDecorator.CHARGE_FREQUENCY_QUARTERLY => new List<String>{ 'Quarterly Rent', 'Per quarterly' },
+            'MISC' => new List<String>{ 'Rent', 'MISC' }
+        };
+
+        Test.startTest();
+        for (String frequency : expectedLabelsByFrequency.keySet()) {
+            TriggerBase.bypass('YH_Tenancy__c');
+            tenancy.YH_ChargeFrequency__c = frequency;
+            update tenancy;
+            TriggerBase.clearBypass('YH_Tenancy__c');
+
+            List<RentStatementController.TenancyWrapper> result;
+            System.runAs(cUser) {
+                result = RentStatementController.getTenancies();
+            }
+            List<String> expectedLabels = expectedLabelsByFrequency.get(frequency);
+            System.assertEquals(expectedLabels[0], result[0].rentFrequencyLabel, 'Unexpected rent frequency label for ' + frequency);
+            System.assertEquals(expectedLabels[1], result[0].rentPeriodLabel, 'Unexpected rent period label for ' + frequency);
+        }
+        Test.stopTest();
+    }
+
     @IsTest
     static void testGetAccountsByTenancyNumber_Positive() {
         Test.setMock(HttpCalloutMock.class, new GetAccountsByTenancyNumberMock(200));
