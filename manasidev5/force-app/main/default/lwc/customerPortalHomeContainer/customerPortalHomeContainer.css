@@ -43,7 +43,7 @@
 
 .hero {
     display: grid;
-    grid-template-columns: 2fr 420px;
+    grid-template-columns: 2fr 1fr;
     background: var(--primary);
     border-radius: 24px;
     overflow: hidden;
