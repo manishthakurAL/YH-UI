@@ -1,6 +1,9 @@
 :host {
     --alert-bg: #782737;
-    --alert-button-bg: #b43a53;
+    /* #f04d6e (official YH Rose base) measures 3.50:1 with white button
+       text — below the 4.5:1 WCAG minimum for this text size. Requested
+       and confirmed explicitly despite the contrast shortfall. */
+    --alert-button-bg: #f04d6e;
     --alert-button-hover-bg: #782737;
 
     display: block;

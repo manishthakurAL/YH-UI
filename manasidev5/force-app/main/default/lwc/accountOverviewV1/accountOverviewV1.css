@@ -1,6 +1,9 @@
 :host {
     --v1-rose: #fcdbe2;
-    --v1-accent: #b43a53;
+    /* #f04d6e (official YH Rose base) measures 3.50:1 with white button
+       text — below the 4.5:1 WCAG minimum for this text size. Requested
+       and confirmed explicitly despite the contrast shortfall. */
+    --v1-accent: #f04d6e;
     --v1-accent-hover: #782737;
     --v1-green: #95dace;
     --v1-white: #ffffff;
