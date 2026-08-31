@@ -46,17 +46,16 @@ public with sharing class RentStatementController {
                 tenancyIds.add(t.tenancyId);
             }
         }
-        if (tenancyIds.isEmpty()) {
-            return;
-        }
-        Map<Id, YH_Tenancy__c> tenancyById = new TenancyService().getTenanciesWithRentDetails(tenancyIds);
-        for (TenancyWrapper t : tenancies) {
-            YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
-            if (ten != null) {
-                t.chargeFrequency = ten.YH_ChargeFrequency__c;
-                t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
-                t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
-                t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
+        if (!tenancyIds.isEmpty()) {
+            Map<Id, YH_Tenancy__c> tenancyById = new TenancyService().getTenanciesWithRentDetails(tenancyIds);
+            for (TenancyWrapper t : tenancies) {
+                YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
+                if (ten != null) {
+                    t.chargeFrequency = ten.YH_ChargeFrequency__c;
+                    t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
+                    t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
+                    t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
+                }
             }
         }
     }
