@@ -35,6 +35,10 @@
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--v1-muted);
+    /* !important needed: this site's WCAG accessibility CSS layer
+       (html.gate-restore-wcag-contrast) forces text-transform: none
+       site-wide and otherwise wins the cascade over this rule. */
+    text-transform: uppercase !important;
 }
 
 .balance {
