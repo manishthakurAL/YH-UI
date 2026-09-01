@@ -1,6 +1,29 @@
 public with sharing class RentStatementController {
-
     
+    private static String getRentFrequencyLabel(String chargeFrequency) {
+        String rentFrequencyLabel = Label.CP_RentFrequencyDefault;
+        if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentFrequencyLabel = Label.CP_RentFrequencyWeekly;
+        }else if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentFrequencyLabel = Label.CP_RentFrequencyMonthly;
+        }else if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentFrequencyLabel = Label.CP_RentFrequencyQuarterly;
+        }
+        return rentFrequencyLabel;
+    }
+
+    private static String getRentPeriodLabel(String chargeFrequency) {
+        String rentPeriodLabel = chargeFrequency;
+        if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentPeriodLabel = Label.CP_RentPeriodWeekly;
+        }else if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentPeriodLabel = Label.CP_RentPeriodMonthly;
+        }else if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
+            rentPeriodLabel = Label.CP_RentPeriodQuarterly;
+        }
+        return rentPeriodLabel;
+    }
+
     @AuraEnabled(cacheable=true)
     public static List<TenancyWrapper> getTenancies() {
         List<TenancyWrapper> tenancyList = new List<TenancyWrapper>();
@@ -10,8 +33,32 @@ public with sharing class RentStatementController {
                 TenancyWrapper tenancy = new TenancyWrapper(mem);
                 tenancyList.add(tenancy);
         }
-        new RentDetailsReader().populate(tenancyList);
+
+        populateWeeklyRent(tenancyList);
         return tenancyList;
+    }
+
+    // chargeFrequency/rentFrequencyLabel/rentPeriodLabel are already set in
+    // TenancyWrapper's constructor from the tenancy-level field (portal users
+    // have sharing access to their own Tenancy). The property's rent amount
+    // needs a separate without-sharing lookup — see the comment on
+    // MemberService.getActiveMembersByContactId.
+    private static void populateWeeklyRent(List<TenancyWrapper> tenancies) {
+        Set<Id> tenancyIds = new Set<Id>();
+        for (TenancyWrapper t : tenancies) {
+            if (t.tenancyId != null) {
+                tenancyIds.add(t.tenancyId);
+            }
+        }
+        if (!tenancyIds.isEmpty()) {
+            Map<Id, YH_Tenancy__c> tenancyById = new TenancyService().getTenanciesWithRentDetails(tenancyIds);
+            for (TenancyWrapper t : tenancies) {
+                YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
+                if (ten != null) {
+                    t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
+                }
+            }
+        }
     }
 
     @AuraEnabled(cacheable=true)
@@ -563,7 +610,10 @@ public with sharing class RentStatementController {
         @AuraEnabled public Date occupancyStartDate {get; set;}
         @AuraEnabled public String rentType {get; set;}
         @AuraEnabled public String chargeFrequency {get; set;}
+       
         @AuraEnabled public Decimal weeklyRent {get; set;}
+        @AuraEnabled public String rentFrequencyLabel {get; set;}
+        @AuraEnabled public String rentPeriodLabel {get; set;}
 
         public TenancyWrapper(Member__c member) {
             this.tenancyId = member.Tenancy__c;
@@ -577,37 +627,8 @@ public with sharing class RentStatementController {
             this.occupancyStartDate = member.DateOfOccupancy__c;
             this.rentType = member.Tenancy__r.RentType__c;
             this.chargeFrequency = member.Tenancy__r.YH_ChargeFrequency__c;
-        }
-    }
-
-    /* Portal users' sharing model doesn't grant record-level access to
-       YH_Property__c, so the standard "with sharing" traversal above
-       silently nulls out weeklyRent/chargeFrequency even though the
-       tenant has every right to see their own rent amount. This reads
-       just those two fields for the tenant's own tenancy. */
-    private without sharing class RentDetailsReader {
-        public void populate(List<TenancyWrapper> tenancies) {
-            Set<Id> tenancyIds = new Set<Id>();
-            for (TenancyWrapper t : tenancies) {
-                if (t.tenancyId != null) {
-                    tenancyIds.add(t.tenancyId);
-                }
-            }
-            if (tenancyIds.isEmpty()) {
-                return;
-            }
-            Map<Id, YH_Tenancy__c> tenancyById = new Map<Id, YH_Tenancy__c>(
-                [SELECT Id, YH_ChargeFrequency__c, Property__r.CurrentGrossRent__c
-                 FROM YH_Tenancy__c
-                 WHERE Id IN :tenancyIds]
-            );
-            for (TenancyWrapper t : tenancies) {
-                YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
-                if (ten != null) {
-                    t.chargeFrequency = ten.YH_ChargeFrequency__c;
-                    t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
-                }
-            }
+            this.rentFrequencyLabel = RentStatementController.getRentFrequencyLabel(member.Tenancy__r.YH_ChargeFrequency__c);
+            this.rentPeriodLabel = RentStatementController.getRentPeriodLabel(member.Tenancy__r.YH_ChargeFrequency__c);
         }
     }
    /* public class TenancyGroupWrapper {

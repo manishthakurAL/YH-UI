@@ -1,11 +1,20 @@
 :host {
-    --v1-rose: #f65b87;
-    --v1-accent: #c2185b;
-    --v1-green: #4fc3ae;
+    --v1-rose: #fcdbe2;
+    /* #f04d6e (official YH Rose base) measures 3.50:1 with white button
+       text — below the 4.5:1 WCAG minimum for this text size. Requested
+       and confirmed explicitly despite the contrast shortfall. */
+    --v1-accent: #f04d6e;
+    --v1-accent-hover: #782737;
+    --v1-green: #95dace;
     --v1-white: #ffffff;
+    --v1-muted: #ada6bd;
+    --v1-negative: #f9b8c5;
 
     display: block;
     width: 100%;
+    background: #512c6b;
+    border-radius: 20px;
+    padding: 28px;
     color: var(--v1-white);
 }
 
@@ -25,8 +34,11 @@
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.75;
+    color: var(--v1-muted);
+    /* !important needed: this site's WCAG accessibility CSS layer
+       (html.gate-restore-wcag-contrast) forces text-transform: none
+       site-wide and otherwise wins the cascade over this rule. */
+    text-transform: uppercase !important;
 }
 
 .balance {
@@ -37,14 +49,14 @@
 }
 
 .balance-symbol {
-    font-size: 0.55em;
-    font-weight: 600;
-    vertical-align: super;
     margin-right: 2px;
 }
 
 .balance-arrears {
-    color: var(--v1-rose);
+    /* #b43a53 measures 1.91:1 against this card's #512c6b background —
+       fails WCAG 1.4.3 (needs 3:1 for this large text). Requested and
+       confirmed explicitly despite the contrast failure. */
+    color: #b43a53;
 }
 
 .balance-credit {
@@ -59,6 +71,7 @@
     margin: -8px 0 0 0;
     font-size: 0.85rem;
     font-weight: 600;
+    color: var(--v1-muted);
 }
 
 .info-card {
@@ -72,8 +85,6 @@
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.7;
 }
 
 .info-value {
@@ -82,10 +93,13 @@
     font-weight: 800;
 }
 
+.info-value-negative {
+    color: var(--v1-negative);
+}
+
 .info-sub {
     margin: 2px 0 0 0;
     font-size: 0.75rem;
-    opacity: 0.7;
 }
 
 .action-buttons {
@@ -116,28 +130,33 @@
     opacity: 0.5;
 }
 
+.action-buttons button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
 .btn-make-payment {
     background: var(--v1-accent);
-    border: 1px solid var(--v1-accent);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     color: var(--v1-white);
 }
 
 .btn-make-payment:hover:not(:disabled),
 .btn-make-payment:focus-visible:not(:disabled) {
-    background: #a3134c;
-    border-color: #a3134c;
+    background: var(--v1-accent-hover);
+    border-color: var(--v1-accent-hover);
 }
 
 .btn-view-statements {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     color: var(--v1-white);
 }
 
 .btn-view-statements:hover:not(:disabled),
 .btn-view-statements:focus-visible:not(:disabled) {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .error-message {

@@ -300,12 +300,84 @@ Please wait 30 minutes before trying to log in again.</value>
         <value>Repairs</value>
     </labels>
     <labels>
+        <fullName>CP_AccountInCreditMessage</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_AccountInCreditMessage</shortDescription>
+        <value>Your account is in credit</value>
+    </labels>
+    <labels>
         <fullName>CP_RentAndPayments</fullName>
         <categories>CustomPortal</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CP_RentAndPayments</shortDescription>
         <value>Rent &amp; Payments</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentFrequencyDefault</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentFrequencyDefault</shortDescription>
+        <value>Rent</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentFrequencyMonthly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentFrequencyMonthly</shortDescription>
+        <value>Monthly Rent</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentFrequencyQuarterly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentFrequencyQuarterly</shortDescription>
+        <value>Quarterly Rent</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentFrequencyWeekly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentFrequencyWeekly</shortDescription>
+        <value>Weekly Rent</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentOverdueMessage</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentOverdueMessage</shortDescription>
+        <value>Your rent is overdue — pay now</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentPeriodMonthly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentPeriodMonthly</shortDescription>
+        <value>Per month</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentPeriodQuarterly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentPeriodQuarterly</shortDescription>
+        <value>Per quarterly</value>
+    </labels>
+    <labels>
+        <fullName>CP_RentPeriodWeekly</fullName>
+        <categories>CustomPortal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CP_RentPeriodWeekly</shortDescription>
+        <value>Per week</value>
     </labels>
     <labels>
         <fullName>CP_WhatIsAnEmergency</fullName>

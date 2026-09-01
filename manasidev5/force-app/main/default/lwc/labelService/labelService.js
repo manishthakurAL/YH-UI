@@ -44,6 +44,10 @@ import CP_HelpSearchButton from '@salesforce/label/c.CP_HelpSearchButton';
 import CP_HelpPopularSearches from '@salesforce/label/c.CP_HelpPopularSearches';
 import CP_HelpNoPopularArticles from '@salesforce/label/c.CP_HelpNoPopularArticles';
 
+import CP_RentOverdueMessage from '@salesforce/label/c.CP_RentOverdueMessage';
+import CP_AccountInCreditMessage from '@salesforce/label/c.CP_AccountInCreditMessage';
+import CP_RentFrequencyDefault from '@salesforce/label/c.CP_RentFrequencyDefault';
+
 export  {
     CP_TileLogRepair,
     CP_TileDespLogRepair,
@@ -85,5 +89,8 @@ export  {
     CP_HelpSearchPlaceholder,
     CP_HelpSearchButton,
     CP_HelpPopularSearches,
-    CP_HelpNoPopularArticles
+    CP_HelpNoPopularArticles,
+    CP_RentOverdueMessage,
+    CP_AccountInCreditMessage,
+    CP_RentFrequencyDefault
 }

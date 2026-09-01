@@ -1,0 +1,20 @@
+<template>
+    <template lwc:if={isOverdue}>
+        <div class="rent-overdue-alert" role="alert">
+            <div class="alert-content">
+                <span class="alert-icon">
+                    <lightning-icon icon-name="utility:warning" size="x-small" alternative-text="" title=""></lightning-icon>
+                </span>
+                <p class="alert-text">
+                    <strong>Your rent is overdue.</strong> Please pay £{formattedAmountDue} as soon as possible.
+                </p>
+            </div>
+            <button
+                type="button"
+                class="btn-make-payment"
+                disabled={disabledMakePayment}
+                onclick={handleMakePayment}
+            >Make a payment</button>
+        </div>
+    </template>
+</template>
