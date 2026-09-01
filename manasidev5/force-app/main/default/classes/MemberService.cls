@@ -49,7 +49,7 @@ public inherited sharing class MemberService {
                                 Tenancy__r.PropertyAddress__c, Tenancy__r.AssetClass__c,
                                 Tenancy__r.OrchardChequeDigit__c, Tenancy__r.Property__r.RentTag__c,
                           		Tenancy__r.OrchardPropertyReferenceNumber__c, Tenancy__r.RentTag__c,
-                                Tenancy__r.RentType__c,Tenancy__r.YH_ChargeFrequency__c
+                                Tenancy__r.RentType__c,Tenancy__r.YH_ChargeFrequency__c, Tenancy__r.Property__r.CurrentGrossRent__c
                                 FROM Member__c WHERE Contact__c = :contactId
                                 AND IsActive__c = TRUE
                                 AND (Type__c =: MemberDecorator.TYPE_JOINT OR Type__c =: MemberDecorator.TYPE_SOLO)];
