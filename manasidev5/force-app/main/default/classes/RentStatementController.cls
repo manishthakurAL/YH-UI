@@ -33,14 +33,18 @@ public with sharing class RentStatementController {
                 TenancyWrapper tenancy = new TenancyWrapper(mem);
                 tenancyList.add(tenancy);
         }
-        
-        //populateRentDetails(tenancyList);
+
+        populateWeeklyRent(tenancyList);
         return tenancyList;
     }
 
-    /*private static void populateRentDetails(List<TenancyWrapper> tenancies) {
+    // chargeFrequency/rentFrequencyLabel/rentPeriodLabel are already set in
+    // TenancyWrapper's constructor from the tenancy-level field (portal users
+    // have sharing access to their own Tenancy). The property's rent amount
+    // needs a separate without-sharing lookup — see the comment on
+    // MemberService.getActiveMembersByContactId.
+    private static void populateWeeklyRent(List<TenancyWrapper> tenancies) {
         Set<Id> tenancyIds = new Set<Id>();
-
         for (TenancyWrapper t : tenancies) {
             if (t.tenancyId != null) {
                 tenancyIds.add(t.tenancyId);
@@ -51,14 +55,11 @@ public with sharing class RentStatementController {
             for (TenancyWrapper t : tenancies) {
                 YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
                 if (ten != null) {
-                    t.chargeFrequency = ten.YH_ChargeFrequency__c;
                     t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
-                    t.rentFrequencyLabel = getRentFrequencyLabel(ten.YH_ChargeFrequency__c);
-                    t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
                 }
             }
         }
-    }*/
+    }
 
     @AuraEnabled(cacheable=true)
     public static List<AccountWrapper> getAccountsByTenancyNumber(String tenancyNumber, String orchardChequeDigit){
@@ -626,7 +627,6 @@ public with sharing class RentStatementController {
             this.occupancyStartDate = member.DateOfOccupancy__c;
             this.rentType = member.Tenancy__r.RentType__c;
             this.chargeFrequency = member.Tenancy__r.YH_ChargeFrequency__c;
-            this.weeklyRent = member.Tenancy__r.Property__r.CurrentGrossRent__c;
             this.rentFrequencyLabel = RentStatementController.getRentFrequencyLabel(member.Tenancy__r.YH_ChargeFrequency__c);
             this.rentPeriodLabel = RentStatementController.getRentPeriodLabel(member.Tenancy__r.YH_ChargeFrequency__c);
         }

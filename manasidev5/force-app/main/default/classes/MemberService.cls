@@ -44,12 +44,18 @@ public inherited sharing class MemberService {
     public  List<Member__c> getActiveMembersByContactId(Id contactId) {
         List<Member__c> memberList = new List<Member__c>();
         if(contactId != null){
+            // Tenancy__r.Property__r.CurrentGrossRent__c is deliberately NOT
+            // selected here: this class is "inherited sharing", so for portal
+            // users (who have sharing access to their own Tenancy but not to
+            // YH_Property__c) that field silently resolves to null. Callers
+            // needing the property's rent amount must fetch it separately via
+            // a without-sharing path (see TenancyService.getTenanciesWithRentDetails).
             memberList = [SELECT id, DateOfOccupancy__c, Tenancy__c,Contact__r.name,
                                 Tenancy__r.YH_TenancyNumber__c, IsActive__c,
                                 Tenancy__r.PropertyAddress__c, Tenancy__r.AssetClass__c,
                                 Tenancy__r.OrchardChequeDigit__c, Tenancy__r.Property__r.RentTag__c,
                           		Tenancy__r.OrchardPropertyReferenceNumber__c, Tenancy__r.RentTag__c,
-                                Tenancy__r.RentType__c,Tenancy__r.YH_ChargeFrequency__c, Tenancy__r.Property__r.CurrentGrossRent__c
+                                Tenancy__r.RentType__c,Tenancy__r.YH_ChargeFrequency__c
                                 FROM Member__c WHERE Contact__c = :contactId
                                 AND IsActive__c = TRUE
                                 AND (Type__c =: MemberDecorator.TYPE_JOINT OR Type__c =: MemberDecorator.TYPE_SOLO)];
