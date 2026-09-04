@@ -39,10 +39,7 @@ import CP_GoodEvening from '@salesforce/label/c.CP_GoodEvening';
 import CP_GoodMorning from '@salesforce/label/c.CP_GoodMorning';
 import CP_HomeAddress from '@salesforce/label/c.CP_HomeAddress';
 
-import CP_HelpSearchPlaceholder from '@salesforce/label/c.CP_HelpSearchPlaceholder';
-import CP_HelpSearchButton from '@salesforce/label/c.CP_HelpSearchButton';
-import CP_HelpPopularSearches from '@salesforce/label/c.CP_HelpPopularSearches';
-import CP_HelpNoPopularArticles from '@salesforce/label/c.CP_HelpNoPopularArticles';
+import CP_HomeSVG from '@salesforce/label/c.CP_HomeSVG';
 
 export  {
     CP_TileLogRepair,
@@ -82,8 +79,6 @@ export  {
     CP_GoodEvening,
     CP_GoodMorning,
     CP_HomeAddress,
-    CP_HelpSearchPlaceholder,
-    CP_HelpSearchButton,
-    CP_HelpPopularSearches,
-    CP_HelpNoPopularArticles
+    CP_HomeSVG
+
 }

@@ -249,4 +249,18 @@ public without sharing class TenancyService {
     public String getGroupName(String tenancyName){
         return TenancyDecorator.TENANCY_SHARING + tenancyName.replace('-', '_');
     }
+
+    /* Portal users' sharing model doesn't grant record-level access to
+       YH_Property__c, so a "with sharing" traversal silently nulls out
+       the property's rent fields even though the tenant has every right
+       to see their own rent amount. This bypasses sharing (this class is
+       "without sharing") to read just the fields the rent overview card
+       needs. */
+    public Map<Id, YH_Tenancy__c> getTenanciesWithRentDetails(Set<Id> tenancyIds) {
+        return new Map<Id, YH_Tenancy__c>(
+            [SELECT Id, YH_ChargeFrequency__c, Property__r.CurrentGrossRent__c
+             FROM YH_Tenancy__c
+             WHERE Id IN :tenancyIds]
+        );
+    }
 }

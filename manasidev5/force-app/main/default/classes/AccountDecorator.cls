@@ -1,4 +1,10 @@
 public with sharing class AccountDecorator {
+
+    public static final String FIELD_PERSON_NUMBER = 'YH_Person_Number__c';
+    public static final String FIELD_IS_PERSON_ACCOUNT = 'IsPersonAccount';
+    public static final String FIELD_DISTINCT_TENANT = 'Tenant';
+    public static final String FIELD_DISTINCT_TENANT_MEMBERSHIP = 'DistinctActiveMembershipTypes__pc';
+
     public static final String RECORD_TYPE_PERSONACCOUNT = 'PersonAccount';
     public static final String DISABILITY_DEXTERITY_ISSUES = 'Dexterity issues';
     public static final String DISABILITY_MOBILITY_ISSUES = 'Mobility issues';

@@ -1,11 +1,14 @@
 import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import { generatePRN } from 'c/generatePRNService';
+import { buildPaymentUrl } from 'c/paymentUrlService';
+import * as labels from 'c/labelService';
 import getTenancies from '@salesforce/apex/RentStatementController.getTenancies';
 import getAccountsByTenancyNumber from '@salesforce/apex/RentStatementController.getAccountsByTenancyNumber';
 import getAllPayPaymentURL from '@salesforce/apex/RentStatementController.getAllPayPaymentURL';
 
 export default class AccountOverviewV1 extends NavigationMixin(LightningElement) {
+    label = labels;
+
     tenancy = {};
     mainRentAccount = {};
     errorMessage = '';
@@ -102,10 +105,10 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
 
     get balanceMessage() {
         if (this.isArrears) {
-            return 'Your rent is overdue — pay now';
+            return this.label.CP_RentOverdueMessage;
         }
         if (this.isCredit) {
-            return 'Your account is in credit';
+            return this.label.CP_AccountInCreditMessage;
         }
         return '';
     }
@@ -114,71 +117,37 @@ export default class AccountOverviewV1 extends NavigationMixin(LightningElement)
         return !!this.balanceMessage;
     }
 
-    get balanceMessageClass() {
-        return this.isArrears ? 'balance-message balance-arrears' : 'balance-message balance-credit';
-    }
-
-    // MOCK DATA — no next-payment (date/amount/method) field exists anywhere
-    // in the Salesforce data model yet (checked YH_Tenancy__c, YH_Property__c,
-    // PaymentArrangement__c, and both external services RentStatementController
-    // already calls). Hardcoded here purely so the "Next Payment" card can be
-    // reviewed visually. Replace with real data once a source is identified —
-    // do not ship this to production as-is.
-    get hasNextPayment() {
-        return true;
-    }
-
-    get nextPaymentDate() {
-        return '1 October 2025';
-    }
-
-    get nextPaymentAmount() {
-        return '512.00';
-    }
-
-    get nextPaymentMethod() {
-        return 'Direct debit';
-    }
-
     get hasRentAmount() {
         return this.tenancy?.weeklyRent != null;
     }
 
+    get isNegativeRent() {
+        return this.hasRentAmount && Number(this.tenancy.weeklyRent) < 0;
+    }
+
+    get rentValueClass() {
+        return this.isNegativeRent ? 'info-value info-value-negative' : 'info-value';
+    }
+
     get formattedRentAmount() {
-        return this.hasRentAmount ? Number(this.tenancy.weeklyRent).toFixed(2) : '--';
+        if (!this.hasRentAmount) {
+            return '£--';
+        }
+        const amount = Number(this.tenancy.weeklyRent);
+        const sign = amount < 0 ? '-' : '';
+        return `${sign}£${Math.abs(amount).toFixed(2)}`;
     }
 
     get rentFrequencyLabel() {
-        const frequency = (this.tenancy?.chargeFrequency || '').toLowerCase();
-        if (frequency === 'weekly') {
-            return 'Weekly Rent';
-        }
-        if (frequency === 'monthly') {
-            return 'Monthly Rent';
-        }
-        return 'Rent';
+        return this.tenancy?.rentFrequencyLabel || this.label.CP_RentFrequencyDefault;
     }
 
     get rentPeriodLabel() {
-        const frequency = (this.tenancy?.chargeFrequency || '').toLowerCase();
-        if (frequency === 'weekly') {
-            return 'Per week';
-        }
-        if (frequency === 'monthly') {
-            return 'Per month';
-        }
-        return this.tenancy?.chargeFrequency || '';
+        return this.tenancy?.rentPeriodLabel || '';
     }
 
     handleMakePayment() {
-        let prnNumber;
-        try {
-            prnNumber = generatePRN(this.tenancyNumber, this.mainRentAccount?.id, this.orchardChequeDigit);
-        } catch (error) {
-            prnNumber = null;
-        }
-
-        const url = prnNumber ? this.allPayURL.data + prnNumber : this.allPayURL.data;
+        const url = buildPaymentUrl(this.allPayURL.data, this.tenancyNumber, this.mainRentAccount?.id, this.orchardChequeDigit);
         this[NavigationMixin.Navigate]({
             type: 'standard__webPage',
             attributes: { url }

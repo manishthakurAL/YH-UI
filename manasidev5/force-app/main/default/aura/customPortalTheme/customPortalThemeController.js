@@ -2,9 +2,9 @@
     doInit: function (component, event, helper) {
         component.set('v.menuName', 'YH_Portal_Navigation_Menu');
         component.set('v.userProfileMenu', 'YH_Portal_User_Profile_Menu');
+        helper.loadCurrentUser(component);
         helper.loadNavigationMenu(component);
         helper.loadUserProfileMenu(component);
-        helper.loadCurrentUser(component);
     },
 
     /** Set active state, then navigate to the menu item's target. */

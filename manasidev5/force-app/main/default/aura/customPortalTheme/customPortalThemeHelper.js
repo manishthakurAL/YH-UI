@@ -1,41 +1,25 @@
 ({
     /* Emoji fallback per label; menu items carry no icon metadata. Default: 📄 */
-    ICON_MAP: {
-        'home': 'utility:home',
-        'repairs': 'utility:custom_apps',
-        'rent & payments': 'utility:moneybag',
-        'payments': 'utility:billing',
-        'my cases': 'utility:case',
-        'cases': 'utility:case',
-        'my home': 'utility:company',
-        'get in touch': 'utility:anywhere_chat',
-        'contact': 'utility:contact',
-        'my details':'utility:user',
-        'account settings':'utility:settings',
-        'reset password': 'utility:lock',
-        'logout': 'utility:logout'
-
-
-    },
-
-    ICON_COLOR_MAP: {
-        'home': 'yh-rose',
-        'repairs': 'yh-green',
-        'rent & payments': 'yh-yellow',
-        'payments': 'yh-yellow',
-        'my cases': 'yh-blue',
-        'cases': 'yh-blue',
-        'my home': 'yh-purple-tint',
-        'get in touch': 'yh-white',
-        'contact': 'yh-white',
-        'my details':'yh-nav-icon yh-blue',
-        'account settings':'yh-nav-icon yh-purple-tint',
-        'reset password': 'yh-nav-icon yh-yellow',
-        'logout': 'yh-nav-icon yh-rose'
+    getIconMap: function() {
+        return {
+            'home': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Home.svg',
+            'repairs': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Spanner_fill.svg',
+            'rent & payments': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Pound_sign_circle.svg',
+            'my cases':  $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Personal_file.svg',
+            'cases': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/House_people.svg',
+            'my home': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/House_people.svg',
+            'get in touch': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Question_circle.svg',
+            'contact': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Contact.svg',
+            'my details':$A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Personal_file.svg',
+            'account settings':$A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Cog_black.svg',
+            'reset password': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Lock_black.svg',
+            'log out': $A.get('$Resource.CustomerPortalIcons') + '/CustomerPortalIcons/Door_exit_right_arrow_black.svg'
+        };
     },
 
     loadNavigationMenu: function (component) {
         var self = this;
+        var iconMap = self.getIconMap();
         var action = component.get('c.getNavigationMenuItems');
         action.setParams({ menuName: component.get('v.menuName') });
         action.setCallback(this, function (response) {
@@ -48,8 +32,7 @@
                 items = self.getFallbackItems();
             }
             items.forEach(function (item) {
-                item.icon = self.ICON_MAP[(item.label || '').toLowerCase()] || 'utility:home';
-                item.iconColor = self.ICON_COLOR_MAP[(item.label || '').toLowerCase()] || 'utility:home';
+                item.icon = iconMap[(item.label || '').toLowerCase()] || 'utility:home';
             });
             component.set('v.navItems', items);
             self.setInitialActive(component, items);
@@ -59,6 +42,7 @@
 
     loadUserProfileMenu: function (component) {
         var self = this;
+        var iconMap = self.getIconMap();
         var action = component.get('c.getNavigationMenuItems');
         action.setParams({ menuName: component.get('v.userProfileMenu') });
         action.setCallback(this, function (response) {
@@ -71,8 +55,7 @@
                 items = self.getFallbackItems();
             }
             items.forEach(function (item) {
-                item.icon = self.ICON_MAP[(item.label || '').toLowerCase()] || 'utility:home';
-                item.iconColor = self.ICON_COLOR_MAP[(item.label || '').toLowerCase()] || 'utility:home';
+                item.icon = iconMap[(item.label || '').toLowerCase()] || 'utility:home';
             });
             component.set('v.navItemsUserProfileMenu', items);
             self.setInitialActive(component, items);

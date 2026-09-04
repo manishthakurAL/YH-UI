@@ -1,6 +1,6 @@
 :host {
     display: block;
-    --slds-g-font-family: 'Source Sans Pro', Arial, sans-serif;
+     --yh-primary-color: #34215a;
 }
 
 .ask-question-button {
@@ -12,7 +12,7 @@
     font-size: 16px;
     font-weight: 700;
     color: #ffffff;
-    background: #3e145b;
+    background: var(--yh-primary-color);
     border: none;
     border-radius: 12px;
     cursor: pointer;

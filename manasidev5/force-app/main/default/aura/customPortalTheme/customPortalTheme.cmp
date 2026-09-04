@@ -29,11 +29,7 @@
             variant="bare"
             onclick="{!c.toggleSidebar}" />
             <div class="yh-logo">
-                <lightning:icon iconName="standard:home" size="medium" alternativeText="Home" class="yh-logo-icon"/>
-                <div class="yh-logo-text">
-                    <span class="yh-logo-name">Yorkshire Housing</span>
-                    <span class="yh-logo-sub">CUSTOMER PORTAL</span>
-                </div>
+                <img src="{!$Resource.CustomerPortalIcons + '/CustomerPortalIcons/yh-logo-resize.png'}" height="150" width="150" alternativeText="Home" class="yh-logo-icon"/>
             </div>
         </header>
 
@@ -41,7 +37,7 @@
 
             <!-- ============ SIDEBAR ============ -->
             <aside class="{! v.sidebarOpen ? 'yh-sidebar open' : 'yh-sidebar'}">                
-                    <div class="yh-sidebar-top">
+                <div class="yh-sidebar-top">
                     <!-- Dynamic: driven by the site's Navigation Menu -->
                     <nav class="yh-nav">
                         <aura:iteration items="{!v.navItems}" var="item">
@@ -52,7 +48,7 @@
                                onclick="{!c.handleNavClick}"
                                data-type="{!item.itemType}"
                                data-defaultListViewId="{!item.defaultListViewId}">
-                                <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
+                                <lightning:icon src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon"/><span >{!item.label}</span>
                             </a>
                         </aura:iteration>
                     </nav>
@@ -67,7 +63,7 @@
                             <span class="yh-user-sub">{!v.userSubtitle}</span>
                         </div>
                     </div>
-                     <aura:iteration items="{!v.navItemsUserProfileMenu}" var="item">
+                    <aura:iteration items="{!v.navItemsUserProfileMenu}" var="item">
                             <a href="javascript:void(0);"
                                class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
                                data-label="{!item.label}"
@@ -75,9 +71,9 @@
                                data-type="{!item.itemType}"
                                data-defaultListViewId="{!item.defaultListViewId}"
                                onclick="{!c.handleNavClick}">
-                                <lightning:icon iconName="{!item.icon}" size="small" alternativeText="{!item.label}" class="{!'yh-nav-icon ' + item.iconColor}"/><span >{!item.label}</span>
-                            </a>
-                    </aura:iteration>
+                                <lightning:icon src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon" /><span >{!item.label}</span>
+                            </a> 
+                    </aura:iteration> 
                 </div>
             </aside>
             <aura:if isTrue="{!v.sidebarOpen}">

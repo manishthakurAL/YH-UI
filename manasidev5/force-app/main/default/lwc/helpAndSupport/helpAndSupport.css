@@ -1,6 +1,5 @@
 :host {
     display: block;
-    font-family: 'Source Sans Pro', Arial, sans-serif;
 }
 
 * {
@@ -8,7 +7,7 @@
 }
 
 .help-and-support-card {
-    background-color: #51216D;
+    background-color: #34215a;
     border-radius: 25px;
     padding: 32px;
 }

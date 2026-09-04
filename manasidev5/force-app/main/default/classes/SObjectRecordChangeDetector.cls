@@ -29,10 +29,7 @@ public inherited sharing abstract class SObjectRecordChangeDetector{
                                             sObjChngeDetectionSvc.sObjectFieldChangeDetectionSettings){
                     if((oldRecord == null || 
                             newRecord.get(fieldChngDetSetting.FieldAPIName__c) != oldRecord.get(fieldChngDetSetting.FieldAPIName__c))){
-                        newRecord.put(SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_FIELD, 
-                                                SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_READY);
-                        newRecord.put(SObjectRecordChangeDetectorDecorator.LAST_SF_INT_STATUS_TS_IN_MS_FIELD, 
-                                                                            (Decimal)System.currentTimeMillis());
+                        setIntegrationStatusOnRecord(newRecord, oldRecord);
                         break;
                     }        
                 }
@@ -84,5 +81,17 @@ public inherited sharing abstract class SObjectRecordChangeDetector{
 
     protected virtual void clearLastSynchDirection(Sobject newRecord){ 
         newRecord.put(SObjectRecordChangeDetectorDecorator.LAST_SYNCH_DIRECTION, null);
+    }
+
+    protected virtual void setIntegrationStatusOnRecord(Sobject newRecord, Sobject oldRecord){
+        string intStatus;
+        if(newRecord.get(SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_FIELD) == null){
+            intStatus = SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_READY;
+        }else if(newRecord.get(SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_FIELD) == SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_IN_PROGRESS){
+            intStatus = SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_IN_PROGRESS_FURUPD;
+        }
+        newRecord.put(SObjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_FIELD, intStatus);
+        newRecord.put(SObjectRecordChangeDetectorDecorator.LAST_SF_INT_STATUS_TS_IN_MS_FIELD, 
+                                                            (Decimal)System.currentTimeMillis());
     }
 }

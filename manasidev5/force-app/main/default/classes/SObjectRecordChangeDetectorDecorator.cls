@@ -2,6 +2,8 @@ public with sharing class SObjectRecordChangeDetectorDecorator {
     public static String INTEGRATION_STATUS_READY = 'Ready';
     public static String INTEGRATION_STATUS_SYNCHED = 'Synched';
     public static String INTEGRATION_STATUS_ERROR = 'Error';
+    public static String INTEGRATION_STATUS_IN_PROGRESS = 'In Progress';
+    public static String INTEGRATION_STATUS_IN_PROGRESS_FURUPD = 'In Progress and Further Updates';
     public static String INTEGRATION_STATUS_FIELD = 'IntegrationStatus__c';
     public static String LAST_SF_INT_STATUS_TS_IN_MS_FIELD = 'LastSalesforceIntStatusTSinMS__c';
     public static String LAST_MS_INT_STATUS_TS_IN_MS_FIELD = 'LastMuleSoftIntStatusTSinMS__c';
