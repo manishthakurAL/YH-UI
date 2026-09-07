@@ -66,12 +66,19 @@
     /* Highlight the item matching the current URL, else the first item. */
     setInitialActive: function (component, items) {
         var path = window.location.pathname;
-        var active = items[0] ? items[0].label : '';
+                    console.log(path);
+        var active;
         items.forEach(function (item) {
+            console.log(item.actionValue);
+            console.log(path.indexOf(item.actionValue));
             if (item.actionValue && item.actionValue !== '/' && path.indexOf(item.actionValue) !== -1) {
                 active = item.label;
+                                console.log('active', item.label);
             }
         });
+        if(active === undefined){
+            active = 'Home';
+        }
         component.set('v.activeItem', active);
     },
 

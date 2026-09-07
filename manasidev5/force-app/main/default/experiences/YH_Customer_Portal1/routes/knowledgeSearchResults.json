@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bb08ad4d-704e-4449-ba8a-48fbde2b94d1",
+  "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
+  "configurationTags" : [ ],
+  "devName" : "Knowledge_Search_Results__c",
+  "id" : "a32b0d21-ac52-461b-b9fa-1ffd92ddd8cc",
+  "label" : "Knowledge_Search_Results",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-knowledge-search-results",
+  "type" : "route",
+  "urlPrefix" : "knowledge-search-results"
+}

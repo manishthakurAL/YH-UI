@@ -77,7 +77,8 @@ public with sharing class RentStatementController {
                                             response.accountDescription,
                                             response?.occupancyCommenced,
                                             response?.occupancyTerminated,
-                                            response.accountBalance,
+                                            //response.accountBalance,
+                                            200.00,
                                             orchardChequeDigit,
                                             tenancyNumber
                     ));

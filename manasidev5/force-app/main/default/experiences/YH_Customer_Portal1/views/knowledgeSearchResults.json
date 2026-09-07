@@ -2,26 +2,26 @@
   "appPageId" : "5e3e3b69-ac2c-4d4b-a7f9-9227afa44d41",
   "componentName" : "siteforce:sldsOneColLayout",
   "dataProviders" : [ ],
-  "id" : "c397826e-1aeb-41bc-85b9-4bed7563e5da",
-  "label" : "New Rent Card",
+  "id" : "bb08ad4d-704e-4449-ba8a-48fbde2b94d1",
+  "label" : "Knowledge_Search_Results",
   "regions" : [ {
-    "id" : "93c56055-bd2d-4adf-95de-8d21e12b012d",
+    "id" : "7144f680-5e08-46eb-9242-1e445180ad76",
     "regionName" : "header",
     "type" : "region"
   }, {
     "components" : [ {
       "componentAttributes" : { },
-      "componentName" : "c:requestNewRentCard",
-      "id" : "1485a305-6d78-48fa-ac77-56a10ece2dd0",
+      "componentName" : "c:knowledgeSearchResults",
+      "id" : "e35f78b8-0925-4942-aa43-2b226dd28333",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "3c9c20a3-0c35-492e-a9a8-09b784a1d18b",
+    "id" : "36d62003-ec7f-493e-a42b-4fada22d29c0",
     "regionName" : "content",
     "type" : "region"
   }, {
-    "id" : "957ced8c-037e-4527-b349-98f73ef5723a",
+    "id" : "1ac26df0-7a71-444a-a8a9-59e0409f74ba",
     "regionName" : "footer",
     "type" : "region"
   }, {
@@ -29,18 +29,18 @@
       "componentAttributes" : {
         "customHeadTags" : "",
         "description" : "",
-        "title" : "New Rent Card"
+        "title" : "Knowledge_Search_Results"
       },
       "componentName" : "forceCommunity:seoAssistant",
-      "id" : "28019067-e997-4b93-83a2-d734b1118fbc",
+      "id" : "1edc0902-a165-4b91-bc8a-026d1f369c42",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "514ce43d-321d-4141-8397-388231c527dc",
+    "id" : "7200482a-b0bc-44aa-98c1-4e3fdfe5e436",
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
   "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
-  "viewType" : "custom-new-rent-card"
+  "viewType" : "custom-knowledge-search-results"
 }

@@ -43,7 +43,15 @@ export default class KnowledgeSearch extends NavigationMixin(LightningElement) {
         if (!term) {
             return;
         }
-        this[NavigationMixin.Navigate]({
+        const pageReference = {
+            type: 'standard__webPage',
+            attributes: {
+                url: 'knowledge-search-results?c__term=' +
+                    encodeURIComponent(term)
+            }
+        };  
+        this[NavigationMixin.Navigate](pageReference);              
+        /*this[NavigationMixin.Navigate]({
             type: 'comm__namedPage',
             attributes: {
                 name: SEARCH_RESULTS_PAGE_NAME
@@ -51,7 +59,8 @@ export default class KnowledgeSearch extends NavigationMixin(LightningElement) {
             state: {
                 c__term: term
             }
-        });
+        });*/
+        
     }
 
     handleArticleClick(event) {
@@ -64,6 +73,7 @@ export default class KnowledgeSearch extends NavigationMixin(LightningElement) {
                 urlName
             }
         });
+        
     }
 
     generateArticleUrls(articles) {
