@@ -3226,7 +3226,7 @@ IF(NOT(ISBLANK({!varR_AccountValue.Name})),
                         </width>
                     </styleProperties>
                     <validationRule>
-                        <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 3, 3);&quot;&gt;Email is required&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <errorMessage>Email is required</errorMessage>
                         <formulaExpression>NOT(ISBLANK({!User_Email.value}))</formulaExpression>
                     </validationRule>
                 </fields>
@@ -3353,7 +3353,7 @@ IF(NOT(ISBLANK({!varR_AccountValue.Name})),
                         </width>
                     </styleProperties>
                     <validationRule>
-                        <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 2, 2); font-family: &amp;quot;Segoe UI VSS (Regular)&amp;quot;, &amp;quot;Segoe UI&amp;quot;, -apple-system, BlinkMacSystemFont, Roboto, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Ubuntu, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Mobile phone number is invalid. Number must start with 07 and be&amp;nbsp;11 digits long, with no spaces or special characters.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <errorMessage>Mobile phone number is invalid. Number must start with 07 and be 11 digits long, with no spaces or special characters.</errorMessage>
                         <formulaExpression>IF(ISBLANK({!MobilePhone.value}),TRUE,
 REGEX({!MobilePhone.value},&quot;^(07)\\d{9}$&quot;))</formulaExpression>
                     </validationRule>
@@ -3386,7 +3386,7 @@ REGEX({!MobilePhone.value},&quot;^(07)\\d{9}$&quot;))</formulaExpression>
                         </width>
                     </styleProperties>
                     <validationRule>
-                        <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;Home&amp;nbsp;phone number is invalid. Number must start with 01, 02, 03,&amp;nbsp;07, or 08&amp;nbsp;and be&amp;nbsp;11 digits long with no spaces or special characters.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <errorMessage>Home phone number is invalid. Number must start with 01, 02, 03, 07, or 08 and be 11 digits long with no spaces or special characters.</errorMessage>
                         <formulaExpression>IF(ISBLANK({!HomePhone.value}),TRUE,
 REGEX({!HomePhone.value},&quot;^(07|01|02|03|08)\\d{9}$&quot;))</formulaExpression>
                     </validationRule>
@@ -3419,7 +3419,7 @@ REGEX({!HomePhone.value},&quot;^(07|01|02|03|08)\\d{9}$&quot;))</formulaExpressi
                         </width>
                     </styleProperties>
                     <validationRule>
-                        <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(255, 0, 0);&quot;&gt;Other&amp;nbsp;phone number is invalid. Number must start with 01, 02, or 03,&amp;nbsp;07, or 08&amp;nbsp;and be&amp;nbsp;11 digits long with no spaces or special characters.&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <errorMessage>Other phone number is invalid. Number must start with 01, 02, or 03, 07, or 08 and be 11 digits long with no spaces or special characters.</errorMessage>
                         <formulaExpression>IF(ISBLANK({!OtherPhone.value}),TRUE,
 REGEX({!OtherPhone.value},&quot;^(07|01|02|03|08)\\d{9}$&quot;))</formulaExpression>
                     </validationRule>
