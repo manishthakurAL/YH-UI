@@ -1,0 +1,18 @@
+<template>
+    <div class="knowledge-search">
+        <form class="search-form" onsubmit={handleSearchSubmit}>
+            <label class="visually-hidden" for="help-search-input">{label.searchPlaceholder}</label>
+            <div class="search-row">
+                <input
+                    type="search"
+                    id="help-search-input"
+                    class="search-input"
+                    placeholder={label.searchPlaceholder}
+                    value={searchTerm}
+                    oninput={handleSearchTermChange}
+                />
+                <button type="submit" class="search-button">{label.searchButton}</button>
+            </div>
+        </form>
+    </div>
+</template>

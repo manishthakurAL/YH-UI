@@ -1,19 +1,7 @@
 public with sharing class RentStatementController {
-    
-    private static String getRentFrequencyLabel(String chargeFrequency) {
-        String rentFrequencyLabel = Label.CP_RentFrequencyDefault;
-        if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            rentFrequencyLabel = Label.CP_RentFrequencyWeekly;
-        }else if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            rentFrequencyLabel = Label.CP_RentFrequencyMonthly;
-        }else if (TenancyDecorator.QUARTERLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
-            rentFrequencyLabel = Label.CP_RentFrequencyQuarterly;
-        }
-        return rentFrequencyLabel;
-    }
 
     private static String getRentPeriodLabel(String chargeFrequency) {
-        String rentPeriodLabel = chargeFrequency;
+        String rentPeriodLabel = '';
         if (TenancyDecorator.WEEKLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
             rentPeriodLabel = Label.CP_RentPeriodWeekly;
         }else if (TenancyDecorator.MONTHLY_CHARGE_FREQUENCIES.contains(chargeFrequency)) {
@@ -33,17 +21,11 @@ public with sharing class RentStatementController {
                 TenancyWrapper tenancy = new TenancyWrapper(mem);
                 tenancyList.add(tenancy);
         }
-
-        populateWeeklyRent(tenancyList);
+        populateRentDetails(tenancyList);
         return tenancyList;
     }
 
-    // chargeFrequency/rentFrequencyLabel/rentPeriodLabel are already set in
-    // TenancyWrapper's constructor from the tenancy-level field (portal users
-    // have sharing access to their own Tenancy). The property's rent amount
-    // needs a separate without-sharing lookup — see the comment on
-    // MemberService.getActiveMembersByContactId.
-    private static void populateWeeklyRent(List<TenancyWrapper> tenancies) {
+    private static void populateRentDetails(List<TenancyWrapper> tenancies) {
         Set<Id> tenancyIds = new Set<Id>();
         for (TenancyWrapper t : tenancies) {
             if (t.tenancyId != null) {
@@ -55,7 +37,10 @@ public with sharing class RentStatementController {
             for (TenancyWrapper t : tenancies) {
                 YH_Tenancy__c ten = tenancyById.get(t.tenancyId);
                 if (ten != null) {
+                    t.chargeFrequency = ten.YH_ChargeFrequency__c;
                     t.weeklyRent = ten.Property__r.CurrentGrossRent__c;
+                    t.rentFrequencyLabel = Label.CP_RentFrequencyDefault;
+                    t.rentPeriodLabel = getRentPeriodLabel(ten.YH_ChargeFrequency__c);
                 }
             }
         }
@@ -77,8 +62,7 @@ public with sharing class RentStatementController {
                                             response.accountDescription,
                                             response?.occupancyCommenced,
                                             response?.occupancyTerminated,
-                                            //response.accountBalance,
-                                            200.00,
+                                            response.accountBalance,
                                             orchardChequeDigit,
                                             tenancyNumber
                     ));
@@ -628,8 +612,6 @@ public with sharing class RentStatementController {
             this.occupancyStartDate = member.DateOfOccupancy__c;
             this.rentType = member.Tenancy__r.RentType__c;
             this.chargeFrequency = member.Tenancy__r.YH_ChargeFrequency__c;
-            this.rentFrequencyLabel = RentStatementController.getRentFrequencyLabel(member.Tenancy__r.YH_ChargeFrequency__c);
-            this.rentPeriodLabel = RentStatementController.getRentPeriodLabel(member.Tenancy__r.YH_ChargeFrequency__c);
         }
     }
    /* public class TenancyGroupWrapper {

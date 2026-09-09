@@ -41,6 +41,14 @@ import CP_HomeAddress from '@salesforce/label/c.CP_HomeAddress';
 
 import CP_HomeSVG from '@salesforce/label/c.CP_HomeSVG';
 
+import CP_HelpSearchPlaceholder from '@salesforce/label/c.CP_HelpSearchPlaceholder';
+import CP_HelpSearchButton from '@salesforce/label/c.CP_HelpSearchButton';
+import CP_HelpSearchNoResults from '@salesforce/label/c.CP_HelpSearchNoResults';
+import CP_HelpSearchError from '@salesforce/label/c.CP_HelpSearchError';
+import CP_HelpSearchResultsFor from '@salesforce/label/c.CP_HelpSearchResultsFor';
+import CP_HelpSearchEnterTerm from '@salesforce/label/c.CP_HelpSearchEnterTerm';
+import CP_HelpSearching from '@salesforce/label/c.CP_HelpSearching';
+
 export  {
     CP_TileLogRepair,
     CP_TileDespLogRepair,
@@ -79,6 +87,13 @@ export  {
     CP_GoodEvening,
     CP_GoodMorning,
     CP_HomeAddress,
-    CP_HomeSVG
+    CP_HomeSVG,
+    CP_HelpSearchPlaceholder,
+    CP_HelpSearchButton,
+    CP_HelpSearchNoResults,
+    CP_HelpSearchError,
+    CP_HelpSearchResultsFor,
+    CP_HelpSearchEnterTerm,
+    CP_HelpSearching
 
 }

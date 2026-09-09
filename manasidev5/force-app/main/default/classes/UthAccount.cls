@@ -90,6 +90,15 @@ public with sharing class UthAccount {
             RecordTypeId = AccountDecorator.RECORD_TYPE_ID_PERSONACCOUNT
         );
     }
+    
+    public static Account buildPersonAccountWithYHPersonNumber(String fname, String lname, String yhPersonNumber){
+        return new Account(
+            FirstName = fname,
+            LastName = lname,
+            YH_Person_Number__c = yhPersonNumber,
+            RecordTypeId = AccountDecorator.RECORD_TYPE_ID_PERSONACCOUNT
+        );
+    }
 
     public static List<Account> getAll(){
         return Database.query('SELECT '+

@@ -1,0 +1,43 @@
+<template>
+    <div class="knowledge-search">
+        <form class="search-form" onsubmit={handleSearchSubmit}>
+            <label class="visually-hidden" for="help-search-input">{label.searchPlaceholder}</label>
+            <div class="search-row">
+                <input
+                    type="search"
+                    id="help-search-input"
+                    class="search-input"
+                    placeholder={label.searchPlaceholder}
+                    value={searchTerm}
+                    oninput={handleSearchTermChange}
+                />
+                <button type="submit" class="search-button">{label.searchButton}</button>
+            </div>
+        </form>
+
+        <h4 class="section-subheading">{label.popularSearches}</h4>
+        <template lwc:if={hasPopularArticles}>
+            <ul class="article-list">
+                <template for:each={popularArticles} for:item="article">
+                    <li key={article.articleId} class="article-list-item">
+                        <a
+                            href={article.url}
+                            class="article-link"
+                            onclick={handleArticleClick}
+                            data-article-type={article.articleType}
+                            data-url-name={article.urlName}
+                        >
+                            <span class="article-icon-badge">
+                                <lightning-icon icon-name="utility:search" size="xx-small" class="article-icon" alternative-text=""></lightning-icon>
+                            </span>
+                            <span>{article.title}</span>
+                        </a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template lwc:else>
+            <p class="empty-state">{label.noPopularArticles}</p>
+        </template>
+    </div>
+</template>

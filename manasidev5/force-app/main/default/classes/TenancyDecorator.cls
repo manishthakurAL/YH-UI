@@ -22,6 +22,8 @@ public with sharing class TenancyDecorator {
     public static final String CUSTOMER_SHARING_REASON_TENANCY = 'Tenancy';
     public static final String TENANCY_SHARING = 'TenancySharing';
 
+    public static final String CHARGE_FREQUENCY_WEEKLY = 'Weekly';
+    public static final String CHARGE_FREQUENCY_MONTHLY = 'Monthly';
     public static final String CHARGE_FREQUENCY_RYEDALE_WEEKLY = 'Ryedale Weekly';
     public static final String CHARGE_FREQUENCY_CRAVEN_WEEKLY = 'Craven Weekly';
     public static final String CHARGE_FREQUENCY_SUPPORT_WEEKS_WEEKLY = 'Support Weeks Weekly';
@@ -33,18 +35,22 @@ public with sharing class TenancyDecorator {
     public static final String CHARGE_FREQUENCY_CRAVEN_QUARTERLY_RTBS = 'Craven Quarterly RTB\'s';
     public static final String CHARGE_FREQUENCY_QUARTERLY = 'Quarterly';
     public static final String CHARGE_FREQUENCY_QUARTERLY_DEBIT_WEEKLY_BALS = 'Quarterly Debit Weekly Bals';
+    public static final String CHARGE_FREQUENCY_SAFE_WEEKLY_WEEKLEY = 'Safe Haven Weekly';
 
     public static final Set<String> WEEKLY_CHARGE_FREQUENCIES = new Set<String>{
         CHARGE_FREQUENCY_RYEDALE_WEEKLY,
         CHARGE_FREQUENCY_CRAVEN_WEEKLY,
         CHARGE_FREQUENCY_SUPPORT_WEEKS_WEEKLY,
         CHARGE_FREQUENCY_RHA_HOMELESS,
-        CHARGE_FREQUENCY_RYEDALE_SHARED_OWNERSHIP
+        CHARGE_FREQUENCY_RYEDALE_SHARED_OWNERSHIP,
+        CHARGE_FREQUENCY_SAFE_WEEKLY_WEEKLEY,
+        CHARGE_FREQUENCY_WEEKLY
     };
     public static final Set<String> MONTHLY_CHARGE_FREQUENCIES = new Set<String>{
         CHARGE_FREQUENCY_MARKET_RENTS,
         CHARGE_FREQUENCY_RYEDALE_MONTHLY_HOME_OWNERS,
-        CHARGE_FREQUENCY_CRAVEN_MONTHLY_CALENDAR
+        CHARGE_FREQUENCY_CRAVEN_MONTHLY_CALENDAR,
+        CHARGE_FREQUENCY_MONTHLY
     };
     public static final Set<String> QUARTERLY_CHARGE_FREQUENCIES = new Set<String>{
         CHARGE_FREQUENCY_CRAVEN_QUARTERLY_RTBS,

@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container-card {
+    background-color: #34215a;
+    border-radius: 25px;
+    padding: 32px;
+}
+
+.section-title {
+    margin: 0 0 20px 0;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .help-and-support-card {
+        padding: 24px;
+    }
+}

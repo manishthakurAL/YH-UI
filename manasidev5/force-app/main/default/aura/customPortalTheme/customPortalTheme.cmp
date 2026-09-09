@@ -9,6 +9,7 @@
 
     <aura:attribute name="navItems" type="List" default="[]"/>
     <aura:attribute name="activeItem" type="String" default=""/>
+    <aura:attribute name="activeItemUserProfileMenu" type="String" default=""/>
     <aura:attribute name="userName" type="String" default=""/>
     <aura:attribute name="userInitials" type="String" default=""/>
     <aura:attribute name="userSubtitle" type="String" default=""/>
@@ -48,7 +49,7 @@
                                onclick="{!c.handleNavClick}"
                                data-type="{!item.itemType}"
                                data-defaultListViewId="{!item.defaultListViewId}">
-                                <lightning:icon src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon"/><span >{!item.label}</span>
+                               <img src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon"> </img><span >{!item.label}</span>
                             </a>
                         </aura:iteration>
                     </nav>
@@ -65,13 +66,13 @@
                     </div>
                     <aura:iteration items="{!v.navItemsUserProfileMenu}" var="item">
                             <a href="javascript:void(0);"
-                               class="{! item.label == v.activeItem ? 'yh-nav-item active' : 'yh-nav-item'}"
+                               class="{! item.label == v.activeItemUserProfileMenu ? 'yh-nav-item active' : 'yh-nav-item'}"
                                data-label="{!item.label}"
                                data-url="{!item.actionValue}"
                                data-type="{!item.itemType}"
                                data-defaultListViewId="{!item.defaultListViewId}"
                                onclick="{!c.handleNavClick}">
-                                <lightning:icon src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon" /><span >{!item.label}</span>
+                               <img src="{!item.icon}" size="small" alternativeText="{!item.label}" class="yh-nav-icon"> </img><span >{!item.label}</span>
                             </a> 
                     </aura:iteration> 
                 </div>

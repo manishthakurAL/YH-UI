@@ -35,7 +35,7 @@
                 item.icon = iconMap[(item.label || '').toLowerCase()] || 'utility:home';
             });
             component.set('v.navItems', items);
-            self.setInitialActive(component, items);
+            self.setInitialActive(component, items, true);
         });
         $A.enqueueAction(action);
     },
@@ -58,28 +58,34 @@
                 item.icon = iconMap[(item.label || '').toLowerCase()] || 'utility:home';
             });
             component.set('v.navItemsUserProfileMenu', items);
-            self.setInitialActive(component, items);
+           self.setInitialActive(component, items, false);
         });
         $A.enqueueAction(action);
     },
 
     /* Highlight the item matching the current URL, else the first item. */
-    setInitialActive: function (component, items) {
+    setInitialActive: function (component, items, isMainMenu) {
         var path = window.location.pathname;
-                    console.log(path);
         var active;
         items.forEach(function (item) {
-            console.log(item.actionValue);
-            console.log(path.indexOf(item.actionValue));
             if (item.actionValue && item.actionValue !== '/' && path.indexOf(item.actionValue) !== -1) {
                 active = item.label;
-                                console.log('active', item.label);
             }
         });
-        if(active === undefined){
+        if(active === undefined && isMainMenu ){
             active = 'Home';
         }
-        component.set('v.activeItem', active);
+        if(isMainMenu){
+            component.set('v.activeItem', active);
+
+        }else{
+            if(active !== undefined){
+                component.set('v.activeItem', '');
+                component.set('v.activeItemUserProfileMenu', active);
+            }else{
+                component.set('v.activeItemUserProfileMenu', '');
+            }
+        }
     },
 
     loadCurrentUser: function (component) {

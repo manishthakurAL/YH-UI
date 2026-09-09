@@ -72,6 +72,10 @@
 		<name>ExperienceBundle</name>
 	</types>
 	<types>
+		<members>SFUpdateCustomerDetails</members>
+		<name>Flow</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
@@ -91,5 +95,5 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-	<version>67.0</version>
+	<version>68.0</version>
 </Package>

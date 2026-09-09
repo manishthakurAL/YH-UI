@@ -16,7 +16,7 @@
         "recordId" : "{!recordId}",
         "showSummaryInArticleContent" : false,
         "showSummaryInArticleHeader" : false,
-        "showTitleInArticleHeader" : false,
+        "showTitleInArticleHeader" : true,
         "showTopicPills" : false,
         "urlName" : "{!urlName}"
       },

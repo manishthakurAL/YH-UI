@@ -15,4 +15,5 @@ public with sharing class SObjectRecordChangeDetectorDecorator {
     public static String LAST_SYNCH_DIRECTION_SF_TO_EXTERNAL ='Synch From Salesforce To External';
     public static String LAST_SYNCH_DIRECTION_EXTERNAL_TO_SF ='Synch From External To Salesforce';
     public static String WORK_ORDER_STATUS_FIELD ='Status';
+    public static String LAST_SYNCH_DIRECTION_SF_TO_EXTERNAL_ASYNC ='Synch From Salesforce To External Asynch'; 
 }

@@ -7,7 +7,7 @@
   "regions" : [ {
     "components" : [ {
       "componentAttributes" : {
-        "richTextValue" : "<p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><strong style=\"font-size: 24px; color: rgb(0, 41, 102);\">Search Results - {!term}</strong></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p><p style=\"text-align: center;\"><br></p>"
+        "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"color: rgb(0, 41, 102); font-size: 24px;\">Search Results - {!term}</strong></p>"
       },
       "componentName" : "forceCommunity:richTextInline",
       "id" : "6c4e5dfe-6071-407e-847e-9089127e7e18",
@@ -20,6 +20,13 @@
     "type" : "region"
   }, {
     "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:blankContainer",
+      "id" : "c0ca0f82-9114-45a3-a818-270bf41b60fc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
       "componentAttributes" : {
         "scopes" : [ {
           "isPublic" : true,
@@ -43,7 +50,7 @@
     "regionName" : "footer",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "QsLet47bQKOU023iFjtyul8RvODqdQ",
   "type" : "view",
   "viewType" : "global-search"
 }

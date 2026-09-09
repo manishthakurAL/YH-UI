@@ -22,6 +22,11 @@ export default class CustomerPortalHomeContainer extends LightningElement {
         }
     }
     
+    handleAddressChange(event) {
+        this.address = event.detail.address;
+        this.hasAddress = !!this.address;
+    }
+
     updateGreeting() {
         const now = new Date();
         const hour = now.getHours();

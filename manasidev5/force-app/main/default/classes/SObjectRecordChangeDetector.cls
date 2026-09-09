@@ -75,7 +75,18 @@ public inherited sharing abstract class SObjectRecordChangeDetector{
                         newRecord.addError(Label.SynchErrorMessage);
                     }
                 }
+            }else if(newRecord.get(SObjectRecordChangeDetectorDecorator.LAST_SYNCH_DIRECTION) == SObjectRecordChangeDetectorDecorator.LAST_SYNCH_DIRECTION_SF_TO_EXTERNAL_ASYNC){
+                System.debug(newRecord.get(SObjectRecordChangeDetectorDecorator.LAST_SYNCH_DIRECTION));
+                if( newIntStatus == SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_SYNCHED || newIntStatus == SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_ERROR){ 
+                    if(  oldIntStatus == SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_IN_PROGRESS_FURUPD){
+                                    newRecord.put(SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_FIELD,
+                                            SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_READY);
+                    } else if( oldIntStatus == SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_READY || oldIntStatus ==  SobjectRecordChangeDetectorDecorator.INTEGRATION_STATUS_ERROR){
+                            newRecord.addError(Label.AsynchErrorMessage);
+                    }
+                }
             }
+
         }
     }
 

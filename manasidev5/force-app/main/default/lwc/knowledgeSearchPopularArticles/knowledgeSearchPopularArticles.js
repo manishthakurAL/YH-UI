@@ -4,63 +4,32 @@ import getPopularArticles from '@salesforce/apex/KnowledgeSearchController.getPo
 import * as labels from 'c/labelService';
 
 const KNOWLEDGE_ARTICLE_PAGE = 'standard__knowledgeArticlePage';
-const SEARCH_RESULTS_PAGE_NAME = 'Knowledge_Search_Results';
+const path = window.location.pathname;
 
-export default class KnowledgeSearch extends NavigationMixin(LightningElement) {
+export default class KnowledgePopularArticles extends NavigationMixin(LightningElement) {
     label = {
-        searchPlaceholder: labels.CP_HelpSearchPlaceholder,
-        searchButton: labels.CP_HelpSearchButton,
         popularSearches: labels.CP_HelpPopularSearches,
         noPopularArticles: labels.CP_HelpNoPopularArticles
     };
 
-    searchTerm = '';
     popularArticles = [];
 
     @wire(getPopularArticles)
     wiredPopularArticles({ data, error }) {
-        if (data) {
-            this.generateArticleUrls(data).then((articles) => {
-                this.popularArticles = articles;
-            });
-        } else if (error) {
-            this.popularArticles = [];
-            console.error('knowledgeSearch: unable to load popular articles', error);
+        if (!path.includes('/global-search')) {
+            if (data) {
+                this.generateArticleUrls(data).then((articles) => {
+                    this.popularArticles = articles;
+                });
+            } else if (error) {
+                this.popularArticles = [];
+                console.error('knowledgeSearch: unable to load popular articles', error);
+            }
         }
     }
 
     get hasPopularArticles() {
         return this.popularArticles.length > 0;
-    }
-
-    handleSearchTermChange(event) {
-        this.searchTerm = event.target.value;
-    }
-
-    handleSearchSubmit(event) {
-        event.preventDefault();
-        const term = this.searchTerm.trim();
-        if (!term) {
-            return;
-        }
-        const pageReference = {
-            type: 'standard__webPage',
-            attributes: {
-                url: '/global-search/' +term
-                    
-            }
-        };  
-        this[NavigationMixin.Navigate](pageReference);              
-        /*this[NavigationMixin.Navigate]({
-            type: 'comm__namedPage',
-            attributes: {
-                name: SEARCH_RESULTS_PAGE_NAME
-            },
-            state: {
-                c__term: term
-            }
-        });*/
-        
     }
 
     handleArticleClick(event) {

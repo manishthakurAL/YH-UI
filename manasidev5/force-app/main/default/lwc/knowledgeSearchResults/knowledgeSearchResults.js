@@ -55,27 +55,64 @@ export default class KnowledgeSearchResults extends NavigationMixin(LightningEle
         if (!term) {
             return;
         }
-        this[NavigationMixin.Navigate]({
-            type: 'comm__namedPage',
-            attributes: {
-                name: 'Knowledge_Search_Results'
-            },
-            state: {
-                c__term: term
-            }
-        });
+
         this.runSearch(term);
+
+        //Added
+         const newUrl =
+            window.location.pathname +
+            '?c__term=' +
+            encodeURIComponent(term);
+
+        window.history.pushState(
+            { c__term: term },
+            '',
+            newUrl
+        );
+        //End
+       
+        // this[NavigationMixin.Navigate]({
+        //     type: 'comm__namedPage',
+        //     attributes: {
+        //         name: 'Knowledge_Search_Results'
+        //     },
+        //     state: {
+        //         c__term: term
+        //     }
+        // });
+        
     }
+
+    // handleArticleClick(event) {
+    //     event.preventDefault();
+    //     const { articleType, urlName } = event.currentTarget.dataset;
+    //     this[NavigationMixin.Navigate]({
+    //         type: KNOWLEDGE_ARTICLE_PAGE,
+    //         attributes: {
+    //             articleType,
+    //             urlName
+    //         }
+    //     });
+    // }
 
     handleArticleClick(event) {
         event.preventDefault();
+
         const { articleType, urlName } = event.currentTarget.dataset;
-        this[NavigationMixin.Navigate]({
+
+        this[NavigationMixin.GenerateUrl]({
             type: KNOWLEDGE_ARTICLE_PAGE,
             attributes: {
                 articleType,
                 urlName
             }
+        })
+        .then((url) => {
+            window.open(url, '_blank', 'noopener');
+        })
+        .catch((error) => {
+            // eslint-disable-next-line no-console
+            console.error('Unable to generate article URL', error);
         });
     }
 
